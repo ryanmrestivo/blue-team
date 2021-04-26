@@ -1,6 +1,0 @@
-[submodule "rules"]
-	path = rules
-	url = ../capa-rules.git
-[submodule "tests/data"]
-	path = tests/data
-	url = ../capa-testfiles.git
