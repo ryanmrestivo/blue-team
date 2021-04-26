@@ -31,8 +31,6 @@ A curated list of awesome malware analysis tools and resources. Inspired by
 - [Contributing](#contributing)
 - [Thanks](#thanks)
 
-View Chinese translation: [恶意软件分析大合集.md](恶意软件分析大合集.md).
-
 ---
 
 ## Malware Collection
