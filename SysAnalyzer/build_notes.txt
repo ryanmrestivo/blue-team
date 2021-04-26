@@ -1,0 +1,10 @@
+
+note when you open the project files up on a win7 machine, 
+you will have to first manually edit the vbp file
+you will have to change the line to teh following
+
+Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0; MSCOMCTL.OCX
+
+it will say 2.0#0
+
+apparently its not auto upgrading it like its supposed to  so I had to manually set 2.1

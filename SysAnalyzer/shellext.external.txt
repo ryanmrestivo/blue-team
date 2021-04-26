@@ -1,0 +1,12 @@
+
+# this file loads entries in shellext.md5_hash.more.external menu
+# format is menu_text = command 
+# %1 is the target file, %app_path% is shellext.exe home dir
+#
+# you must relaunch shellext to load changes.
+
+PeID   = C:\tools\PEiD\peid.exe %1
+LordPE = C:\tools\LordPE\lordpe.exe /PEEDIT"%1"
+ResHack= C:\tools\reshack\reshacker.exe %1
+Winhex = C:\tools\winhex\winhex.exe %1
+fuzzy  = D:\_hashing\hash.bat %1 && notepad %1.hash

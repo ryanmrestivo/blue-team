@@ -1,0 +1,108 @@
+810,1005,1665,15415
+
+Private Sub cmdCopyDll_Click()
+    On Error Resume Next
+    If Not fso.FileExists(txtDllPath) Then
+        MsgBox "File not found"
+        Exit Sub
+    End If
+    FileCopy txtDllPath, UserDeskTopFolder & "\"
+    MsgBox "File saved to: " & UserDeskTopFolder, vbInformation
+End Sub
+
+Private Sub lvExplorer_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
+    If Button = 2 Then PopupMenu mnuDllsPopup
+End Sub
+
+Private Sub lvIE_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
+    If Button = 2 Then PopupMenu mnuDllsPopup
+End Sub
+
+Private Sub cmdDllProperties_Click()
+    On Error Resume Next
+    If Not fso.FileExists(txtDllPath) Then
+        MsgBox "File not found"
+        Exit Sub
+    End If
+    frmReport.ShowList QuickInfo(txtDllPath)
+End Sub
+
+Private Sub mnuAddSelectedDllsToKnown_Click()
+
+    Dim ret() As String
+    Dim tmp As String
+    
+    push ret, GetAllText(lvExplorer, , True)
+    push ret, GetAllText(lvIE, , True)
+    
+    tmp = Join(ret, vbCrLf)
+    tmp = Replace(tmp, vbCrLf & vbCrLf, vbCrLf)
+    ret = Split(tmp, vbCrLf)
+    
+    frmMarkKnown.loadFiles ret
+    frmMarkKnown.Show 1, Me
+    
+End Sub
+
+
+
+Private Sub mnuListUnknown_Click() 'fixme
+Function GetSystemDataReport(Optional appendClipboard As Boolean = False) As String()
+
+
+
+Private Sub cmdDelLike_Click()
+   
+    Dim i As Long
+    On Error Resume Next
+    
+top:
+    For i = 1 To lvDirWatch.ListItems.count
+        If InStr(1, lvDirWatch.ListItems(i).Text, txtDeleteLike, vbTextCompare) > 0 Then
+           lvDirWatch.ListItems.Remove i
+           GoTo top
+        End If
+    Next
+      
+End Sub
+
+Private Sub cmdSaveDirWatchFile_Click()
+    
+    On Error Resume Next
+    Dim f As String, d As String
+    
+    Dim li As ListItem
+    Dim tmp() As String
+    Dim pFolder As String
+    
+    pFolder = UserDeskTopFolder & "\DirWatch"
+    If Not fso.FolderExists(pFolder) Then MkDir pFolder
+    
+    For Each li In lvDirWatch.ListItems
+    
+        If li.Selected Then
+        
+            f = li.subItems(2)
+            Err.Clear
+            
+            If Not fso.FileExists(f) Then
+                push tmp(), "File not found: " & f
+            Else
+                d = pFolder & "\" & fso.FileNameFromPath(f)
+                FileCopy f, d
+            End If
+            
+            If Err.Number <> 0 Then
+                push tmp, "Error saving file: " & Err.Description
+            Else
+                push tmp(), FileLen(f) & " bytes saved successfully as: " & d
+            End If
+        
+        End If
+        
+    Next
+    
+    frmReport.ShowList tmp
+    
+End Sub
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="D:\_code\iDef\SysAnalyzer\chm_src\help.clpprj">
+	<settings><PM_URL><![CDATA[C:/Documents and Settings/david/Desktop/docs/]]></PM_URL><PM_HOME_URL><![CDATA[C:/Documents and Settings/david/Desktop/docs/]]></PM_HOME_URL><PM_LIBS><![CDATA[]]></PM_LIBS><PM_FTP_CONNECTION><![CDATA[]]></PM_FTP_CONNECTION><PM_FTP_DIR><![CDATA[]]></PM_FTP_DIR><PM_FTP_UPLOAD_ON_SAVE><![CDATA[INT:0]]></PM_FTP_UPLOAD_ON_SAVE></settings><removed value=";"/><added value=""/><codestructure version="4.3">
+		<phptree>
+		</phptree>
+		<jstree>
+			<treenode node="location;JS:JS Var Name;D:\_code\iDef\SysAnalyzer\chm_src\ApiLogger.html;f39;5;47;5;;D:\_code\iDef\SysAnalyzer\chm_src\helpvideos.html;f39;5;47;5;;D:\_code\iDef\SysAnalyzer\chm_src\known_files.html;f39;5;47;5;;D:\_code\iDef\SysAnalyzer\chm_src\left.html;f39;7;47;7;;D:\_code\iDef\SysAnalyzer\chm_src\license.html;f39;5;47;5;;D:\_code\iDef\SysAnalyzer\chm_src\process_analyzer.html;f39;5;47;5;;D:\_code\iDef\SysAnalyzer\chm_src\sniff_hit.html;f39;6;47;6;;D:\_code\iDef\SysAnalyzer\chm_src\sysreq.html;f39;5;47;5;;D:\_code\iDef\SysAnalyzer\chm_src\sysanalyzer.html;f39;5;47;5;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+			</treenode>
+			<treenode node="window;JS:JS Var Name;D:\_code\iDef\SysAnalyzer\chm_src\ApiLogger.html;f12;5;18;5;;D:\_code\iDef\SysAnalyzer\chm_src\helpvideos.html;f12;5;18;5;;D:\_code\iDef\SysAnalyzer\chm_src\known_files.html;f12;5;18;5;;D:\_code\iDef\SysAnalyzer\chm_src\left.html;f12;7;18;7;;D:\_code\iDef\SysAnalyzer\chm_src\license.html;f12;5;18;5;;D:\_code\iDef\SysAnalyzer\chm_src\process_analyzer.html;f12;5;18;5;;D:\_code\iDef\SysAnalyzer\chm_src\sniff_hit.html;f12;6;18;6;;D:\_code\iDef\SysAnalyzer\chm_src\sysreq.html;f12;5;18;5;;D:\_code\iDef\SysAnalyzer\chm_src\sysanalyzer.html;f12;5;18;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			</treenode>
+		</jstree>
+		<file name="D:\_code\iDef\SysAnalyzer\chm_src\help.clpprj" crc="-888705466"/>
+		<file name="D:\_code\iDef\SysAnalyzer\chm_src\top.html" crc="1954923399"/>
+		<file name="D:\_code\iDef\SysAnalyzer\chm_src\sysreq.html" crc="-1845588145"/>
+		<file name="D:\_code\iDef\SysAnalyzer\chm_src\sysanalyzer.html" crc="1527655935"/>
+		<file name="D:\_code\iDef\SysAnalyzer\chm_src\sniff_hit.html" crc="-474650502"/>
+		<file name="D:\_code\iDef\SysAnalyzer\chm_src\process_analyzer.html" crc="1084269974"/>
+		<file name="D:\_code\iDef\SysAnalyzer\chm_src\license.html" crc="1012400855"/>
+		<file name="D:\_code\iDef\SysAnalyzer\chm_src\left.html" crc="-215742343"/>
+		<file name="D:\_code\iDef\SysAnalyzer\chm_src\known_files.html" crc="-107860004"/>
+		<file name="D:\_code\iDef\SysAnalyzer\chm_src\index.html" crc="917071154"/>
+		<file name="D:\_code\iDef\SysAnalyzer\chm_src\helpvideos.html" crc="1683204057"/>
+		<file name="D:\_code\iDef\SysAnalyzer\chm_src\ApiLogger.html" crc="-1780956298"/>
+	</codestructure></project>

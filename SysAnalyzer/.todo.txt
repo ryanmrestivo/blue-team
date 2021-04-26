@@ -1,0 +1,71 @@
+HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run
+filterList subtractive filter allow csv for multiple?
+
+shellext copy now has new dependancies add them here as well...
+dirwatch rtckl find (or search all tabs already covers but..)
+
+dirwatch log in sa rt click save  seems to stop logging at enfd of auto run...
+
+api_log: OpenProcess Hook triggers CreateSnapShot and process enum hooks from within dll itself..ignore these
+inject dll right click menu
+way to scan rwe multi procs but not all
+right click on process and show mutexes
+right click on process and show open file handles
+right click on process open folder
+
+pause/resume countdown
+if stable, port timeout mechanism to proclib (peek pipe required)
+if new dlls dropped scan processes for them as part of report.
+
+ - wizard -> external -> add entries to hosts file (inputbox with csv support)
+ - rwe memdumps reset imagebase (section dump fix already applied)
+ - x64helper second thread for watchDog timeout monitor?
+ - memscan string - rt click copy list
+ - right click on process, inject api dll
+ - enumMutexes keeps taking longer and longer in IDE each run..leak?
+ - javascript w/debugger to automate? or access to classes for memscrape? or seperate tool?
+ - api_log hook CryptGenKey,CryptDeriveKey, CryptImportKey 
+ - api_log: x64 VirtualAlloc no longer flows to VirtualAllocEx apparently...
+ - apilog does not always work with .net exes
+ - rwe mem scan - option to save with PE header for easy (auto rebased) disassembly?
+ 
+ check all forms to account for BIG win8 title bars..
+
+ diff/enum desktops, screen shot new ones? ref: CmdDesktopSwitch
+ sniffhit make sure run as admin on win7+
+ dirwatch data in sysanalyzer not saved after report generated..
+
+ apilogger - option to follow injections/new processes
+           - ability to exclude certain proocesses from logging?
+           - pause button
+           - ability to ignore certain processes or only include target ones..
+               (if it makes it way into explorer, then all children will get it..)
+	   - save button should save process map at top (way to save process map on its own?)
+           - each new process should create its own tab and own listview
+           - frmdlls right click menu not working (modal issue?)
+ 
+
+ dirwatch: if it cant immediatly capture a file, it should add it to a try again list 
+
+ right click on drivers hide known
+
+ parse dirwatch log to manually save files to \DirWatch in case it didnt
+ dirwatch should check md5s before incrementing file name
+ prefix strings dumps with underscore
+ once injected in explorer, dll auto injects into all new processes created.. limit this..
+ dont dump api_log.dll
+
+ detect file type before launching in case they have extension wrong. (msi, dll etc)
+ detect if arguments txtbox is x64 binary path and exe path is 32bit?
+
+ RWE memory scan - save known injections automatically  ?
+ rwe mem scan and pause all threads on procwatch ?
+
+ always inject a nodelete.dll ?
+ test all manner of file deletion against api_log.dll blocks
+ make sure CreateProcess Apilogger hook is crash free..should switch over to CreateProcessInternalW, have it somewhere..
+
+ make sure IE process running at start of test?
+ Cstrings - be able to set min match leng
+ update help file
+ block reboot system api in apilog? or detect it and issue shutdown -a command?

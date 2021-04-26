@@ -1,0 +1,26 @@
+[Options]
+Compatibility = 1.1 Or later
+Compiled file = ./../SysAnalyzer_help.chm
+Default topic = index.html
+Display compile progress=Yes
+Enhanced decompilation=Yes
+Language=0x409 English (United States)
+Title=SysAnalyzer help
+
+[Files]
+
+ApiLogger.html
+index.html
+known_files.html
+left.html
+license.html
+process_analyzer.html
+sniff_hit.html
+sysanalyzer.html
+sysreq.html
+top.html
+helpvideos.html
+
+[INFOTYPES]
+
+

@@ -1,0 +1,16 @@
+16 safe_test1.exe 
+
+1  api_log.dll     
+DrWeb - DLOADER.Trojan
+
+3  proc_watch.exe  
+CMC                 Heur.Win32.Veebee.1!O
+Commtouch           W32/GenBl.F30F8BF0!Olympus
+Rising              PE:Trojan.Win32.Generic.166A4213!376062483
+
+2  virustotal.exe  
+F-Prot              W32/VBTrojan.19F1!Maximus
+Symantec            WS.Reputation.1
+
+1  sysAnalyzer.exe 
+CMC                 Heur.Win32.Veebee.1!O
