@@ -1,0 +1,39 @@
+<!--
+whitelibraries.xml is part of pestudio (www.winitor.com)
+It contains the libraries that will be whitelisted by pestudio.
+-->
+<xml version="1.0" encoding="utf-8">
+
+  <libs>
+    <lib md5="">sysmon.exe</lib>
+    <lib md5="">regjump.exe</lib>
+    <lib md5="">wget.exe</lib>
+    <lib md5="">procexp.exe</lib>
+    <lib md5="">autorunsc.exe</lib>
+    <lib md5="">autoruns.exe</lib>
+    <lib md5="">sigcheck.exe</lib>
+    <lib md5="">advapi32.dll</lib>
+    <lib md5="">msvcrt.dll</lib>
+    <lib md5="">mfc42.dll</lib>
+    <lib md5="">mscoree.dll</lib>
+    <lib md5="">pestudio.exe</lib>
+    <lib md5="">pestudiox.exe</lib>
+    <lib md5="">peparser.dll</lib>
+    <lib md5="1AF01465AE9B8874D76B3B90A74DB698"></lib>
+    <lib md5="DBE287EB8D58E6322E9FB67110ED7122"></lib>
+    <lib md5="98C46778FE9B96B73E1B0ECFF17E0DB5"></lib>
+    <lib md5="F5A342E2A5173FCB363ECEF75812EB5C"></lib>
+    <lib md5="B1D332585A6AAD3EF3D8A10A48FF8A3B"></lib>
+    <lib md5="7043AB955770A79916E0BE2E298C21DA"></lib>
+    <lib md5="C74259CD6EE524E3833CCE1291A7BF81"></lib>
+    <lib md5="2D55C5E512B6AC22FE9999B91BABEC38"></lib>
+    <lib md5="AC0A46FE6CF7A7A894EAF278E25FDF97"></lib>
+    <lib md5="F78A34C2E5A57A4B2667CF3FD5253ABB"></lib>
+    <lib md5="CC9605F35F87E1CB0D6F4321D390F73A"></lib>
+    <lib md5="08F489B5A7B1D6966B36D7C126B96B53"></lib>
+    <lib md5="E6CE0287A0715A518716092F309915F3"></lib>
+    <lib md5="3AA5C37D509A4D85697CDB1EB403CF03"></lib>
+    <lib md5="241A2BFEA47D83AE9C0EACCFCB36A3F1"></lib>
+    <lib md5="574B13CA506F863A2FB8446947B06D90"></lib>
+  </libs>
+</xml>

@@ -1,0 +1,3684 @@
+﻿<!--
+strings.mxl is part pestudio (www.winitor.com)
+It contains the strings that will be detected by pestudio.
+-->
+
+<xml version="1.0" encoding="utf-8" md5="">
+
+  <settings>
+    <setting>
+      <minimum-size comment="the minimum character size of a string">4</minimum-size>
+      <case-sensitive comment="">0</case-sensitive>
+      <substring comment="">0</substring>
+    </setting>
+  </settings>
+
+  <psws>
+    <psw>nopassword</psw>
+    <psw>password12</psw>
+    <psw>secret</psw>
+    <psw>superman</psw>
+    <psw>iloveyou</psw>
+    <psw>helpme</psw>
+    <psw>hockey</psw>
+    <psw>home123</psw>
+    <psw>username</psw>
+    <psw>Password</psw>
+    <psw>admin</psw>
+    <psw>Admin</psw>
+    <psw>administrator</psw>
+    <psw>passwd</psw>
+    <psw>login</psw>
+    <psw>Login</psw>
+    <psw>changeme</psw>
+    <psw>fuck</psw>
+    <psw>manager</psw>
+    <psw>master</psw>
+    <psw>password</psw>
+    <psw>Administrator</psw>
+    <psw>batman</psw>
+    <psw>superman</psw>
+    <psw>123123</psw>
+    <psw>12321</psw>
+    <psw>123321</psw>
+    <psw>123abc</psw>
+    <psw>123qwe</psw>
+    <psw>123asd</psw>
+    <psw>1234abcd</psw>
+    <psw>1234qwer</psw>
+    <psw>1q2w3e</psw>
+    <psw>a1b2c3</psw>
+    <psw>qwewq</psw>
+    <psw>pass</psw>
+    <psw>mypass</psw>
+    <psw>mypassword</psw>
+    <psw>adminadmin</psw>
+    <psw>superuser</psw>
+    <psw>supervisor</psw>
+    <psw>password1</psw>
+    <psw>password12</psw>
+    <psw>password123</psw>
+    <psw>admin1</psw>
+    <psw>admin12</psw>
+    <psw>admin123</psw>
+    <psw>pass1</psw>
+    <psw>pass12</psw>
+    <psw>pass123</psw>
+    <psw>root123</psw>
+    <psw>pw123</psw>
+    <psw>qwe123</psw>
+    <psw>love123</psw>
+    <psw>nopass</psw>
+    <psw>nopassword</psw>
+    <psw>nothing</psw>
+    <psw>ihavenopass</psw>
+    <psw>super</psw>
+  </psws>
+
+  <!-- Virustotal AntiVirus -->
+  <avs>
+    <av>threatexpert</av>
+    <av>emsisoft</av>
+    <av>rising</av>
+    <av>pctools</av>
+    <av>norman</av>
+    <av>k7computing</av>
+    <av>ikarus</av>
+    <av>hacksoft</av>
+    <av>gdata</av>
+    <av>fortinet</av>
+    <av>ewido</av>
+    <av>clamav</av>
+    <av>comodo</av>
+    <av>quickheal</av>
+    <av>avira</av>
+    <av>avast</av>
+    <av>esafe</av>
+    <av>ahnlab</av>
+    <av>centralcommand</av>
+    <av>drweb</av>
+    <av>grisoft</av>
+    <av>nod32</av>
+    <av>f-prot</av>
+    <av>jotti</av>
+    <av>computerassociates</av>
+    <av>networkassociates</av>
+    <av>etrust</av>
+    <av>panda</av>
+    <av>sophos</av>
+    <av>trendmicro</av>
+    <av>defender</av>
+    <av>rootkit</av>
+    <av>spyware</av>
+    <av>Kaspersky</av>
+    <av>BitDefender</av>
+    <av>Dr.Web</av>
+    <av>Kaspersky Antivirus</av>
+    <av>Nod32 Antivirus 2.x</av>
+    <av>Ewido Security Suite</av>
+    <av>McAfee VirusScan</av>
+    <av>Panda Antivirus/Firewall</av>
+    <av>Symantec/Norton</av>
+    <av>PC-cillin Antivirus</av>
+    <av>F-Secure</av>
+    <av>Kingsoft ShaDu</av>
+    <av>NOD32 Antivirus</av>
+    <av>Rising Antivirus</av>
+    <av>Jiangmin Antivirus</av>
+    <av>360 ShaDu</av>
+    <av>360 Safe</av>
+    <av>McAfee AV</av>
+    <av>Bitdefender AV</av>
+    <av>Norton Symantec AV</av>
+    <av>F-Secure AV</av>
+    <av>AhnLab V3 Internet Security 8</av>
+    <av>Avast AntiVirus</av>
+    <av>Avira Antivirus</av>
+    <av>Eset Nod32 Scanner</av>
+    <av>F-Secure Gatekeeper Handler Starter</av>
+    <av>F-Secure Recognizer</av>
+    <av>F-Secure HIPS</av>
+    <av>F-Secure Gatekeeper</av>
+    <av>F-Secure Filter</av>
+    <av>WinDefend</av>
+    <av>OutpostFirewall</av>
+    <av>McAfee Framework Service</av>
+    <av>Panda Antivirus</av>
+    <av>ZoneAlarm Client</av>
+    <av>Zone Labs Client</av>
+    <av>windefender</av>
+    <av>Software\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Antivirus</av>
+    <av>Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Antivirus</av>
+    <av>Software\Microsoft\Windows\CurrentVersion\Uninstall\360SD</av>
+    <av>Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\360SD</av>
+    <av>Software\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PC Doctor</av>
+    <av>Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PC Doctor</av>
+    <av>Software\Microsoft\Windows\CurrentVersion\Uninstall\360 Internet Security</av>
+    <av>Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\360 Internet Security</av>
+    <av>Software\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Internet Security 9</av>
+    <av>Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Internet Security 9</av>
+    <av>Software\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Internet Security U SP1</av>
+    <av>Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Internet Security U SP1</av>
+    <av>Software\Microsoft\Windows\CurrentVersion\Uninstall\{D1ABBC6D-4C7B-4D6B-9B50-F79399DD3652}</av>
+    <av>Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{D1ABBC6D-4C7B-4D6B-9B50-F79399DD3652}</av>
+    <av>Software\Microsoft\Windows\CurrentVersion\Uninstall\{AC54C7CC-3868-4942-BD2E-1BCA2519C881}</av>
+    <av>Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{AC54C7CC-3868-4942-BD2E-1BCA2519C881}</av>
+  </avs>
+
+  <regexs>
+    <regex>{[!22!]}{[!18!]}{[!33!]}{[!4!]}{[!34!]}= %d, {[!35!]}= 0x%x.{[!36!]}</regex>
+    <regex>{[!23!]}{[!22!]}, {[!24!]}{[!4!]}%d{[!25!]}</regex>
+    <regex>{[!28!]}%d.%d, {[!29!]}%d.%d.{[!1!]}</regex>
+    <regex>{[!37!]}{[!35!]}{[!4!]}{[!38!]}0x%x,{[!39!]}0x%x.</regex>
+    <regex>{[!37!]}{[!35!]}{[!4!]}{[!38!]}0x%x,{[!39!]}0x%x.{[!36!]}</regex>
+    <regex>{[!41!]}{[!4!]}{[!42!]}= 0x%x, {[!34!]}= 0x%x.{[!36!]}</regex>
+    <regex>[3-9]{1}[0-9]{1219}[D=\u0061][0-9]{1030}</regex>
+    <regex>((b|B)[0-9]{1319}\^[A-Za-z\s]{030}\/[A-Za-z\s]{030}\^(0[7-9]|1[0-5])((0[1-9])|(1[0-2]))[0-9\s]{350}[0-9]{1})</regex>
+    <regex>([0-9]{1516}[D=](0[7-9]|1[0-5])((0[1-9])|(1[0-2]))[0-9]{830})</regex>
+    <regex>[0-9]{1516}\^[a-zA-Z0-9=*></regex>
+    <regex>[0-9]{1516}=[0-9]{532}.{120}</regex>
+    <regex>([0-9]{1319}[=D][0-9]{550})\?</regex>
+    <regex>([0-9]{1319}[\^][A-Za-z\s]{030}[\/][[A-Za-z\s]{030}[\^]([0-9\s]{170})\?)</regex>
+    <regex>("^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{4})$")</regex>
+    <regex>^http[s]?://([^\/:\s]+)(:[^\/\s]+)?(\/?[^\s]*)$</regex>
+    <regex>{[!11!]}{[!4!]}</regex>
+    <regex>{[!12!]}{[!10!]}http://%s:%d{[!4!]}</regex>
+    <regex>{[!13!]}{[!4!]}</regex>
+    <regex>{[!14!]}{[!4!]}</regex>
+    <regex>{[!15!]}{[!4!]}</regex>
+    <regex>{[!16!]}{[!20!]}{[!26!]}%s</regex>
+    <regex>{[!16!]}{[!46!]}%s (%d)</regex>
+    <regex>{[!17!]}{[!18!]}</regex>
+    <regex>{[!17!]}{[!19!]}</regex>
+    <regex>{[!2!]}{[!20!]}{[!21!]}%s</regex>
+    <regex>{[!22!]}%s{[!5!]}</regex>
+    <regex>{[!22!]}{[!18!]}{[!33!]}{[!4!]}{[!34!]}= %d {[!35!]}= 0x%x.{[!36!]}</regex>
+    <regex>{[!22!]}{[!5!]}%s -> %s [%d]{[!35!]}= 0x%x (== 0x%x)</regex>
+    <regex>{[!23!]}{[!22!]} {[!24!]}{[!4!]}%d{[!25!]}</regex>
+    <regex>{[!27!]}{[!30!]}{[!4!]}%s.{[!2!]}</regex>
+    <regex>{[!28!]}%d.%d {[!29!]}%d.%d.{[!1!]}</regex>
+    <regex>{[!29!]}{[!1!]}</regex>
+    <regex>{[!29!]}{[!32!]}%s</regex>
+    <regex>{[!3!]}%s{[!4!]}</regex>
+    <regex>{[!30!]}{[!31!]}{[!4!]}</regex>
+    <regex>{[!37!]}{[!35!]}{[!4!]}{[!38!]}0x%x{[!39!]}0x%x.</regex>
+    <regex>{[!37!]}{[!35!]}{[!4!]}{[!38!]}0x%x{[!39!]}0x%x.{[!36!]}</regex>
+    <regex>{[!4!]}{[!10!]}{[!44!]}{[!43!]}{[!21!]}</regex>
+    <regex>{[!4!]}{[!45!]}{[!21!]}</regex>
+    <regex>{[!40!]}{[!4!]}{[!36!]}</regex>
+    <regex>{[!41!]}{[!4!]}{[!42!]}= 0x%x {[!34!]}= 0x%x.{[!36!]}</regex>
+    <regex>{[!43!]}{[!4!]}</regex>
+    <regex>{[!46!]}%d{[!1!]}</regex>
+    <regex>((b|B)[0-9]{13,19}\^[A-Za-z\s]{0,30}\/[A-Za-z\s]{0,30}\^(1[1-9])((0[1-9])|(1[0-2]))[0-9\s]{3,50}[0-9]{1})</regex>
+    <regex>([3-9]{1}[0-9]{14,15}[D=](1[1-9])((0[1-9])|(1[0-2]))[0-9]{8,30})</regex>
+    <regex>((b|B)[0-9]{13,19}\^[A-Za-z\s]{0,30}\/[A-Za-z\s]{0,30}\^(0[7-9]|1[0-5])((0[1-9])|(1[0-2]))[0-9\s]{3,50}[0-9]{1})</regex>
+    <regex>([0-9]{15,16}[D=](0[7-9]|1[0-5])((0[1-9])|(1[0-2]))[0-9]{8,30})</regex>
+  </regexs>
+
+  <privs group="30">
+    <priv>SeAssignPrimaryTokenPrivilege</priv>
+    <priv>SeAuditPrivilege</priv>
+    <priv>SeBackupPrivilege</priv>
+    <priv>SeChangeNotifyPrivilege</priv>
+    <priv>SeCreateGlobalPrivilege</priv>
+    <priv>SeCreatePagefilePrivilege</priv>
+    <priv>SeCreatePermanentPrivilege</priv>
+    <priv>SeCreateSymbolicLinkPrivilege</priv>
+    <priv>SeCreateTokenPrivilege</priv>
+    <priv>SeDebugPrivilege</priv>
+    <priv>SeEnableDelegationPrivilege</priv>
+    <priv>SeImpersonatePrivilege</priv>
+    <priv>SeIncreaseBasePriorityPrivilege</priv>
+    <priv>SeIncreaseQuotaPrivilege</priv>
+    <priv>SeIncreaseWorkingSetPrivilege</priv>
+    <priv>SeLoadDriverPrivilege</priv>
+    <priv>SeLockMemoryPrivilege</priv>
+    <priv>SeMachineAccountPrivilege</priv>
+    <priv>SeManageVolumePrivilege</priv>
+    <priv>SeProfileSingleProcessPrivilege</priv>
+    <priv>SeRelabelPrivilege</priv>
+    <priv>SeRemoteShutdownPrivilege</priv>
+    <priv>SeRestorePrivilege</priv>
+    <priv>SeSecurityPrivilege</priv>
+    <priv>SeShutdownPrivilege</priv>
+    <priv>SeSyncAgentPrivilege</priv>
+    <priv>SeSystemEnvironmentPrivilege</priv>
+    <priv>SeSystemProfilePrivilege</priv>
+    <priv>SeSystemtimePrivilege</priv>
+    <priv>SeTakeOwnershipPrivilege</priv>
+    <priv>SeTcbPrivilege</priv>
+    <priv>SeTimeZonePrivilege</priv>
+    <priv>SeTrustedCredManAccessPrivilege</priv>
+    <priv>SeUndockPrivilege</priv>
+    <priv>SeUnsolicitedInputPrivilege</priv>
+  </privs>
+
+  <oids>
+    <oid>1.3.6.1.4.1.311.10.3.3</oid>
+    <oid>1.3.6.1.5.5.7.3.2</oid>
+    <oid>1.3.6.1.5.5.7.3.1</oid>
+    <oid hint="RSA encryption">1.2.840.113549.1.1.1</oid>
+    <oid>1.2.840.113549.1.1.11</oid>
+    <oid>1.2.840.113549.1.1.2</oid>
+    <oid>1.2.840.113549.1.1.4</oid>
+    <oid>1.2.840.113549.1.1.5</oid>
+    <oid>1.2.840.113549.1.9.6</oid>
+    <oid>1.2.840.113549.2.5</oid>
+    <oid>1.2.840.113549.1.9.5</oid>
+    <oid>1.2.840.113556.1.4.1221</oid>
+    <oid>1.2.840.113556.1.4.1222</oid>
+    <oid>1.2.840.113556.1.4.1362</oid>
+    <oid>1.2.840.113556.1.4.1413</oid>
+    <oid>1.2.840.113556.1.4.521</oid>
+    <oid>1.2.840.113556.1.4.616</oid>
+    <oid>1.2.840.113556.1.4.801</oid>
+    <oid>1.2.840.113556.1.4.805</oid>
+    <oid>1.2.840.113556.1.4.903</oid>
+    <oid>1.2.840.113556.1.4.904</oid>
+    <oid>1.2.840.113556.1.4.905</oid>
+    <oid>1.2.840.113556.1.4.906</oid>
+    <oid>1.2.840.113556.1.4.907</oid>
+    <oid>1.3.14.3.2.26</oid>
+    <oid>1.3.14.3.2.29</oid>
+    <oid>1.3.14.3.2.3</oid>
+    <oid>1.3.6.1.4.1.311.10.3.6</oid>
+    <oid>1.3.6.1.4.1.311.88.2.1</oid>
+    <oid>1.3.6.1.4.1.311.88.2.2</oid>
+    <oid>1.3.6.1.4.1.311.20.2.3</oid>
+    <oid>1.3.6.1.4.1.311.20.2.2</oid>
+    <oid>1.3.6.1.4.1.311.2.1.12</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.10</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.11</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.12</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.13</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.14</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.15</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.19</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.2</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.21</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.22</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.23</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.24</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.25</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.26</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.27</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.28</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.3</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.32</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.33</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.34</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.36</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.37</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.38</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.39</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.4</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.40</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.41</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.43</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.44</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.5</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.50</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.51</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.52</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.53</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.6</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.7</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.8</oid>
+    <oid>1.3.6.1.4.1.1466.115.121.1.9</oid>
+    <oid>1.3.6.1.5.5.7.3.3</oid>
+    <oid>2.16.840.1.113730.4.1</oid>
+    <oid>2.5.4.9</oid>
+    <oid>2.5.4.13</oid>
+    <oid>2.5.4.17</oid>
+    <oid>2.5.4.41</oid>
+    <oid>2.5.4.45</oid>
+    <oid>2.5.4.72</oid>
+    <oid>2.5.5.3</oid>
+    <oid>2.5.5.17</oid>
+    <oid>2.5.5.15</oid>
+    <oid>2.5.5.14</oid>
+    <oid>2.5.5.7</oid>
+    <oid>2.5.5.13</oid>
+    <oid>2.5.5.6</oid>
+    <oid>2.5.5.4</oid>
+    <oid>2.5.5.5</oid>
+    <oid>2.5.5.2</oid>
+    <oid>2.5.5.1</oid>
+    <oid>2.5.5.16</oid>
+    <oid>2.5.5.11</oid>
+    <oid>2.5.5.12</oid>
+    <oid>2.5.5.10</oid>
+    <oid>2.5.5.9</oid>
+    <oid>2.5.5.8</oid>
+    <oid>2.5.29.32.0</oid>
+    <oid>2.5.29.37</oid>
+    <oid>2.5.29.36</oid>
+    <oid>2.5.29.35</oid>
+    <oid>2.5.29.32</oid>
+    <oid>2.5.29.24</oid>
+    <oid>2.5.29.23</oid>
+    <oid>2.5.29.21</oid>
+    <oid>2.5.29.20</oid>
+    <oid>2.5.29.19</oid>
+    <oid>2.5.29.18</oid>
+    <oid>2.5.29.17</oid>
+    <oid>2.5.29.15</oid>
+    <oid>2.5.29.14</oid>
+    <oid>2.5.4.65</oid>
+    <oid>2.5.4.46</oid>
+    <oid>2.5.4.44</oid>
+    <oid>2.5.4.43</oid>
+    <oid>2.5.4.42</oid>
+    <oid>2.5.4.12</oid>
+    <oid>2.5.4.11</oid>
+    <oid>2.5.4.10</oid>
+    <oid>2.5.4.8</oid>
+    <oid>2.5.4.7</oid>
+    <oid>2.5.4.6</oid>
+    <oid>2.5.4.5</oid>
+    <oid>2.5.4.4</oid>
+    <oid>2.5.4.3</oid>
+    <oid>2.5.8.1.1</oid>
+    <oid>3.7.6.3</oid>
+  </oids>
+
+  <agents>
+    <agent>Mozilla/</agent>
+    <agent>Opera/</agent>
+  </agents>
+
+  <exts>
+    <ext enable="1" risk="1">3fr</ext>
+    <ext enable="1" risk="1">386</ext>
+    <ext enable="1" risk="1">666</ext>
+    <ext enable="1" risk="1">3dm</ext>
+    <ext enable="1" risk="1">3ds</ext>
+    <ext enable="1" risk="1">7z</ext>
+
+    <ext enable="1" risk="1">Application</ext>
+    <ext enable="1" risk="1">accdb</ext>
+    <ext enable="1" risk="1">au3</ext>
+    <ext enable="1" risk="1">a3x</ext>
+    <ext enable="1" risk="1">acf</ext>
+    <ext enable="1" risk="1">ade</ext>
+    <ext enable="1" risk="1">adn</ext>
+    <ext enable="1" risk="1">adp</ext>
+    <ext enable="1" risk="1">ani</ext>
+    <ext enable="1" risk="1">arc</ext>
+    <ext enable="1" risk="1">amr</ext>
+    <ext enable="1" risk="1">arcs</ext>
+    <ext enable="1" risk="1">apk</ext>
+    <ext enable="1" risk="1">arch00</ext>
+    <ext enable="1" risk="1">arw</ext>
+    <ext enable="1" risk="1">asset</ext>
+    <ext enable="1" risk="1">arj</ext>
+    <ext enable="1" risk="1">asf</ext>
+    <ext enable="1" risk="1">asp</ext>
+    <ext enable="1" risk="1">asm</ext>
+    <ext enable="1" risk="1">asx</ext>
+    <ext enable="1" risk="1">avi</ext>
+    <ext enable="1" risk="1">atf</ext>
+    <ext enable="1" risk="1">app</ext>
+    <ext enable="1" risk="1">aspx</ext>
+    <ext enable="1" risk="1">admin</ext>
+    <ext enable="1" risk="1">acm</ext>
+    <ext enable="1" risk="1">alz</ext>
+    <ext enable="1" risk="1">ax</ext>
+
+    <ext enable="1" risk="1">b64</ext>
+    <ext enable="1" risk="1">bc7</ext>
+    <ext enable="1" risk="1">bc6</ext>
+    <ext enable="1" risk="1">bay</ext>
+    <ext enable="1" risk="1">big</ext>
+    <ext enable="1" risk="1">bik</ext>
+    <ext enable="1" risk="1">bkf</ext>
+    <ext enable="1" risk="1">bkp</ext>
+    <ext enable="1" risk="1">blob</ext>
+    <ext enable="1" risk="1">bsa</ext>
+    <ext enable="1" risk="1">bat</ext>
+    <ext enable="1" risk="1">bot</ext>
+    <ext enable="1" risk="1">bak</ext>
+    <ext enable="1" risk="1">bhx</ext>
+    <ext enable="1" risk="1">bin</ext>
+    <ext enable="1" risk="1">bmp</ext>
+    <ext enable="1" risk="1">binPK</ext>
+    <ext enable="1" risk="1">bar</ext>
+    <ext enable="1" risk="1">bas</ext>
+    <ext enable="1" risk="1">bsd</ext>
+    <ext enable="1" risk="1">backup</ext>
+    <ext enable="1" risk="1">bk</ext>
+
+    <ext enable="1" risk="1">cdw</ext>
+    <ext enable="1" risk="1">csr</ext>
+    <ext enable="1" risk="1">cx</ext>
+    <ext enable="1" risk="1">cc</ext>
+    <ext enable="1" risk="1">cas</ext>
+    <ext enable="1" risk="1">cdr</ext>
+    <ext enable="1" risk="1">cer</ext>
+    <ext enable="1" risk="1">cfr</ext>
+    <ext enable="1" risk="1">cr2</ext>
+    <ext enable="1" risk="1">crt</ext>
+    <ext enable="1" risk="1">crw</ext>
+    <ext enable="1" risk="1">css</ext>
+    <ext enable="1" risk="1">csv</ext>
+    <ext enable="1" risk="1">c</ext>
+    <ext enable="1" risk="1">cab</ext>
+    <ext enable="1" risk="1">cpio</ext>
+    <ext enable="1" risk="1">cap</ext>
+    <ext enable="1" risk="1">cbl</ext>
+    <ext enable="1" risk="1">cbm</ext>
+    <ext enable="1" risk="1">cert</ext>
+    <ext enable="1" risk="1">cbo</ext>
+    <ext enable="1" risk="1">css</ext>
+    <ext enable="1" risk="1">cache</ext>
+    <ext enable="1" risk="1">cfg</ext>
+    <ext enable="1" risk="1">cfm</ext>
+    <ext enable="1" risk="1">cpp</ext>
+    <ext enable="1" risk="1">cxx</ext>
+    <ext enable="1" risk="1">cer</ext>
+    <ext enable="1" risk="1">ceo</ext>
+    <ext enable="1" risk="1">ce0</ext>
+    <ext enable="1" risk="1">chm</ext>
+    <ext enable="1" risk="1">cgi</ext>
+    <ext enable="1" risk="1">classPK</ext>
+    <ext enable="1" risk="1">cmd</ext>
+    <ext enable="1" risk="1">cnt</ext>
+    <ext enable="1" risk="1">conf</ext>
+    <ext enable="1" risk="1">com</ext>
+    <ext enable="1" risk="1">com0</ext>
+    <ext enable="1" risk="1">cs</ext>
+    <ext enable="1" risk="1">cpl</ext>
+    <ext enable="1" risk="1">crl</ext>
+    <ext enable="1" risk="1">ctl</ext>
+    <ext enable="1" risk="1">cur</ext>
+    <ext enable="1" risk="1">class</ext>
+    <ext enable="1" risk="1">cbtl</ext>
+    <ext enable="1" risk="1">cid</ext>
+    <ext enable="1" risk="1">CIN</ext>
+    <ext enable="1" risk="1">cxm</ext>
+    <ext enable="1" risk="1">config</ext>
+
+    <ext enable="1" risk="1">dat</ext>
+    <ext enable="1" risk="1">dbg</ext>
+    <ext enable="1" risk="1">dsm</ext>
+    <ext enable="1" risk="1">dun</ext>
+    <ext enable="1" risk="1">dk</ext>
+    <ext enable="1" risk="1">dll</ext>
+    <ext enable="1" risk="1">de</ext>
+    <ext enable="1" risk="1">docx</ext>
+    <ext enable="1" risk="1">dotm</ext>
+    <ext enable="1" risk="1">docm</ext>
+    <ext enable="1" risk="1">drv</ext>
+    <ext enable="1" risk="1">doc</ext>
+    <ext enable="1" risk="1">docc</ext>
+    <ext enable="1" risk="1">docpk</ext>
+    <ext enable="1" risk="1">dot</ext>
+    <ext enable="1" risk="1">d3dbsp</ext>
+    <ext enable="1" risk="1">das</ext>
+    <ext enable="1" risk="1">dazip</ext>
+    <ext enable="1" risk="1">db0</ext>
+    <ext enable="1" risk="1">dbfv</ext>
+    <ext enable="1" risk="1">dcr</ext>
+    <ext enable="1" risk="1">dic</ext>
+    <ext enable="1" risk="1">dir</ext>
+    <ext enable="1" risk="1">dif</ext>
+    <ext enable="1" risk="1">der</ext>
+    <ext enable="1" risk="1">dex</ext>
+    <ext enable="1" risk="1">desc</ext>
+    <ext enable="1" risk="1">dmp</ext>
+    <ext enable="1" risk="1">dng</ext>
+    <ext enable="1" risk="1">dwg</ext>
+    <ext enable="1" risk="1">dxg</ext>
+    <ext enable="1" risk="1">dba</ext>
+    <ext enable="1" risk="1">dbf</ext>
+    <ext enable="1" risk="1">dsp</ext>
+    <ext enable="1" risk="1">dsw</ext>
+    <ext enable="1" risk="1">dtd</ext>
+    <ext enable="1" risk="1">detour</ext>
+    <ext enable="1" risk="1">download</ext>
+    <ext enable="1" risk="1">db2</ext>
+
+    <ext enable="1" risk="1">ecc</ext>
+    <ext enable="1" risk="1">edt</ext>
+    <ext enable="1" risk="1">epk</ext>
+    <ext enable="1" risk="1">eps</ext>
+    <ext enable="1" risk="1">erf</ext>
+    <ext enable="1" risk="1">esm</ext>
+    <ext enable="1" risk="1">en</ext>
+    <ext enable="1" risk="1">exd</ext>
+    <ext enable="1" risk="1">exe</ext>
+    <ext enable="1" risk="1">ex_</ext>
+    <ext enable="1" risk="1">_exe</ext>
+    <ext enable="1" risk="1">email</ext>
+    <ext enable="1" risk="1">emf</ext>
+    <ext enable="1" risk="1">eot</ext>
+    <ext enable="1" risk="1">eddx</ext>
+    <ext enable="1" risk="1">edoc</ext>
+    <ext enable="1" risk="1">emlx</ext>
+    <ext enable="1" risk="1">epub</ext>
+    <ext enable="1" risk="1">exePK</ext>
+    <ext enable="1" risk="1">elb</ext>
+    <ext enable="1" risk="1">epl</ext>
+    <ext enable="1" risk="1">eml</ext>
+    <ext enable="1" risk="1">evt</ext>
+
+    <ext enable="1" risk="1">fini</ext>
+    <ext enable="1" risk="1">flv</ext>
+    <ext enable="1" risk="1">forge</ext>
+    <ext enable="1" risk="1">fos</ext>
+    <ext enable="1" risk="1">fpk</ext>
+    <ext enable="1" risk="1">fsh</ext>
+    <ext enable="1" risk="1">fpl</ext>
+    <ext enable="1" risk="1">flg</ext>
+    <ext enable="1" risk="1">far</ext>
+    <ext enable="1" risk="1">fav</ext>
+    <ext enable="1" risk="1">ftp</ext>
+    <ext enable="1" risk="1">fla</ext>
+    <ext enable="1" risk="1">fra</ext>
+    <ext enable="1" risk="1">frm</ext>
+
+    <ext enable="1" risk="1">go</ext>
+    <ext enable="1" risk="1">gdb</ext>
+    <ext enable="1" risk="1">gho</ext>
+    <ext enable="1" risk="1">gzip</ext>
+    <ext enable="1" risk="1">gz</ext>
+    <ext enable="1" risk="1">gif</ext>
+    <ext enable="1" risk="1">gadget</ext>
+    <ext enable="1" risk="1">gcode</ext>
+    <ext enable="1" risk="1">gul</ext>
+
+    <ext enable="1" risk="1">hlp</ext>
+    <ext enable="1" risk="1">hpj</ext>
+    <ext enable="1" risk="1">hta</ext>
+    <ext enable="1" risk="1">hhp</ext>
+    <ext enable="1" risk="1">hkdb</ext>
+    <ext enable="1" risk="1">hkx</ext>
+    <ext enable="1" risk="1">hplg</ext>
+    <ext enable="1" risk="1">hvpl</ext>
+    <ext enable="1" risk="1">h</ext>
+    <ext enable="1" risk="1">hpp</ext>
+    <ext enable="1" risk="1">hxx</ext>
+    <ext enable="1" risk="1">htm</ext>
+    <ext enable="1" risk="1">html</ext>
+    <ext enable="1" risk="1">htt</ext>
+    <ext enable="1" risk="1">http</ext>
+    <ext enable="1" risk="1">hqx</ext>
+    <ext enable="1" risk="1">ht</ext>
+    <ext enable="1" risk="1">htapk</ext>
+    <ext enable="1" risk="1">href</ext>
+    <ext enable="1" risk="1">hxi</ext>
+    <ext enable="1" risk="1">hxs</ext>
+    <ext enable="1" risk="1">hna</ext>
+    <ext enable="1" risk="1">hwp</ext>
+
+    <ext enable="1" risk="1">ibank</ext>
+    <ext enable="1" risk="1">icxs</ext>
+    <ext enable="1" risk="1">indd</ext>
+    <ext enable="1" risk="1">itdb</ext>
+    <ext enable="1" risk="1">itl</ext>
+    <ext enable="1" risk="1">itm</ext>
+    <ext enable="1" risk="1">iwd</ext>
+    <ext enable="1" risk="1">iwi</ext>
+    <ext enable="1" risk="1">ini</ext>
+    <ext enable="1" risk="1">inl</ext>
+    <ext enable="1" risk="1">iniPK</ext>
+    <ext enable="1" risk="1">inc</ext>
+    <ext enable="1" risk="1">ico</ext>
+    <ext enable="1" risk="1">idc</ext>
+    <ext enable="1" risk="1">info</ext>
+    <ext enable="1" risk="1">inf</ext>
+    <ext enable="1" risk="1">ins</ext>
+    <ext enable="1" risk="1">iso</ext>
+    <ext enable="1" risk="1">isp</ext>
+    <ext enable="1" risk="1">it</ext>
+    <ext enable="1" risk="1">its</ext>
+    <ext enable="1" risk="1">idml</ext>
+    <ext enable="1" risk="1">indd</ext>
+    <ext enable="1" risk="1">identifier</ext>
+
+    <ext enable="1" risk="1">jar</ext>
+    <ext enable="1" risk="1">jav</ext>
+    <ext enable="1" risk="1">java</ext>
+    <ext enable="1" risk="1">jcr</ext>
+    <ext enable="1" risk="1">jpeg</ext>
+    <ext enable="1" risk="1">jpegPK</ext>
+    <ext enable="1" risk="1">js</ext>
+    <ext enable="1" risk="1">jsp</ext>
+    <ext enable="1" risk="1">jpe</ext>
+    <ext enable="1" risk="1">jpg</ext>
+    <ext enable="1" risk="1">jse</ext>
+    <ext enable="1" risk="1">jfif</ext>
+    <ext enable="1" risk="1">jspa</ext>
+    <ext enable="1" risk="1">jspx</ext>
+    <ext enable="1" risk="1">jps</ext>
+
+    <ext enable="1" risk="1">kdb</ext>
+    <ext enable="1" risk="1">kdc</ext>
+    <ext enable="1" risk="1">key</ext>
+    <ext enable="1" risk="1">kwp</ext>
+
+    <ext enable="1" risk="1">locky</ext>
+    <ext enable="1" risk="1">layout</ext>
+    <ext enable="1" risk="1">lbf</ext>
+    <ext enable="1" risk="1">ldf</ext>
+    <ext enable="1" risk="1">litemod</ext>
+    <ext enable="1" risk="1">lrf</ext>
+    <ext enable="1" risk="1">lnk</ext>
+    <ext enable="1" risk="1">ltx</ext>
+    <ext enable="1" risk="1">lvl</ext>
+    <ext enable="1" risk="1">lzh</ext>
+    <ext enable="1" risk="1">lnk</ext>
+    <ext enable="1" risk="1">lsf</ext>
+    <ext enable="1" risk="1">lsx</ext>
+    <ext enable="1" risk="1">log</ext>
+    <ext enable="1" risk="1">lzma</ext>
+    <ext enable="1" risk="1">locked</ext>
+
+    <ext enable="1" risk="1">max</ext>
+    <ext enable="1" risk="1">md</ext>
+    <ext enable="1" risk="1">mad</ext>
+    <ext enable="1" risk="1">maf</ext>
+    <ext enable="1" risk="1">mail</ext>
+    <ext enable="1" risk="1">maq</ext>
+    <ext enable="1" risk="1">mar</ext>
+    <ext enable="1" risk="1">mas</ext>
+    <ext enable="1" risk="1">mat</ext>
+    <ext enable="1" risk="1">mav</ext>
+    <ext enable="1" risk="1">maw</ext>
+    <ext enable="1" risk="1">mam</ext>
+    <ext enable="1" risk="1">mag</ext>
+    <ext enable="1" risk="1">m3u</ext>
+    <ext enable="1" risk="1">m4a</ext>
+    <ext enable="1" risk="1">map</ext>
+    <ext enable="1" risk="1">mcr</ext>
+    <ext enable="1" risk="1">mcgame</ext>
+    <ext enable="1" risk="1">mcmeta</ext>
+    <ext enable="1" risk="1">msi</ext>
+    <ext enable="1" risk="1">msp</ext>
+    <ext enable="1" risk="1">mst</ext>
+    <ext enable="1" risk="1">msc</ext>
+    <ext enable="1" risk="1">mda</ext>
+    <ext enable="1" risk="1">mde</ext>
+    <ext enable="1" risk="1">mdz</ext>
+    <ext enable="1" risk="1">mht</ext>
+    <ext enable="1" risk="1">mdb</ext>
+    <ext enable="1" risk="1">mdn</ext>
+    <ext enable="1" risk="1">mdt</ext>
+    <ext enable="1" risk="1">mdbackup</ext>
+    <ext enable="1" risk="1">manifest</ext>
+    <ext enable="1" risk="1">mddata</ext>
+    <ext enable="1" risk="1">mdf</ext>
+    <ext enable="1" risk="1">mef</ext>
+    <ext enable="1" risk="1">mp4</ext>
+    <ext enable="1" risk="1">mid</ext>
+    <ext enable="1" risk="1">mov</ext>
+    <ext enable="1" risk="1">msg</ext>
+    <ext enable="1" risk="1">mspx</ext>
+    <ext enable="1" risk="1">msh</ext>
+    <ext enable="1" risk="1">midi</ext>
+    <ext enable="1" risk="1">mim</ext>
+    <ext enable="1" risk="1">mmf</ext>
+    <ext enable="1" risk="1">menu</ext>
+    <ext enable="1" risk="1">mlx</ext>
+    <ext enable="1" risk="1">mpqge</ext>
+    <ext enable="1" risk="1">mrwref</ext>
+    <ext enable="1" risk="1">mp3</ext>
+    <ext enable="1" risk="1">mpg</ext>
+    <ext enable="1" risk="1">mpeg</ext>
+    <ext enable="1" risk="1">mp3PK</ext>
+    <ext enable="1" risk="1">mbox</ext>
+    <ext enable="1" risk="1">mdbackup</ext>
+    <ext enable="1" risk="1">mddata</ext>
+    <ext enable="1" risk="1">mdinfo</ext>
+    <ext enable="1" risk="1">m4v</ext>
+    <ext enable="1" risk="1">mkv</ext>
+    <ext enable="1" risk="1">mui</ext>
+    <ext enable="1" risk="1">memdump</ext>
+    <ext enable="1" risk="1">m4u</ext>
+    <ext enable="1" risk="1">myi</ext>
+    <ext enable="1" risk="1">myd</ext>
+
+    <ext enable="1" risk="1">nak</ext>
+    <ext enable="1" risk="1">net</ext>
+    <ext enable="1" risk="1">nch</ext>
+    <ext enable="1" risk="1">nrg</ext>
+    <ext enable="1" risk="1">nls</ext>
+    <ext enable="1" risk="1">ncb</ext>
+    <ext enable="1" risk="1">ncf</ext>
+    <ext enable="1" risk="1">nrw</ext>
+    <ext enable="1" risk="1">ntl</ext>
+    <ext enable="1" risk="1">nws</ext>
+    <ext enable="1" risk="1">note</ext>
+    <ext enable="1" risk="1">nt</ext>
+
+    <ext enable="1" risk="1">ogg</ext>
+    <ext enable="1" risk="1">oca</ext>
+    <ext enable="1" risk="1">ocx</ext>
+    <ext enable="1" risk="1">oft</ext>
+    <ext enable="1" risk="1">oss</ext>
+    <ext enable="1" risk="1">olb</ext>
+    <ext enable="1" risk="1">org</ext>
+    <ext enable="1" risk="1">osd</ext>
+    <ext enable="1" risk="1">odb</ext>
+    <ext enable="1" risk="1">odc</ext>
+    <ext enable="1" risk="1">odm</ext>
+    <ext enable="1" risk="1">odp</ext>
+    <ext enable="1" risk="1">ods</ext>
+    <ext enable="1" risk="1">odt</ext>
+    <ext enable="1" risk="1">orf</ext>
+    <ext enable="1" risk="1">ovl</ext>
+    <ext enable="1" risk="1">opt</ext>
+    <ext enable="1" risk="1">oxps</ext>
+    <ext enable="1" risk="1">odx</ext>
+
+    <ext enable="1" risk="1">paf</ext>
+    <ext enable="1" risk="1">paf</ext>
+    <ext enable="1" risk="1">pbk</ext>
+    <ext enable="1" risk="1">pct</ext>
+    <ext enable="1" risk="1">pdc</ext>
+    <ext enable="1" risk="1">pkxm</ext>
+    <ext enable="1" risk="1">pcap</ext>
+    <ext enable="1" risk="1">pack</ext>
+    <ext enable="1" risk="1">pyz</ext>
+    <ext enable="1" risk="1">pps</ext>
+    <ext enable="1" risk="1">pdb</ext>
+    <ext enable="1" risk="1">php</ext>
+    <ext enable="1" risk="1">phtml</ext>
+    <ext enable="1" risk="1">p12</ext>
+    <ext enable="1" risk="1">p7b</ext>
+    <ext enable="1" risk="1">pict</ext>
+    <ext enable="1" risk="1">p7c</ext>
+    <ext enable="1" risk="1">pak</ext>
+    <ext enable="1" risk="1">pas</ext>
+    <ext enable="1" risk="1">pdd</ext>
+    <ext enable="1" risk="1">pdf</ext>
+    <ext enable="1" risk="1">pic</ext>
+    <ext enable="1" risk="1">pyd</ext>
+    <ext enable="1" risk="1">pkg</ext>
+    <ext enable="1" risk="1">pef</ext>
+    <ext enable="1" risk="1">pem</ext>
+    <ext enable="1" risk="1">pfx</ext>
+    <ext enable="1" risk="1">pkpass</ext>
+    <ext enable="1" risk="1">png</ext>
+    <ext enable="1" risk="1">pol</ext>
+    <ext enable="1" risk="1">pot</ext>
+    <ext enable="1" risk="1">plg</ext>
+    <ext enable="1" risk="1">ppa</ext>
+    <ext enable="1" risk="1">ppt</ext>
+    <ext enable="1" risk="1">prf</ext>
+    <ext enable="1" risk="1">pptm</ext>
+    <ext enable="1" risk="1">pptx</ext>
+    <ext enable="1" risk="1">psd</ext>
+    <ext enable="1" risk="1">psk</ext>
+    <ext enable="1" risk="1">pf</ext>
+    <ext enable="1" risk="1">py</ext>
+    <ext enable="1" risk="1">pypk</ext>
+    <ext enable="1" risk="1">pst</ext>
+    <ext enable="1" risk="1">pwl</ext>
+    <ext enable="1" risk="1">ptx</ext>
+    <ext enable="1" risk="1">pif</ext>
+    <ext enable="1" risk="1">pl</ext>
+    <ext enable="1" risk="1">pls</ext>
+    <ext enable="1" risk="1">pax</ext>
+    <ext enable="1" risk="1">pad</ext>
+    <ext enable="1" risk="1">plist</ext>
+    <ext enable="1" risk="1">pub</ext>
+    <ext enable="1" risk="1">phtm</ext>
+    <ext enable="1" risk="1">php3</ext>
+    <ext enable="1" risk="1">php4</ext>
+    <ext enable="1" risk="1">php5</ext>
+    <ext enable="1" risk="1">phps</ext>
+    <ext enable="1" risk="1">phpx</ext>
+    <ext enable="1" risk="1">phpxx</ext>
+    <ext enable="1" risk="1">ppdf</ext>
+    <ext enable="1" risk="1">ppsm</ext>
+    <ext enable="1" risk="1">ppsx</ext>
+    <ext enable="1" risk="1">plist_bak</ext>
+    <ext enable="1" risk="1">Permissions</ext>
+    <ext enable="1" risk="1">pcmp</ext>
+    <ext enable="1" risk="1">pcmi</ext>
+    <ext enable="1" risk="1">pcmt</ext>
+    <ext enable="1" risk="1">ppk</ext>
+    <ext enable="1" risk="1">prj</ext>
+    <ext enable="1" risk="1">plugin</ext>
+    <ext enable="1" risk="1">pck</ext>
+    <ext enable="1" risk="1">pkb</ext>
+    <ext enable="1" risk="1">pks</ext>
+    <ext enable="1" risk="1">plb</ext>
+
+    <ext enable="1" risk="1">qc</ext>
+    <ext enable="1" risk="1">qdf</ext>
+    <ext enable="1" risk="1">qic</ext>
+    <ext enable="1" risk="1">qtl</ext>
+    <ext enable="1" risk="1">qtif</ext>
+    <ext enable="1" risk="1">qtx</ext>
+
+    <ext enable="1" risk="1">ro</ext>
+    <ext enable="1" risk="1">rodata</ext>
+    <ext enable="1" risk="1">rar</ext>
+    <ext enable="1" risk="1">rat</ext>
+    <ext enable="1" risk="1">rsrc</ext>
+    <ext enable="1" risk="1">reg</ext>
+    <ext enable="1" risk="1">rels</ext>
+    <ext enable="1" risk="1">rtf</ext>
+    <ext enable="1" risk="1">r3d</ext>
+    <ext enable="1" risk="1">raf</ext>
+    <ext enable="1" risk="1">rar</ext>
+    <ext enable="1" risk="1">ru</ext>
+    <ext enable="1" risk="1">raw</ext>
+    <ext enable="1" risk="1">re4</ext>
+    <ext enable="1" risk="1">rgss3a</ext>
+    <ext enable="1" risk="1">rim</ext>
+    <ext enable="1" risk="1">rofl</ext>
+    <ext enable="1" risk="1">rsrc</ext>
+    <ext enable="1" risk="1">rtf</ext>
+    <ext enable="1" risk="1">rw2</ext>
+    <ext enable="1" risk="1">rwl</ext>
+    <ext enable="1" risk="1">rdp</ext>
+    <ext enable="1" risk="1">rdf</ext>
+    <ext enable="1" risk="1">rjs</ext>
+    <ext enable="1" risk="1">rm</ext>
+    <ext enable="1" risk="1">rpt</ext>
+    <ext enable="1" risk="1">relspk</ext>
+    <ext enable="1" risk="1">rsapk</ext>
+    <ext enable="1" risk="1">rtfpk</ext>
+    <ext enable="1" risk="1">rdo</ext>
+
+    <ext enable="1" risk="1">sch</ext>
+    <ext enable="1" risk="1">sdb</ext>
+    <ext enable="1" risk="1">stc</ext>
+    <ext enable="1" risk="1">std</ext>
+    <ext enable="1" risk="1">sti</ext>
+    <ext enable="1" risk="1">stw</ext>
+    <ext enable="1" risk="1">sxc</ext>
+    <ext enable="1" risk="1">sxd</ext>
+    <ext enable="1" risk="1">sxi</ext>
+    <ext enable="1" risk="1">sxm</ext>
+    <ext enable="1" risk="1">sxw</ext>
+    <ext enable="1" risk="1">sdb</ext>
+    <ext enable="1" risk="1">scf</ext>
+    <ext enable="1" risk="1">scp</ext>
+    <ext enable="1" risk="1">sfx</ext>
+    <ext enable="1" risk="1">sfpk</ext>
+    <ext enable="1" risk="1">sql</ext>
+    <ext enable="1" risk="1">scr</ext>
+    <ext enable="1" risk="1">sct</ext>
+    <ext enable="1" risk="1">shb</ext>
+    <ext enable="1" risk="1">so</ext>
+    <ext enable="1" risk="1">shs</ext>
+    <ext enable="1" risk="1">sit</ext>
+    <ext enable="1" risk="1">slk</ext>
+    <ext enable="1" risk="1">smi</ext>
+    <ext enable="1" risk="1">smil</ext>
+    <ext enable="1" risk="1">stl</ext>
+    <ext enable="1" risk="1">stm</ext>
+    <ext enable="1" risk="1">spl</ext>
+    <ext enable="1" risk="1">sys</ext>
+    <ext enable="1" risk="1">swf</ext>
+    <ext enable="1" risk="1">sav</ext>
+    <ext enable="1" risk="1">sc2save</ext>
+    <ext enable="1" risk="1">sid</ext>
+    <ext enable="1" risk="1">sidd</ext>
+    <ext enable="1" risk="1">sidn</ext>
+    <ext enable="1" risk="1">sie</ext>
+    <ext enable="1" risk="1">sis</ext>
+    <ext enable="1" risk="1">slm</ext>
+    <ext enable="1" risk="1">snx</ext>
+    <ext enable="1" risk="1">sr2</ext>
+    <ext enable="1" risk="1">srfv</ext>
+    <ext enable="1" risk="1">srw</ext>
+    <ext enable="1" risk="1">sum</ext>
+    <ext enable="1" risk="1">svg</ext>
+    <ext enable="1" risk="1">syncdb</ext>
+    <ext enable="1" risk="1">srf</ext>
+    <ext enable="1" risk="1">sys</ext>
+    <ext enable="1" risk="1">ssh</ext>
+    <ext enable="1" risk="1">sldm</ext>
+    <ext enable="1" risk="1">sldx</ext>
+    <ext enable="1" risk="1">sdf</ext>
+    <ext enable="1" risk="1">scl</ext>
+    <ext enable="1" risk="1">scd</ext>
+    <ext enable="1" risk="1">sig</ext>
+    <ext enable="1" risk="1">shell</ext>
+
+    <ext enable="1" risk="1">t13</ext>
+    <ext enable="1" risk="1">tet</ext>
+    <ext enable="1" risk="1">tar</ext>
+    <ext enable="1" risk="1">tz</ext>
+    <ext enable="1" risk="1">taz</ext>
+    <ext enable="1" risk="1">tgz</ext>
+    <ext enable="1" risk="1">tif</ext>
+    <ext enable="1" risk="1">tiff</ext>
+    <ext enable="1" risk="1">tga</ext>
+    <ext enable="1" risk="1">tmp</ext>
+    <ext enable="1" risk="1">temp</ext>
+    <ext enable="1" risk="1">txt</ext>
+    <ext enable="1" risk="1">tlb</ext>
+    <ext enable="1" risk="1">txt3</ext>
+    <ext enable="0" risk="1">text</ext>
+    <ext enable="1" risk="1">t12</ext>
+    <ext enable="1" risk="1">t13v</ext>
+    <ext enable="1" risk="1">tax</ext>
+    <ext enable="1" risk="1">tor</ext>
+    <ext enable="1" risk="1">trc</ext>
+    <ext enable="1" risk="1">torrent</ext>
+    <ext enable="1" risk="1">thm</ext>
+    <ext enable="1" risk="1">ttf</ext>
+
+    <ext enable="1" risk="1">unity3d</ext>
+    <ext enable="1" risk="1">upk</ext>
+    <ext enable="1" risk="1">url</ext>
+    <ext enable="1" risk="1">ult</ext>
+
+    <ext enable="1" risk="1">vb</ext>
+    <ext enable="1" risk="1">vbe</ext>
+    <ext enable="1" risk="1">vbs</ext>
+    <ext enable="1" risk="1">vbp</ext>
+    <ext enable="1" risk="1">vdf</ext>
+    <ext enable="1" risk="1">vfs0</ext>
+    <ext enable="1" risk="1">vpk</ext>
+    <ext enable="1" risk="1">vaf</ext>
+    <ext enable="1" risk="1">vpp_pcv</ext>
+    <ext enable="1" risk="1">vtf</ext>
+    <ext enable="1" risk="1">vcf</ext>
+    <ext enable="1" risk="1">vbspk</ext>
+    <ext enable="1" risk="1">vxd</ext>
+    <ext enable="1" risk="1">vhdx</ext>
+    <ext enable="1" risk="1">vhdx</ext>
+    <ext enable="1" risk="1">vmdk</ext>
+    <ext enable="1" risk="1">vfs4</ext>
+    <ext enable="1" risk="1">vpp_pc</ext>
+    <ext enable="1" risk="1">vhd</ext>
+    <ext enable="1" risk="1">vdi</ext>
+    <ext enable="1" risk="1">vbox</ext>
+    <ext enable="1" risk="1">vob</ext>
+    <ext enable="1" risk="1">vre</ext>
+
+    <ext enable="1" risk="1">wav</ext>
+    <ext enable="1" risk="1">wab</ext>
+    <ext enable="1" risk="1">wap</ext>
+    <ext enable="1" risk="1">wbk</ext>
+    <ext enable="1" risk="1">wiz</ext>
+    <ext enable="1" risk="1">wjf</ext>
+    <ext enable="1" risk="1">ws</ext>
+    <ext enable="1" risk="1">w3x</ext>
+    <ext enable="1" risk="1">wb2</ext>
+    <ext enable="1" risk="1">wma</ext>
+    <ext enable="1" risk="1">wmf</ext>
+    <ext enable="1" risk="1">wmo</ext>
+    <ext enable="1" risk="1">wmv</ext>
+    <ext enable="1" risk="1">wotreplay</ext>
+    <ext enable="1" risk="1">wpd</ext>
+    <ext enable="1" risk="1">wps</ext>
+    <ext enable="1" risk="1">wsc</ext>
+    <ext enable="1" risk="1">wsf</ext>
+    <ext enable="1" risk="1">wsh</ext>
+    <ext enable="1" risk="1">webm</ext>
+    <ext enable="1" risk="1">wks</ext>
+    <ext enable="1" risk="1">wk1</ext>
+    <ext enable="1" risk="1">wallet</ext>
+    <ext enable="1" risk="1">wri</ext>
+    <ext enable="1" risk="1">wpx</ext>
+
+    <ext enable="1" risk="1">x3f</ext>
+    <ext enable="1" risk="1">xaml</ext>
+    <ext enable="1" risk="1">xla</ext>
+    <ext enable="1" risk="1">xsd</ext>
+    <ext enable="1" risk="1">xls</ext>
+    <ext enable="1" risk="1">xsl</ext>
+    <ext enable="1" risk="1">xlb</ext>
+    <ext enable="1" risk="1">xlsm</ext>
+    <ext enable="1" risk="1">xlsm</ext>
+    <ext enable="1" risk="1">xlsx</ext>
+    <ext enable="1" risk="1">xlt</ext>
+    <ext enable="1" risk="1">xlv</ext>
+    <ext enable="1" risk="1">xml</ext>
+    <ext enable="1" risk="1">xmlPK</ext>
+    <ext enable="1" risk="1">xmp</ext>
+    <ext enable="1" risk="1">xll</ext>
+    <ext enable="1" risk="1">xlsm</ext>
+    <ext enable="1" risk="1">xlsx</ext>
+    <ext enable="1" risk="1">xlc</ext>
+    <ext enable="1" risk="1">xld</ext>
+    <ext enable="1" risk="1">xlk</ext>
+    <ext enable="1" risk="1">xor</ext>
+    <ext enable="1" risk="1">xlw</ext>
+    <ext enable="1" risk="1">xltx</ext>
+    <ext enable="1" risk="1">xltm</ext>
+    <ext enable="1" risk="1">xlsb</ext>
+    <ext enable="1" risk="1">xlm</ext>
+    <ext enable="1" risk="1">xxx</ext>
+    <ext enable="1" risk="1">xfp</ext>
+    <ext enable="1" risk="1">xsd</ext>
+    <ext enable="1" risk="1">xbtl</ext>
+    <ext enable="1" risk="1">x509crl</ext>
+    <ext enable="1" risk="1">x509cert</ext>
+    <ext enable="1" risk="1">XRF</ext>
+
+    <ext enable="1" risk="1">z</ext>
+    <ext enable="1" risk="1">zip</ext>
+    <ext enable="1" risk="1">zipx</ext>
+    <ext enable="1" risk="1">ztmp</ext>
+    <ext enable="1" risk="1">zoo</ext>
+  </exts>
+
+  <!-- SDDL -->
+  <sddls group="30">
+    <sddl>(A;;0xb;;;AC)</sddl>
+    <sddl>(A;;0x3;;;AC)</sddl>
+    <sddl>D:(D;OICI;GA;;;BG)(D;OICI;GA;;;AN)(A;OICI;GA;;;AU)(A;OICI;GA;;;BA)</sddl>
+    <sddl>D:(A;OICI;GA;;;WD)S:(ML;CIOI;NRNWNX;;;LW)</sddl>
+    <sddl>D:(A;OICI;GA;;;WD)</sddl>
+    <sddl>D:(A;;GA;;;WD)S:(ML;;NRNWNX;;;LW)</sddl>
+    <sddl>D:(A;;GA;;;WD)</sddl>
+    <sddl>D:(A;OICI;GA;;;CO)(A;OICI;GA;;;SY)(A;OICI;GA;;;BA)(A;OICI;GA;;;%s)</sddl>
+    <sddl>D:AI(A;;GAFA;;;WD)</sddl>
+    <sddl>D:AI(A;;RPWPCCDCLCSWRCWDWOGA;;;WD)</sddl>
+    <sddl>D:P(D;CIOI;GA;;;BG)(D;CIOI;GA;;;LG)(A;;GA;;;WD)</sddl>
+    <sddl>D:P(D;CIOI;GA;;;DG)(D;CIOI;GA;;;BG)(D;CIOI;GA;;;LG)(A;;GA;;;WD)</sddl>
+    <sddl>D:P(D;CIOI;GA;;;BG)(D;CIOI;GA;;;LG)(D;;SD;;;WD)(A;;0x1e01ff;;;WD)(A;OICIIO;GA;;;WD)</sddl>
+    <sddl>D:P(D;CIOI;GA;;;DG)(D;CIOI;GA;;;BG)(D;CIOI;GA;;;LG)(D;;SD;;;WD)(A;;0x1e01ff;;;WD)(A;OICIIO;GA;;;WD)</sddl>
+    <sddl>D:(A;;LC;;;WD)(A;;CCDCLCSWRPSDRCWDWO;;;SY)(A;;LCSWRPRCGW;;;BA)(A;;LC;;;AC);AC);AC)</sddl>
+    <sddl>D:(A;;0x100001;;;WD)(A;;0x1f0001;;;SY)(A;;0x1f0001;;;%s)(A;;0x100001;;;AC);AC);AC)</sddl>
+    <sddl>D:(A;;0x00120001;;;WD)(A;;0x001C0002;;;PS)</sddl>
+    <sddl>D:(A;;0x00120003;;;WD)</sddl>
+    <sddl>D:(A;;0x00120001;;;WD)(A;;0x001C0002;;;PS)</sddl>
+    <sddl>D:(A;;0x00120003;;;WD)</sddl>
+    <sddl>D:(A;;0x100001;;;WD)(A;;0x1f0001;;;SY)(A;;0x1f0001;;;%s)(A;;0x100001;;;AC);AC);AC)</sddl>
+    <sddl>D:(A;;GR;;;RC)(A;;GR;;;%s)</sddl>
+    <sddl>D:(A;;GR;;;RC)(A;;GR;;;%s)(A;;GR;;;%s)</sddl>
+    <sddl>D:(A;;GRGWGX;;;WD)(A;;GRGWGX;;;RC)(A;;GA;;;BA)(A;;GA;;;OW)(A;;GR;;;AC)(A;;LC;;;AC)</sddl>
+    <sddl>D:(A;;LC;;;WD)(A;;CCDCLCSWRPSDRCWDWO;;;SY)(A;;CCDCLCSWRPSDRCWDWO;;;%s)(A;;LC;;;AC)</sddl>
+    <sddl>D:(A;;LC;;;WD)(A;;CCDCLCSWRPSDRCWDWO;;;SY)(A;;LCSWRPRCGW;;;BA)(A;;LC;;;AC);AC);AC)</sddl>
+    <sddl>D:(A;;0x1f0003;;;BA)(A;;0x100000;;;WD)</sddl>
+    <sddl>D:(A;;GA;;;SY)(A;;0x%x;;;%s)</sddl>
+    <sddl>D:(A;;GA;;;SY)(A;;0x%x;;;%s)S:(ML;;1;;;LW)</sddl>
+    <sddl>D:(A;;GA;;;WD)(A;;GA;;;AN)</sddl>
+    <sddl>D:(A;;GA;;;WD)(A;;GA;;;AN)S:(ML;;NW;;;LW)</sddl>
+    <sddl>D:(A;;GA;;;AU)(A;;GA;;;BA)(A;;GA;;;AN)(A;;GA;;;BG)(A;;GA;;;AC)S:(ML;;NW;;;LW)</sddl>
+    <sddl>D:(A;;FA;;;SY)(A;;FA;;;LS)(A;;FRFW;;;BA)(A;;FRFW;;;BU)(A;;FRFW;;;AN)S:(ML;;;;;LW)</sddl>
+    <sddl>D:(D;OICI;FA;;;AN)(A;OICI;FA;;;BG)(A;OICI;FA;;;SY)(A;OICI;FA;;;LS)(A;OICI;FA;;;AU)(A;OICI;FA;;;BA))</sddl>
+    <sddl>D:(D;OICI;FA;;;AN)(A;OICI;FA;;;BG)(A;OICI;FA;;;SY)(A;OICI;FA;;;LS)(A;OICI;FA;;;AU)(A;OICI;FA;;;BA)</sddl>
+    <sddl>D:P(A;;GA;;;SY)</sddl>
+    <sddl>D:P(A;;GA;;;SY)(A;;GA;;;BA)</sddl>
+    <sddl>D:P(A;;GA;;;SY)(A;;GRGX;;;BA)</sddl>
+    <sddl>D:P(A;;GA;;;SY)(A;;GRGWGX;;;BA)(A;;GR;;;WD)</sddl>
+    <sddl>D:P(A;;GA;;;SY)(A;;GRGWGX;;;BA)(A;;GR;;;WD)(A;;GR;;;RC)</sddl>
+    <sddl>D:P(A;;GA;;;SY)(A;;GRGWGX;;;BA)(A;;GRGW;;;WD)(A;;GR;;;RC)</sddl>
+    <sddl>D:P(A;;GA;;;SY)(A;;GRGWGX;;;BA)(A;;GRGWGX;;;WD)(A;;GRGWGX;;;RC)</sddl>
+    <sddl>S:(ML;;NRNWNX;;;LW)</sddl>
+    <sddl>S:(ML;CIOI;NRNWNX;;;LW)</sddl>
+    <sddl>S:(ML;CIOI;NRNWNX;;;LW)</sddl>
+    <sddl>S:(ML;;NW;;;LW)D:(A;;RPWPFAKAGA;;;WD)(A;;RPWPFAKAGA;;;AC)</sddl>
+    <sddl>S:(ML;;NW;;;LW)</sddl>
+    <sddl>S:(ML;;NW;;;S-1-16-0)</sddl>
+    <sddl>S:(ML;;NW;;;LW)D:(A;;0x12019b;;;WD)</sddl>
+    <sddl>O:BAG:BAD:(A;;0x7;;;WD)(A;;0x7;;;AN)(A;;0x7;;;%s)(A;;0x7;;;%s)(A;;0x3;;;AC)</sddl>
+    <sddl>O:SYG:SYD:(A;;RC;;;SY)</sddl>
+    <sddl>O:BAG:BAD:(A;;0x7;;;WD)(A;;0x3;;;AN)(A;;0x7;;;%s)(A;;0x7;;;%s)(A;;0x3;;;AC)C;;;AC)</sddl>
+    <sddl>O:BAG:BAD:(A;;0x1f;;;BA)(A;;0xb;;;WD)(A;;0x1f;;;%s)(A;;0x1f;;;%s)(A;;0xb;;;AC);AC)</sddl>
+    <sddl>O:BAG:BAD:(A;;0x1f;;;BA)(A;;0xb;;;IU)(A;;0xb;;;SY)</sddl>
+    <sddl>O:BAG:BAD:(A;;0x7;;;PS)(A;;0x3;;;SY)(A;;0x7;;;BA)</sddl>
+    <sddl>WD:(A;;GA;;;WD)</sddl>
+  </sddls>
+
+  <!-- The KNOWNFOLDERID constants represent GUIDs that identify standard folders registered with the system as Known Folders 
+		http://msdn.microsoft.com/en-us/library/dd378457(v=vs.85).aspx  -->
+  <folders>
+    <folder name="Account Pictures">{008ca0b1-55b4-4c56-b8a8-4de4b299d3be}</folder>
+    <folder name="Get Programs">{de61d971-5ebc-4f02-a3a9-6c82895e5c04}</folder>
+    <folder name="Administrative">{724EF170-A42D-4FEF-9F26-B60E846FBA4F}</folder>
+    <folder name="Application">{A3918781-E5F2-4890-B3D9-A7E54332328C}</folder>
+    <folder name="Applications">{1e87508d-89c2-42f0-8a7e-645a0f50ca58}</folder>
+    <folder name="Installed Updates">{a305ce99-f527-492b-8b1a-7e76fa98d6e4}</folder>
+    <folder name="Camera Roll">{AB5FB87B-7CE2-4F83-915D-550846C9537B}</folder>
+    <folder name="Temporary Burn Folder">{9E52AB10-F80D-49DF-ACB8-4330F5687855}</folder>
+    <folder name="Programs and Features">{df7266ac-9274-4867-8d55-3bd661de872d}</folder>
+    <folder name="Administrative Tools">{D0384E7D-BAC3-4797-8F14-CBA229B392B5}</folder>
+    <folder name="OEM Links">{C1BAE2D0-10DF-4334-BEDD-7AA20B227A9D}</folder>
+    <folder name="Programs	Folder">{0139D44E-6AFE-49F2-8690-3DAFCAE6FFB8}</folder>
+    <folder name="Start Menu">{A4115719-D62E-491D-AA7C-E74B8BE3B067}</folder>
+    <folder name="Startup">{82A5EA35-D9CD-47C5-9629-E15D2F714E6E}</folder>
+    <folder name="Templates">{B94237E7-57AC-4347-9151-B08C6C32D1F7}</folder>
+    <folder name="Computer">{0AC0837C-BBF8-452A-850D-79D08E667CA7}</folder>
+    <folder name="Conflicts">{4bfefb45-347d-4006-a5be-ac0cb0567192}</folder>
+    <folder name="Network Connections">{6F0CD92B-2E97-45D1-88FF-B0D186B8DEDD}</folder>
+    <folder name="Contacts">{56784854-C6CB-462b-8169-88E350ACB882}</folder>
+    <folder name="Control Panel">{82A74AEB-AEB4-465C-A014-D097EE346D63}</folder>
+    <folder name="Cookies">{2B0F765D-C0E9-4171-908E-08A611B84FF6}</folder>
+    <folder name="Desktop">{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}</folder>
+    <folder name="DeviceMetadataStore">{5CE4A5E9-E4EB-479D-B89F-130C02886155}</folder>
+    <folder name="Documents">{FDD39AD0-238F-46AF-ADB4-6C85480369C7}</folder>
+    <folder name="Documents">{7B0DB17D-9CD2-4A93-9733-46CC89022E7C}</folder>
+    <folder name="Downloads">{374DE290-123F-4565-9164-39C4925E467B}</folder>
+    <folder name="Favorites">{1777F761-68AD-4D8A-87BD-30B759FA33DD}</folder>
+    <folder name="Fonts">{FD228CB7-AE11-4AE3-864C-16F3910AB8FE}</folder>
+    <folder name="Games">{CAC52C1A-B53D-4edc-92D7-6B2E8AC19434}</folder>
+    <folder name="GameExplorer">{054FAE61-4DD8-4787-80B6-090220C4B700}</folder>
+    <folder name="History">{D9DC8A3B-B784-432E-A781-5A1130A75963}</folder>
+    <folder name="Homegroup">{52528A6B-B9E3-4ADD-B60D-588C2DBA842D}</folder>
+    <folder name="users username">{9B74B6A3-0DFD-4f11-9E78-5F7800F2E772}</folder>
+    <folder name="ImplicitAppShortcuts">{BCB5256F-79F6-4CEE-B725-DC34E402FD46}</folder>
+    <folder name="Temporary Internet Files">{352481E8-33BE-4251-BA85-6007CAEDCF9D}</folder>
+    <folder name="The Internet">{4D9F7874-4E0C-4904-967B-40B0D20C3E4B}</folder>
+    <folder name="Libraries">{1B3EA5DC-B587-4786-B4EF-BD1DC332AEAE}</folder>
+    <folder name="Links">{bfb9d5e0-c6a9-404c-b2b2-ae6db6af4968}</folder>
+    <folder name="Local">{F1B32785-6FBA-4FCF-9D55-7B8E7F157091}</folder>
+    <folder name="LocalLow">{A520A1A4-1780-4FF6-BD18-167343C5AF16}</folder>
+    <folder name="None">{2A00375E-224C-49DE-B8D1-440DF7EF3DDC}</folder>
+    <folder name="Music">{4BD8D571-6D19-48D3-BE97-422220080E43}</folder>
+    <folder name="Music">{2112AB0A-C86A-4FFE-A368-0DE96E47012E}</folder>
+    <folder name="Network Shortcuts">{C5ABBF53-E17F-4121-8900-86626FC2C973}</folder>
+    <folder name="Network">{D20BEEC4-5CA8-4905-AE3B-BF251EA09B53}</folder>
+    <folder name="Original Images">{2C36C0AA-5812-4b87-BFD0-4CD0DFB19B39}</folder>
+    <folder name="Slide Shows">{69D2CF90-FC33-4FB7-9A0C-EBB0F0FCB43C}</folder>
+    <folder name="Pictures">{A990AE9F-A03B-4E80-94BC-9912D7504104}</folder>
+    <folder name="Pictures">{33E28130-4E1E-4676-835A-98395C3BC3BB}</folder>
+    <folder name="Playlists">{DE92C1C7-837F-4F69-A3BB-86E631204A23}</folder>
+    <folder name="Printers">{76FC4E2D-D6AD-4519-A663-37BD56068185}</folder>
+    <folder name="Printer Shortcuts">{9274BD8D-CFD1-41C3-B35E-B13F55A758F4}</folder>
+    <folder name="The users username">{5E6C858F-0E22-4760-9AFE-EA3317B67173}</folder>
+    <folder name="ProgramData">{62AB5D82-FDC1-4DC3-A9DD-070D1D495D97}</folder>
+    <folder name="Program Files">{905e63b6-c1bf-494e-b29c-65b732d3d21a}</folder>
+    <folder name="Program Files">{6D809377-6AF0-444b-8957-A3773F02200E}</folder>
+    <folder name="Program Files">{7C5A40EF-A0FB-4BFC-874A-C0F2E0B9FA8E}</folder>
+    <folder name="Common Files">{F7F1ED05-9F6D-47A2-AAAE-29D317C6F066}</folder>
+    <folder name="Common Files">{6365D5A7-0F0D-45E5-87F6-0DA56B6A4F7D}</folder>
+    <folder name="Common Files">{DE974D24-D9C6-4D3E-BF91-F4455120B917}</folder>
+    <folder name="Programs">{A77F5D77-2E2B-44C3-A6A2-ABA601054A51}</folder>
+    <folder name="Public">{DFDF76A2-C82A-4D63-906A-5644AC457385}</folder>
+    <folder name="Public Desktop">{C4AA340D-F20F-4863-AFEF-F87EF2E6BA25}</folder>
+    <folder name="Public Documents">{ED4824AF-DCE4-45A8-81E2-FC7965083634}</folder>
+    <folder name="Public Downloads">{3D644C9B-1FB8-4f30-9B45-F670235F79C0}</folder>
+    <folder name="GameExplorer">{DEBF2536-E1A8-4c59-B6A2-414586476AEA}</folder>
+    <folder name="Libraries">{48DAF80B-E6CF-4F4E-B800-0E69D84EE384}</folder>
+    <folder name="Public">{3214FAB5-9757-4298-BB61-92A9DEAA44FF}</folder>
+    <folder name="Public Pictures">{B6EBFB86-6907-413C-9AF7-4FC2ABF07CC5}</folder>
+    <folder name="Ringtones">{E555AB60-153B-4D17-9F04-A5FE99FC15EC}</folder>
+    <folder name="Public Account Pictures">{0482af6c-08f1-4c34-8c90-e17ec98b1e17}</folder>
+    <folder name="Public Videos">{2400183A-6185-49FB-A2D8-4A392A602BA3}</folder>
+    <folder name="Quick Launch">{52a4f021-7b75-48a9-9f6b-4b87a210bc8f}</folder>
+    <folder name="Recent Items">{AE50C081-EBD2-438A-8655-8A092E34987A}</folder>
+    <folder name="Recorded TV">{1A6FDBA2-F42D-4358-A798-B74D745926C5}</folder>
+    <folder name="Recycle Bin">{B7534046-3ECB-4C18-BE4E-64CD4CB7D6AC}</folder>
+    <folder name="Resources">{8AD10C31-2ADB-4296-A8F7-E4701232C972}</folder>
+    <folder name="Ringtones">{C870044B-F49E-4126-A9C3-B52A1FF411E8}</folder>
+    <folder name="Roaming">{3EB685DB-65F9-4CF6-A03A-E3EF65729F3D}</folder>
+    <folder name="RoamedTileImages">{AAA8D5A5-F1D6-4259-BAA8-78E7EF60835E}</folder>
+    <folder name="RoamingTiles">{00BCFC5A-ED94-4e48-96A1-3F6217F21990}</folder>
+    <folder name="Sample Music">{B250C668-F57D-4EE1-A63C-290EE7D1AA1F}</folder>
+    <folder name="Sample Pictures">{C4900540-2379-4C75-844B-64E6FAF8716B}</folder>
+    <folder name="Sample Playlists">{15CA69B3-30EE-49C1-ACE1-6B5EC372AFB5}</folder>
+    <folder name="Sample Videos">{859EAD94-2E85-48AD-A71A-0969CB56A6CD}</folder>
+    <folder name="Saved Games">{4C5C32FF-BB9D-43b0-B5B4-2D72E54EAAA4}</folder>
+    <folder name="Searches">{7d1d3a04-debb-4115-95cf-2f29da2920da}</folder>
+    <folder name="Screenshots">{b7bede81-df94-4682-a7d8-57a52620b86f}</folder>
+    <folder name="Offline Files">{ee32e446-31ca-4aba-814f-a5ebd2fd6d5e}</folder>
+    <folder name="History">{0D4C3DB6-03A3-462F-A0E6-08924C41B5D4}</folder>
+    <folder name="Search Results">{190337d1-b8ca-4121-a639-6d472d16972a}</folder>
+    <folder name="Microsoft Office Outlook">{98ec0e18-2098-4d44-8644-66979315a281}</folder>
+    <folder name="Templates">{7E636BFE-DFA9-4D5E-B456-D7B39851D8A9}</folder>
+    <folder name="SendTo">{8983036C-27C0-404B-8F08-102D10DCFD74}</folder>
+    <folder name="Gadgets">{7B396E54-9EC5-4300-BE0A-2482EBAE1A26}</folder>
+    <folder name="Gadgets">{A75D362E-50FC-4fb7-AC2C-A8BEAA314493}</folder>
+    <folder name="OneDrive">{A52BBA46-E9E1-435f-B3D9-28DAA648C0F6}</folder>
+    <folder name="Camera Roll">{767E6811-49CB-4273-87C2-20F355E1085B}</folder>
+    <folder name="Documents">{24D89E24-2F19-4534-9DDE-6A6671FBB8FE}</folder>
+    <folder name="Pictures">{339719B5-8C47-4894-94C2-D8F77ADD44A6}</folder>
+    <folder name="Start Menu">{625B53C3-AB48-4EC1-BA1F-A1EF4146FC19}</folder>
+    <folder name="Startup">{B97D20BB-F46A-4C97-BA10-5E3608430854}</folder>
+    <folder name="Sync Center">{43668BF8-C14E-49B2-97C9-747784D784B7}</folder>
+    <folder name="Sync Results">{289a9a43-be44-4057-a41b-587a76d7e7f9</folder>
+    <folder name="Sync Setup">{0F214138-B1D3-4a90-BBA9-27CBC0C5389A}</folder>
+    <folder name="System32">{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}</folder>
+    <folder name="System32">{D65231B0-B2F1-4857-A4CE-A8E7C6EA7D27}</folder>
+    <folder name="Templates">{A63293E8-664E-48DB-A079-DF759E0509F7}</folder>
+    <folder name="User Pinned">{9E3995AB-1F9C-4F13-B827-48B24B6C7174}</folder>
+    <folder name="Users">{0762D272-C50A-4BB0-A382-697DCD729B80}</folder>
+    <folder name="Programs">{5CD7AEE2-2219-4A67-B85D-6C9CE15660CB}</folder>
+    <folder name="Programs">{BCBD3057-CA5C-4622-B42D-BC56DB0AE516}</folder>
+    <folder name="Users full name entered when the user account was created">{f3ce0f7c-4901-4acc-8648-d5d44b04ef8f}</folder>
+    <folder name="Libraries">{A302545D-DEFF-464b-ABE8-61C8648D939B}</folder>
+    <folder name="Videos">{18989B1D-99B5-455B-841C-AB7C74E4DDFC}</folder>
+    <folder name="Videos">{491E922F-5643-4AF4-A7EB-4E7A138D8174}</folder>
+    <folder name="Windows">{F38BF404-1D43-42F2-9305-67DE0B28FC23}</folder>
+  </folders>
+
+  <!-- guid -->
+  <guids>
+    <guid name="">27C3B8ED-0790-42BD-9AD7-18465E7F7696</guid>
+    <guid name="">27C3B8ED-0790-42BD-9AD7-18465E7F7696</guid>
+    <guid name="">27C3B8ED-0790-42BD-9AD7-18465E7F7696</guid>
+    <guid name="">97808F6C-4769-49D5-9553-18AE9C62ACD7</guid>
+    <guid name="">B196B286-BAB4-101A-B69C-00AA00341D07</guid>
+    <guid name="">D27CDB6E-AE6D-11CF-96B8-444553540000</guid>
+    <guid name="">abe2869f-9b47-4cd9-a358-c22904dba7f7</guid>
+    <guid name="">00000000-0000-0000-C000-000000000046</guid>
+    <guid name="">ADB880A6-D8FF-11CF-9377-00AA003B7A11</guid>
+    <guid name="">5e7e8100-9138-11d1-945a-00c04fc308ff</guid>
+    <guid name="">82bd0e67-9fea-4748-8672-d5efe5b779b0</guid>
+    <guid name="">5e7e8100-9138-11d1-945a-00c04fc308ff</guid>
+    <guid name="">82BD0E67-9FEA-4748-8672-D5EFE5B779B0</guid>
+    <guid name="">8856F961-340A-11D0-A96B-00C04FD705A2</guid>
+  </guids>
+
+  <!-- Registry -->
+  <regs>
+    <reg>ShellServiceObjectDelayLoad</reg>
+    <reg>AppInit_DLLs</reg>
+    <reg>CurrentVersion\Run</reg>
+    <reg>\Device\</reg>
+    <reg>\DosDevices\</reg>
+    <reg>DEFAULT\Software</reg>
+    <reg>.DEFAULT\Software</reg>
+    <reg>HKEY_CURRENT_USER</reg>
+    <reg>HKEY_LOCAL_MACHINE</reg>
+    <reg>HKEY_DYN_DATA</reg>
+    <reg>HKEY_PERFORMANCE_DATA</reg>
+    <reg>HKEY_CLASSES_ROOT</reg>
+    <reg>HKEY_CURRENT_USER</reg>
+    <reg>HKEY_LOCAL_MACHINE</reg>
+    <reg>HKEY_USERS</reg>
+    <reg>HKEY_PERFORMANCE_DATA</reg>
+    <reg>HKEY_CURRENT_CONFIG</reg>
+    <reg>HKEY_DYN_DATA</reg>
+    <reg>HKCR</reg>
+    <reg>HKCU</reg>
+    <reg>HKLM</reg>
+    <reg>HKPD</reg>
+    <reg>HKDD</reg>
+    <reg>HKCC</reg>
+    <reg>HKCU</reg>
+    <reg>Hardware\</reg>
+    <reg>disabletaskmanager</reg>
+    <reg>warnonintranet</reg>
+    <reg>loadappinit_dlls</reg>
+    <reg>noprotectedmodebanner</reg>
+    <reg>clsid\</reg>
+    <reg>root\securitycenter</reg>
+    <reg>\registry\machine</reg>
+    <reg>system\currentcontrolset</reg>
+    <reg>system\wpa\</reg>
+    <reg>\systemroot</reg>
+    <reg>\shell\open\command</reg>
+  </regs>
+
+  <folders>
+    <!-- Common folder variables http://www.microsoft.com/security/portal/mmpc/shared/variables.aspx#startup -->
+    <folder>%ALLUSERPROFILE%</folder>
+    <folder>AppData</folder>
+    <folder>%APPDATA%</folder>
+    <folder>commonappdata</folder>
+    <folder>%CommonProgramFiles%</folder>
+    <folder>%HOMEPATH%</folder>
+    <folder>%LOCALAPPDATA%</folder>
+    <folder>%ProgramData%</folder>
+    <folder>%ProgramFiles%</folder>
+    <folder>%PUBLIC%</folder>
+    <folder>%SystemDrive%</folder>
+    <folder>%SystemRoot%</folder>
+    <folder>%TEMP%</folder>
+    <folder>%USERPROFILE%</folder>
+    <folder>%windows%</folder>
+    <folder>%windir%</folder>
+    <folder>%system%</folder>
+    <folder>%temp%</folder>
+    <folder>%user%</folder>
+    <folder>%programfiles%</folder>
+    <folder>\WINNT\</folder>
+    <folder>\winnt\</folder>
+    <folder>\WINDOWS\</folder>
+    <folder>\windows\</folder>
+    <folder>\SYSTEM32\</folder>
+    <folder>\system32\</folder>
+    <folder>\SYSTEM\</folder>
+    <folder>\system\</folder>
+    <folder>\SYSTEMROOT\</folder>
+    <folder>\systemroot\</folder>
+    <folder>\SystemRoot\</folder>
+  </folders>
+
+  <oss>
+    <os>Microsoft Windows ME</os>
+    <os>Microsoft Windows 98</os>
+    <os>Microsoft Windows 95</os>
+    <os>Microsoft Windows 2000</os>
+    <os>Microsoft Windows XP</os>
+    <os>Home-Basic-Edition</os>
+    <os>Home-Premium-Edition</os>
+    <os>Home_Edition</os>
+    <os>Home_Server</os>
+    <os>WinNT</os>
+    <os>WIN32_NT</os>
+    <os>WIN_2008R2</os>
+    <os>WIN_7</os>
+    <os>WIN_2008</os>
+    <os>WIN_VISTA</os>
+    <os>WIN_2003</os>
+    <os>WIN_XPe</os>
+    <os>WIN_XP</os>
+    <os>WIN_2000</os>
+    <os>Web_Server_Edition</os>
+    <os>Standard_Edition_core_installation</os>
+    <os>Standard_Edition</os>
+    <os>Small_Business_Server_Premium_Edition</os>
+    <os>Small_Business_Server</os>
+    <os>Enterprise_Edition_for_ItaniumBased_System</os>
+    <os>Enterprise_Edition_core_installation</os>
+    <os>Datacenter_Edition_core_installation</os>
+    <os>Datacenter_Edition</os>
+    <os>Cluster_Server_Edition</os>
+    <os>Starter_Edition</os>
+    <os>Business_Edition</os>
+    <os>Enterprise_Edition</os>
+    <os>Home_Basic_Edition</os>
+    <os>Home_Premium_Edition</os>
+    <os>Ultimate_Edition</os>
+    <os>Server2008R2</os>
+    <os>Seven</os>
+    <os>Server2008</os>
+    <os>Win8</os>
+    <os>WinServer2012</os>
+    <os>Win7</os>
+    <os>WinServer2008R2</os>
+    <os>WinServer2008</os>
+    <os>Vista</os>
+    <os>WinHomeServer</os>
+    <os>WinServer2003R2</os>
+    <os>WinServer2003</os>
+    <os>WinXP64</os>
+    <os>WinXP</os>
+    <os>Win2K</os>
+    <os>Windows Me</os>
+    <os>Windows 98</os>
+    <os>Windows 95</os>
+    <os>Windows NT</os>
+    <os>Windows Vista</os>
+    <os>Windows 7</os>
+    <os>Windows 8</os>
+    <os>Windows 8.1</os>
+    <os>Windows NT 3.51</os>
+    <os>Windows NT 4.0</os>
+    <os>Windows Server</os>
+    <os>Windows Server 2012 R2</os>
+    <os>Windows 10</os>
+    <os>Microsoft Windows NT 3.51</os>
+    <os>Server 4.0</os>
+    <os>Server 4.0, Enterprise Edition </os>
+    <os>Microsoft Windows NT 4.0</os>
+    <os>Server</os>
+    <os>Web Edition</os>
+    <os>Enterprise Edition</os>
+    <os>Datacenter Edition</os>
+    <os>Windows Server 2016 Technical Preview</os>
+    <os>Ultimate Edition</os>
+    <os>Home Premium Edition</os>
+    <os>Home Basic Edition</os>
+    <os>Enterprise Edition</os>
+    <os>Business Edition</os>
+    <os>Starter Edition</os>
+    <os>Cluster Server Edition</os>
+    <os>Datacenter Edition</os>
+    <os>Datacenter Edition (core installation)</os>
+    <os>Enterprise Edition (core installation)</os>
+    <os>Enterprise Edition for Itanium-based Systems</os>
+    <os>Small Business Server</os>
+    <os>Small Business Server Premium Edition</os>
+    <os>Standard Edition</os>
+    <os>Standard Edition (core installation)</os>
+    <os>Web Server Edition</os>
+    <os>Professional Edition</os>
+    <os>Windows Server 2003</os>
+    <os>Windows Server 2003 R2</os>
+    <os>Windows Storage Server 2003</os>
+    <os>Windows XP</os>
+    <os>Windows XP Professional x64 Edition</os>
+    <os>Windows XP Professional x64</os>
+    <os>Datacenter Edition for Itanium-based Systems</os>
+    <os>Datacenter x64 Edition</os>
+    <os>Enterprise x64 Edition</os>
+    <os>Standard x64 Edition</os>
+    <os>Compute Cluster Edition</os>
+    <os>Web Edition</os>
+    <os>Home Edition</os>
+    <os>Professional</os>
+    <os>Windows 2000</os>
+    <os>Datacenter Server</os>
+    <os>Advanced Server</os>
+    <os>Windows Home Server</os>
+    <os>Windows Server 2008</os>
+    <os>Windows Server 2008 R2</os>
+    <os>Windows Server R2</os>
+    <os>Media Center Edition</os>
+    <os>Tablet PC Edition</os>
+    <os>Embedded Edition</os>
+    <os>Professional x64 Edition</os>
+    <os>Storage Server 2003 R2</os>
+    <os>Storage Server 2003</os>
+    <os>Server 2003 R2</os>
+    <os>Server 2003</os>
+    <os>Server 2008</os>
+    <os>Business</os>
+    <os>Business N</os>
+    <os>Datacenter Edition(Core)</os>
+    <os>Enterprise N</os>
+    <os>Enterprise Edition(Core)</os>
+    <os>Home Basic</os>
+    <os>Home Basic N</os>
+    <os>Home Premium</os>
+    <os>Home Premium N</os>
+    <os>Ultimate</os>
+    <os>Ultimate N</os>
+    <os>Standard Edition(Core)</os>
+    <os>NT3.1</os>
+    <os>NT3.5</os>
+    <os>NT3.51</os>
+    <os>2000</os>
+    <os>2003 Server</os>
+    <os>2008 Server</os>
+    <os>Win Vista</os>
+    <os>Win Srv 2008</os>
+    <os>Win 7</os>
+    <os>Win 8</os>
+    <os>Windows+8.1</os>
+    <os>Win Srv 2003</os>
+    <os>Win Srv</os>
+    <os>Win XP</os>
+    <os>Windows+XP</os>
+    <os>Windows XP (5.1)</os>
+    <os>Win 2000</os>
+    <os>Windows Server 2012</os>
+    <os>32-bit Edition</os>
+    <os>64-bit Edition</os>
+    <os>Windows Server 2000</os>
+    <os>2003</os>
+    <os>2008</os>
+    <os>Windows Server 2000</os>
+    <os>Windows+8</os>
+    <os>Windows+7</os>
+    <os>Windows+Vista</os>
+    <os>Windows+Server+2003</os>
+    <os>Windows+2000</os>
+    <os>Windows 2000 (5.0)</os>
+    <os>Windows 7 (6.1)</os>
+    <os>Windows Server 2003  (5.2)</os>
+    <os>Windows Server 2003 R2 (5.2)</os>
+    <os>Windows Server 2008 (6.0)</os>
+    <os>Windows Server 2008 R2 (6.1)</os>
+    <os>Windows Vista (6.0)</os>
+  </oss>
+
+  <!--Product IDs (e.g. Sandbox) -->
+  <products>
+    <product>76487-640-1457236-23837</product>
+    <product>76487-337-8429955-22614</product>
+    <product>76487-644-3177037-23510</product>
+    <product>76487-640-8834005-23195</product>
+    <product>76487-640-0716662-23535</product>
+    <product>76487-644-8648466-23106</product>
+    <product>76487-341-5883812-22420</product>
+    <product>76487-OEM-0027453-63796</product>
+    <product>76497-640-6308873-23835</product>
+    <product>55274-640-2673064-23950</product>
+    <product>00426-293-8170032-85146</product>
+  </products>
+
+  <!-- SID (Security Identifiers) -->
+  <sids group="30">
+    <sid name="">S-1-0</sid>
+    <sid name="">S-1-0-0</sid>
+    <sid name="">S-1-1</sid>
+    <sid name="">S-1-1-0</sid>
+    <sid name="">S-1-2</sid>
+    <sid name="">S-1-2-0</sid>
+    <sid name="">S-1-2-1</sid>
+    <sid name="">S-1-3</sid>
+    <sid name="">S-1-3-0</sid>
+    <sid name="">S-1-3-1</sid>
+    <sid name="">S-1-3-2</sid>
+    <sid name="">S-1-3-3</sid>
+    <sid name="">S-1-3-4</sid>
+    <sid name="">S-1-4</sid>
+    <sid name="">S-1-5</sid>
+    <sid name="">S-1-5-1</sid>
+    <sid name="">S-1-5-2</sid>
+    <sid name="">S-1-5-3</sid>
+    <sid name="">S-1-5-4</sid>
+    <sid name="">S-1-5-6</sid>
+    <sid name="">S-1-5-7</sid>
+    <sid name="">S-1-5-8</sid>
+    <sid name="">S-1-5-9</sid>
+    <sid name="">S-1-5-10</sid>
+    <sid name="">S-1-5-11</sid>
+    <sid name="">S-1-5-114</sid>
+    <sid name="">S-1-5-12</sid>
+    <sid name="">S-1-5-13</sid>
+    <sid name="">S-1-5-14</sid>
+    <sid name="">S-1-5-15</sid>
+    <sid name="">S-1-5-17</sid>
+    <sid name="">S-1-5-18</sid>
+    <sid name="">S-1-5-19</sid>
+    <sid name="">S-1-5-20</sid>
+    <sid name="">S-1-5-21</sid>
+    <sid name="">S-1-5-32-544</sid>
+    <sid name="">S-1-5-32-545</sid>
+    <sid name="">S-1-5-32-546</sid>
+    <sid name="">S-1-5-32-547</sid>
+    <sid name="">S-1-5-32-548</sid>
+    <sid name="">S-1-5-32-549</sid>
+    <sid name="">S-1-5-32-550</sid>
+    <sid name="">S-1-5-32-551</sid>
+    <sid name="">S-1-5-32-552</sid>
+    <sid name="">S-1-5-64-10</sid>
+    <sid name="">S-1-5-64-14</sid>
+    <sid name="">S-1-5-64-21</sid>
+    <sid name="">S-1-5-80</sid>
+    <sid name="">S-1-5-83-0</sid>
+    <sid name="">S-1-16-0</sid>
+    <sid name="Low Mandatory Level">S-1-16-4096</sid>
+    <sid name="">S-1-16-8192</sid>
+    <sid name="">S-1-16-8448</sid>
+    <sid name="">S-1-16-12288</sid>
+    <sid name="">S-1-16-16384</sid>
+    <sid name="">S-1-16-20480</sid>
+    <sid name="">S-1-16-28672</sid>
+    <sid name="">S-1-5-32-554</sid>
+    <sid name="">S-1-5-32-555</sid>
+    <sid name="">S-1-5-32-556</sid>
+    <sid name="">S-1-5-32-557</sid>
+    <sid name="">S-1-5-32-558</sid>
+    <sid name="">S-1-5-32-559</sid>
+    <sid name="">S-1-5-32-560</sid>
+    <sid name="">S-1-5-32-561</sid>
+    <sid name="">S-1-5-32-562</sid>
+    <sid name="">S-1-5-32-569</sid>
+    <sid name="">S-1-5-32-573</sid>
+    <sid name="">S-1-5-32-574</sid>
+    <sid name="">S-1-5-32-575</sid>
+    <sid name="">S-1-5-32-576</sid>
+    <sid name="">S-1-5-32-577</sid>
+    <sid name="">S-1-5-32-578</sid>
+    <sid name="">S-1-5-32-579</sid>
+    <sid name="">S-1-5-32-580</sid>
+  </sids>
+
+  <!-- protocols -->
+  <prots>
+    <prot enable="1" risk="1">http</prot>
+    <prot enable="1" risk="1">https</prot>
+    <prot enable="1" risk="1">httpmail</prot>
+    <prot enable="1" risk="1">nntp</prot>
+    <prot enable="1" risk="1">imap</prot>
+    <prot enable="1" risk="1">pop3</prot>
+    <prot enable="1" risk="1">file</prot>
+    <prot enable="1" risk="1">smtp</prot>
+    <prot enable="1" risk="1">ftp</prot>
+    <prot enable="1" risk="1">icmp</prot>
+  </prots>
+
+  <!-- utilities -->
+  <utils>
+    <util>at</util>
+    <util>atbroker</util>
+    <util>appvlp</util>
+    <util>bash</util>
+    <util>bginfo</util>
+    <util>arp</util>
+    <util>attrib</util>
+    <util>autorun</util>
+    <util>bitsadmin</util>
+    <util>bcdedit</util>
+    <util>cd</util>
+    <util>cdb</util>
+    <util>csi</util>
+    <util>cmd</util>
+    <util>chmod</util>
+    <util>chdir</util>
+    <util>crss</util>
+    <util>call</util>
+    <util>cscript</util>
+    <util>cacls</util>
+    <util>connect</util>
+    <util>ctfmon</util>
+    <util>certutil</util>
+    <util>control</util>
+    <util>cmstp</util>
+    <util>copy</util>
+    <util>create</util>
+    <util>dfsvc</util>
+    <util>download</util>
+    <util>diskshadow</util>
+    <util>dump</util>
+    <util>dnx</util>
+    <util>del</util>
+    <util>delete</util>
+    <util>dir</util>
+    <util>date</util>
+    <util>dbgview</util>
+    <util>echo</util>
+    <util>extrac32</util>
+    <util>exec</util>
+    <util>execute</util>
+    <util>expand</util>
+    <util>explorer</util>
+    <util>extract</util>
+    <util>findstr</util>
+    <util>forfiles</util>
+    <util>ipconfig</util>
+    <util>fsutil</util>
+    <util>goto</util>
+    <util>get</util>
+    <util>gwmi</util>
+    <util>hh</util>
+    <util>handle</util>
+    <util>hostname</util>
+    <util>ieexec</util>
+    <util>ie4unit</util>
+    <util>installutil</util>
+    <util>icacls</util>
+    <util>Install</util>
+    <util>javascript</util>
+    <util>kill</util>
+    <util>iexplore</util>
+    <util>logonui</util>
+    <util>launch</util>
+    <util>listdlls</util>
+    <util>LordPE</util>
+    <util>lsadump</util>
+    <util>lsass</util>
+    <util>lsasrv</util>
+    <util>msxsl</util>
+    <util>makecab</util>
+    <util>mavinject</util>
+    <util>msdt</util>
+    <util>msiexec</util>
+    <util>NetMon</util>
+    <util>mimikatz</util>
+    <util>mkdir</util>
+    <util>mshta</util>
+    <util>msbuild</util>
+    <util>net</util>
+    <util>netsh</util>
+    <util>nbtstat</util>
+    <util>netstat</util>
+    <util>nltest</util>
+    <util>nslookup</util>
+    <util>open</util>
+    <util>odbcconf</util>
+    <util>ps</util>
+    <util>pcalua</util>
+    <util>powershell</util>
+    <util>print</util>
+    <util>post</util>
+    <util>ping</util>
+    <util>pslist</util>
+    <util>powershell</util>
+    <util>psexec</util>
+    <util>psexesvc</util>
+    <util>pause</util>
+    <util>procexp</util>
+    <util>procexpl</util>
+    <util>procmon</util>
+    <util>qemu</util>
+    <util>regasm</util>
+    <util>regsvc</util>
+    <util>regsvr32</util>
+    <util>reghide</util>
+    <util>rdpclip</util>
+    <util>rmdir</util>
+    <util>reg</util>
+    <util>regasm</util>
+    <util>regsvcs</util>
+    <util>replace</util>
+    <util>runscripthelper</util>
+    <util>run</util>
+    <util>runas</util>
+    <util>runonce</util>
+    <util>rundLL</util>
+    <util>rundll32</util>
+    <util>route</util>
+    <util>regedit</util>
+    <util>regedt32</util>
+    <util>regmon</util>
+    <util>resume</util>
+    <util>sc</util>
+    <util>set</util>
+    <util>sed</util>
+    <util>secedit</util>
+    <util>shell</util>
+    <util>shred</util>
+    <util>sqlite3</util>
+    <util>scriptrunner</util>
+    <util>smss</util>
+    <util>sfxzip</util>
+    <util>setup</util>
+    <util>skype</util>
+    <util>search</util>
+    <util>schtasks</util>
+    <util>symerr</util>
+    <util>svchost</util>
+    <util>spoolsvc</util>
+    <util>select</util>
+    <util>send</util>
+    <util>service</util>
+    <util>services</util>
+    <util>sysrep</util>
+    <util>shutdown</util>
+    <util>start</util>
+    <util>stop</util>
+    <util>systeminfo</util>
+    <util>sqldumper</util>
+    <util>sqlps</util>
+    <util>tcpview</util>
+    <util>telnet</util>
+    <util>time</util>
+    <util>tor</util>
+    <util>tracert</util>
+    <util>taskkill</util>
+    <util>tskill</util>
+    <util>tasklist</util>
+    <util>te</util>
+    <util>tracker</util>
+    <util>unzip</util>
+    <util>taskmgr</util>
+    <util>update</util>
+    <util>vbox</util>
+    <util>vmware</util>
+    <util>vssadmin</util>
+    <util>virtualBox</util>
+    <util>wevtutil</util>
+    <util>whoami</util>
+    <util>wbadmin</util>
+    <util>winftp</util>
+    <util>winrar</util>
+    <util>winDir</util>
+    <util>winword</util>
+    <util>wmic</util>
+    <util>wscript</util>
+    <util>winlogon</util>
+    <util>wireshark</util>
+    <util>wget</util>
+    <util>write</util>
+    <util>wmic</util>
+    <util>xwizard</util>
+    <util>xcopy</util>
+    <util>xcals</util>
+    <util>aPLib v1.01  -  the smaller the better :)</util>
+    <util>ConfuserEx</util>
+    <util>ConfuserEx v0.1.1</util>
+    <util>ConfuserEx v0.1.2</util>
+    <util>ConfuserEx v0.2.0</util>
+    <util>ConfuserEx v0.2.1</util>
+    <util>ConfuserEx v0.2.2</util>
+    <util>ConfuserEx v0.2.3</util>
+    <util>ConfuserEx v0.3.0</util>
+    <util>ConfuserEx v0.4.0</util>
+    <util>ConfuserEx v0.5.0</util>
+    <util>ConfuserEx v0.6.0</util>
+    <util>ConfuserEx v1.0.0</util>
+    <util>Safengine Shielden v2.3.0.0</util>
+  </utils>
+
+  <!-- keyboard keys -->
+  <keys>
+    <key enable="1" risk="1">(Ctrl+</key>
+    <key enable="1" risk="1">(Alt+</key>
+    <key enable="1" risk="1">[shift+</key>
+    <key enable="1" risk="1">[Ctrl+</key>
+    <key enable="1" risk="1">[Alt+</key>
+    <key enable="1" risk="1">Left Windows</key>
+    <key enable="1" risk="1">Right Windows</key>
+    <key enable="1" risk="1">[Win+</key>
+    <key enable="1" risk="1">caps lock</key>
+    <key enable="1" risk="1">[CapsLock=off]</key>
+    <key enable="1" risk="1">[CapsLock=on]</key>
+    <key enable="1" risk="1">[At%s+%s]</key>
+    <key enable="1" risk="1">[C%sock=o%s]</key>
+    <key enable="1" risk="1">[Ct%s+%s]</key>
+    <key enable="1" risk="1">[W%s+%s]</key>
+    <key enable="1" risk="1">[LeftWin]</key>
+    <key enable="1" risk="1">[RightWin]</key>
+    <key enable="1" risk="1">[LArrow]</key>
+    <key enable="1" risk="1">[UArrow]</key>
+    <key enable="1" risk="1">[RArrow]</key>
+    <key enable="1" risk="1">[DArrow]</key>
+    <key enable="1" risk="1">[Ctrl+%c]</key>
+    <key enable="1" risk="1">[ESCAPE]</key>
+    <key enable="1" risk="1">[TAB]</key>
+    <key enable="1" risk="1">[DELETE]</key>
+    <key enable="1" risk="1">[CAPS LOCK]</key>
+    <key enable="1" risk="1">[BACKCPACE]</key>
+    <key enable="1" risk="1">[Backspace]</key>
+    <key enable="1" risk="1">[ENTER]</key>
+    <key enable="1" risk="1">[Enter]</key>
+    <key enable="1" risk="1">[Tab]</key>
+    <key enable="1" risk="1">[Arrow Left]</key>
+    <key enable="1" risk="1">[Arrow Up]</key>
+    <key enable="1" risk="1">[Arrow Right]</key>
+    <key enable="1" risk="1">[Arrow Down]</key>
+    <key enable="1" risk="1">[Home]</key>
+    <key enable="1" risk="1">[Page Up]</key>
+    <key enable="1" risk="1">[Page Down]</key>
+    <key enable="1" risk="1">[End]</key>
+    <key enable="1" risk="1">[Break]</key>
+    <key enable="1" risk="1">[Delete]</key>
+    <key enable="1" risk="1">[Insert]</key>
+    <key enable="1" risk="1">[Ent]</key>
+    <key enable="1" risk="1">[Print Screen]</key>
+    <key enable="1" risk="1">[Scroll Lock]</key>
+    <key enable="1" risk="1">[Caps Lock]</key>
+    <key enable="1" risk="1">[Alt]</key>
+    <key enable="1" risk="1">[Esc]</key>
+    <key enable="1" risk="1">[Back Space]</key>
+    <key enable="1" risk="1">[CONTROL]</key>
+    <key enable="1" risk="1">[PUSE]</key>
+    <key enable="1" risk="1">[LEFT]</key>
+    <key enable="1" risk="1">[RIGHT]</key>
+    <key enable="1" risk="1">[UP]</key>
+    <key enable="1" risk="1">[DOWN]</key>
+    <key enable="1" risk="1">[NUM LOCK]</key>
+    <key enable="1" risk="1">[RMOUSE]</key>
+    <key enable="1" risk="1">[LMOUSE]</key>
+    <key enable="1" risk="1">[AltRight]</key>
+    <key enable="1" risk="1">[AltLeft]</key>
+    <key enable="1" risk="1">[CtrlRight]</key>
+    <key enable="1" risk="1">[CtrlLeft]</key>
+    <key enable="1" risk="1">[ShiftRight]</key>
+    <key enable="1" risk="1">[ShiftLeft]</key>
+    <key enable="1" risk="1">[Scroll]</key>
+    <key enable="1" risk="1">[NumLock]</key>
+    <key enable="1" risk="1">[Sleep]</key>
+    <key enable="1" risk="1">[Menu]</key>
+    <key enable="1" risk="1">[WindowsRight]</key>
+    <key enable="1" risk="1">[WindowsLeft]</key>
+    <key enable="1" risk="1">[Suppr]</key>
+    <key enable="1" risk="1">[PrintScreen]</key>
+    <key enable="1" risk="1">[PageDown]</key>
+    <key enable="1" risk="1">[PageUp]</key>
+    <key enable="1" risk="1">[Caps]</key>
+    <key enable="1" risk="1">[Pause]</key>
+    <key enable="1" risk="1">[Ctrl]</key>
+    <key enable="1" risk="1">[Shift]</key>
+    <key enable="1" risk="1">[SHIFT]</key>
+    <key enable="1" risk="1">[Clear]</key>
+    <key enable="1" risk="1">[DownArrow]</key>
+    <key enable="1" risk="1">[RightArrow]</key>
+    <key enable="1" risk="1">[UpArrow]</key>
+    <key enable="1" risk="1">[LeftArrow]</key>
+    <key enable="1" risk="1">[Space]</key>
+    <key enable="1" risk="1">[CapsLock]</key>
+    <key enable="1" risk="1">[ALT-DOWN]</key>
+    <key enable="1" risk="1">[ALT-UP]</key>
+    <key enable="1" risk="1">[APPS]</key>
+    <key enable="1" risk="1">[BACK]</key>
+    <key enable="1" risk="1">[CLR]</key>
+    <key enable="1" risk="1">[CTRL-DOWN]</key>
+    <key enable="1" risk="1">[CTRL-UP]</key>
+    <key enable="1" risk="1">[Ctrl+A]</key>
+    <key enable="1" risk="1">[Ctrl+C]</key>
+    <key enable="1" risk="1">[Ctrl+D]</key>
+    <key enable="1" risk="1">[Ctrl+V]</key>
+    <key enable="1" risk="1">[Ctrl+X]</key>
+    <key enable="1" risk="1">[Ctrl+Z]</key>
+    <key enable="1" risk="1">[DEL]</key>
+    <key enable="1" risk="1">[EXECUTE]</key>
+    <key enable="1" risk="1">[F1]</key>
+    <key enable="1" risk="1">[F2]</key>
+    <key enable="1" risk="1">[F3]</key>
+    <key enable="1" risk="1">[F4]</key>
+    <key enable="1" risk="1">[F5]</key>
+    <key enable="1" risk="1">[F6]</key>
+    <key enable="1" risk="1">[F7]</key>
+    <key enable="1" risk="1">[F8]</key>
+    <key enable="1" risk="1">[F9]</key>
+    <key enable="1" risk="1">[F10]</key>
+    <key enable="1" risk="1">[F11]</key>
+    <key enable="1" risk="1">[F12]</key>
+    <key enable="1" risk="1">[BK]</key>
+    <key enable="1" risk="1">[INS]</key>
+    <key enable="1" risk="1">[LF]</key>
+    <key enable="1" risk="1">[SCROLLLOCK]</key>
+    <key enable="1" risk="1">[HELP]</key>
+    <key enable="1" risk="1">[BACK_SPACE]</key>
+    <key enable="1" risk="1">[RETURN]</key>
+    <key enable="1" risk="1">[Esc]</key>
+    <key enable="1" risk="1">[TAB]</key>
+    <key enable="1" risk="1">[CAPS LOCK]</key>
+    <key enable="1" risk="1">[SPACE]</key>
+    <key enable="1" risk="1">[LEFT_SHIFT]</key>
+    <key enable="1" risk="1">[RIGHT_SHIFT]</key>
+    <key enable="1" risk="1">[LEFT_CONTROL]</key>
+    <key enable="1" risk="1">[RIGHT_CONTROL]</key>
+    <key enable="1" risk="1">[LCONTROL-DOWN]</key>
+    <key enable="1" risk="1">[LCONTROL-UP]</key>
+    <key enable="1" risk="1">[LMENU-DOWN]</key>
+    <key enable="1" risk="1">[LMENU-UP]</key>
+    <key enable="1" risk="1">[LWIN-DOWN]</key>
+    <key enable="1" risk="1">[LWIN-UP]</key>
+    <key enable="1" risk="1">[PGDOWN]</key>
+    <key enable="1" risk="1">[PGUP]</key>
+    <key enable="1" risk="1">[PRINT]</key>
+    <key enable="1" risk="1">[RCONTROL-DOWN]</key>
+    <key enable="1" risk="1">[RCONTROL-UP]</key>
+    <key enable="1" risk="1">[RMENU-DOWN]</key>
+    <key enable="1" risk="1">[RMENU-UP]</key>
+    <key enable="1" risk="1">[RWIN-DOWN]</key>
+    <key enable="1" risk="1">[RWIN-UP]</key>
+    <key enable="1" risk="1">[SELECT]</key>
+    <key enable="1" risk="1">[SEPARATOR]</key>
+    <key enable="1" risk="1">[SNAPSHOT]</key>
+    <key enable="1" risk="1">[PRSC]</key>
+    <key enable="1" risk="1">[PrtSc]</key>
+    <key enable="1" risk="1">[WIN]</key>
+    <key enable="1" risk="1">{CLEAR}</key>
+    <key enable="1" risk="1">{SHIFT}</key>
+    <key enable="1" risk="1">{Pause}</key>
+    <key enable="1" risk="1">{CAPSLOCK}</key>
+    <key enable="1" risk="1">{ESC}</key>
+    <key enable="1" risk="1">{PAGE UP}</key>
+    <key enable="1" risk="1">{PAGE DOWN}</key>
+    <key enable="1" risk="1">{END}</key>
+    <key enable="1" risk="1">{HOME}</key>
+    <key enable="1" risk="1">{LEFT ARROW}</key>
+    <key enable="1" risk="1">{UP ARROW}</key>
+    <key enable="1" risk="1">{RIGHT ARROW}</key>
+    <key enable="1" risk="1">{DOWN ARROW}</key>
+    <key enable="1" risk="1">{SELECT}</key>
+    <key enable="1" risk="1">{PRINT SCREEN}</key>
+    <key enable="1" risk="1">{EXECUTE}</key>
+    <key enable="1" risk="1">{SNAPSHOT}</key>
+    <key enable="1" risk="1">{INS}</key>
+    <key enable="1" risk="1">{DEL}</key>
+    <key enable="1" risk="1">{HELP}</key>
+    <key enable="1" risk="1">{NUM LOCK}</key>
+    <key enable="1" risk="1">{End}</key>
+    <key enable="1" risk="1">(Ctrl + </key>
+    <key enable="1" risk="1">(Alt + </key>
+    <key enable="1" risk="1">{alt}</key>
+    <key enable="1" risk="1">{ctrl}</key>
+    <key enable="1" risk="1">{Tab}</key>
+    <key enable="1" risk="1">{Enter}</key>
+    <key enable="1" risk="1">{Caps}</key>
+    <key enable="1" risk="1">{Del}</key>
+    <key enable="1" risk="1">{Esc}</key>
+    <key enable="1" risk="1">{Up}</key>
+    <key enable="1" risk="1">{Down}</key>
+    <key enable="1" risk="1">{Left}</key>
+    <key enable="1" risk="1">{Right}</key>
+    <key enable="1" risk="1">{PageUp}</key>
+    <key enable="1" risk="1">{PageDown}</key>
+    <key enable="1" risk="1">{Home}</key>
+    <key enable="1" risk="1">{shift}</key>
+    <key enable="1" risk="1">Scroll</key>
+    <key enable="1" risk="1">Num Lock</key>
+    <key enable="1" risk="1">DownArrow</key>
+    <key enable="1" risk="1">RightArrow</key>
+    <key enable="1" risk="1">UpArrow</key>
+    <key enable="1" risk="1">LeftArrow</key>
+    <key enable="1" risk="1">PageDown</key>
+    <key enable="1" risk="1">PageUp</key>
+    <key enable="1" risk="1">CapsLock</key>
+    <key enable="1" risk="1">Ctrl</key>
+    <key enable="1" risk="1">Shift</key>
+    <key enable="1" risk="1">Backspace</key>
+    <key enable="1" risk="1">[lb_down]</key>
+    <key enable="1" risk="1">[rb_down]</key>
+    <key enable="1" risk="1">[backspace_down]</key>
+    <key enable="1" risk="1">[tab_down]</key>
+    <key enable="1" risk="1">[enter_down]</key>
+  </keys>
+
+  <events>
+    <event enable="1" risk="0">OnClick</event>
+    <event enable="1" risk="0">OnCreate</event>
+    <event enable="1" risk="0">OnDeletion</event>
+    <event enable="1" risk="0">OnDestroy</event>
+  </events>
+
+  <insults>
+    <insult>fuck</insult>
+    <insult>fukoff</insult>
+    <insult>Fuck You!!!</insult>
+    <insult>sandboxfuck</insult>
+    <insult>Fuck You By QQ:123**321</insult>
+    <insult>Shit!!</insult>
+    <insult>asshole</insult>
+    <insult>FUCK OFF!!!</insult>
+    <insult>Why the f*ck not???</insult>
+  </insults>
+
+  <dosstubs>
+    <dosstub bl="0" hint="1">!This program cannot be run in DOS mode.</dosstub>
+    <dosstub bl="1" hint="1">!That program cannot be run in DOS mode.</dosstub>
+    <dosstub bl="1" hint="1">!This program requires Microsoft Windows.</dosstub>
+    <dosstub bl="1" hint="1">!This is a PE dynamic link library</dosstub>
+    <dosstub bl="1" hint="1">!This is a Windows NT character-mode executable</dosstub>
+    <dosstub bl="1" hint="1">!This is a PE executable</dosstub>
+    <dosstub bl="1" hint="1">!This is a Win32 program.</dosstub>
+    <dosstub bl="1" hint="1">Win32 only!</dosstub>
+    <dosstub bl="0" hint="1">This program must be run under Win32</dosstub>
+    <dosstub bl="0" hint="1">This program must be run under Win32.</dosstub>
+    <dosstub bl="1" hint="1">This program must be run under Win64</dosstub>
+    <dosstub bl="1" hint="1">This program must be run under Win64.</dosstub>
+    <dosstub bl="1" hint="1">ThisprogrammustberununderWin32</dosstub>
+    <dosstub bl="1" hint="1">This program requires Microsoft Windows.</dosstub>
+    <dosstub bl="1" hint="1">!Require Windows</dosstub>
+    <dosstub bl="1" hint="1">!It's .NET EXE$@</dosstub>
+    <dosstub bl="1" hint="1">!Win32. EXE</dosstub>
+    <dosstub bl="1" hint="1">!Win32 .EXE.</dosstub>
+    <dosstub bl="1" hint="1">!Windows ONLY!</dosstub>
+    <dosstub bl="1" hint="1">Win32 Program!</dosstub>
+  </dosstubs>
+
+  <strings>
+    <string bl="1" wl="0">vbHide</string>
+    <string bl="0" wl="0" hint="1">CreateObject</string>
+    <string bl="0" wl="1">not a socket</string>
+    <string bl="0" wl="1">not a stream</string>
+    <string bl="0" wl="1">not connected</string>
+    <string bl="0" wl="1">not supported</string>
+    <string bl="0" wl="1">operation in progress</string>
+    <string bl="0" wl="1">operation not supported</string>
+    <string bl="0" wl="1">operation would block</string>
+    <string bl="0" wl="1">prot not supported</string>
+    <string bl="0" wl="1">read only file system</string>
+    <string bl="0" wl="1">resource deadlock would occur</string>
+    <string bl="0" wl="1">result out of range</string>
+    <string bl="0" wl="1">state not recoverable</string>
+    <string bl="0" wl="1">stream timeout</string>
+    <string bl="0" wl="1">text file busy</string>
+    <string bl="0" wl="1">timed out</string>
+    <string bl="0" wl="1">too many files open in system</string>
+    <string bl="0" wl="1">too many symbolic link levels</string>
+    <string bl="0" wl="1">value too large</string>
+    <string bl="0" wl="1">device or resource busy</string>
+    <string bl="0" wl="1">io error</string>
+    <string bl="0" wl="1">no space on device</string>
+    <string bl="0" wl="1">function not supported</string>
+    <string bl="0" wl="1">no lock available</string>
+    <string bl="0" wl="1">not enough memory</string>
+    <string bl="0" wl="1">resource unavailable try again</string>
+    <string bl="0" wl="1">cross device link</string>
+    <string bl="0" wl="1">operation canceled</string>
+    <string bl="0" wl="1">too many files open</string>
+    <string bl="0" wl="1">permission_denied</string>
+    <string bl="0" wl="1">address_in_use</string>
+    <string bl="0" wl="1">address_not_available</string>
+    <string bl="0" wl="1">address_family_not_supported</string>
+    <string bl="0" wl="1">bad_file_descriptor</string>
+    <string bl="0" wl="1">connection_reset</string>
+    <string bl="0" wl="1">destination_address_required</string>
+    <string bl="0" wl="1">bad_address</string>
+    <string bl="0" wl="1">operation_in_progress</string>
+    <string bl="0" wl="1">interrupted</string>
+    <string bl="0" wl="1">invalid_argument</string>
+    <string bl="0" wl="1">too_many_files_open</string>
+    <string bl="0" wl="1">message_size</string>
+    <string bl="0" wl="1">filename_too_long</string>
+    <string bl="0" wl="1">no_buffer_space</string>
+    <string bl="0" wl="1">no_protocol_option</string>
+    <string bl="0" wl="1">not_a_socket</string>
+    <string bl="0" wl="1">operation_not_supported</string>
+    <string bl="0" wl="1">protocol_not_supported</string>
+    <string bl="0" wl="1">wrong_protocol_type</string>
+    <string bl="0" wl="1">timed_out</string>
+    <string bl="0" wl="1">operation_would_block</string>
+    <string bl="0" wl="1">address family not supported</string>
+    <string bl="0" wl="1">address in use</string>
+    <string bl="0" wl="1">bad allocation</string>
+    <string bl="0" wl="1">connection aborted</string>
+    <string bl="0" wl="1">connection already in progress</string>
+    <string bl="0" wl="1">connection refused</string>
+    <string bl="0" wl="1">host unreachable</string>
+    <string bl="0" wl="1">network down</string>
+    <string bl="0" wl="1">network reset</string>
+    <string bl="0" wl="1">network unreachable</string>
+    <string bl="0" wl="1">owner dead</string>
+    <string bl="0" wl="1">prot error</string>
+    <string bl="0" wl="1">wrong prot type</string>
+    <string bl="0" wl="1">connection already in progress</string>
+    <string bl="0" wl="1">connection aborted</string>
+    <string bl="0" wl="1">connection refused</string>
+    <string bl="0" wl="1">host unreachable</string>
+    <string bl="0" wl="1">already connected</string>
+    <string bl="0" wl="1">network down</string>
+    <string bl="0" wl="1">network reset</string>
+    <string bl="0" wl="1">network unreachable</string>
+    <string bl="0" wl="1">not connected</string>
+    <string bl="0" wl="1">zh-CHS</string>
+    <string bl="0" wl="1">ar-SA</string>
+    <string bl="0" wl="1">bg-BG</string>
+    <string bl="0" wl="1">ca-ES</string>
+    <string bl="0" wl="1">zh-TW</string>
+    <string bl="0" wl="1">cs-CZ</string>
+    <string bl="0" wl="1">da-DK</string>
+    <string bl="0" wl="1">de-DE</string>
+    <string bl="0" wl="1">el-GR</string>
+    <string bl="0" wl="1">en-US</string>
+    <string bl="0" wl="1">fi-FI</string>
+    <string bl="0" wl="1">fr-FR</string>
+    <string bl="0" wl="1">he-IL</string>
+    <string bl="0" wl="1">hu-HU</string>
+    <string bl="0" wl="1">is-IS</string>
+    <string bl="0" wl="1">it-IT</string>
+    <string bl="0" wl="1">ja-JP</string>
+    <string bl="0" wl="1">ko-KR</string>
+    <string bl="0" wl="1">nl-NL</string>
+    <string bl="0" wl="1">nb-NO</string>
+    <string bl="0" wl="1">pl-PL</string>
+    <string bl="0" wl="1">pt-BR</string>
+    <string bl="0" wl="1">ro-RO</string>
+    <string bl="0" wl="1">ru-RU</string>
+    <string bl="0" wl="1">hr-HR</string>
+    <string bl="0" wl="1">sk-SK</string>
+    <string bl="0" wl="1">sq-AL</string>
+    <string bl="0" wl="1">sv-SE</string>
+    <string bl="0" wl="1">th-TH</string>
+    <string bl="0" wl="1">tr-TR</string>
+    <string bl="0" wl="1">ur-PK</string>
+    <string bl="0" wl="1">id-ID</string>
+    <string bl="0" wl="1">uk-UA</string>
+    <string bl="0" wl="1">be-BY</string>
+    <string bl="0" wl="1">sl-SI</string>
+    <string bl="0" wl="1">et-EE</string>
+    <string bl="0" wl="1">lv-LV</string>
+    <string bl="0" wl="1">lt-LT</string>
+    <string bl="0" wl="1">fa-IR</string>
+    <string bl="0" wl="1">vi-VN</string>
+    <string bl="0" wl="1">hy-AM</string>
+    <string bl="0" wl="1">az-AZ-Latn</string>
+    <string bl="0" wl="1">eu-ES</string>
+    <string bl="0" wl="1">mk-MK</string>
+    <string bl="0" wl="1">tn-ZA</string>
+    <string bl="0" wl="1">xh-ZA</string>
+    <string bl="0" wl="1">zu-ZA</string>
+    <string bl="0" wl="1">af-ZA</string>
+    <string bl="0" wl="1">ka-GE</string>
+    <string bl="0" wl="1">fo-FO</string>
+    <string bl="0" wl="1">hi-IN</string>
+    <string bl="0" wl="1">mt-MT</string>
+    <string bl="0" wl="1">se-NO</string>
+    <string bl="0" wl="1">ms-MY</string>
+    <string bl="0" wl="1">kk-KZ</string>
+    <string bl="0" wl="1">ky-KG</string>
+    <string bl="0" wl="1">sw-KE</string>
+    <string bl="0" wl="1">uz-UZ-Latn</string>
+    <string bl="0" wl="1">tt-RU</string>
+    <string bl="0" wl="1">bn-IN</string>
+    <string bl="0" wl="1">pa-IN</string>
+    <string bl="0" wl="1">gu-IN</string>
+    <string bl="0" wl="1">ta-IN</string>
+    <string bl="0" wl="1">te-IN</string>
+    <string bl="0" wl="1">kn-IN</string>
+    <string bl="0" wl="1">ml-IN</string>
+    <string bl="0" wl="1">mr-IN</string>
+    <string bl="0" wl="1">sa-IN</string>
+    <string bl="0" wl="1">mn-MN</string>
+    <string bl="0" wl="1">cy-GB</string>
+    <string bl="0" wl="1">gl-ES</string>
+    <string bl="0" wl="1">kok-IN</string>
+    <string bl="0" wl="1">syr-SY</string>
+    <string bl="0" wl="1">div-MV</string>
+    <string bl="0" wl="1">quz-BO</string>
+    <string bl="0" wl="1">ns-ZA</string>
+    <string bl="0" wl="1">mi-NZ</string>
+    <string bl="0" wl="1">ar-IQ</string>
+    <string bl="0" wl="1">zh-CN</string>
+    <string bl="0" wl="1">de-CH</string>
+    <string bl="0" wl="1">en-GB</string>
+    <string bl="0" wl="1">es-MX</string>
+    <string bl="0" wl="1">fr-BE</string>
+    <string bl="0" wl="1">it-CH</string>
+    <string bl="0" wl="1">nl-BE</string>
+    <string bl="0" wl="1">nn-NO</string>
+    <string bl="0" wl="1">pt-PT</string>
+    <string bl="0" wl="1">sr-SP-Latn</string>
+    <string bl="0" wl="1">sv-FI</string>
+    <string bl="0" wl="1">az-AZ-Cyrl</string>
+    <string bl="0" wl="1">se-SE</string>
+    <string bl="0" wl="1">ms-BN</string>
+    <string bl="0" wl="1">uz-UZ-Cyrl</string>
+    <string bl="0" wl="1">quz-EC</string>
+    <string bl="0" wl="1">ar-EG</string>
+    <string bl="0" wl="1">zh-HK</string>
+    <string bl="0" wl="1">de-AT</string>
+    <string bl="0" wl="1">en-AU</string>
+    <string bl="0" wl="1">es-ES</string>
+    <string bl="0" wl="1">fr-CA</string>
+    <string bl="0" wl="1">sr-SP-Cyrl</string>
+    <string bl="0" wl="1">se-FI</string>
+    <string bl="0" wl="1">quz-PE</string>
+    <string bl="0" wl="1">ar-LY</string>
+    <string bl="0" wl="1">zh-SG</string>
+    <string bl="0" wl="1">de-LU</string>
+    <string bl="0" wl="1">en-CA</string>
+    <string bl="0" wl="1">es-GT</string>
+    <string bl="0" wl="1">fr-CH</string>
+    <string bl="0" wl="1">hr-BA</string>
+    <string bl="0" wl="1">smj-NO</string>
+    <string bl="0" wl="1">ar-DZ</string>
+    <string bl="0" wl="1">zh-MO</string>
+    <string bl="0" wl="1">de-LI</string>
+    <string bl="0" wl="1">en-NZ</string>
+    <string bl="0" wl="1">es-CR</string>
+    <string bl="0" wl="1">fr-LU</string>
+    <string bl="0" wl="1">bs-BA-Latn</string>
+    <string bl="0" wl="1">smj-SE</string>
+    <string bl="0" wl="1">ar-MA</string>
+    <string bl="0" wl="1">en-IE</string>
+    <string bl="0" wl="1">es-PA</string>
+    <string bl="0" wl="1">fr-MC</string>
+    <string bl="0" wl="1">sr-BA-Latn</string>
+    <string bl="0" wl="1">sma-NO</string>
+    <string bl="0" wl="1">ar-TN</string>
+    <string bl="0" wl="1">en-ZA</string>
+    <string bl="0" wl="1">es-DO</string>
+    <string bl="0" wl="1">sr-BA-Cyrl</string>
+    <string bl="0" wl="1">sma-SE</string>
+    <string bl="0" wl="1">ar-OM</string>
+    <string bl="0" wl="1">en-JM</string>
+    <string bl="0" wl="1">es-VE</string>
+    <string bl="0" wl="1">sms-FI</string>
+    <string bl="0" wl="1">ar-YE</string>
+    <string bl="0" wl="1">en-CB</string>
+    <string bl="0" wl="1">es-CO</string>
+    <string bl="0" wl="1">smn-FI</string>
+    <string bl="0" wl="1">ar-SY</string>
+    <string bl="0" wl="1">en-BZ</string>
+    <string bl="0" wl="1">es-PE</string>
+    <string bl="0" wl="1">ar-JO</string>
+    <string bl="0" wl="1">en-TT</string>
+    <string bl="0" wl="1">es-AR</string>
+    <string bl="0" wl="1">ar-LB</string>
+    <string bl="0" wl="1">en-ZW</string>
+    <string bl="0" wl="1">es-EC</string>
+    <string bl="0" wl="1">ar-KW</string>
+    <string bl="0" wl="1">en-PH</string>
+    <string bl="0" wl="1">es-CL</string>
+    <string bl="0" wl="1">ar-AE</string>
+    <string bl="0" wl="1">es-UY</string>
+    <string bl="0" wl="1">ar-BH</string>
+    <string bl="0" wl="1">es-PY</string>
+    <string bl="0" wl="1">ar-QA</string>
+    <string bl="0" wl="1">es-BO</string>
+    <string bl="0" wl="1">es-SV</string>
+    <string bl="0" wl="1">es-HN</string>
+    <string bl="0" wl="1">es-NI</string>
+    <string bl="0" wl="1">es-PR</string>
+    <string bl="0" wl="1">zh-CHT</string>
+    <string bl="0" wl="1">af-za</string>
+    <string bl="0" wl="1">ar-ae</string>
+    <string bl="0" wl="1">ar-bh</string>
+    <string bl="0" wl="1">ar-dz</string>
+    <string bl="0" wl="1">ar-eg</string>
+    <string bl="0" wl="1">ar-iq</string>
+    <string bl="0" wl="1">ar-jo</string>
+    <string bl="0" wl="1">ar-kw</string>
+    <string bl="0" wl="1">ar-lb</string>
+    <string bl="0" wl="1">ar-ly</string>
+    <string bl="0" wl="1">ar-ma</string>
+    <string bl="0" wl="1">ar-om</string>
+    <string bl="0" wl="1">ar-qa</string>
+    <string bl="0" wl="1">ar-sy</string>
+    <string bl="0" wl="1">ar-tn</string>
+    <string bl="0" wl="1">ar-ye</string>
+    <string bl="0" wl="1">az-az-cyrl</string>
+    <string bl="0" wl="1">az-az-latn</string>
+    <string bl="0" wl="1">be-by</string>
+    <string bl="0" wl="1">bn-in</string>
+    <string bl="0" wl="1">bs-ba-latn</string>
+    <string bl="0" wl="1">cy-gb</string>
+    <string bl="0" wl="1">de-at</string>
+    <string bl="0" wl="1">de-ch</string>
+    <string bl="0" wl="1">de-li</string>
+    <string bl="0" wl="1">de-lu</string>
+    <string bl="0" wl="1">div-mv</string>
+    <string bl="0" wl="1">en-au</string>
+    <string bl="0" wl="1">en-bz</string>
+    <string bl="0" wl="1">en-ca</string>
+    <string bl="0" wl="1">en-cb</string>
+    <string bl="0" wl="1">en-gb</string>
+    <string bl="0" wl="1">en-ie</string>
+    <string bl="0" wl="1">en-jm</string>
+    <string bl="0" wl="1">en-nz</string>
+    <string bl="0" wl="1">en-ph</string>
+    <string bl="0" wl="1">en-tt</string>
+    <string bl="0" wl="1">en-za</string>
+    <string bl="0" wl="1">en-zw</string>
+    <string bl="0" wl="1">es-ar</string>
+    <string bl="0" wl="1">es-bo</string>
+    <string bl="0" wl="1">es-cl</string>
+    <string bl="0" wl="1">es-co</string>
+    <string bl="0" wl="1">es-cr</string>
+    <string bl="0" wl="1">es-do</string>
+    <string bl="0" wl="1">es-ec</string>
+    <string bl="0" wl="1">es-es</string>
+    <string bl="0" wl="1">es-gt</string>
+    <string bl="0" wl="1">es-hn</string>
+    <string bl="0" wl="1">es-mx</string>
+    <string bl="0" wl="1">es-ni</string>
+    <string bl="0" wl="1">es-pa</string>
+    <string bl="0" wl="1">es-pe</string>
+    <string bl="0" wl="1">es-pr</string>
+    <string bl="0" wl="1">es-py</string>
+    <string bl="0" wl="1">es-sv</string>
+    <string bl="0" wl="1">es-uy</string>
+    <string bl="0" wl="1">es-ve</string>
+    <string bl="0" wl="1">et-ee</string>
+    <string bl="0" wl="1">eu-es</string>
+    <string bl="0" wl="1">fa-ir</string>
+    <string bl="0" wl="1">fo-fo</string>
+    <string bl="0" wl="1">fr-be</string>
+    <string bl="0" wl="1">fr-ca</string>
+    <string bl="0" wl="1">fr-ch</string>
+    <string bl="0" wl="1">fr-lu</string>
+    <string bl="0" wl="1">fr-mc</string>
+    <string bl="0" wl="1">gl-es</string>
+    <string bl="0" wl="1">gu-in</string>
+    <string bl="0" wl="1">hi-in</string>
+    <string bl="0" wl="1">hr-ba</string>
+    <string bl="0" wl="1">hr-hr</string>
+    <string bl="0" wl="1">hy-am</string>
+    <string bl="0" wl="1">id-id</string>
+    <string bl="0" wl="1">it-ch</string>
+    <string bl="0" wl="1">it-it</string>
+    <string bl="0" wl="1">ja-jp</string>
+    <string bl="0" wl="1">ka-ge</string>
+    <string bl="0" wl="1">kk-kz</string>
+    <string bl="0" wl="1">kn-in</string>
+    <string bl="0" wl="1">kok-in</string>
+    <string bl="0" wl="1">ko-kr</string>
+    <string bl="0" wl="1">ky-kg</string>
+    <string bl="0" wl="1">lt-lt</string>
+    <string bl="0" wl="1">lv-lv</string>
+    <string bl="0" wl="1">mi-nz</string>
+    <string bl="0" wl="1">mk-mk</string>
+    <string bl="0" wl="1">ml-in</string>
+    <string bl="0" wl="1">mn-mn</string>
+    <string bl="0" wl="1">mr-in</string>
+    <string bl="0" wl="1">ms-bn</string>
+    <string bl="0" wl="1">ms-my</string>
+    <string bl="0" wl="1">mt-mt</string>
+    <string bl="0" wl="1">nb-no</string>
+    <string bl="0" wl="1">nl-be</string>
+    <string bl="0" wl="1">nl-nl</string>
+    <string bl="0" wl="1">nn-no</string>
+    <string bl="0" wl="1">ns-za</string>
+    <string bl="0" wl="1">pa-in</string>
+    <string bl="0" wl="1">pl-pl</string>
+    <string bl="0" wl="1">pt-br</string>
+    <string bl="0" wl="1">pt-ptv</string>
+    <string bl="0" wl="1">quz-bo</string>
+    <string bl="0" wl="1">quz-ec</string>
+    <string bl="0" wl="1">quz-pe</string>
+    <string bl="0" wl="1">ro-ro</string>
+    <string bl="0" wl="1">ru-ru</string>
+    <string bl="0" wl="1">sa-in</string>
+    <string bl="0" wl="1">se-fi</string>
+    <string bl="0" wl="1">se-no</string>
+    <string bl="0" wl="1">se-se</string>
+    <string bl="0" wl="1">sk-sk</string>
+    <string bl="0" wl="1">sl-si</string>
+    <string bl="0" wl="1">sma-no</string>
+    <string bl="0" wl="1">sma-se</string>
+    <string bl="0" wl="1">smj-no</string>
+    <string bl="0" wl="1">smj-se</string>
+    <string bl="0" wl="1">smn-fi</string>
+    <string bl="0" wl="1">sms-fi</string>
+    <string bl="0" wl="1">sq-al</string>
+    <string bl="0" wl="1">sr-ba-cyrl</string>
+    <string bl="0" wl="1">sr-ba-latn</string>
+    <string bl="0" wl="1">sr-sp-cyrl</string>
+    <string bl="0" wl="1">sr-sp-latn</string>
+    <string bl="0" wl="1">sv-fi</string>
+    <string bl="0" wl="1">sv-se</string>
+    <string bl="0" wl="1">sw-ke</string>
+    <string bl="0" wl="1">syr-sy</string>
+    <string bl="0" wl="1">ta-in</string>
+    <string bl="0" wl="1">te-in</string>
+    <string bl="0" wl="1">th-th</string>
+    <string bl="0" wl="1">tn-za</string>
+    <string bl="0" wl="1">tr-tr</string>
+    <string bl="0" wl="1">tt-ru</string>
+    <string bl="0" wl="1">uk-ua</string>
+    <string bl="0" wl="1">ur-pk</string>
+    <string bl="0" wl="1">uz-uz-cyrl</string>
+    <string bl="0" wl="1">uz-uz-latn</string>
+    <string bl="0" wl="1">vi-vn</string>
+    <string bl="0" wl="1">xh-za</string>
+    <string bl="0" wl="1">zh-cht</string>
+    <string bl="0" wl="1">zh-cn</string>
+    <string bl="0" wl="1">zh-hk</string>
+    <string bl="0" wl="1">zh-mo</string>
+    <string bl="0" wl="1">zh-sg</string>
+    <string bl="0" wl="1">zu-za</string>
+    <string bl="0" wl="1">united-states</string>
+    <string bl="0" wl="1">united-kingdom</string>
+    <string bl="0" wl="1">south-korea</string>
+    <string bl="0" wl="1">south-africa</string>
+    <string bl="0" wl="1">south korea</string>
+    <string bl="0" wl="1">south africa</string>
+    <string bl="0" wl="1">slovak</string>
+    <string bl="0" wl="1">puerto-rico</string>
+    <string bl="0" wl="1">pr-china</string>
+    <string bl="0" wl="1">pr china</string>
+    <string bl="0" wl="1">new-zealand</string>
+    <string bl="0" wl="1">hong-kong</string>
+    <string bl="0" wl="1">holland</string>
+    <string bl="0" wl="1">great britain</string>
+    <string bl="0" wl="1">england</string>
+    <string bl="0" wl="1">czech</string>
+    <string bl="0" wl="1">china</string>
+    <string bl="0" wl="1">britain</string>
+    <string bl="0" wl="1">america</string>
+    <string bl="0" wl="1">swiss</string>
+    <string bl="0" wl="1">DVCLAL</string>
+    <string bl="0" wl="1">December</string>
+    <string bl="0" wl="1">November</string>
+    <string bl="0" wl="1">October</string>
+    <string bl="0" wl="1">September</string>
+    <string bl="0" wl="1">August</string>
+    <string bl="0" wl="1">July</string>
+    <string bl="0" wl="1">June</string>
+    <string bl="0" wl="1">April</string>
+    <string bl="0" wl="1">March</string>
+    <string bl="0" wl="1">February</string>
+    <string bl="0" wl="1">January</string>
+    <string bl="0" wl="1">Saturday</string>
+    <string bl="0" wl="1">Friday</string>
+    <string bl="0" wl="1">Thursday</string>
+    <string bl="0" wl="1">Wednesday</string>
+    <string bl="0" wl="1">Tuesday</string>
+    <string bl="0" wl="1">Monday</string>
+    <string bl="0" wl="1">Sunday</string>
+    <string bl="0" wl="1">SunMonTueWedThuFriSat</string>
+    <string bl="0" wl="1">(null)</string>
+    <string bl="0" wl="1">runtime error </string>
+    <string bl="0" wl="1">Program:</string>
+    <string bl="0" wl="1">LC_TIME</string>
+    <string bl="0" wl="1">LC_NUMERIC</string>
+    <string bl="0" wl="1">LC_MONETARY</string>
+    <string bl="0" wl="1">LC_CTYPE</string>
+    <string bl="0" wl="1">LC_COLLATE</string>
+    <string bl="0" wl="1">LC_ALL</string>
+    <string bl="0" wl="1">__unaligned</string>
+    <string bl="0" wl="1">__restrict</string>
+    <string bl="0" wl="1">__ptr64</string>
+    <string bl="0" wl="1">__eabi</string>
+    <string bl="0" wl="1">__clrcall</string>
+    <string bl="0" wl="1">__fastcall</string>
+    <string bl="0" wl="1">__thiscall</string>
+    <string bl="0" wl="1">__stdcall</string>
+    <string bl="0" wl="1">__pascal</string>
+    <string bl="0" wl="1">__cdecl</string>
+    <string bl="0" wl="1">_nextafter</string>
+    <string bl="0" wl="1">_logb</string>
+    <string bl="0" wl="1">frexp</string>
+    <string bl="0" wl="1">fmod</string>
+    <string bl="0" wl="1">_hypot</string>
+    <string bl="0" wl="1">_cabs</string>
+    <string bl="0" wl="1">ldexp</string>
+    <string bl="0" wl="1">modf</string>
+    <string bl="0" wl="1">fabs</string>
+    <string bl="0" wl="1">floor</string>
+    <string bl="0" wl="1">ceil</string>
+    <string bl="0" wl="1">sqrt</string>
+    <string bl="0" wl="1">atan2</string>
+    <string bl="0" wl="1">atan</string>
+    <string bl="0" wl="1">acos</string>
+    <string bl="0" wl="1">asin</string>
+    <string bl="0" wl="1">tanh</string>
+    <string bl="0" wl="1">cosh</string>
+    <string bl="0" wl="1">sinh</string>
+    <string bl="0" wl="1">log10</string>
+    <string bl="0" wl="1">HH:mm:ss</string>
+    <string bl="0" wl="1">dddd, MMMM dd, yyyy</string>
+    <string bl="0" wl="1">MM/dd/yy</string>
+    <string bl="0" wl="1">__int128</string>
+    <string bl="0" wl="1">__int32</string>
+    <string bl="0" wl="1">__int64</string>
+    <string bl="0" wl="1">__int16</string>
+    <string bl="0" wl="1">__w64 </string>
+    <string bl="0" wl="1">__int8</string>
+    <string bl="0" wl="1">float</string>
+    <string bl="0" wl="1">long</string>
+    <string bl="0" wl="1">short</string>
+    <string bl="0" wl="1">char</string>
+    <string bl="0" wl="1">Program:</string>
+    <string bl="0" wl="1">An application has made an attempt to load the C runtime library incorrectly.</string>
+    <string bl="0" wl="1">bad exception</string>
+    <string bl="0" wl="1">Illegal byte sequence</string>
+    <string bl="0" wl="1">Directory not empty</string>
+    <string bl="0" wl="1">Function not implemented</string>
+    <string bl="0" wl="1">No locks available</string>
+    <string bl="0" wl="1">Filename too long</string>
+    <string bl="0" wl="1">Resource deadlock avoided</string>
+    <string bl="0" wl="1">Result too large</string>
+    <string bl="0" wl="1">Broken pipe</string>
+    <string bl="0" wl="1">Too many links</string>
+    <string bl="0" wl="1">Read-only file system</string>
+    <string bl="0" wl="1">Invalid seek</string>
+    <string bl="0" wl="1">No space left on device</string>
+    <string bl="0" wl="1">File too large</string>
+    <string bl="0" wl="1">Inappropriate I/O control operation</string>
+    <string bl="0" wl="1">Too many open files</string>
+    <string bl="0" wl="1">Too many open files in system</string>
+    <string bl="0" wl="1">Invalid argument</string>
+    <string bl="0" wl="1">Is a directory</string>
+    <string bl="0" wl="1">Not a directory</string>
+    <string bl="0" wl="1">No such device</string>
+    <string bl="0" wl="1">Improper link</string>
+    <string bl="0" wl="1">File exists</string>
+    <string bl="0" wl="1">Resource device</string>
+    <string bl="0" wl="1">Unknown error</string>
+    <string bl="0" wl="1">Bad address</string>
+    <string bl="0" wl="1">Permission denied</string>
+    <string bl="0" wl="1">Not enough space</string>
+    <string bl="0" wl="1">Resource temporarily unavailable</string>
+    <string bl="0" wl="1">No child processes</string>
+    <string bl="0" wl="1">Bad file descriptor</string>
+    <string bl="0" wl="1">Exec format error</string>
+    <string bl="0" wl="1">Arg list too long</string>
+    <string bl="0" wl="1">No such device or address</string>
+    <string bl="0" wl="1">Interrupted function call</string>
+    <string bl="0" wl="1">No such process</string>
+    <string bl="0" wl="1">No such file or directory</string>
+    <string bl="0" wl="1">Operation not permitted</string>
+    <string bl="0" wl="1">No error</string>
+    <string bl="0" wl="1">string too long</string>
+    <string bl="0" wl="1">invalid string position</string>
+    <string bl="0" wl="1">bad locale name</string>
+    <string bl="0" wl="1">ios_base::badbit set</string>
+    <string bl="0" wl="1">ios_base::failbit set</string>
+    <string bl="0" wl="1">ios_base::eofbit set</string>
+    <string bl="0" wl="1">DMicrosoft Visual C++ Runtime Library</string>
+    <string bl="0" wl="1">CONOUT$</string>
+    <string bl="0" wl="1">std::nullptr_t</string>
+    <string bl="0" wl="1">JanFebMarAprMayJunJulAugSepOctNovDec</string>
+    <string bl="0" wl="1">R6002\r\n- floating point support not loaded\r\n</string>
+    <string bl="0" wl="1">R6002\r\n- floating point not loaded\r\n</string>
+    <string bl="0" wl="1">R6008\r\n- not enough space for arguments\r\n</string>
+    <string bl="0" wl="1">R6009\r\n- not enough space for environment\r\n</string>
+    <string bl="0" wl="1">program name unknown</string>
+    <string bl="0" wl="1">abnormal program termination\r\n</string>
+    <string bl="0" wl="1">R6010\r\n- abort() has been called\r\n</string>
+    <string bl="0" wl="1">R6016\r\n- not enough space for thread data\r\n</string>
+    <string bl="0" wl="1">R6017\r\n- unexpected multithread lock error\r\n</string>
+    <string bl="0" wl="1">R6018\r\n- unexpected heap error\r\n</string>
+    <string bl="0" wl="1">R6019\r\n- unable to open console device\r\n</string>
+    <string bl="0" wl="1">R6024\r\n- not enough space for _onexit/atexit table\r\n</string>
+    <string bl="0" wl="1">R6025\r\n- pure virtual function call\r\n</string>
+    <string bl="0" wl="1">R6026\r\n- not enough space for stdio initialization\r\n</string>
+    <string bl="0" wl="1">R6027\r\n- not enough space for lowio initialization\r\n</string>
+    <string bl="0" wl="1">R6028\r\n- unable to initialize heap\r\n</string>
+    <string bl="0" wl="1">R6029\r\n- This application cannot run using the active version of the Microsoft .NET Runtime - floating point not loaded</string>
+    <string bl="0" wl="1">R6030\r\n- CRT not initialized\r\n</string>
+    <string bl="0" wl="1">R6031\r\n- Attempt to initialize the CRT more than once.</string>
+    <string bl="0" wl="1">This indicates a bug in your application.\r\n</string>
+    <string bl="0" wl="1">R6032\r\n- not enough space for locale information\r\n</string>
+    <string bl="0" wl="1">R6033\r\n- Attempt to use MSIL code from this assembly during native code initialization</string>
+    <string bl="0" wl="1">R6034\r\nAn application has made an attempt to load the C runtime library incorrectly.</string>
+    <string bl="0" wl="1">R6034\r\n- inconsistent onexit begin-end variables\r\n</string>
+    <string bl="0" wl="1">This indicates a bug in your application. It is most likely the result of calling an MSIL-compiled (/clr) function from a native constructor or from DllMain.\r\n</string>
+    <string bl="0" wl="1">This application has requested the Runtime to terminate it in an unusual way.</string>
+    <string bl="0" wl="1">Please contact the application's support team for more information.\r\n</string>
+    <string bl="0" wl="1">Runtime Error!</string>
+    <string bl="0" wl="1">- floating point not loaded</string>
+    <string bl="0" wl="1">Microsoft Visual C++ Runtime Library</string>
+    <string bl="0" wl="0">IsProcessorFeaturePresent</string>
+    <string bl="0" wl="0">GetActiveWindow</string>
+    <string bl="0" wl="1">GetLastActivePopup</string>
+    <string bl="0" wl="1">TLOSS error\r\n</string>
+    <string bl="0" wl="1">SING error\r\n</string>
+    <string bl="0" wl="1">DOMAIN error\r\n</string>
+    <string bl="0" wl="1">Unknown exception</string>
+    <string bl="0" wl="1">@Microsoft Visual C++ Runtime Library</string>
+    <string bl="0" wl="1">UTF-8</string>
+    <string bl="0" wl="1">UTF-16LE</string>
+    <string bl="0" wl="1">UNICODE</string>
+    <string bl="0" wl="1">Runtime Error!\r\nProgram:</string>
+    <string bl="0" wl="1">swedish-finland</string>
+    <string bl="0" wl="1">spanish-venezuela</string>
+    <string bl="0" wl="1">spanish-uruguay</string>
+    <string bl="0" wl="1">spanish-puerto rico</string>
+    <string bl="0" wl="1">spanish-peru</string>
+    <string bl="0" wl="1">spanish-paraguay</string>
+    <string bl="0" wl="1">spanish-panama</string>
+    <string bl="0" wl="1">spanish-nicaragua</string>
+    <string bl="0" wl="1">spanish-modern</string>
+    <string bl="0" wl="1">spanish-mexican</string>
+    <string bl="0" wl="1">spanish-honduras</string>
+    <string bl="0" wl="1">spanish-guatemala</string>
+    <string bl="0" wl="1">spanish-el salvador</string>
+    <string bl="0" wl="1">spanish-ecuador</string>
+    <string bl="0" wl="1">spanish-dominican republic</string>
+    <string bl="0" wl="1">spanish-costa rica</string>
+    <string bl="0" wl="1">spanish-colombia</string>
+    <string bl="0" wl="1">spanish-chile</string>
+    <string bl="0" wl="1">spanish-bolivia</string>
+    <string bl="0" wl="1">spanish-argentina</string>
+    <string bl="0" wl="1">portuguese-brazilian</string>
+    <string bl="0" wl="1">norwegian-nynorsk</string>
+    <string bl="0" wl="1">norwegian-bokmal</string>
+    <string bl="0" wl="1">norwegian</string>
+    <string bl="0" wl="1">italian-swissv</string>
+    <string bl="0" wl="1">irish-english</string>
+    <string bl="0" wl="1">german-swiss</string>
+    <string bl="0" wl="1">german-luxembourgv</string>
+    <string bl="0" wl="1">german-lichtenstein</string>
+    <string bl="0" wl="1">german-austrian</string>
+    <string bl="0" wl="1">french-swiss</string>
+    <string bl="0" wl="1">french-luxembourg</string>
+    <string bl="0" wl="1">french-canadian</string>
+    <string bl="0" wl="1">french-belgian</string>
+    <string bl="0" wl="1">english-usa</string>
+    <string bl="0" wl="1">english-us</string>
+    <string bl="0" wl="1">english-uk</string>
+    <string bl="0" wl="1">english-trinidad y tobago</string>
+    <string bl="0" wl="1">english-south africa</string>
+    <string bl="0" wl="1">english-nzv</string>
+    <string bl="0" wl="1">english-jamaica</string>
+    <string bl="0" wl="1">english-ire</string>
+    <string bl="0" wl="1">english-caribbean</string>
+    <string bl="0" wl="1">english-can</string>
+    <string bl="0" wl="1">english-belize</string>
+    <string bl="0" wl="1">english-aus</string>
+    <string bl="0" wl="1">english-american</string>
+    <string bl="0" wl="1">dutch-belgian</string>
+    <string bl="0" wl="1">chinese-traditional</string>
+    <string bl="0" wl="1">chinese-singapore</string>
+    <string bl="0" wl="1">chinese-simplified</string>
+    <string bl="0" wl="1">chinese-hongkong</string>
+    <string bl="0" wl="1">chinese</string>
+    <string bl="0" wl="1">canadian</string>
+    <string bl="0" wl="1">belgian</string>
+    <string bl="0" wl="1">australian</string>
+    <string bl="0" wl="1">american-englishv</string>
+    <string bl="0" wl="1">american englishv</string>
+    <string bl="0" wl="1">american</string>
+    <string bl="0" wl="1">american english</string>
+    <string bl="0" wl="1">american-english</string>
+    <string bl="0" wl="1">english-nz</string>
+    <string bl="0" wl="1">german-luxembourg</string>
+    <string bl="0" wl="1">italian-swiss</string>
+    <string bl="0" wl="1">Norwegian-Nynorsk</string>
+    <string bl="0" wl="1">Sunday</string>
+    <string bl="0" wl="1">Monday</string>
+    <string bl="0" wl="1">Tuesday</string>
+    <string bl="0" wl="1">Wednesday</string>
+    <string bl="0" wl="1">Thursday</string>
+    <string bl="0" wl="1">Friday</string>
+    <string bl="0" wl="1">Saturday</string>
+    <string bl="0" wl="1">January</string>
+    <string bl="0" wl="1">February</string>
+    <string bl="0" wl="1">March</string>
+    <string bl="0" wl="1">April</string>
+    <string bl="0" wl="1">June</string>
+    <string bl="0" wl="1">July</string>
+    <string bl="0" wl="1">August</string>
+    <string bl="0" wl="1">September</string>
+    <string bl="0" wl="1">October</string>
+    <string bl="0" wl="1">November</string>
+    <string bl="0" wl="1">December</string>
+    <string bl="0" wl="1">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string bl="0" wl="1">operator</string>
+    <string bl="0" wl="1">unsigned </string>
+    <string bl="0" wl="1">long </string>
+    <string bl="0" wl="1">int </string>
+    <string bl="0" wl="1">short </string>
+    <string bl="0" wl="1">char </string>
+    <string bl="0" wl="1">void</string>
+    <string bl="0" wl="1">NULL</string>
+    <string bl="0" wl="1">void </string>
+    <string bl="0" wl="1">union </string>
+    <string bl="0" wl="1">struct </string>
+    <string bl="0" wl="1">class </string>
+    <string bl="0" wl="1">enum </string>
+    <string bl="0" wl="1">coclass </string>
+    <string bl="0" wl="1">cointerface </string>
+    <string bl="0" wl="1">virtual </string>
+    <string bl="0" wl="1">static </string>
+    <string bl="0" wl="1">BUTTON</string>
+    <string bl="0" wl="1">MS Shell Dlg</string>
+    <string bl="0" wl="1">COMBOBOX</string>
+    <string bl="0" wl="1">SYSTREEVIEW32</string>
+    <string bl="0" wl="1">RICHEDIT20W</string>
+    <string bl="0" wl="1">MSCTLS_PROGRESS32</string>
+    <string bl="0" wl="1">SYSLISTVIEW32</string>
+    <string bl="0" wl="1">EDIT</string>
+    <string bl="0" wl="1">signed </string>
+    <string bl="0" wl="1">double</string>
+    <string bl="0" wl="1">bool</string>
+    <string bl="0" wl="1">generic</string>
+    <string bl="0" wl="1">iostream</string>
+    <string bl="0" wl="1">iostream stream error</string>
+    <string bl="0" wl="1">CorExitProcess</string>
+    <string bl="0" wl="1">EncodePointer</string>
+    <string bl="0" wl="1">DecodePointer</string>
+    <string bl="0" wl="1">FlsFree</string>
+    <string bl="0" wl="1">FlsSetValue</string>
+    <string bl="0" wl="1">FlsGetValue</string>
+    <string bl="0" wl="1">FlsAlloc</string>
+    <string bl="0" wl="1">delete</string>
+    <string bl="0" wl="1">new</string>
+    <string bl="0" wl="1">__GLOBAL_HEAP_SELECTED</string>
+    <string bl="0" wl="1">__MSVCRT_HEAP_SELECT</string>
+    <string bl="1" >unzip</string>
+    <string bl="1">inflate</string>
+    <string bl="1">\\.\SICE</string>
+    <string bl="1">\\.\REGSYS</string>
+    <string bl="1">\\.\REGVXG</string>
+    <string bl="1">\\.\FILEVXG</string>
+    <string bl="1">\\.\FILEM</string>
+    <string bl="1">MSXML2.ServerXMLHTTP$</string>
+    <string bl="1">Word.Document.8</string>
+    <string bl="1">PROJECT.THISDOCUMENT.AUTOOPEN</string>
+    <string bl="1">Microsoft Office</string>
+    <string bl="1">Macros</string>
+    <string bl="1">webcam</string>
+    <string bl="1">Please Enable Content* to see this document.</string>
+    <string bl="1">Enable Content</string>
+    <string bl="1">Program Files (x86)</string>
+    <string bl="1">PROCEXPLORER</string>
+    <string bl="1">MSScriptControl.ScriptControl.1</string>
+    <string bl="1">Embedded Control</string>
+    <string bl="1">Microsoft Word 10.0</string>
+    <string bl="1">OCXNAME</string>
+    <string bl="1">money</string>
+    <string bl="1">Mr.Black</string>
+    <string bl="1">WinZip Self-Extractor - Password</string>
+    <string bl="1">This self-extracting Zip file is password protected.</string>
+    <string bl="1">Windows Installer XML (3.0.5419.0)</string>
+    <string bl="1">ResponseText</string>
+    <string bl="1">Your personal files are encrypted!</string>
+    <string bl="1">!!!Rescue your files!!!</string>
+    <string bl="1">Now you have the last chance to decrypt your files.</string>
+    <string bl="1">Any attempt to remove or corrupt this software will result</string>
+    <string bl="1">in immediate elimination of the private key by the server.</string>
+    <string bl="1">Your decryption price will</string>
+    <string bl="1">Everything is fine now decrypting all files.</string>
+    <string bl="1">All files Decrypted</string>
+    <string bl="1">Enter Decrypt Key</string>
+    <string bl="1">WScript.Shell</string>
+    <string bl="1">System Volume Information</string>
+    <string bl="1">Boot</string>
+    <string bl="1">_ReflectiveLoader@0</string>
+    <string bl="1">_ReflectiveLoader@4</string>
+    <string group="--">Copyright (c) 1998-2009 by Joergen Ibsen All Rights Reserved.</string>
+    <string group="--">"Powered by SmartAssembly 6.8.0.121</string>
+    <string group="--">!Powered by SmartAssembly 6.6.1.44</string>
+    <string group="--">$Info: This file is packed with the UPX executable packer http://upx.sf.net $</string>
+    <string group="--">$Id: UPX 3.91 Copyright (C) 1996-2013 the UPX Team. All Rights Reserved. $</string>
+    <string group="--">Microsoft Application Compatibility Toolkit 5.6</string>
+    <string group="--">File manager</string>
+    <string group="--">System Manager</string>
+    <string group="--">Screen Capture</string>
+    <string group="--">Webcam Capture</string>
+    <string group="--">Packet Sniffer</string>
+    <string group="--">Listen</string>
+    <string group="--">Background</string>
+    <string group="--">\\.\mailslot\%s</string>
+    <string group="--">dbgeng</string>
+    <string group="--">Network Performance and Security Manager</string>
+    <string group="--">ProxyEnable</string>
+    <string group="--">ProxyServer</string>
+    <string group="--">ProxyOverride</string>
+    <string group="--">ProxyUserName</string>
+    <string group="--">ProxyPassword</string>
+    <string group="--">SkpWnd</string>
+    <string group="--">SkypeControlAPIAttach</string>
+    <string group="--">SkypeControlAPIDiscover</string>
+    <string group="--">Skype:API</string>
+    <string group="--">AdministratorsGroup</string>
+    <string group="--">NtAuthority</string>
+    <string group="--">masterkey</string>
+    <string group="--">IEHistory</string>
+    <string group="09">ServiceMain</string>
+
+    <!-- Firefox -->
+    <string group="03">PR_Bind</string>
+    <string group="03">PR_Accept</string>
+    <string group="03">PR_AcceptRead</string>
+    <string group="03">PR_Connect</string>
+    <string group="03">PR_Listen</string>
+    <string group="03">PR_Write</string>
+    <string group="03">PR_Writev</string>
+    <string group="03">PR_Close</string>
+    <string group="03">PR_Send</string>
+    <string group="03">PR_TransmitFile</string>
+    <string group="03">PR_OpenTCPSocket</string>
+    <string group="03">PR_GetSocketOption</string>
+    <string group="03">PR_SetSocketOption</string>
+    <string group="03">PR_Shutdown</string>
+    <string group="03">PR_GetError</string>
+    <string group="03">PR_SetError</string>
+    <string group="03">PR_GetNameForIdentity</string>
+
+    <string group="03">wininet</string>
+
+    <string group="--">cards</string>
+    <string group="--">card</string>
+    <string group="--">speex-1.1.11.1</string>
+    <string group="--">PClock</string>
+    <string group="--">Start scanner</string>
+    <string group="--">Scanner completed</string>
+    <string group="--">Start crypter</string>
+    <string group="--">Files encrypted</string>
+    <string group="--">SoftDownloaderWnd</string>
+    <string group="--">MemoryScanner</string>
+    <string group="--">ActiveX Control</string>
+    <string group="--">\\.\PhysicalDrive%d</string>
+    <string group="--">Microsoft Windows Auto Update</string>
+    <string group="--">IsAdmin</string>
+    <string group="04">CryptKeyType</string>
+    <string group="04">CryptKeyId</string>
+    <string group="--">NetAdapter</string>
+    <string group="--">Gateway</string>
+    <string group="--">PriWinsServer</string>
+    <string group="--">SecWinsServer</string>
+    <string group="--">DHCPServer</string>
+    <string group="--">DnsServer</string>
+    <string group="04">Microsoft Enhanced Cryptographic Provider v1.0</string>
+    <string group="04">Microsoft Base Cryptographic Provider v1.0</string>
+    <string group="04">Microsoft Enhanced RSA and AES Cryptographic Provider</string>
+    <string group="04">Intel Hardware Cryptographic Service Provider</string>
+    <string group="04">Microsoft Unified Security Protocol Provider</string>
+    <string>vm_protect</string>
+    <string>%BOTID%</string>
+    <string>%BOTNET%</string>
+
+    <string>AutoOpen</string>
+    <string>FtpServer</string>
+    <string>FtpUserName</string>
+    <string>FtpPassword</string>
+    <string>FtpDirectory</string>
+    <string>RootDirectory</string>
+    <string>Port</string>
+    <string>TrojanEngine</string>
+    <string>FileSmash</string>
+    <string>SafeBox</string>
+    <string>IERepair</string>
+    <string>KillVirus</string>
+    <string>SoftMove</string>
+    <string>SysClean</string>
+    <string>Trojan</string>
+    <string>CrashStackLen</string>
+    <string>CrashDumpLen</string>
+    <string>CrashStackBase64Len</string>
+    <string>CrashDumpBase64Len</string>
+    <string>CrashStack</string>
+    <string>MinDump</string>
+    <string>VIRUS</string>
+    <string>QEMU</string>
+
+    <string>PaySafeCard</string>
+    <string>MoneyPak</string>
+    <string>moneypak</string>
+    <string>MSFT</string>
+    <string>EnumProcess</string>
+    <string>InjectByPid</string>
+    <string>Send to Server failed.</string>
+    <string>passwords</string>
+    <string>httpserver</string>
+    <string>makedir</string>
+    <string>sendkeys</string>
+    <string>opencmd</string>
+    <string>ProcessorNameString</string>
+    <string>Identifier</string>
+    <string>VendorIdentifier</string>
+    <string>SystemBiosVersion</string>
+    <string>SystemBiosDate</string>
+    <string>VideoBiosVersion</string>
+    <string>VideoBiosDate</string>
+    <string>Windows File Protection</string>
+    <string>LogonFailure</string>
+    <string>killthread</string>
+    <string>startkeylogger</string>
+    <string>stopkeylogger</string>
+    <string>listprocesses</string>
+    <string>killprocess</string>
+    <string>stopspy</string>
+    <string>redirectspy</string>
+    <string>stopredirectspy</string>
+    <string>IsConnectedToInternet</string>
+    <string>MacAddress</string>
+    <string>EmailAddress</string>
+    <string>PopServer</string>
+    <string>PopPort</string>
+    <string>PopAccount</string>
+    <string>PopPassword</string>
+    <string>SmtpServer</string>
+    <string>SmtpPort</string>
+    <string>SmtpAccount</string>
+    <string>SmtpPassword</string>
+    <string>WininetCacheCredentials</string>
+    <string>PasswordType</string>
+    <string>OutpostMonitor</string>
+
+    <string>DisableAllPrivileges</string>
+    <string>SetPrivilege</string>
+    <string>Download.Complete</string>
+    <string>Download.Cancelled</string>
+    <string>Download.Failed</string>
+    <string>ClearBrowsingHistoryOnExit</string>
+    <string>GetMACAddress</string>
+    <string>GetProcessesByName</string>
+    <string>WebRequest</string>
+    <string>WebResponse</string>
+    <string>GetResponse</string>
+    <string>GetVolumeSerial</string>
+    <string>ENCRYPtSTRING</string>
+    <string>ENCRYPTBYTe</string>
+    <string>VBRUN</string>
+    <string>Blowfish</string>
+    <string>CreateDecryptor</string>
+    <string>MD5CryptoServiceProvider</string>
+    <string>TripleDESCryptoServiceProvider</string>
+    <string>PaddingMode</string>
+    <string>iexplorer</string>
+    <string>ExecuteCommand</string>
+    <string>RunPE</string>
+    <string>CCleaner</string>
+    <string>Binder</string>
+    <string>SpyTheSpy</string>
+    <string>TCPEye</string>
+    <string>SpeedGear</string>
+    <string>IPBlocker</string>
+    <string>procexp</string>
+    <string>Payment ok</string>
+    <string>Payment Received. Proceed to decryption.</string>
+    <string>Waiting Payment</string>
+    <string>Waiting TOR Connection</string>
+    <string>TorLocker</string>
+    <string>TorLocker_v0.9.3</string>
+    <string>Wallpaper</string>
+    <string>kippohome</string>
+    <string>huffman</string>
+    <string>DecodeHuffman</string>
+    <string>Inflate</string>
+    <string>Unzip</string>
+    <string>ZipAndEncrypt</string>
+    <string>ZipAndAES</string>
+    <string>LoadFile</string>
+    <string>SafenSoft</string>
+    <string>SysWatch</string>
+    <string>McAfee</string>
+    <string>Security Center</string>
+    <string hint="1">Symantec</string>
+    <string>Protection</string>
+    <string>Norton</string>
+
+    <string>PONG!</string>
+    <string>ReadPort</string>
+    <string>WritePort</string>
+    <string>cookie_module</string>
+    <string>CompressAndSend</string>
+    <string>EncryptFile</string>
+    <string>RunAsShellUser</string>
+    <string>SVNCStartServer</string>
+    <string>Terminal Server</string>
+    <string>Enterprise</string>
+    <string>LanmanNT</string>
+    <string>CONNECTED</string>
+    <string>SENDME</string>
+    <string>RESOLVE</string>
+    <string>Symantec Shared</string>
+    <string>CWSandbox</string>
+    <string>AVAST Software</string>
+    <string>Registry optimiser</string>
+    <string>Virtual HD</string>
+    <string>HotTracking</string>
+    <string>redirects</string>
+    <string>httpinjects</string>
+    <string>modify</string>
+    <string>NtShutdownSystem</string>
+    <string>coin-miner</string>
+    <string>regwrite</string>
+    <string>urlmon</string>
+    <string>inhibitPolicyMapping</string>
+    <string>infinite</string>
+    <string>relativename</string>
+    <string>Polynomial</string>
+    <string>LanmanWorkstation</string>
+    <string>LanmanServer</string>
+    <string>Seed</string>
+    <string>prot testing</string>
+    <string>experience Destroy</string>
+    <string>connection failed</string>
+    <string>open internet failed</string>
+    <string>payload</string>
+    <string>Shell.Application</string>
+    <string>UltraVnc</string>
+    <string>UltraVncSC</string>
+    <string>RunProgram</string>
+    <string>Macromedia</string>
+    <string>FlashPlayer</string>
+    <string>NetworkService\Cookies\</string>
+    <string>unrarw32</string>
+    <string>server</string>
+    <string>CONNECT</string>
+    <string>password</string>
+    <string>Launcher</string>
+    <string>remote</string>
+    <string>random</string>
+    <string>inject</string>
+    <string>hook</string>
+    <string>crack</string>
+    <string>script</string>
+    <string>browse</string>
+    <string>Clipboard</string>
+    <string>Privilege</string>
+    <string>Reboot</string>
+    <string>CabinetFile</string>
+    <string>cabfile</string>
+    <string>Socket</string>
+    <string>GetCode</string>
+    <string>Console</string>
+    <string>shell</string>
+    <string>alert</string>
+    <string>reverse</string>
+    <string>HookProc</string>
+    <string>attempt</string>
+    <string>drop</string>
+    <string>Download</string>
+    <string>Upload</string>
+    <string>CONNECT</string>
+    <string>pipe</string>
+    <string>Silvana</string>
+    <string>petite</string>
+    <string>PROGRAM</string>
+    <string>deflate</string>
+    <string>Referer</string>
+    <string>WinSta0</string>
+    <string>Gh0st</string>
+    <string>Forbidden</string>
+    <string>Accepted</string>
+    <string>sessionid</string>
+
+    <string>sharedaccess</string>
+    <string>localgroup</string>
+    <string>administrators</string>
+    <string>Administrator</string>
+    <string>termsrv_t</string>
+    <string>nsocket</string>
+    <string>webkit</string>
+    <string>sandbox</string>
+    <string>keystroke</string>
+    <string>scanning</string>
+    <string>Callback</string>
+    <string>torrent</string>
+    <string>proxy</string>
+    <string>downspeed</string>
+    <string>webseeds</string>
+    <string group="03">POST</string>
+    <string>fingerprint</string>
+    <string>pairing</string>
+    <string>subscribe</string>
+    <string>announce</string>
+    <string>payload</string>
+    <string>channel</string>
+    <string>tracker</string>
+    <string>watchdog</string>
+    <string>shared</string>
+    <string>HHA Version 4.74.8702</string>
+    <string>PrepareOurShit</string>
+    <string>Exefiles</string>
+    <string>Scanning</string>
+    <string>NullsoftInst</string>
+    <string>WinRAR SFX</string>
+    <string>\\cryptme\\</string>
+    <string>Expires</string>
+    <string>Cookie</string>
+    <string>Windows Update Service</string>
+    <string>serialNumber</string>
+    <string>userPassword</string>
+    <string>serial</string>
+    <string>encryption</string>
+    <string>PECompact2</string>
+    <string>logFile</string>
+    <string>application/pdf</string>
+    <string>Run as a daemon</string>
+    <string>serverTimeout</string>
+    <string>Server closed connection</string>
+    <string>nameserver</string>
+    <string>OLLYDBG</string>
+    <string>BankID</string>
+    <string>WebBrowser</string>
+    <string>Logout</string>
+    <string>downloader</string>
+    <string>browser</string>
+    <string>NETSCAPE2.0</string>
+    <string>Downloader</string>
+    <string>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/</string>
+    <string>Shell</string>
+    <string>pidrun</string>
+    <string>geturl</string>
+    <string>likubes</string>
+    <string>Sitikat</string>
+    <string>Reply from</string>
+    <string>PROXY_TYPE_DIRECT</string>
+    <string>PROXY_TYPE_AUTO_DETECT</string>
+    <string>downfile</string>
+    <string>quitz</string>
+    <string>debugmessage</string>
+    <string>debugclient</string>
+    <string>debugfile</string>
+    <string>POST</string>
+    <string>CONNECT</string>
+    <string>NetSubKey</string>
+    <string>Accepted:</string>
+    <string>AckPacket</string>
+    <string>Connection</string>
+    <string>autoRunKeyPath</string>
+    <string>SIGNATURE</string>
+    <string>messageId</string>
+    <string>HeartBeat</string>
+    <string>Request</string>
+    <string>Unload</string>
+    <string>RequestLoop</string>
+    <string>HeartBeatLoop</string>
+    <string>TcpClient</string>
+    <string>CreateDomain</string>
+    <string>ComputeHash</string>
+    <string>PROCMON_WINDOW_CLASS</string>
+    <string>WdcWindow</string>
+    <string>ProcessHacker</string>
+    <string>Dumper</string>
+    <string>Dumper64</string>
+    <string>APISpy32Class</string>
+    <string>TokenPrivilege</string>
+    <string>Shutdown</string>
+    <string>WebKit2WebProcess</string>
+    <string>Sleeping</string>
+    <string>Ivan Medvedev</string>
+    <string>Rijndael</string>
+    <string>SystemBiosVersion</string>
+    <string>VideoBiosVersion</string>
+    <string>Identifier</string>
+    <string>plugins</string>
+    <string>Hibernating</string>
+    <string>downtime-started</string>
+    <string>uptime-started</string>
+    <string>Mandatory Level</string>
+    <string>clientkey</string>
+    <string>rpcsrv</string>
+    <string>Deleting Service...</string>
+    <string>Service uninstall success.</string>
+    <string>Engine started</string>
+    <string>Running in background</string>
+    <string>Stale thread</string>
+    <string>Locking doors</string>
+    <string>Rotors engaged</string>
+    <string>Im going to start it</string>
+    <string>\DosDevices\DKOM_Driver</string>
+    <string>\Device\DKOM_Driver</string>
+    <string>Process successfully hidden.</string>
+    <string>EPROCESS address: %#x</string>
+    <string>Your message has been sended</string>
+    <string>Couponserver</string>
+    <string>yahoo</string>
+    <string>RegSAM</string>
+    <string>Trackingurls</string>
+    <string>TypeChekDomain</string>
+    <string>DownloadUrl</string>
+    <string>QueueDownloader</string>
+    <string>ZipManager</string>
+    <string>ZipStorer</string>
+    <string>Firefox</string>
+    <string>Chrome</string>
+    <string>InternetExplorer</string>
+    <string>webBrowser1</string>
+    <string>DownloadThreads</string>
+    <string>Monetizer</string>
+    <string>strongvault</string>
+    <string>amonetize</string>
+    <string>Couponserver</string>
+    <string>ShoppingChip</string>
+    <string>UsedBrowser</string>
+    <string>IexplorerMinVersion</string>
+    <string>IsControlled</string>
+    <string>Microsoft Network Monitoring Service</string>
+    <string>Host Process for Windows Services</string>
+    <string>MsNetMonitor</string>
+    <string>Windows Filter Driver</string>
+    <string>firewall</string>
+    <string>IsUserAdministrator</string>
+    <string>CreateSubKey</string>
+    <string>NotifyDownloading</string>
+    <string>isvirtualMachine</string>
+    <string>isdebugging</string>
+    <string>HasDebugger</string>
+    <string>debugging</string>
+    <string>checkurls</string>
+    <string>CheckAdminPrivileges</string>
+    <string>TrackOnDefaultBrowser</string>
+    <string>GetDomain</string>
+    <string>checkdomain</string>
+    <string>bytesDownloaded</string>
+    <string>God Mode</string>
+    <string>logger</string>
+    <string>Hook cleaning on</string>
+    <string>PiD obfuscation on</string>
+    <string>Code injection successful!</string>
+    <string>Code injection failed!</string>
+    <string>Injecting code ...</string>
+    <string>Code Injection</string>
+    <string>Creating a remote thread ...</string>
+    <string>Keylogging disabled.</string>
+    <string>DisallowRun</string>
+    <string>NoDriveTypeAutoRun</string>
+    <string>HideFileExt</string>
+    <string>Hidden</string>
+    <string>SuperHidden</string>
+    <string>Starting Hide myself ...</string>
+    <string>Starting Killing myself ...</string>
+    <string>LZO real-time data compression library.</string>
+    <string>fileupload</string>
+
+    <string>All the important files on your computer were encrypted.</string>
+    <string>All the important files on your disks were encrypted.</string>
+    <string>Schedule service command line interface</string>
+    <string>already running</string>
+    <string>Botnet has been shutdown - restart bot?</string>
+    <string>Botnet shutdown</string>
+    <string>QUIT :Botnet shutdown</string>
+    <string>PRIVMSG %s :bingo - botnet shutting down</string>
+    <string>Resistance is futile</string>
+    <string>Anti-debug</string>
+    <string>Detoured</string>
+    <string>Client hook allocation failure.</string>
+    <string>silentpostback</string>
+    <string>AlreadyRunning</string>
+    <string>keeplog</string>
+    <string>runonce</string>
+    <string>noreq</string>
+    <string>verifycookies</string>
+    <string>PostbackSent</string>
+    <string>StubRun</string>
+    <string>StubExtract</string>
+    <string>Waiting</string>
+    <string>Waiting Connections</string>
+    <string>ServTestDos</string>
+    <string>VBoxGuest</string>
+    <string>Betabot</string>
+    <string>Hashtable</string>
+    <string>Monitor</string>
+    <string>RegServer</string>
+    <string>POP3 Password2</string>
+    <string>POP3 Server</string>
+    <string>POP3 User Name</string>
+    <string>HTTPMail Password2</string>
+    <string>Hotmail</string>
+    <string>HTTPMail User Name</string>
+    <string> 2004 2005 Pierre le Riche / Professional Software Development</string>
+    <string>Broadcast adress :</string>
+    <string>Broadcasts : NO</string>
+    <string>Broadcasts : YES</string>
+    <string>SHELLEXECUTE</string>
+    <string>SHELLEXECUTEWAIT</string>
+    <string>#BOT#CloseServer</string>
+    <string>#BOT#OpenUrl</string>
+    <string>#BOT#RunPrompt</string>
+    <string>#BOT#SvrUninstall</string>
+    <string>#BOT#URLDownload</string>
+    <string>#BOT#URLUpdate</string>
+    <string>ActiveOfflineKeylogger</string>
+    <string>ActiveOnlineKeyStrokes</string>
+    <string>ActiveOnlineKeylogger</string>
+    <string>AntiVirusDisableNotify</string>
+    <string>BTMemoryLoadLibary: Cant attach library</string>
+    <string>DownloadFail</string>
+    <string>DownloadSuccess</string>
+    <string>Progman</string>
+    <string>UPLOADEXEC</string>
+    <string>UPLOADFILE</string>
+    <string>UnActiveOfflineKeylogger</string>
+    <string>UnActiveOnlineKeyStrokes</string>
+    <string>UnBlockContact</string>
+    <string>Video Capture</string>
+    <string>WEBCAMLIVE</string>
+    <string>WEBCAMSTOP</string>
+    <string>wscsvc</string>
+    <string>httpstop</string>
+    <string>logstop</string>
+    <string>ftfpstop</string>
+    <string>procsstop</string>
+    <string>securestop</string>
+    <string>reconnect</string>
+    <string>disconnect</string>
+    <string>botid</string>
+    <string>aliases</string>
+    <string>flusharp</string>
+    <string>flushdns</string>
+    <string>crash</string>
+    <string>killthreads</string>
+    <string>killproc</string>
+    <string>killid</string>
+    <string>Kennwort</string>
+    <string>Object dump complete.</string>
+    <string>Ping flood</string>
+    <string>ROOTED</string>
+    <string>Rebooting system</string>
+    <string>Reconnecting</string>
+    <string>Referer: %s</string>
+    <string>Remote Command Prompt</string>
+    <string>Removing Bot</string>
+    <string>[DDoS]</string>
+    <string>[KEYLOG]: %s</string>
+    <string>[PSNIFF]</string>
+    <string>[PING]</string>
+    <string>[TFTP]</string>
+    <string>[UPD]</string>
+    <string>administrador</string>
+    <string>administrat</string>
+    <string>administrateur</string>
+    <string>Download complete</string>
+    <string>ALIEN-Z</string>
+    <string>\Google\Chrome\User Data</string>
+    <string>VncSrvWndProc</string>
+    <string>VncStopServer</string>
+    <string>VncStartServer</string>
+    <string>VNCCreateServer</string>
+    <string>VNCServerThread</string>
+    <string>VNCStartServer</string>
+    <string>FPUMaskValue</string>
+    <string>PhysicalDrive0</string>
+    <string>Protection Error</string>
+    <string>LOADER ERROR</string>
+    <string>Host is down.</string>
+    <string>No route to host.</string>
+    <string>debugger</string>
+    <string>emulat</string>
+    <string>GetProcesses</string>
+    <string>MemoryStream</string>
+    <string>GZipStream</string>
+    <string>0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/</string>
+    <string>putfile:</string>
+    <string>getfile:</string>
+    <string>source</string>
+    <string>Connecting</string>
+    <string>Downloading</string>
+    <string>Cancelled</string>
+    <string>Connecting</string>
+    <string>Reconnect Pause</string>
+    <string>Terminated</string>
+    <string>Transfer Error</string>
+    <string>Connection Error</string>
+    <string>OpenRequest Error</string>
+    <string>SendRequest Error</string>
+    <string>Request Error</string>
+    <string>Server Error</string>
+    <string>Redirection</string>
+    <string>Hardware</string>
+    <string>Delete</string>
+    <string>NoRemove</string>
+    <string>ForceRemove</string>
+    <string>Keylogger</string>
+    <string>crypter</string>
+    <string>dump</string>
+    <string>NetKeyLogger</string>
+    <string>pipeline</string>
+    <string>miner</string>
+    <string>Download ERROR</string>
+    <string>Execute ERROR</string>
+    <string>Admins</string>
+    <string>Browsers</string>
+    <string>Guests</string>
+    <string>Users</string>
+    <string>webBrowser2</string>
+    <string>IEFrame</string>
+    <string>connection_already_in_progress</string>
+    <string>connection_aborted</string>
+    <string>connection_refused</string>
+    <string>host_unreachable</string>
+    <string>already_connected</string>
+    <string>network_down</string>
+    <string>network_reset</string>
+    <string>network_unreachable</string>
+    <string>not_connected</string>
+    <string>connection aborted</string>
+    <string>connection already in progress</string>
+    <string>connection refused</string>
+    <string>host unreachable</string>
+    <string>master</string>
+    <string>mysql</string>
+    <string>daemon</string>
+    <string>backup</string>
+    <string>marta</string>
+    <string>redhat</string>
+    <string>exploitable</string>
+    <string>passwd</string>
+    <string>proxypasswd</string>
+    <string>proxyuser</string>
+    <string>Login denied</string>
+    <string>Remote file not found</string>
+    <string>RenameFile</string>
+    <string>RunPrompt</string>
+    <string>RunSelectedAsAdmin</string>
+    <string>RunSelectedHidden</string>
+    <string>RunSelectedShow</string>
+    <string>RemoteMachineName</string>
+    <string>AheadLib</string>
+    <string>web-browser</string>
+    <string>SetHook</string>
+    <string>TMemoryScanner</string>
+    <string>Protect</string>
+    <string>SecurityAnonymous</string>
+    <string>SecurityIdentification</string>
+    <string>SecurityImpersonation</string>
+    <string>SecurityDelegation</string>
+
+    <string>\\.\PhysicalDrive0</string>
+
+    <string>windowsupdate</string>
+    <string>wilderssecurity</string>
+    <string>castlecops</string>
+    <string>spamhaus</string>
+    <string>cpsecure</string>
+    <string>arcabit</string>
+    <string>emsisoft</string>
+    <string>sunbelt</string>
+    <string>securecomputing</string>
+    <string>computerassociates</string>
+    <string>networkassociates</string>
+    <string>etrust</string>
+    <string>rootkit</string>
+    <string>spyware</string>
+
+    <!-- VM patterns -->
+    <string>vmdebug</string>
+    <string>VMware Replay Debugging Helper</string>
+    <string>VMware VMCI Bus Driver</string>
+    <string>vmci</string>
+    <string>VMware Pointing Device</string>
+    <string>vmmouse</string>
+    <string>msvmmouf</string>
+    <string>MS Virtual SCSI Disk Device</string>
+    <string>VMware Workstation v10</string>
+    <string>VMwareDragDetWndClass</string>
+    <string>VMwareSwitchUserControlClass</string>
+    <string>VMware</string>
+    <string>VMware Pointing</string>
+    <string>VMware server memory</string>
+    <string>VMware Replay</string>
+    <string>AntiVirtualBox</string>
+    <string>AntiVmWare</string>
+    <string>AntiVirtualPC</string>
+    <string>AntiMalwarebytes</string>
+    <string>AntiOllydbg</string>
+    <string>AntiWireshark</string>
+    <string>antiSpyware</string>
+    <string>Anti-Virus</string>
+    <string>avast!</string>
+    <string>AntiVir</string>
+    <string>Inspection</string>
+    <string>Malware</string>
+    <string>Norton Personal Firewall</string>
+    <string>ZoneAlarm</string>
+    <string>Comodo Firewall</string>
+    <string>eTrust EZ Firewall</string>
+    <string>F-Secure Internet Security</string>
+    <string>McAfee Personal Firewall</string>
+    <string>Outpost Personal Firewall</string>
+    <string>Panda Internet Seciruty Suite</string>
+    <string>Panda Anti-Virus/Firewall</string>
+    <string>BitDefnder/Bull Guard Antivirus</string>
+    <string>Rising Firewall</string>
+    <string>360Safe AntiArp</string>
+    <string>Kingsoft Safe</string>
+    <string>Fiddler</string>
+    <string>wireshark</string>
+    <string>Chromium</string>
+    <string>NEWGRAB</string>
+    <string>SCREENSHOT</string>
+    <string>RunProgram</string>
+    <string>PendingFileRenameOperations</string>
+    <string>Microsoft.Windows.MyCoolApp</string>
+    <string>Application description here</string>
+    <string>InstallHOOK</string>
+    <string>InstallLocalHOOK</string>
+    <string>UninstallHOOK</string>
+    <string>ZLibEx</string>
+    <string>Xenocode Virtual Desktop</string>
+    <string>Spoon Virtual Machine</string>
+    <string>Xenocode Virtual Appliance Runtime</string>
+    <string>CPlApplet</string>
+    <string>Java Security Plugin</string>
+    <string>javaplugin</string>
+    <string>Java Security Plugin</string>
+    <string>Sun Java Security Plugin</string>
+    <string>VMProtect begin</string>
+    <string>VMProtect end</string>
+    <string>NETWORK SERVICE</string>
+    <string>Administrative Tools</string>
+    <string>CREATE_SUSPENDED</string>
+    <string>VBScript.Encode</string>
+    <string>JScript.Encode</string>
+    <string>ExeScriptPAD</string>
+    <string>ExeScript</string>
+    <string>ExeScript Host</string>
+    <string>Godmode</string>
+    <string>DECOMPRESSOR</string>
+    <string>antivirus</string>
+    <string>AntivirusProduct</string>
+    <string>DefaultBrowser</string>
+    <string>MemoryProtection</string>
+    <string>BaseScript</string>
+    <string>Updater</string>
+    <string>CreateProcessInternal</string>
+    <string>IDetourHook</string>
+    <string>DetourHook</string>
+    <string>CaptureScreen</string>
+
+    <!-- WMI-->
+    <string>ScriptingEngine</string>
+    <string>ProbeScriptFint</string>
+    <string>ActiveScriptEventConsumer</string>
+    <string>root/cimv2</string>
+    <string>WbemScripting.SWbemLocator</string>
+    <string>ROOT\CIMV2</string>
+    <string>SELECT * from Win32_BaseBoard</string>
+    <string>Manufacturer</string>
+    <string>SerialNumber</string>
+    <string>ChassisTypes</string>
+    <string>SMBIOSAssetTag</string>
+
+    <string>WM_HTML_GETOBJECT</string>
+    <string>WM_COPYDATA</string>
+
+    <string>SE_PRIVILEGE_ENABLED_BY_DEFAULT</string>
+    <string>SE_PRIVILEGE_ENABLED</string>
+    <string>SE_PRIVILEGE_REMOVED</string>
+    <string>SE_PRIVILEGE_USED_FOR_ACCESS</string>
+    <string>SE_PRIVILEGE_VALID_ATTRIBUTES</string>
+
+    <string>SE_CREATE_TOKEN_NAME</string>
+    <string>SE_ASSIGNPRIMARYTOKEN_NAME</string>
+    <string>SE_LOCK_MEMORY_NAME</string>
+    <string>SE_INCREASE_QUOTA_NAME</string>
+    <string>SE_UNSOLICITED_INPUT_NAME</string>
+    <string>SE_MACHINE_ACCOUNT_NAME</string>
+    <string>SE_TCB_NAME</string>
+    <string>SE_SECURITY_NAME</string>
+    <string>SE_TAKE_OWNERSHIP_NAME</string>
+    <string>SE_LOAD_DRIVER_NAME</string>
+    <string>SE_SYSTEM_PROFILE_NAME</string>
+    <string>SE_SYSTEMTIME_NAME</string>
+    <string>SE_PROF_SINGLE_PROCESS_NAME</string>
+    <string>SE_INC_BASE_PRIORITY_NAME</string>
+    <string>SE_CREATE_PAGEFILE_NAME</string>
+    <string>SE_CREATE_PERMANENT_NAME</string>
+    <string>SE_BACKUP_NAME</string>
+    <string>SE_RESTORE_NAME</string>
+    <string>SE_SHUTDOWN_NAME</string>
+    <string>SE_DEBUG_NAME</string>
+    <string>SE_AUDIT_NAME</string>
+    <string>SE_SYSTEM_ENVIRONMENT_NAME</string>
+    <string>SE_CHANGE_NOTIFY_NAME</string>
+    <string>SE_REMOTE_SHUTDOWN_NAME</string>
+    <string>SE_UNDOCK_NAME</string>
+    <string>SE_SYNC_AGENT_NAME</string>
+    <string>SE_ENABLE_DELEGATION_NAME</string>
+    <string>SE_MANAGE_VOLUME_NAME</string>
+    <string>SE_IMPERSONATE_NAME</string>
+    <string>SE_CREATE_GLOBAL_NAME</string>
+    <string>SE_TRUSTED_CREDMAN_ACCESS_NAME</string>
+    <string>SE_RELABEL_NAME</string>
+    <string>SE_INC_WORKING_SET_NAME</string>
+    <string>SE_TIME_ZONE_NAME</string>
+    <string>SE_CREATE_SYMBOLIC_LINK_NAME</string>
+
+    <string>SE_GROUP_ENABLED_BY_DEFAULT</string>
+    <string>SE_GROUP_ENABLED</string>
+    <string>SE_GROUP_OWNER</string>
+    <string>SE_GROUP_USE_FOR_DENY_ONLY</string>
+    <string>SE_GROUP_INTEGRITY</string>
+    <string>SE_GROUP_INTEGRITY_ENABLED</string>
+    <string>SE_GROUP_LOGON_ID</string>
+    <string>SE_GROUP_RESOURCE</string>
+    <string>SE_GROUP_VALID_ATTRIBUTES</string>
+
+    <string>vbscript</string>
+    <string>execScript</string>
+    <string>CipherMode</string>
+    <string>Twofish</string>
+    <string>Referer:</string>
+
+    <!-- Well-known (local) directories -->
+    <string>Microsoft\Windows\Start Menu</string>
+    <string>Microsoft\Windows\Start Menu\Programs</string>
+    <string>Microsoft\Windows\Templates</string>
+    <string>Pictures</string>
+    <string>Public\Desktop</string>
+    <string>Public\Documents</string>
+    <string>Public\Favorites</string>
+    <string>Public\Music</string>
+    <string>Public\Pictures</string>
+    <string>Public\Videos</string>
+    <string>Windows NT\Accessories</string>
+    <string>Explorer\Shell Folders</string>
+
+    <!-- AutoIt -->
+    <string>/AutoIt3ExecuteLine</string>
+    <string>/AutoIt3ExecuteScript</string>
+    <string>AutoIt v3</string>
+    <string>AutoIt</string>
+    <string>AUTOIT SCRIPT</string>
+    <string>AUTOIT NO CMDEXECUTE</string>
+    <string>AutoIt3ExecuteScript</string>
+    <string>AutoIt3ExecuteLine</string>
+    <string>Software\AutoIt v3\AutoIt</string>
+    <string>AutoIt Error</string>
+    <string>CompiledScript</string>
+    <string>AutoIt v3 Script: 3 3 8 1</string>
+    <string>AutoIt v3 Script: 3 3 8 0</string>
+    <string>AutoIt3</string>
+    <string>AUTOITEXE</string>
+
+    <string bl="1" wl="0">Beds-Protector</string>
+    <string bl="1" wl="0">Beds-Protector-v7.0</string>
+    <string bl="1" wl="0" group="--">ENIGMA</string>
+    <string bl="1" wl="0" group="--">Enigma Protector1</string>
+  </strings>
+</xml>
+

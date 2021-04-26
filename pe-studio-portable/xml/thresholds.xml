@@ -1,0 +1,181 @@
+<xml version="1.0" encoding="utf-8">
+  <!-- 
+  thresholds.xml is part of pestudio (www.winitor.com)
+  It contains the thresholds used by pestudio.-->
+
+  <thresholds>
+    <minimums>
+      <min id="0" enable="1">4096</min>
+      <min id="1" enable="1">64</min>
+      <min id="2" enable="1">20</min>
+      <min id="3" enable="1">20</min>
+      <min id="4" enable="1">224</min>
+      <min id="5" enable="1">16</min>
+      <min id="6" enable="1">4</min>
+      <min id="7" enable="1">100</min>
+      <min id="8" enable="1">4</min>
+      <min id="9" enable="1">256</min>
+      <min id="10" enable="1">80</min>
+      <min id="11" enable="1">128</min>
+      <min id="12" enable="1">20</min>
+      <min id="13" enable="1">10</min>
+      <min id="14" enable="1">10</min>
+      <min id="15" enable="1">100</min>
+      <min id="16" enable="1">0</min>
+      <min id="17" enable="1">0</min>
+      <min id="18" enable="1">0</min>
+      <min id="19" enable="1">0</min>
+      <min id="20" enable="1">0</min>
+
+      <min id="30" enable="1">1</min>
+      <min id="31" enable="1">10</min>
+      <min id="32" enable="1">1</min>
+      <min id="33" enable="1">0</min>
+      <min id="34" enable="1">100</min>
+      <min id="35" enable="1">1</min>
+      <min id="36" enable="0">2</min>
+      <min id="37" enable="1">15</min>
+      <min id="38" enable="1">20</min>
+      <min id="39" enable="1">1</min>
+      <min id="40" enable="1">10</min>
+      <min id="41" enable="1">1</min>
+
+      <min id="43" enable="1">0</min>
+      <min id="44" enable="1">1</min>
+      <min id="45" enable="1">1</min>
+      <min id="46" enable="1">0</min>
+      <min id="47" enable="1">0</min>
+      <min id="48" enable="1">0</min>
+      <min id="49" enable="1">0</min>
+      <min id="50" enable="1">0</min>
+      <min id="51" enable="1">0</min>
+      <min id="52" enable="1">0</min>
+      <min id="53" enable="1">0</min>
+      <min id="54" enable="1">0</min>
+      <min id="55" enable="1">0</min>
+      <min id="56" enable="1">0</min>
+      <min id="57" enable="1">0</min>
+      <min id="58" enable="1">0</min>
+      <min id="59" enable="1">0</min>
+      <min id="60" enable="1">0</min>
+      <min id="61" enable="1">0</min>
+      <min id="62" enable="1">0</min>
+      <min id="63" enable="1">2</min>
+      <min id="64" enable="1">0</min>
+      <min id="65" enable="1">0</min>
+      <min id="66" enable="1">0</min>
+      <min id="67" enable="1">0</min>
+      <min id="68" enable="1">0</min>
+      <min id="69" enable="1">0</min>
+      <min id="70" enable="1">0</min>
+      <min id="71" enable="1">0</min>
+      <min id="72" enable="1">0</min>
+      <min id="73" enable="1">0</min>
+      <min id="74" enable="1">0</min>
+      <min id="75" enable="1">0</min>
+      <min id="76" enable="1">0</min>
+      <min id="77" enable="1">0</min>
+      <min id="78" enable="1">0</min>
+      <min id="79" enable="1">0</min>
+      <min id="80" enable="1">20</min>
+
+      <min id="99" enable="1">2000</min>
+      <min id="100" enable="1">1</min>
+      <min id="101" enable="1">2000</min>
+      <min id="102" enable="1">2000</min>
+      <min id="103" enable="1">2000</min>
+      <min id="106" enable="1">0</min>
+      <min id="107" enable="1">2000</min>
+  </minimums>
+
+    <maximums>
+      <max id="00" enable="1">10485760</max>
+      <max id="01" enable="1">64</max>
+      <max id="02" enable="1">512</max>
+      <max id="03" enable="1">20</max>
+      <max id="04" enable="1">260</max>
+      <max id="05" enable="1">16</max>
+      <max id="06" enable="1">1024</max>
+      <max id="07" enable="1">6144</max>
+      <max id="08" enable="1">2000</max>
+      <max id="09" enable="1">-1</max>
+      <max id="10" enable="1">4096</max>
+      <max id="11" enable="1">4096</max>
+      <max id="12" enable="1">512000</max>
+      <max id="13" enable="1">512000</max>
+      <max id="14" enable="1">-1</max>
+      <max id="15" enable="1">16384</max>
+      <max id="16" enable="1">1648576</max>
+      <max id="17" enable="1">50</max>
+      <max id="18" enable="1">75</max>
+      <max id="19" enable="1">75</max>
+      <max id="20" enable="1">520</max>
+
+      <max id="30" enable="1">50</max>
+      <max id="31" enable="1">500</max>
+      <max id="32" enable="1">19</max>
+      <max id="33" enable="1">3000</max>
+      <max id="34" enable="1">2000</max>
+      <max id="35" enable="1">16</max>
+      <max id="36" enable="0">24</max>
+      <max id="37" enable="1">15</max>
+      <max id="38" enable="1">50</max>
+      <max id="39" enable="1">1</max>
+      <max id="40" enable="1">1</max>
+      <max id="41" enable="1">1</max>
+
+      <max id="43" enable="1">5</max>
+      <max id="44" enable="1">1</max>
+      <max id="45" enable="1">3</max>
+      <max id="46" enable="1">0</max>
+      <max id="47" enable="1">1</max>
+      <max id="48" enable="1">1</max>
+      <max id="49" enable="1">10</max>
+      <max id="50" enable="1">5</max>
+      <max id="51" enable="1">5</max>
+      <max id="52" enable="1">1</max>
+      <max id="53" enable="1">10</max>
+      <max id="54" enable="1">1</max>
+      <max id="55" enable="1">1</max>
+      <max id="56" enable="1">3</max>
+      <max id="57" enable="1">1</max>
+      <max id="58" enable="1">1</max>
+      <max id="59" enable="1">0</max>
+      <max id="60" enable="1">1</max>
+      <max id="61" enable="1">1</max>
+      <max id="62" enable="1">1</max>
+      <max id="63" enable="1">1</max>
+      <max id="64" enable="1">1</max>
+      <max id="65" enable="1">1</max>
+      <max id="66" enable="1">1</max>
+      <max id="67" enable="1">1</max>
+      <max id="68" enable="1">7</max>
+      <max id="69" enable="1">1</max>
+      <max id="70" enable="1">1</max>
+      <max id="71" enable="1">1</max>
+      <max id="72" enable="1">1</max>
+      <max id="73" enable="1">1</max>
+      <max id="74" enable="1">1</max>
+      <max id="75" enable="1">1</max>
+      <max id="76" enable="1">1</max>
+      <max id="77" enable="1">5</max>
+      <max id="78" enable="1">2</max>
+      <max id="79" enable="1">0</max>
+      <max id="80" enable="1">20</max>
+
+      <max id="99" enable="1">2020</max>
+      <max id="100" enable="1">100</max>
+      <max id="101" enable="1">2020</max>
+      <max id="102" enable="1">2020</max>
+      <max id="103" enable="1">2020</max>
+      <max id="106" enable="1">7</max>
+      <max id="107" enable="1">2020</max>
+</maximums>
+
+    <percents>
+      <Libraries id="300" enable="1">75</Libraries>
+      <Imports id="301" enable="1">75</Imports>
+    </percents>
+    
+  </thresholds>
+</xml>

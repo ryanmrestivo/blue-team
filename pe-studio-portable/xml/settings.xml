@@ -1,0 +1,141 @@
+<!-- 	This file is part of pestudio (www.winitor.com) and contains settings used by pestudio.-->
+<xml version="1.0" encoding="utf-8">
+
+  <files>
+    <!-- XML files used by pestudio.-->
+    <fthresholds>thresholds.xml</fthresholds>
+    <ffeatures>features.xml</ffeatures>
+    <findicators>indicators.xml</findicators>
+    <fstrings>strings.xml</fstrings>
+    <ffunctions>functions.xml</ffunctions>
+    <flanguages>languages.xml</flanguages>
+    <ftranslations>translations.xml</ftranslations>
+    <fsignatures>signatures.xml</fsignatures>
+    <fresources>resources.xml</fresources>
+    <fwhitelibraries>whitelibraries.xml</fwhitelibraries>
+    <fmitre>mitre.xml</fmitre>
+  </files>
+
+  <switches>
+    <dos-stub enable="1"/>
+    <dos-header enable="1"/>
+    <file-header enable="1"/>
+    <rich-header enable="1"/>
+    <optional-header enable="1"/>
+    <directories enable="1"/>
+    <sections enable="1"/>
+    <libraries enable="1"/>
+    <imports enable="1"/>
+    <exports enable="1"/>
+    <exceptions enable="1"/>
+    <relocations enable="1"/>
+    <tls-callbacks enable="1"/>
+    <certificate enable="1"/>
+    <resources enable="1"/>
+    <strings enable="1" bl="1"/>
+    <strings-ascii enable="1"/>
+    <strings-unicode enable="1"/>
+    <debug enable="1"/>
+    <manifest enable="1"/>
+    <version enable="1"/>
+    <overlay enable="1"/>
+    <report enable="1"/>
+    <features enable="1"/>
+    <indicators enable="1"/>
+    <indicators-features enable="1"/>
+    <indicators-functions enable="1"/>
+    <imports-msdn enable="1"/>
+    <exports-google enable="1"/>
+    <score-file enable="1"/>
+    <score-resources enable="1"/>
+    <score-urls enable="1"/>
+    <score-overlay enable="1"/>
+    <read-only enable="1"/>
+    <map enable="1"/>
+    <caption enable="1"/>
+  </switches>
+
+  <colors>
+    <color id="01" r="000" g="000" b="000">black</color>
+    <color id="02" r="255" g="255" b="255">white</color>
+    <color id="03" r="088" g="088" b="088">gray_dark</color>
+    <color id="04" r="173" g="173" b="173">gray</color>
+    <color id="05" r="249" g="249" b="249">gray_light</color>
+    <color id="06" r="168" g="000" b="000">red_dark</color>
+    <color id="07" r="238" g="034" b="035">red</color>
+    <color id="08" r="255" g="245" b="250">red_ligth</color>
+    <color id="09" r="000" g="102" b="000">green_dark</color>
+    <color id="10" r="000" g="128" b="000">green</color>
+    <color id="11" r="240" g="245" b="240">green_light</color>
+    <color id="12" r="000" g="000" b="149">blue_dark</color>
+    <color id="13" r="000" g="168" b="255">blue</color>
+    <color id="14" r="174" g="226" b="255">blue_light</color>
+    <color id="15" r="204" g="102" b="000">yellow_dark</color>
+    <color id="16" r="204" g="102" b="000">yellow</color>
+    <color id="17" r="255" g="250" b="245">yellow_light</color>
+    <color id="18" r="255" g="187" b="000">gold_dark</color>
+    <color id="19" r="255" g="215" b="000">gold</color>
+    <color id="20" r="255" g="215" b="168">gold_light</color>
+  </colors>
+
+  <sections>
+    <section>/4</section>
+    <section>/14</section>
+    <section>/19</section>
+    <section>/26</section>
+    <section>/29</section>
+    <section>/31</section>
+    <section>/35</section>
+    <section>/41</section>
+    <section>/45</section>
+    <section>/51</section>
+    <section>/55</section>
+    <section>/57</section>
+    <section>/63</section>
+    <section>/67</section>
+    <section>/70</section>
+    <section>/77</section>
+    <section>/78</section>
+    <section>/81</section>
+    <section>/89</section>
+    <section>/92</section>
+    <section>/102</section>
+    <section>/113</section>
+    <section>/124</section>
+    <section hint="efi">mods</section>
+    <section>.CRT</section>
+    <section>.bss</section>
+    <section>.data</section>
+    <section>.didata</section>
+    <section>.didat</section>
+    <section hint="efi">.dynamic</section>
+    <section hint="efi">.dynsym</section>
+    <section>.edata</section>
+    <section>.eh_fram</section>
+    <section>.INIT</section>
+    <section>.idata</section>
+    <section>.idata2</section>
+    <section hint="Borland Delphi">.itext</section>
+    <section hint="Visual Studio (14.0)">.gfids</section>
+    <section hint="Visual Studio (14.0)">.giats</section>
+    <section hint="Visual Studio (14.0)">.gljmp</section>
+    <section>.ndata</section>
+    <section>.pdata</section>
+    <section hint="efi">.relo</section>
+    <section>.reloc</section>
+    <section>.rsrc</section>
+    <section>.rdata</section>
+    <section>.sxdata</section>
+    <section>.sdata</section>
+    <section>.text</section>
+    <section hint="Borland Delphi">.textbss</section>
+    <section>.tls</section>
+    <section>.xdata</section>
+    <section>PAGE</section>
+    <section>DATA</section>
+    <section>BSS</section>
+    <section>INIT</section>
+    <section>CODE</section>
+  </sections>
+</xml>
+

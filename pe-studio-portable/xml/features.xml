@@ -1,0 +1,3149 @@
+<xml version="1.0" encoding="utf-8">
+  <!-- 
+  features.xml is part of pestudio (www.winitor.com)
+  It contains the features as to be shown at the frontend and XML report file.
+-->
+
+  <features>
+    <feature id="3001" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>VBoxService.exe</fct>
+            <fct>Safengine Shielden v2.3.0.0</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3108" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>AntiVirtualBox</fct>
+            <fct>AntiVmWare</fct>
+            <fct>AntiVirtualPC</fct>
+            <fct>AntiMalwarebytes</fct>
+            <fct>AntiOllydbg</fct>
+            <fct>AntiWireshark</fct>
+            <fct>antiSpyware</fct>
+            <fct>Anti-Virus</fct>
+            <fct>avast!</fct>
+            <fct>AntiVir</fct>
+            <fct>Inspection</fct>
+            <fct>Malware</fct>
+            <fct>Kaspersky</fct>
+            <fct>BitDefender</fct>
+            <fct>Dr.Web</fct>
+            <fct>Kaspersky Antivirus</fct>
+            <fct>Nod32 Antivirus 2.x</fct>
+            <fct>Ewido Security Suite</fct>
+            <fct>McAfee VirusScan</fct>
+            <fct>Panda Antivirus/Firewall</fct>
+            <fct>Symantec/Norton</fct>
+            <fct>PC-cillin Antivirus</fct>
+            <fct>F-Secure</fct>
+            <fct>Kingsoft ShaDu</fct>
+            <fct>NOD32 Antivirus</fct>
+            <fct>Rising Antivirus</fct>
+            <fct>Jiangmin Antivirus</fct>
+            <fct>360 ShaDu</fct>
+            <fct>360 Safe</fct>
+            <fct>Norton Personal Firewall</fct>
+            <fct>ZoneAlarm</fct>
+            <fct>Comodo Firewall</fct>
+            <fct>eTrust EZ Firewall</fct>
+            <fct>F-Secure Internet Security</fct>
+            <fct>McAfee Personal Firewall</fct>
+            <fct>Outpost Personal Firewall</fct>
+            <fct>Panda Internet Seciruty Suite</fct>
+            <fct>Panda Anti-Virus/Firewall</fct>
+            <fct>BitDefnder/Bull Guard Antivirus</fct>
+            <fct>Rising Firewall</fct>
+            <fct>360Safe AntiArp</fct>
+            <fct>Kingsoft Safe</fct>
+            <fct>avguard.exe</fct>
+            <fct>avgnt.exe</fct>
+            <fct>avcenter.exe</fct>
+            <fct>avconfig.exe</fct>
+            <fct>SELECT * FROM AntiVirusProduct</fct>
+            <fct>avira</fct>
+            <fct>avast</fct>
+            <fct>kaspersky</fct>
+            <fct>mcafee</fct>
+            <fct>symantec</fct>
+            <fct>norton</fct>
+            <fct>defender</fct>
+            <fct>bitdefender</fct>
+            <fct>threatexpert</fct>
+            <fct>emsisoft</fct>
+            <fct>rising</fct>
+            <fct>pctools</fct>
+            <fct>norman</fct>
+            <fct>k7computing</fct>
+            <fct>ikarus</fct>
+            <fct>hacksoft</fct>
+            <fct>gdata</fct>
+            <fct>fortinet</fct>
+            <fct>ewido</fct>
+            <fct>clamav</fct>
+            <fct>comodo</fct>
+            <fct>quickheal</fct>
+            <fct>avira</fct>
+            <fct>avast</fct>
+            <fct>esafe</fct>
+            <fct>ahnlab</fct>
+            <fct>centralcommand</fct>
+            <fct>drweb</fct>
+            <fct>grisoft</fct>
+            <fct>nod32</fct>
+            <fct>f-prot</fct>
+            <fct>jotti</fct>
+            <fct>computerassociates</fct>
+            <fct>networkassociates</fct>
+            <fct>etrust</fct>
+            <fct>panda</fct>
+            <fct>sophos</fct>
+            <fct>trendmicro</fct>
+            <fct>defender</fct>
+            <fct>rootkit</fct>
+            <fct>spyware</fct>
+            <fct>Kaspersky</fct>
+            <fct>BitDefender</fct>
+            <fct>Dr.Web</fct>
+            <fct>Kaspersky Antivirus</fct>
+            <fct>Nod32 Antivirus 2.x</fct>
+            <fct>Ewido Security Suite</fct>
+            <fct>McAfee VirusScan</fct>
+            <fct>Panda Antivirus/Firewall</fct>
+            <fct>Symantec/Norton</fct>
+            <fct>PC-cillin Antivirus</fct>
+            <fct>F-Secure</fct>
+            <fct>Kingsoft ShaDu</fct>
+            <fct>NOD32 Antivirus</fct>
+            <fct>Rising Antivirus</fct>
+            <fct>Jiangmin Antivirus</fct>
+            <fct>360 ShaDu</fct>
+            <fct>360 Safe</fct>
+            <fct>McAfee AV</fct>
+            <fct>Bitdefender AV</fct>
+            <fct>Norton Symantec AV</fct>
+            <fct>F-Secure AV</fct>
+            <fct>AhnLab V3 Internet Security 8</fct>
+            <fct>Avast AntiVirus</fct>
+            <fct>Avira Antivirus</fct>
+            <fct>Eset Nod32 Scanner</fct>
+            <fct>F-Secure Gatekeeper Handler Starter</fct>
+            <fct>F-Secure Recognizer</fct>
+            <fct>F-Secure HIPS</fct>
+            <fct>F-Secure Gatekeeper</fct>
+            <fct>F-Secure Filter</fct>
+            <fct>WinDefend</fct>
+            <fct>OutpostFirewall</fct>
+            <fct>McAfee Framework Service</fct>
+            <fct>Panda Antivirus</fct>
+            <fct>ZoneAlarm Client</fct>
+            <fct>Zone Labs Client</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3000" text="">
+      <libs>
+        <lib name="winscard.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+        <lib name="scarddlg.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3002" text="">
+      <libs>
+        <lib name="wtsapi32.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3003" text="">
+      <libs>
+        <lib name="pstorec.dll">
+          Protected Storage COM interfaces
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3005" text="">
+      <libs>
+        <lib name="ntdll.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>ZwQueryInformationProcess</fct>
+            <fct>ZwQuerySystemInformation</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3007" text="">
+    </feature>
+
+    <feature id="3008" text="">
+      <libs>
+        <lib name="cabinet.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+
+        <lib name="">
+          <fcts>
+            <fct>DeleteExtractedFiles</fct>
+            <fct>FCIAddFile</fct>
+            <fct>FCICreate</fct>
+            <fct>FCIDestroy</fct>
+            <fct>FCIFlushCabinet</fct>
+            <fct>FCIFlushFolder</fct>
+            <fct>FDICopy</fct>
+            <fct>FDICreate</fct>
+            <fct>FDIDestroy</fct>
+            <fct>FDIIsCabinet</fct>
+            <fct>FDITruncateCabinet</fct>
+          </fcts>
+        </lib>
+
+        <lib name="shell32.dll">
+          <fcts>
+            <fct>WriteCabinetState</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3009" text="">
+      <libs>
+        <lib name="msxfs.dll">
+          <fcts>
+            <fct>WFMSetTraceLevel</fct>
+            <fct>WFSAsyncClose</fct>
+            <fct>WFSAsyncDeregister</fct>
+            <fct>WFSAsyncExecut</fct>
+            <fct>WFSAsyncGetInfo</fct>
+            <fct>WFSAsyncLock</fct>
+            <fct>WFSAsyncOpen</fct>
+            <fct>WFSAsyncRegister</fct>
+            <fct>WFSAsyncUnlock</fct>
+            <fct>WFSCancelAsyncRequest</fct>
+            <fct>WFSCancelBlockingCall</fct>
+            <fct>WFSCleanUp</fct>
+            <fct>WFSClose</fct>
+            <fct>WFSCreateAppHandle</fct>
+            <fct>WFSDeregister</fct>
+            <fct>WFSDestroyAppHandle</fct>
+            <fct>WFSExecute</fct>
+            <fct>WFSFreeResult</fct>
+            <fct>WFSGetInfo</fct>
+            <fct>WFSIsBlocking</fct>
+            <fct>WFSLock</fct>
+            <fct>WFSOpen</fct>
+            <fct>WFSRegister</fct>
+            <fct>WFSSetBlockingHook</fct>
+            <fct>WFSStartUp</fct>
+            <fct>WFSUnhookBlockingHook</fct>
+            <fct>WFSUnlock</fct>
+          </fcts>
+        </lib>
+        <lib name="xfs_conf.dll">
+          <fcts>
+            <fct>WFMQueryValue</fct>
+            <fct>WFMOpenKey</fct>
+            <fct>WFMEnumKey</fct>
+            <fct>WFMCloseKey</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3010" text="">
+      <libs>
+        <lib name="wldap32.dll">
+          <fcts>
+          </fcts>
+        </lib>
+
+        <lib name="winrnr.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3011" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v</fct>
+            <fct>RegDelete</fct>
+          </fcts>
+        </lib>
+
+        <lib name="ntdll.dll">
+          <fcts>
+            <fct>RtlCreateRegistryKey</fct>
+            <fct>RtlWriteRegistryValue</fct>
+          </fcts>
+        </lib>
+
+        <lib name="ntoskrnl.exe">
+          <fcts>
+            <fct>ZwDeleteKey</fct>
+            <fct>ZwCreateKey</fct>
+            <fct>ZwFlushKey</fct>
+            <fct>ZwSetValueKey</fct>
+          </fcts>
+        </lib>
+
+        <lib name="advapi32.dll">
+          <fcts>
+            <fct>RegCreateKey</fct>
+            <fct>RegCreateKeyEx</fct>
+            <fct>RegCreateKeyTransacted</fct>
+            <fct>RegDeleteKey</fct>
+            <fct>RegDeleteKeyEx</fct>
+            <fct>RegDeleteKeyTransacted</fct>
+            <fct>RegDeleteValue</fct>
+            <fct>RegSetKeySecurity</fct>
+            <fct>RegSetKeyValue</fct>
+            <fct>RegSetValue</fct>
+            <fct>RegSetValueEx</fct>
+            <fct>RegFlushKey</fct>
+            <fct>RegCopyTree</fct>
+            <fct>RegSaveKey</fct>
+          </fcts>
+        </lib>
+
+        <lib name="shlwapi.dll">
+          <fcts>
+            <fct>SHDeleteKey</fct>
+            <fct>SHDeleteValue</fct>
+            <fct>SHDeleteEmptyKey</fct>
+          </fcts>
+        </lib>
+      </libs>
+
+      <lib name="atl80.dll">
+        <fcts>
+          <fct>AtlComModuleRegisterServer</fct>
+          <fct>AtlComModuleUnregisterServer</fct>
+          <fct>AtlUpdateRegistryFromResourceD</fct>
+        </fcts>
+      </lib>
+    </feature>
+
+    <feature id="3012" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3013" text="">
+      <libs>
+
+        <lib name="ole32.dll">
+          <fcts>
+            <fct>OleIsCurrentClipboard</fct>
+          </fcts>
+        </lib>
+
+        <lib name="">
+          <fcts>
+            <fct>AddClipboardFormatListener</fct>
+            <fct>ChangeClipboardChain</fct>
+            <fct>CloseClipboard</fct>
+            <fct>CountClipboardFormats</fct>
+            <fct>EmptyClipboard</fct>
+            <fct>EnumClipboardFormats</fct>
+            <fct>GetClipboardData</fct>
+            <fct>GetClipboardFormatName</fct>
+            <fct>GetClipboardOwner</fct>
+            <fct>GetClipboardSequenceNumber</fct>
+            <fct>GetClipboardViewer</fct>
+            <fct>GetOpenClipboardWindow</fct>
+            <fct>GetPriorityClipboardFormat</fct>
+            <fct>GetUpdatedClipboardFormats</fct>
+            <fct>IsClipboardFormatAvailable</fct>
+            <fct>OpenClipboard</fct>
+            <fct>RegisterClipboardFormat</fct>
+            <fct>RemoveClipboardFormatListener</fct>
+            <fct>SetClipboardData</fct>
+            <fct>SetClipboardViewer</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3014" text="The file references the installation of Hook">
+      <libs>
+        <lib name="user32.dll">
+          <fcts>
+            <fct>CallMsgFilter</fct>
+            <fct>CallNextHookEx</fct>
+            <fct>SetWindowsHook</fct>
+            <fct>SetWindowsHookW</fct>
+            <fct>SetWindowsHookEx</fct>
+            <fct>UnhookWindowsHook</fct>
+            <fct>UnhookWindowsHookEx</fct>
+            <fct>SetWinEventHook</fct>
+            <fct>RegisterUserApiHook</fct>
+            <fct>UnregisterUserApiHook</fct>
+            <fct>DeregisterShellHookWindow</fct>
+            <fct>RegisterShellHookWindow</fct>
+            <fct>UnhookWinEvent</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3015" text="The file enumerated the list of running processes">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>CreateToolhelp32Snapshot</fct>
+            <fct>Process32First</fct>
+            <fct>Process32Next</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3016" text="The file references the Service Control Manager (SCM)">
+      <libs>
+        <lib name="advapi32.dll">
+          <fcts>
+            <fct>StartServiceCtrlDispatcher</fct>
+            <fct>RegisterServiceCtrlHandler</fct>
+            <fct>QueryServiceStatus</fct>
+            <fct>OpenService</fct>
+            <fct>OpenSCManager</fct>
+            <fct>DeleteService</fct>
+            <fct>EnumDependentServices</fct>
+            <fct>CreateService</fct>
+            <fct>ControlService</fct>
+            <fct>CloseServiceHandle</fct>
+            <fct>ChangeServiceConfig2</fct>
+            <fct>GetServiceDisplayName</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3017" text="The file references the Reflective DLL Library injection technique">
+      <libs>
+        <lib name="">
+          <fcts>_ReflectiveLoader@0</fcts>
+          <fcts>_ReflectiveLoader@4</fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3018" text="">
+      <libs>
+        <lib name="query.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3019" text="The file enumerates the list of modules">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>CreateToolhelp32Snapshot</fct>
+            <fct>Module32First</fct>
+            <fct>Module32Next</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3020" text="">
+      <libs>
+        <lib name="dwmapi.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+
+        <lib name="user32.dll">
+          <fcts>
+            <fct>GetDesktopWindow</fct>
+            <fct>CreateDesktop</fct>
+            <fct>SetThreadDesktop</fct>
+            <fct>CreateDesktopEx</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3021" text="">
+      <libs>
+        <lib name="mprapi.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3022" text="">
+      <libs>
+        <lib name="mapi32.dll">
+          <fcts>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3023" text="">
+      <libs>
+        <lib name="msident.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3024" text="The file references the Windows Socket (WinSock) library">
+      <libs>
+        <lib name="ws2_32.dll">
+          <fcts>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3025" text="">
+      <libs>
+        <lib name="iphlpapi.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3027" text="">
+      <libs>
+        <lib name="shell32.dll">
+          <fcts>
+            <fct>ShellExecute</fct>
+            <fct>ShellExecuteEx</fct>
+            <fct>WOWShellExecute</fct>
+          </fcts>
+        </lib>
+
+        <lib name="msvcrt.dll">
+          <fcts>
+            <fct>_wexecve</fct>
+            <fct>_execve</fct>
+            <fct>_execlpe</fct>
+          </fcts>
+        </lib>
+
+        <lib name="kernel32.dll">
+          <fcts>
+            <fct>CreateProcess</fct>
+            <fct>CreateProcessWithLogon</fct>
+            <fct>WinExec</fct>
+            <fct>RealShellExecute</fct>
+            <fct>RealShellExecuteEx</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3028" text="">
+      <libs>
+        <lib name="wdigest.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3029" text="">
+      <libs>
+        <lib name="bcrypt.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3030" text="The file connects to the Local Security Authority Server">
+      <libs>
+        <lib name="lsasrv.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3031" text="">
+      <libs>
+        <lib name="lsass.exe">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3032" text="">
+      <libs>
+        <lib name="urlmon.dll">
+          <fcts>
+            <fct>CoInternetCreateZoneManager</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3033" text="">
+      <libs>
+        <lib name="credui.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3036" text="">
+      <libs>
+        <lib name="dbghelp.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3037" text="">
+      <libs>
+        <lib name="iphlpapi.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3038" text="">
+      <libs>
+        <lib name="powrprof.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3039" text="">
+      <libs>
+        <lib name="mpr.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3040" text="">
+      <libs>
+        <lib name="wininet.dll">
+          <fcts>
+            <fct>FtpDeleteFile</fct>
+            <fct>FtpCommand</fct>
+            <fct>FtpCreateDirectory</fct>
+            <fct>FtpFindFirstFile</fct>
+            <fct>FtpGetCurrentDirectory</fct>
+            <fct>FtpGetFile</fct>
+            <fct>FtpGetFileSize</fct>
+            <fct>FtpOpenFile</fct>
+            <fct>FtpPutFile</fct>
+            <fct>FtpRemoveDirectory</fct>
+            <fct>FtpRenameFile</fct>
+            <fct>FtpSetCurrentDirectory</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3041" text="">
+      <libs>
+        <lib name="advapi32.dll">
+          <fcts>
+            <fct>CredEnumerate</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3043" text="">
+      <libs>
+        <lib name="kernel32.dll">
+          <fcts>
+            <fct>FindNextFile</fct>
+            <fct>FindFirstFile</fct>
+            <fct>FindFirstFileEx</fct>
+            <fct>FindFirstFileTransacted</fct>
+            <fct>FindFirstFileNameTransacted</fct>
+            <fct>FindFirstFileName</fct>
+            <fct>FindNextFileName</fct>
+            <fct>FindNextStream</fct>
+            <fct>FindFirstStream</fct>
+            <fct>FindClose</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3044" text="">
+      <libs>
+        <lib name="kernel32.dll">
+          <fcts>
+            <fct>BackupRead</fct>
+            <fct>BackupSeek</fct>
+            <fct>BackupWrite</fct>
+            <fct>CreateTapePartition</fct>
+            <fct>EraseTape</fct>
+            <fct>GetTapeParameters</fct>
+            <fct>GetTapePosition</fct>
+            <fct>GetTapeStatus</fct>
+            <fct>PrepareTape</fct>
+            <fct>SetTapeParameters</fct>
+            <fct>SetTapePosition</fct>
+            <fct>WriteTapemark</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3051" text="">
+      <libs>
+        <lib name="hhctrl.ocx">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3055" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>at.exe</fct>
+            <fct>taskschd.msc</fct>
+            <fct>schtasks.exe</fct>
+            <fct>schtasks</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3056" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>root/cimv2</fct>
+            <fct>WbemScripting.SWbemLocator</fct>
+            <fct>SELECT * FROM</fct>
+            <fct>SELECT * FROM Win32_BaseBoard</fct>
+            <fct>SELECT * FROM Win32_OperatingSystem</fct>
+            <fct>SELECT * FROM Win32_Processor</fct>
+            <fct>SELECT * FROM Win32_Process</fct>
+            <fct>SELECT * FROM Win32_TimeZone</fct>
+            <fct>select * from msft_providers</fct>
+            <fct>select * from __win32provider where Name = </fct>
+            <fct>select * from msft_providers</fct>
+            <fct>select * from msft_providers where HostProcessIdentifier =</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3057" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>URLDownloadToFile</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3058" text="">
+      <libs>
+        <lib name="kernel32.dll">
+          <fcts>
+            <fct>SetDllDirectory</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3059" text="">
+      <libs>
+        <lib name="winspool.drv">
+          <fcts>
+            <fct>AddPrintProcessor</fct>
+            <fct>DeletePrintProcessor</fct>
+            <fct>GetPrintProcessorDirectory</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3060" text="">
+      <libs>
+        <lib name="user32.dll">
+          <fcts>
+            <fct>RegisterClipboardFormat</fct>
+            <fct>PackDDElParam</fct>
+            <fct>UnpackDDElParam</fct>
+            <fct>FreeDDElParam</fct>
+            <fct>DdeGetLastError</fct>
+            <fct>DdeFreeStringHandle</fct>
+            <fct>DdeQueryString</fct>
+            <fct>DdeCreateStringHandle</fct>
+            <fct>DdeCreateDataHandle</fct>
+            <fct>DdePostAdvise</fct>
+            <fct>DdeGetData</fct>
+            <fct>DdeFreeDataHandle</fct>
+            <fct>DdeClientTransaction</fct>
+            <fct>DdeDisconnect</fct>
+            <fct>DdeConnect</fct>
+            <fct>DdeNameService</fct>
+            <fct>DdeUninitialize</fct>
+            <fct>DdeInitialize</fct>
+          </fcts>
+        </lib>
+
+        <lib name="ntdll.dll">
+          <fcts>
+            <fct>NtAddAtom</fct>
+            <fct>FindAtom</fct>
+            <fct>NtDeleteAtom</fct>
+            <fct>NtQueryInformationAtom</fct>
+          </fcts>
+        </lib>
+      </libs>
+
+      <lib name="kernel32.dll">
+        <fcts>
+          <fct>NtAddAtom</fct>
+          <fct>AddAtom</fct>
+          <fct>DeleteAtom</fct>
+          <fct>FindAtom</fct>
+          <fct>GetAtomName</fct>
+          <fct>GlobalAddAtom</fct>
+          <fct>GlobalDeleteAtom</fct>
+          <fct>GlobalFindAtom</fct>
+          <fct>GlobalGetAtomName</fct>
+          <fct>InitAtomTable</fct>
+          <fct>NtQueryInformationAtom</fct>
+        </fcts>
+      </lib>
+    </feature>
+
+    <feature id="3061" text="">
+      <libs>
+        <lib name="user32.dll">
+          <fcts>
+            <fct>FindWindow</fct>
+            <fct>FindWindowEx</fct>
+            <fct>EnumWindows</fct>
+            <fct>EnumChildWindows</fct>
+            <fct>EnumThreadWindows</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3062" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3063" text="">
+      <libs>
+        <lib name="kernel32.dll">
+          <fcts>
+            <fct>ContinueDebugEvent</fct>
+            <fct>WaitForDebugEvent</fct>
+            <fct>DebugActiveProcess</fct>
+            <fct>DebugBreak</fct>
+            <fct>HeapWalk</fct>
+            <fct>FatalExit</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3064" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>AutoIt</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3065" text="">
+      <libs>
+        <lib name="msi.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3066" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3067" text="">
+      <libs>
+        <lib name="dnsapi.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3068" text="">
+      <libs>
+        <lib name="kernel32.dll">
+          <fcts>
+            <fct>GetTempFileName</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3069" text="">
+      <libs>
+        <lib name="wlanapi.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3070" text="">
+      <libs>
+        <lib name="kernel32.dll">
+          <fcts>
+            <fct>FreeEnvironmentStrings</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3071" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>CPlApplet</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3072" text="">
+      <libs>
+        <lib name="advapi32.dll">
+          <fcts>
+            <fct>RegNotifyChangeKeyValue</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3073" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>abe2869f-9b47-4cd9-a358-c22904dba7f7</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3074" text="">
+      <libs>
+        <lib name="dhcpcsvc.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3075" text="">
+      <libs>
+        <lib name="kernel32.dll">
+          <fcts>
+            <fct>SetComputerName</fct>
+            <fct>SetComputerNameEx</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3076" text="The file references the Windows Internet (WinINet) library">
+      <libs>
+        <lib name="wininet.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+
+    <feature id="3077" text="">
+      <libs>
+        <lib name="ws2_32.dll">
+          <fcts>
+            <fct>WSASend</fct>
+            <fct>WSASendMsg</fct>
+            <fct>WSASendTo</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3078" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>Internet Explorer_Server</fct>
+            <fct>WM_HTML_GETOBJECT</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3079" text="">
+      <libs>
+        <lib name="urlmon.dll">
+          <fcts>
+            <fct>WriteHitLogging</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3080" text="">
+      <libs>
+        <lib name="user32.dll">
+          <fcts>
+            <fct>mouse_event</fct>
+          </fcts>
+        </lib>
+        <lib name="">
+          <fcts>
+            <fct>WMessages</fct>
+            <fct>WM_MOUSEMOVE</fct>
+            <fct>WM_LBUTTONUP</fct>
+            <fct>WM_LBUTTONDOWN</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3081" text="The file references the protection of the Virtual Address space">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>VirtualProtect</fct>
+            <fct>VirtualProtectEx</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+
+    <feature id="3085" text="">
+      <libs>
+        <lib name="user32.dll">
+          <fcts>
+            <fct>SetClipboardViewer</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3086" text="">
+      <libs>
+        <lib name="odbccp32.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3087" text="">
+      <libs>
+        <lib name="sisbkup.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3089" text="">
+      <libs>
+        <lib name="odbctrac.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3090" text="">
+      <libs>
+        <lib name="fveapi.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3091" text="">
+      <libs>
+        <lib name="ntoskrnl.exe">
+          <fcts>
+            <fct>IoRegisterBootDriverReinitialization</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3092" text="">
+      <libs>
+        <lib name="kernel32.dll">
+          <fcts>
+            <fct>RtlCaptureStackBackTrace</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3093" text="">
+      <libs>
+        <lib name="wscript.exe">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3094" text="">
+      <libs>
+        <lib name="cscript.exe">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3095" text="">
+      <libs>
+        <lib name="mshta.exe">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3096" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3097" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3098" text="">
+      <libs>
+        <lib name="sfc.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+        <lib name="sfc_os.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3099" text="">
+      <libs>
+        <lib name="user32.dll">
+          <fcts>
+            <fct>OemKeyScan</fct>
+          </fcts>
+        </lib>
+
+      </libs>
+    </feature>
+
+    <feature id="3101" text="">
+      <libs>
+        <lib name="gpedit.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3102" text="">
+      <libs>
+        <lib name="kernel32.dll">
+          <fcts>
+            <fct>CommConfigDialog</fct>
+            <fct>GetCommModemStatus</fct>
+            <fct>GetCommTimeouts</fct>
+            <fct>GetDefaultCommConfig</fct>
+            <fct>GetCommProperties</fct>
+            <fct>PurgeComm</fct>
+            <fct>SetCommState</fct>
+            <fct>SetCommTimeouts</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3103" text="">
+      <libs>
+        <lib name="kernel32.dll">
+          <fcts>
+            <fct>SetCommMask</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3104" text="">
+      <libs>
+        <lib name="ole32.dll">
+          <fcts>
+            <fct>GetRunningObjectTable</fct>
+          </fcts>
+        </lib>
+        <lib name="shsvcs.dll">
+          <fcts>
+            <fct>CreateHardwareEventMoniker</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3107" text="">
+      <libs>
+        <lib name="icmp.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+
+        <lib name="iphlpapi.dll">
+          <fcts>
+            <fct>Icmp6CreateFile</fct>
+            <fct>Icmp6ParseReplies</fct>
+            <fct>Icmp6SendEcho2</fct>
+            <fct>IcmpCloseHandle</fct>
+            <fct>IcmpCreateFile</fct>
+            <fct>IcmpSendEcho</fct>
+            <fct>IcmpSendEcho2</fct>
+            <fct>IcmpSendEcho2Ex</fct>
+            <fct>IcmpParseReplies</fct>
+            <fct>IcmpSendEcho</fct>
+            <fct>IcmpSendEcho2</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3105" text="">
+      <libs>
+        <lib name="hid.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3100" text="">
+      <libs>
+        <lib name="avrt.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3004" text="">
+      <libs>
+        <lib name="ntdsapi.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+        <lib name="dsuiext.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3006" text="">
+      <libs>
+        <lib name="wsnmp32.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+        <lib name="snmpapi.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3042" text="">
+      <libs>
+        <lib name="kernel32.dll">
+          <fcts>
+            <fct>FindResource</fct>
+            <fct>LockResource</fct>
+            <fct>FindResourceEx</fct>
+            <fct>BeginUpdateResource</fct>
+            <fct>EndUpdateResource</fct>
+            <fct>LoadResource</fct>
+            <fct>SizeofResource</fct>
+            <fct>FreeResource</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3083" text="">
+      <libs>
+        <lib name="ntdll.dll">
+          <fcts>
+            <fct>WerReportSQMEvent</fct>
+            <fct>WinSqmAddToAverageDWORD</fct>
+            <fct>WinSqmAddToStream</fct>
+            <fct>WinSqmAddToStreamEx</fct>
+            <fct>WinSqmCheckEscalationAddToStreamEx</fct>
+            <fct>WinSqmCheckEscalationSetDWORD64</fct>
+            <fct>WinSqmCheckEscalationSetDWORD</fct>
+            <fct>WinSqmCheckEscalationSetString</fct>
+            <fct>WinSqmCommonDatapointDelete</fct>
+            <fct>WinSqmCommonDatapointSetDWORD64</fct>
+            <fct>WinSqmCommonDatapointSetDWORD</fct>
+            <fct>WinSqmCommonDatapointSetStreamEx</fct>
+            <fct>WinSqmCommonDatapointSetString</fct>
+            <fct>WinSqmEndSession</fct>
+            <fct>WinSqmEventEnabled</fct>
+            <fct>WinSqmEventWrite</fct>
+            <fct>WinSqmGetEscalationRuleStatus</fct>
+            <fct>WinSqmGetInstrumentationProperty</fct>
+            <fct>WinSqmIncrementDWORD</fct>
+            <fct>WinSqmIsOptedIn</fct>
+            <fct>WinSqmIsOptedInEx</fct>
+            <fct>WinSqmSetDWORD64</fct>
+            <fct>WinSqmSetDWORD</fct>
+            <fct>WinSqmSetEscalationInfo</fct>
+            <fct>WinSqmSetIfMaxDWORD</fct>
+            <fct>WinSqmSetIfMinDWORD</fct>
+            <fct>WinSqmSetString</fct>
+            <fct>WinSqmStartSession</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3082" text="">
+      <libs>
+        <lib name="rpcrt4.dll">
+          <fcts>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3084" text="">
+      <libs>
+        <lib name="ntdll.dll">
+          <fcts>
+            <fct>EtwEventWrite</fct>
+            <fct>EtwEventEnabled</fct>
+            <fct>EtwEventRegister</fct>
+            <fct>EtwEventUnregister</fct>
+            <fct>EtwUnregisterTraceGuids</fct>
+            <fct>EtwRegisterTraceGuids</fct>
+            <fct>EtwGetTraceLoggerHandle</fct>
+            <fct>EtwGetTraceEnableLevel</fct>
+            <fct>EtwGetTraceEnableFlags</fct>
+            <fct>EtwTraceMessage</fct>
+          </fcts>
+        </lib>
+
+        <lib name="advapi32.dll">
+          <fcts>
+            <fct>ControlTrace</fct>
+            <fct>EnableTrace</fct>
+            <fct>EnableTraceEx</fct>
+            <fct>EnableTraceEx2</fct>
+            <fct>EnumerateTraceGuids</fct>
+            <fct>EnumerateTraceGuidsEx</fct>
+            <fct>FlushTrace</fct>
+            <fct>QueryAllTraces</fct>
+            <fct>QueryTrace</fct>
+            <fct>StartTrace</fct>
+            <fct>StopTrace</fct>
+            <fct>TraceQueryInformation</fct>
+            <fct>TraceSetInformation</fct>
+            <fct>UpdateTrace</fct>
+            <fct>EventWrite</fct>
+            <fct>EnableCallback</fct>
+            <fct>EventActivityIdControl</fct>
+            <fct>EventEnabled</fct>
+            <fct>EventProviderEnabled</fct>
+            <fct>EventRegister</fct>
+            <fct>EventSetInformation</fct>
+            <fct>EventUnregister</fct>
+            <fct>EventWriteEx</fct>
+            <fct>EventWriteString</fct>
+            <fct>EventWriteTransfer</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3106" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3111" text="">
+      <libs>
+        <lib name="mpr.dll">
+          <fcts>
+            <fct>WNetOpenEnum</fct>
+            <fct>WNetEnumResource</fct>
+            <fct>WNetCloseEnum</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3112" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>Zone.Identifier</fct>
+            <fct>:Zone.Identifier</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3113" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>firefox.exe</fct>
+            <fct>chrome.exe</fct>
+            <fct>iexplorer.exe</fct>
+            <fct>opera.exe</fct>
+            <fct>netscape.exe</fct>
+            <fct>mozilla.exe</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3114" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>76487-640-1457236-23837</fct>
+            <fct>76487-337-8429955-22614</fct>
+            <fct>76487-644-3177037-23510</fct>
+            <fct>76487-640-8834005-23195</fct>
+            <fct>76487-640-0716662-23535</fct>
+            <fct>76487-644-8648466-23106</fct>
+            <fct>76487-341-5883812-22420</fct>
+            <fct>76487-OEM-0027453-63796</fct>
+            <fct>76497-640-6308873-23835</fct>
+            <fct>55274-640-2673064-23950</fct>
+            <fct>00426-293-8170032-85146</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3115" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>thunderbird.exe</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3116" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>PR_Bind</fct>
+            <fct>PR_Accept</fct>
+            <fct>PR_AcceptRead</fct>
+            <fct>PR_Connect</fct>
+            <fct>PR_Listen</fct>
+            <fct>PR_Read</fct>
+            <fct>PR_Write</fct>
+            <fct>PR_Writev</fct>
+            <fct>PR_Close</fct>
+            <fct>PR_Send</fct>
+            <fct>PR_TransmitFile</fct>
+            <fct>PR_OpenTCPSocket</fct>
+            <fct>PR_GetSocketOption</fct>
+            <fct>PR_SetSocketOption</fct>
+            <fct>PR_Shutdown</fct>
+            <fct>PR_GetError</fct>
+            <fct>PR_SetError</fct>
+            <fct>PR_GetNameForIdentity</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3117" text="">
+      <libs>
+        <lib name="shimeng.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+        <lib name="ntdll.dll">
+          <fcts>
+            <fct>LdrInitShimEngineDynamic</fct>
+          </fcts>
+        </lib>
+        <lib name="kernel32.dll">
+          <fcts>
+            <fct>BaseFlushAppcompatCache</fct>
+            <fct>BaseCheckAppcompatCache</fct>
+          </fcts>
+        </lib>
+        <lib name="Apphelp.dll">
+          <fcts>
+            <fct>SE_DllLoaded</fct>
+            <fct>SE_DllUnloaded</fct>
+            <fct>SE_DynamicShim</fct>
+            <fct>SE_GetHookAPIs</fct>
+            <fct>SE_GetMaxShimCount</fct>
+            <fct>SE_GetProcAddressIgnoreIncExc</fct>
+            <fct>SE_GetProcAddressLoad</fct>
+            <fct>SE_GetShimCount</fct>
+            <fct>SE_InstallAfterInit</fct>
+            <fct>SE_InstallBeforeInit</fct>
+            <fct>SE_IsShimDll</fct>
+            <fct>SE_LdrEntryRemoved</fct>
+            <fct>SE_ProcessDying</fct>
+            <fct>SdbApphelpNotify</fct>
+            <fct>SdbApphelpNotifyEx</fct>
+            <fct>SdbBeginWriteListTag</fct>
+            <fct>SdbBeginWriteListTag</fct>
+            <fct>SdbBeginWriteListTag</fct>
+            <fct>SdbBuildCompatEnvVariables</fct>
+            <fct>SdbBuildSignature</fct>
+            <fct>SdbCloseApphelpDetailsDataEx</fct>
+            <fct>SdbCloseApphelpInformation</fct>
+            <fct>SdbCloseDatabase</fct>
+            <fct>SdbCloseDatabase</fct>
+            <fct>SdbCloseDatabase</fct>
+            <fct>SdbCloseDatabaseWrite</fct>
+            <fct>SdbCloseDatabaseWrite</fct>
+            <fct>SdbCloseLocalDatabase</fct>
+            <fct>SdbCommitIndexes</fct>
+            <fct>SdbCreateDatabase</fct>
+            <fct>SdbDeclareIndex</fct>
+            <fct>SdbEndWriteListTag</fct>
+            <fct>SdbFindFirstDWORDIndexedTag</fct>
+            <fct>SdbFindFirstTag</fct>
+            <fct>SdbFindNextTag</fct>
+            <fct>SdbFormatAttribute</fct>
+            <fct>SdbFreeFileAttributes</fct>
+            <fct>SdbGetAppPatchDir</fct>
+            <fct>SdbGetBinaryTagData</fct>
+            <fct>SdbGetFileAttributes</fct>
+            <fct>SdbGetFirstChild</fct>
+            <fct>SdbGetIndex</fct>
+            <fct>SdbGetMatchingExe</fct>
+            <fct>SdbGetNextChild</fct>
+            <fct>SdbGetStringTagPtr</fct>
+            <fct>SdbGetTagFromTagID</fct>
+            <fct>SdbInitDatabase</fct>
+            <fct>SdbIsStandardDatabase</fct>
+            <fct>SdbMakeIndexKeyFromString</fct>
+            <fct>SdbOpenApphelpDetailsDatabase</fct>
+            <fct>SdbOpenApphelpResourceFile</fct>
+            <fct>SdbOpenDatabase</fct>
+            <fct>SdbQueryDataExTagID</fct>
+            <fct>SdbReadApphelpDetailsData</fct>
+            <fct>SdbReadBinaryTag</fct>
+            <fct>SdbReadDWORDTag</fct>
+            <fct>SdbReadQWORDTag</fct>
+            <fct>SdbReadStringTag</fct>
+            <fct>SdbRegisterDatabaseEx</fct>
+            <fct>SdbReleaseDatabase</fct>
+            <fct>SdbReleaseMatchingExe</fct>
+            <fct>SdbStartIndexing</fct>
+            <fct>SdbStopIndexing</fct>
+            <fct>SdbTagRefToTagID</fct>
+            <fct>SdbTagToString</fct>
+            <fct>SdbUnregisterDatabase</fct>
+            <fct>SdbWriteBinaryTag</fct>
+            <fct>SdbWriteBinaryTagFromFile</fct>
+            <fct>SdbWriteDWORDTag</fct>
+            <fct>SdbWriteNULLTag</fct>
+            <fct>SdbWriteQWORDTag</fct>
+            <fct>SdbWriteStringTag</fct>
+            <fct>SdbWriteWORDTag</fct>
+            <fct>ShimFlushCache</fct>
+            <fct>ShimExceptionHandler</fct>
+            <fct>ShowDebugInfo</fct>
+          </fcts>
+        </lib>
+
+        <lib name="">
+          <fcts>
+            <fct>SHIM_DEBUG_LEVEL</fct>
+            <fct>Microsoft Application Compatibility Toolkit 5.6</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3118" text="">
+      <libs>
+        <lib name="wab32.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+        <lib name="wab32res.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+        <lib name="">
+          <fcts>
+            <fct>C:\Program Files\Common Files\System\wab32</fct>
+            <fct>WABOpen</fct>
+            <fct>WABCreateIProp</fct>
+            <fct>WABOpenEx</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3119" text="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>SHQueryRecycleBin</fct>
+            <fct>RECYCLER\</fct>
+            <fct>$Recycle.Bin\</fct>
+            <fct>$Recycle.Bin</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3120" text="The file references the Volume Shadow administration (vssadmin) tool">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>vssadmin add shadowstorage</fct>
+            <fct>vssadmin create shadow</fct>
+            <fct>vssadmin delete shadows</fct>
+            <fct>vssadmin delete shadowstorage</fct>
+            <fct>vssadmin list providers</fct>
+            <fct>vssadmin list shadows</fct>
+            <fct>vssadmin list shadowstorage</fct>
+            <fct>vssadmin list volumes</fct>
+            <fct>vssadmin list writers</fct>
+            <fct>vssadmin resize shadowstorage</fct>
+            <fct>vssadmin.exe</fct>
+            <fct>vssadmin.exe Delete Shadows /All /Quiet</fct>
+            <fct>process call create "cmd.exe /c vssadmin.exe delete shadows /quiet /all"</fct>
+            <fct>process call create "cmd.exe /c vssadmin.exe delete shadows /all /quiet"</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3121" text="The file references the Windows Scripting runtime">
+      <libs>
+        <lib name="scrrun.dll">
+          <fcts>
+            <fct></fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="4000" text="Security Management"
+             url="http://msdn.microsoft.com/en-us/lib/windows/desktop/ms721849(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>GetServiceAccountPassword</fct>
+            <fct>InitializeChangeNotify</fct>
+            <fct>LsaAddAccountRights</fct>
+            <fct>LsaClose</fct>
+            <fct>LsaCreateTrustedDomainEx</fct>
+            <fct>LsaDeleteTrustedDomain</fct>
+            <fct>LsaEnumerateAccountRights</fct>
+            <fct>LsaEnumerateAccountsWithUserRight</fct>
+            <fct>LsaEnumerateTrustedDomains</fct>
+            <fct>LsaEnumerateTrustedDomainsEx</fct>
+            <fct>LsaFreeMemory</fct>
+            <fct>LsaLookupNames</fct>
+            <fct>LsaLookupNames2</fct>
+            <fct>LsaLookupPrivilegeValue</fct>
+            <fct>LsaLookupSids</fct>
+            <fct>LsaLookupSids2</fct>
+            <fct>LsaNtStatusToWinError</fct>
+            <fct>LsaOpenTrustedDomainByName</fct>
+            <fct>LsaQueryTrustedDomainInfo</fct>
+            <fct>LsaQueryTrustedDomainInfoByName</fct>
+            <fct>LsaRegisterPolicyChangeNotification</fct>
+            <fct>LsaRemoveAccountRights</fct>
+            <fct>LsaRetrievePrivateData</fct>
+            <fct>LsaSetTrustedDomainInfoByName</fct>
+            <fct>LsaSetTrustedDomainInformation</fct>
+            <fct>LsaStorePrivateData</fct>
+            <fct>LsaUnregisterPolicyChangeNotification</fct>
+            <fct>NetAddServiceAccount</fct>
+            <fct>NetEnumerateServiceAccounts</fct>
+            <fct>NetIsServiceAccount</fct>
+            <fct>NetQueryServiceAccount</fct>
+            <fct>NetRemoveServiceAccount</fct>
+            <fct>PasswordChangeNotify</fct>
+            <fct>PasswordFilter</fct>
+            <fct>SaferCloseLevel</fct>
+            <fct>SaferComputeTokenFromLevel</fct>
+            <fct>SaferCreateLevel</fct>
+            <fct>SaferGetLevelInformation</fct>
+            <fct>SaferGetPolicyInformation</fct>
+            <fct>SaferIdentifyLevel</fct>
+            <fct>SaferiIsExecutableFileType</fct>
+            <fct>SaferRecordEventLogEntry</fct>
+            <fct>SaferSetLevelInformation</fct>
+            <fct>SaferSetPolicyInformation</fct>
+            <fct>SceSvcAttachmentAnalyze</fct>
+            <fct>SceSvcAttachmentConfig</fct>
+            <fct>SceSvcAttachmentUpdate</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3123" text="The file enumerated the list of theads">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>CreateToolhelp32Snapshot</fct>
+            <fct>Thread32First</fct>
+            <fct>Thread32Next</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3124" text="The file enumerates the list of mounted folders on a volume">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>GetVolumeNameForVolumeMountPointA</fct>
+            <fct>FindFirstVolumeMountPointA</fct>
+            <fct>FindNextVolumeMountPointA</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3126" text="The file enumerates the existing Logon sessions">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>LsaEnumerateLogonSessions</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3127" text="The file enumerates the Display devices on the computer">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>EnumDisplayDevices</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3128" text="The file enumerates the Display monitors on the computer">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>EnumDisplayMonitors</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3129" text="The file enumerates the Internet Explorer cache">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>FindFirstUrlCacheEntry</fct>
+            <fct>FindFirstUrlCacheEntryEx</fct>
+            <fct>FindFirstUrlCacheGroup</fct>
+            <fct>FindNextUrlCacheEntry</fct>
+            <fct>FindNextUrlCacheEntryEx</fct>
+            <fct>FindNextUrlCacheGroup</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="3130" text="The file references zLibDll, an open source ZLIB compression library">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct> inflate 1.0.4 Copyright 1995-1996 Mark Adler </fct>
+            <fct> inflate 1.1.2 Copyright 1995-1998 Mark Adler </fct>
+            <fct> inflate 1.1.3 Copyright 1995-1998 Mark Adler </fct>
+            <fct> inflate 1.1.4 Copyright 1995-2002 Mark Adler </fct>
+            <fct> inflate 1.2.1 Copyright 1995-2003 Mark Adler </fct>
+            <fct> inflate 1.2.2 Copyright 1995-2004 Mark Adler </fct>
+            <fct> inflate 1.2.3 Copyright 1995-2005 Mark Adler </fct>
+			<fct> inflate 1.2.4 Copyright 1995-2010 Mark Adler </fct>
+            <fct> inflate 1.2.8 Copyright 1995-2013 Mark Adler </fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="4004"
+             text="Tool Help"
+             url="http://msdn.microsoft.com/en-us/lib/windows/desktop/ms686832(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>CloseToolhelp32Snapshot</fct>
+            <fct>CreateToolhelp32Snapshot</fct>
+            <fct>Heap32First</fct>
+            <fct>Heap32ListFirst</fct>
+            <fct>Heap32ListNext</fct>
+            <fct>Heap32Next</fct>
+            <fct>Module32First</fct>
+            <fct>Module32Next</fct>
+            <fct>Process32First</fct>
+            <fct>Process32Next</fct>
+            <fct>Thread32First</fct>
+            <fct>Thread32Next</fct>
+            <fct>Toolhelp32ReadProcessMemory</fct>
+            <fct>CloseToolhelp32Snapshot</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="4006"
+             text="Event Logging"
+             url="http://msdn.microsoft.com/en-us/lib/windows/desktop/aa363654(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>BackupEventLog</fct>
+            <fct>ClearEventLog</fct>
+            <fct>CloseEventLog</fct>
+            <fct>DeregisterEventSource</fct>
+            <fct>GetEventLogInformation</fct>
+            <fct>GetNumberOfEventLogRecords</fct>
+            <fct>GetOldestEventLogRecord</fct>
+            <fct>NotifyChangeEventLog</fct>
+            <fct>OpenBackupEventLog</fct>
+            <fct>OpenEventLog</fct>
+            <fct>ReadEventLog</fct>
+            <fct>RegisterEventSource</fct>
+            <fct>ReportEvent</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="4008"
+             text="Error Handling"
+             url="http://msdn.microsoft.com/en-us/lib/windows/desktop/ms679321(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>CaptureStackBackTrace</fct>
+            <fct>FatalAppExit</fct>
+            <fct>FlashWindow</fct>
+            <fct>FlashWindowEx</fct>
+            <fct>GetErrorMode</fct>
+            <fct>GetThreadErrorMode</fct>
+            <fct>RtlLookupFunctionEntry</fct>
+            <fct>RtlNtStatusToDosError</fct>
+            <fct>RtlPcToFileHeader</fct>
+            <fct>RtlUnwind</fct>
+            <fct>RtlUnwind2</fct>
+            <fct>RtlUnwindEx</fct>
+            <fct>RtlVirtualUnwind</fct>
+            <fct>SetErrorMode</fct>
+            <fct>SetLastError</fct>
+            <fct>SetLastErrorEx</fct>
+            <fct>SetThreadErrorMode</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="4012"
+             text="ImageHlp"
+             url="http://msdn.microsoft.com/en-us/lib/windows/desktop/ms680181(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>BindImage</fct>
+            <fct>BindImageEx</fct>
+            <fct>CheckSumMappedFile</fct>
+            <fct>DigestFunction</fct>
+            <fct>GetImageConfigInformation</fct>
+            <fct>GetImageUnusedHeaderBytes</fct>
+            <fct>ImageAddCertificate</fct>
+            <fct>ImageEnumerateCertificates</fct>
+            <fct>ImageGetCertificateData</fct>
+            <fct>ImageGetCertificateHeader</fct>
+            <fct>ImageGetDigestStream</fct>
+            <fct>ImageLoad</fct>
+            <fct>ImageRemoveCertificate</fct>
+            <fct>ImageUnload</fct>
+            <fct>MapAndLoad</fct>
+            <fct>MapFileAndCheckSum</fct>
+            <fct>ReBaseImage</fct>
+            <fct>ReBaseImage64</fct>
+            <fct>SetImageConfigInformation</fct>
+            <fct>SplitSymbols</fct>
+            <fct>StatusRoutine</fct>
+            <fct>TouchFileTimes</fct>
+            <fct>UnMapAndLoad</fct>
+            <fct>UpdateDebugInfoFile</fct>
+            <fct>UpdateDebugInfoFileEx</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="4014"
+             text="COM"
+             url="http://msdn.microsoft.com/en-us/lib/aa910227.aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>BindMoniker</fct>
+            <fct>CLSIDFromProgID</fct>
+            <fct>CLSIDFromString</fct>
+            <fct>CoAddRefServerProcess</fct>
+            <fct>CoBuildVersion</fct>
+            <fct>CoCopyProxy</fct>
+            <fct>CoCreateFreeThreadedMarshaler</fct>
+            <fct>CoCreateGuid</fct>
+            <fct>_CoCreateInstance</fct>
+            <fct>_CoCreateInstanceEx</fct>
+            <fct>CoDisconnectObject</fct>
+            <fct>CoFileTimeNow</fct>
+            <fct>CoFreeAllLibraries</fct>
+            <fct>CoFreeLibrary</fct>
+            <fct>CoFreeUnusedLibraries</fct>
+            <fct>CoFreeUnusedLibrariesEx</fct>
+            <fct>CoGetCallContext</fct>
+            <fct>CoGetClassObject</fct>
+            <fct>CoGetCurrentProcess</fct>
+            <fct>CoGetInstanceFromFile</fct>
+            <fct>CoGetInstanceFromIStorage</fct>
+            <fct>CoGetInterfaceAndReleaseStream</fct>
+            <fct>CoGetMalloc</fct>
+            <fct>CoGetMarshalSizeMax</fct>
+            <fct>CoGetObject</fct>
+            <fct>CoGetPSClsid</fct>
+            <fct>CoGetStandardMarshal</fct>
+            <fct>CoGetTreatAsClass</fct>
+            <fct>CoImpersonateClient</fct>
+            <fct>_CoInitialize</fct>
+            <fct>_CoInitializeEx</fct>
+            <fct>CoInitializeSecurity</fct>
+            <fct>CoIsHandlerConnected</fct>
+            <fct>CoIsOle1Class</fct>
+            <fct>CoLoadLibrary</fct>
+            <fct>CoLockObjectExternal</fct>
+            <fct>CoMarshalHresult</fct>
+            <fct>CoMarshalInterface</fct>
+            <fct>CoMarshalInterThreadInterfaceInStream</fct>
+            <fct>CoQueryAuthenticationServices</fct>
+            <fct>CoQueryClientBlanket</fct>
+            <fct>CoQueryProxyBlanket</fct>
+            <fct>CoRegisterClassObject</fct>
+            <fct>CoRegisterMallocSpy</fct>
+            <fct>CoRegisterMessageFilter</fct>
+            <fct>CoRegisterPSClsid</fct>
+            <fct>CoRegisterSurrogate</fct>
+            <fct>CoReleaseMarshalData</fct>
+            <fct>CoReleaseServerProcess</fct>
+            <fct>CoResumeClassObjects</fct>
+            <fct>CoRevertToSelf</fct>
+            <fct>CoRevokeClassObject</fct>
+            <fct>CoRevokeMallocSpy</fct>
+            <fct>CoSetProxyBlanket</fct>
+            <fct>CoSuspendClassObjects</fct>
+            <fct>CoSwitchCallContext</fct>
+            <fct>CoTaskMemAlloc</fct>
+            <fct>CoTaskMemFree</fct>
+            <fct>CoTaskMemRealloc</fct>
+            <fct>CoTreatAsClass</fct>
+            <fct>CoUninitialize</fct>
+            <fct>CoUnmarshalHresult</fct>
+            <fct>CoUnmarshalInterface</fct>
+            <fct>CreateAntiMoniker</fct>
+            <fct>CreateBindCtx</fct>
+            <fct>CreateClassMoniker</fct>
+            <fct>CreateFileMoniker</fct>
+            <fct>CreateGenericComposite</fct>
+            <fct>CreateItemMoniker</fct>
+            <fct>CreatePointerMoniker</fct>
+            <fct>DllCanUnloadNow</fct>
+            <fct>DllGetClassObject</fct>
+            <fct>_DllRegisterServer</fct>
+            <fct>_DllUnregisterServer</fct>
+            <fct>GetClassFile</fct>
+            <fct>GetRunningObjectTable</fct>
+            <fct>IIDFromString</fct>
+            <fct>IsEqualGUID</fct>
+            <fct>IsValidIid</fct>
+            <fct>IsValidInterface</fct>
+            <fct>IsValidPtrIn</fct>
+            <fct>IsValidPtrOut</fct>
+            <fct>MkParseDisplayName</fct>
+            <fct>MonikerCommonPrefixWith</fct>
+            <fct>MonikerRelativePathTo</fct>
+            <fct>ProgIDFromCLSID</fct>
+            <fct>StringFromCLSID</fct>
+            <fct>StringFromGUID2</fct>
+            <fct>StringFromIID</fct>
+            <fct>UpdateDCOMSettings</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="4016"
+             text="Package Query"
+             url="http://msdn.microsoft.com/en-us/lib/windows/desktop/hh446597(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>ClosePackageInfo</fct>
+            <fct>FindPackagesByPackageFamily</fct>
+            <fct>FormatApplicationUserModelId</fct>
+            <fct>GetApplicationUserModelId</fct>
+            <fct>GetCurrentApplicationUserModelId</fct>
+            <fct>GetCurrentPackageFamilyName</fct>
+            <fct>GetCurrentPackageFullName</fct>
+            <fct>GetCurrentPackageId</fct>
+            <fct>GetCurrentPackageInfo</fct>
+            <fct>GetCurrentPackagePath</fct>
+            <fct>GetPackageApplicationIds</fct>
+            <fct>GetPackageFamilyName</fct>
+            <fct>GetPackageFullName</fct>
+            <fct>GetPackageId</fct>
+            <fct>GetPackageInfo</fct>
+            <fct>GetPackagePath</fct>
+            <fct>GetPackagePathByFullName</fct>
+            <fct>GetPackagesByPackageFamily</fct>
+            <fct>GetStagedPackageOrigin</fct>
+            <fct>GetStagedPackagePathByFullName</fct>
+            <fct>OpenPackageInfoByFullName</fct>
+            <fct>PackageFamilyNameFromFullName</fct>
+            <fct>PackageFamilyNameFromId</fct>
+            <fct>PackageFullNameFromId</fct>
+            <fct>PackageIdFromFullName</fct>
+            <fct>PackageNameAndPublisherIdFromFamilyName</fct>
+            <fct>ParseApplicationUserModelId</fct>
+            <fct>PackageOrigin</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="4017"
+             text="Setup"
+             url="https://msdn.microsoft.com/en-us/library/aa376947(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>InstallHinfSection</fct>
+            <fct>SetupAddInstallSectionToDiskSpaceList</fct>
+            <fct>SetupAddSectionToDiskSpaceList</fct>
+            <fct>SetupAddToDiskSpaceList</fct>
+            <fct>SetupAddToSourceList</fct>
+            <fct>SetupAdjustDiskSpaceList</fct>
+            <fct>SetupBackupError</fct>
+            <fct>SetupCancelTemporarySourceList</fct>
+            <fct>SetupCloseFileQueue</fct>
+            <fct>SetupCloseInfFile</fct>
+            <fct>SetupCommitFileQueue</fct>
+            <fct>SetupCopyError</fct>
+            <fct>SetupConfigureWmiFromInfSection</fct>
+            <fct>SetupCopyOEMInf</fct>
+            <fct>SetupCreateDiskSpaceList</fct>
+            <fct>SetupDecompressOrCopyFile</fct>
+            <fct>SetupDefaultQueueCallback</fct>
+            <fct>SetupDeleteError</fct>
+            <fct>SetupDuplicateDiskSpaceList</fct>
+            <fct>SetupDestroyDiskSpaceList</fct>
+            <fct>SetupEnumInfSections</fct>
+            <fct>SetupFindFirstLine</fct>
+            <fct>SetupFindNextLine</fct>
+            <fct>SetupFindNextMatchLine</fct>
+            <fct>SetupFreeSourceList</fct>
+            <fct>SetupGetBinaryField</fct>
+            <fct>SetupGetFieldCount</fct>
+            <fct>SetupGetFileCompressionInfov</fct>
+            <fct>SetupGetFileCompressionInfoEx</fct>
+            <fct>SetupGetFileQueueCount</fct>
+            <fct>SetupGetFileQueueFlags</fct>
+            <fct>SetupGetInfFileList</fct>
+            <fct>SetupGetInfInformation</fct>
+            <fct>SetupGetIntField</fct>
+            <fct>SetupGetLineByIndex</fct>
+            <fct>SetupGetLineCount</fct>
+            <fct>SetupGetLineText</fct>
+            <fct>SetupGetMultiSzField</fct>
+            <fct>SetupGetSourceFileLocation</fct>
+            <fct>SetupGetSourceFileSize</fct>
+            <fct>SetupGetSourceInfo</fct>
+            <fct>SetupGetStringField</fct>
+            <fct>SetupGetTargetPath</fct>
+            <fct>SetupInitDefaultQueueCallback</fct>
+            <fct>SetupInitDefaultQueueCallbackEx</fct>
+            <fct>SetupInitializeFileLog</fct>
+            <fct>SetupInstallFile</fct>
+            <fct>SetupInstallFileEx</fct>
+            <fct>SetupInstallFilesFromInfSection</fct>
+            <fct>SetupInstallFromInfSection</fct>
+            <fct>SetupInstallServicesFromInfSection</fct>
+            <fct>SetupInstallServicesFromInfSectionEx</fct>
+            <fct>SetupLogError</fct>
+            <fct>SetupLogFile</fct>
+            <fct>SetupOpenAppendInfFile</fct>
+            <fct>SetupOpenFileQueue</fct>
+            <fct>SetupOpenInfFile</fct>
+            <fct>SetupOpenLog</fct>
+            <fct>SetupCloseLog</fct>
+            <fct>SetupOpenMasterInf</fct>
+            <fct>SetupPromptForDisk</fct>
+            <fct>SetupPromptReboot</fct>
+            <fct>SetupQueryDrivesInDiskSpaceList</fct>
+            <fct>SetupQueryFileLog</fct>
+            <fct>SetupQueryInfFileInformation</fct>
+            <fct>SetupQueryInfOriginalFileInformation</fct>
+            <fct>SetupQueryInfVersionInformation</fct>
+            <fct>SetupQuerySourceList</fct>
+            <fct>SetupQuerySpaceRequiredOnDrive</fct>
+            <fct>SetupQueueCopy</fct>
+            <fct>SetupQueueCopyIndirect</fct>
+            <fct>SetupQueueCopySection</fct>
+            <fct>SetupQueueDefaultCopy</fct>
+            <fct>SetupQueueDelete</fct>
+            <fct>SetupQueueDeleteSection</fct>
+            <fct>SetupQueueRename</fct>
+            <fct>SetupQueueRenameSection</fct>
+            <fct>SetupRemoveFileLogEntry</fct>
+            <fct>SetupRemoveFromDiskSpaceList</fct>
+            <fct>SetupRemoveFromSourceList</fct>
+            <fct>SetupRemoveInstallSectionFromDiskSpaceList</fct>
+            <fct>SetupRemoveSectionFromDiskSpaceList</fct>
+            <fct>SetupRenameError</fct>
+            <fct>SetupScanFileQueue</fct>
+            <fct>SetupSetDirectoryId</fct>
+            <fct>SetupSetDirectoryIdEx</fct>
+            <fct>SetupSetFileQueueAlternatePlatform</fct>
+            <fct>SetupSetFileQueueFlags</fct>
+            <fct>SetupSetPlatformPathOverride</fct>
+            <fct>SetupSetSourceList</fct>
+            <fct>SetupTermDefaultQueueCallback</fct>
+            <fct>SetupTerminateFileLog</fct>
+            <fct>SetupUninstallNewlyCopiedInfs</fct>
+            <fct>SetupUninstallOEMInf</fct>
+            <fct>SetupVerifyInfFile</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="4019"
+         text="Dynamic Data Exchange Management Library (DDEML)"
+         url="http://msdn.microsoft.com/en-us/lib/windows/desktop/ms648712(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>DdeAbandonTransaction</fct>
+            <fct>DdeAccessData</fct>
+            <fct>DdeAddData</fct>
+            <fct>DdeCallback</fct>
+            <fct>DdeClientTransaction</fct>
+            <fct>DdeCmpStringHandles</fct>
+            <fct>DdeConnect</fct>
+            <fct>DdeConnectList</fct>
+            <fct>DdeCreateDataHandle</fct>
+            <fct>DdeCreateStringHandle</fct>
+            <fct>DdeDisconnect</fct>
+            <fct>DdeDisconnectList</fct>
+            <fct>DdeEnableCallback</fct>
+            <fct>DdeFreeDataHandle</fct>
+            <fct>DdeFreeStringHandle</fct>
+            <fct>DdeGetData</fct>
+            <fct>DdeGetLastError</fct>
+            <fct>DdeImpersonateClient</fct>
+            <fct>DdeInitialize</fct>
+            <fct>DdeKeepStringHandle</fct>
+            <fct>DdeNameService</fct>
+            <fct>DdePostAdvise</fct>
+            <fct>DdeQueryConvInfo</fct>
+            <fct>DdeQueryNextServer</fct>
+            <fct>DdeQueryString</fct>
+            <fct>DdeReconnect</fct>
+            <fct>DdeSetUserHandle</fct>
+            <fct>DdeUnaccessData</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="4020"
+     text="Clipboard"
+     url="http://msdn.microsoft.com/en-us/lib/windows/desktop/ff468802(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>AddClipboardFormatListener</fct>
+            <fct>ChangeClipboardChain</fct>
+            <fct>CloseClipboard</fct>
+            <fct>CountClipboardFormats</fct>
+            <fct>EmptyClipboard</fct>
+            <fct>EnumClipboardFormats</fct>
+            <fct>GetClipboardData</fct>
+            <fct>GetClipboardFormatName</fct>
+            <fct>GetClipboardOwner</fct>
+            <fct>GetClipboardSequenceNumber</fct>
+            <fct>GetClipboardViewer</fct>
+            <fct>GetOpenClipboardWindow</fct>
+            <fct>GetPriorityClipboardFormat</fct>
+            <fct>GetUpdatedClipboardFormats</fct>
+            <fct>IsClipboardFormatAvailable</fct>
+            <fct>OpenClipboard</fct>
+            <fct>RegisterClipboardFormat</fct>
+            <fct>RemoveClipboardFormatListener</fct>
+            <fct>SetClipboardData</fct>
+            <fct>SetClipboardViewer</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="4021"
+         text="WinINet"
+         url="http://msdn.microsoft.com/en-us/lib/windows/desktop/aa385473(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>CleanupCredentialCache</fct>
+            <fct>CommitUrlCacheEntryA</fct>
+            <fct>CommitUrlCacheEntryW</fct>
+            <fct>CreateMD5SSOHash</fct>
+            <fct>CreateUrlCacheEntry</fct>
+            <fct>CreateUrlCacheGroup</fct>
+            <fct>DeleteUrlCacheEntry</fct>
+            <fct>DeleteUrlCacheGroup</fct>
+            <fct>DetectAutoProxyUrl</fct>
+            <fct>FindCloseUrlCache</fct>
+            <fct>_FindFirstUrlCacheEntry</fct>
+            <fct>_FindFirstUrlCacheEntryEx</fct>
+            <fct>_FindFirstUrlCacheGroup</fct>
+            <fct>_FindNextUrlCacheEntry</fct>
+            <fct>_FindNextUrlCacheEntryEx</fct>
+            <fct>FindNextUrlCacheGroup</fct>
+            <fct>FtpCommand</fct>
+            <fct>FtpCreateDirectory</fct>
+            <fct>FtpDeleteFile</fct>
+            <fct>_FtpFindFirstFile</fct>
+            <fct>FtpGetCurrentDirectory</fct>
+            <fct>FtpGetFile</fct>
+            <fct>FtpGetFileSize</fct>
+            <fct>FtpOpenFile</fct>
+            <fct>FtpPutFile</fct>
+            <fct>FtpRemoveDirectory</fct>
+            <fct>FtpRenameFile</fct>
+            <fct>FtpSetCurrentDirectory</fct>
+            <fct>GetUrlCacheConfigInfo</fct>
+            <fct>GetUrlCacheEntryInfo</fct>
+            <fct>GetUrlCacheEntryInfoEx</fct>
+            <fct>GetUrlCacheGroupAttribute</fct>
+            <fct>GopherAttributeEnumerator</fct>
+            <fct>GopherCreateLocator</fct>
+            <fct>GopherFindFirstFile</fct>
+            <fct>GopherGetAttribute</fct>
+            <fct>GopherGetLocatorType</fct>
+            <fct>GopherOpenFile</fct>
+            <fct>HttpAddRequestHeaders</fct>
+            <fct>HttpEndRequest</fct>
+            <fct>HttpOpenRequest</fct>
+            <fct>HttpQueryInfo</fct>
+            <fct>HttpSendRequest</fct>
+            <fct>HttpSendRequestEx</fct>
+            <fct>InternetAttemptConnect</fct>
+            <fct>InternetAutodial</fct>
+            <fct>InternetAutodialHangup</fct>
+            <fct>InternetCanonicalizeUrl</fct>
+            <fct>InternetCheckConnection</fct>
+            <fct>InternetClearAllPerSiteCookieDecisions</fct>
+            <fct>InternetCloseHandle</fct>
+            <fct>InternetCombineUrl</fct>
+            <fct>InternetConfirmZoneCrossing</fct>
+            <fct>InternetConnect</fct>
+            <fct>InternetCreateUrl</fct>
+            <fct>InternetDeInitializeAutoProxyDll</fct>
+            <fct>InternetDial</fct>
+            <fct>InternetEnumPerSiteCookieDecision</fct>
+            <fct>InternetErrorDlg</fct>
+            <fct>_InternetFindNextFile</fct>
+            <fct>InternetGetConnectedState</fct>
+            <fct>InternetGetConnectedStateEx</fct>
+            <fct>InternetGetCookie</fct>
+            <fct>InternetGetCookieEx</fct>
+            <fct>InternetGetLastResponseInfo</fct>
+            <fct>InternetGetPerSiteCookieDecision</fct>
+            <fct>InternetGetProxyInfo</fct>
+            <fct>InternetGoOnline</fct>
+            <fct>InternetHangUp</fct>
+            <fct>InternetInitializeAutoProxyDll</fct>
+            <fct>InternetLockRequestFile</fct>
+            <fct>InternetOpen</fct>
+            <fct>InternetOpenUrl</fct>
+            <fct>InternetQueryDataAvailable</fct>
+            <fct>InternetQueryOption</fct>
+            <fct>InternetReadFile</fct>
+            <fct>InternetReadFileEx</fct>
+            <fct>InternetSetCookie</fct>
+            <fct>InternetSetCookieEx</fct>
+            <fct>InternetSetDialState</fct>
+            <fct>InternetSetFilePointer</fct>
+            <fct>InternetSetOption</fct>
+            <fct>InternetSetOptionEx</fct>
+            <fct>InternetSetPerSiteCookieDecision</fct>
+            <fct>InternetSetStatusCallback</fct>
+            <fct>InternetStatusCallback</fct>
+            <fct>InternetTimeFromSystemTime</fct>
+            <fct>InternetTimeToSystemTime</fct>
+            <fct>InternetUnlockRequestFile</fct>
+            <fct>InternetWriteFile</fct>
+            <fct>PrivacyGetZonePreferenceW</fct>
+            <fct>PrivacySetZonePreferenceW</fct>
+            <fct>ReadUrlCacheEntryStream</fct>
+            <fct>ResumeSuspendedDownload</fct>
+            <fct>RetrieveUrlCacheEntryFile</fct>
+            <fct>RetrieveUrlCacheEntryStream</fct>
+            <fct>SetUrlCacheEntryGroup</fct>
+            <fct>SetUrlCacheEntryInfo</fct>
+            <fct>SetUrlCacheGroupAttribute</fct>
+            <fct>UnlockUrlCacheEntryFile</fct>
+            <fct>UnlockUrlCacheEntryStream</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+
+    <feature id="4024"
+             text="WinHTTP"
+             url="http://msdn.microsoft.com/en-us/lib/windows/desktop/aa384257(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>WinHttpAddRequestHeaders</fct>
+            <fct>WinHttpCheckPlatform</fct>
+            <fct>WinHttpCloseHandle</fct>
+            <fct>WinHttpConnect</fct>
+            <fct>WinHttpCrackUrl</fct>
+            <fct>WinHttpCreateProxyResolver</fct>
+            <fct>WinHttpCreateUrl</fct>
+            <fct>WinHttpDetectAutoProxyConfigUrl</fct>
+            <fct>WinHttpFreeProxyResult</fct>
+            <fct>WinHttpGetDefaultProxyConfiguration</fct>
+            <fct>WinHttpGetIEProxyConfigForCurrentUser</fct>
+            <fct>WinHttpGetProxyForUrl</fct>
+            <fct>WinHttpGetProxyForUrlEx</fct>
+            <fct>WinHttpGetProxyResult</fct>
+            <fct>WinHttpOpen</fct>
+            <fct>WinHttpOpenRequest</fct>
+            <fct>WinHttpQueryAuthSchemes</fct>
+            <fct>WinHttpQueryDataAvailable</fct>
+            <fct>WinHttpQueryHeaders</fct>
+            <fct>WinHttpQueryOption</fct>
+            <fct>WinHttpReadData</fct>
+            <fct>WinHttpReceiveResponse</fct>
+            <fct>WinHttpResetAutoProxy</fct>
+            <fct>WinHttpSendRequest</fct>
+            <fct>WinHttpSetCredentials</fct>
+            <fct>WinHttpSetDefaultProxyConfiguration</fct>
+            <fct>WinHttpSetOption</fct>
+            <fct>WinHttpSetStatusCallback</fct>
+            <fct>WinHttpSetTimeouts</fct>
+            <fct>WinHttpTimeFromSystemTime</fct>
+            <fct>WinHttpTimeToSystemTime</fct>
+            <fct>WinHttpWriteData</fct>
+            <fct>WinHttpWebSocketClose</fct>
+            <fct>WinHttpWebSocketCompleteUpgrade</fct>
+            <fct>WinHttpWebSocketQueryCloseStatus</fct>
+            <fct>WinHttpWebSocketReceive</fct>
+            <fct>WinHttpWebSocketSend</fct>
+            <fct>WinHttpWebSocketShutdown</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="4028"
+text="DHCP Server Management"
+url="http://msdn.microsoft.com/en-us/lib/windows/desktop/aa363379(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>DhcpAddFilterV4</fct>
+            <fct>DhcpAddServer</fct>
+            <fct>DhcpAddSubnetElement</fct>
+            <fct>DhcpAddSubnetElementV4</fct>
+            <fct>DhcpAddSubnetElementV5</fct>
+            <fct>DhcpAuditLogGetParams</fct>
+            <fct>DhcpAuditLogSetParams</fct>
+            <fct>DhcpCreateClass</fct>
+            <fct>DhcpCreateClientInfo</fct>
+            <fct>DhcpCreateClientInfoV4</fct>
+            <fct>DhcpCreateClientInfoVQ</fct>
+            <fct>DhcpCreateOption</fct>
+            <fct>DhcpCreateOptionV5</fct>
+            <fct>DhcpCreateSubnet</fct>
+            <fct>DhcpCreateSubnetVQ</fct>
+            <fct>DhcpDeleteClass</fct>
+            <fct>DhcpDeleteClientInfo</fct>
+            <fct>DhcpDeleteFilterV4</fct>
+            <fct>DhcpDeleteServer</fct>
+            <fct>DhcpDeleteSubnet</fct>
+            <fct>DhcpDeleteSuperScopeV4</fct>
+            <fct>DhcpDsCleanup</fct>
+            <fct>DhcpDsInit</fct>
+            <fct>DhcpEnumClasses</fct>
+            <fct>DhcpEnumFilterV4</fct>
+            <fct>DhcpEnumOptions</fct>
+            <fct>DhcpEnumOptionsV5</fct>
+            <fct>DhcpEnumOptionValues</fct>
+            <fct>DhcpEnumOptionValuesV5</fct>
+            <fct>DhcpEnumServers</fct>
+            <fct>DhcpEnumSubnetClients</fct>
+            <fct>DhcpEnumSubnetClientsV4</fct>
+            <fct>DhcpEnumSubnetClientsV5</fct>
+            <fct>DhcpEnumSubnetClientsVQ</fct>
+            <fct>DhcpEnumSubnetClientsFilterStatusInfo</fct>
+            <fct>DhcpEnumSubnetElements</fct>
+            <fct>DhcpEnumSubnetElementsV4</fct>
+            <fct>DhcpEnumSubnetElementsV5</fct>
+            <fct>DhcpEnumSubnets</fct>
+            <fct>DhcpGetAllOptions</fct>
+            <fct>DhcpGetAllOptionValues</fct>
+            <fct>DhcpGetClassInfo</fct>
+            <fct>DhcpGetClientInfo</fct>
+            <fct>DhcpGetClientInfoV4</fct>
+            <fct>DhcpGetClientInfoVQ</fct>
+            <fct>DhcpGetClientOptions</fct>
+            <fct>DhcpGetFilterV4</fct>
+            <fct>DhcpGetMibInfoV5</fct>
+            <fct>DhcpGetOptionInfo</fct>
+            <fct>DhcpGetOptionInfoV5</fct>
+            <fct>DhcpGetOptionValue</fct>
+            <fct>DhcpGetOptionValueV5</fct>
+            <fct>DhcpGetServerBindingInfo</fct>
+            <fct>DhcpGetServerSpecificStrings</fct>
+            <fct>DhcpGetSubnetDelayOffer</fct>
+            <fct>DhcpGetSubnetInfo</fct>
+            <fct>DhcpGetSubnetInfoVQ</fct>
+            <fct>DhcpGetSuperScopeInfoV4</fct>
+            <fct>DhcpGetVersion</fct>
+            <fct>DhcpGetThreadOptions</fct>
+            <fct>DhcpHlprAddV4PolicyCondition</fct>
+            <fct>DhcpHlprAddV4PolicyExpr</fct>
+            <fct>DhcpHlprAddV4PolicyRange</fct>
+            <fct>DhcpHlprCreateV4Policy</fct>
+            <fct>DhcpHlprFreeV4Policy</fct>
+            <fct>DhcpHlprIsV4PolicySingleUC</fct>
+            <fct>DhcpHlprIsV4PolicyValid</fct>
+            <fct>DhcpHlprIsV4PolicyWellFormed</fct>
+            <fct>DhcpHlprModifyV4PolicyExpr</fct>
+            <fct>DhcpHlprResetV4PolicyExpr</fct>
+            <fct>DhcpModifyClass</fct>
+            <fct>DhcpRemoveOption</fct>
+            <fct>DhcpRemoveOptionV5</fct>
+            <fct>DhcpRemoveOptionValue</fct>
+            <fct>DhcpRemoveOptionValueV5</fct>
+            <fct>DhcpRemoveSubnetElement</fct>
+            <fct>DhcpRemoveSubnetElementV4</fct>
+            <fct>DhcpRemoveSubnetElementV5</fct>
+            <fct>DhcpRpcFreeMemory</fct>
+            <fct>DhcpScanDatabase</fct>
+            <fct>DhcpServerBackupDatabase</fct>
+            <fct>DhcpServerGetConfig</fct>
+            <fct>DhcpServerGetConfigV4</fct>
+            <fct>DhcpServerGetConfigVQ</fct>
+            <fct>DhcpServerQueryAttribute</fct>
+            <fct>DhcpServerQueryAttributes</fct>
+            <fct>DhcpServerQueryDnsRegCredentials</fct>
+            <fct>DhcpServerRedoAuthorization</fct>
+            <fct>DhcpServerRestoreDatabase</fct>
+            <fct>DhcpServerSetConfig</fct>
+            <fct>DhcpServerSetConfigV4</fct>
+            <fct>DhcpServerSetConfigVQ</fct>
+            <fct>DhcpServerSetDnsRegCredentialsV5</fct>
+            <fct>DhcpSetClientInfo</fct>
+            <fct>DhcpSetClientInfoV4</fct>
+            <fct>DhcpSetClientInfoVQ</fct>
+            <fct>DhcpSetFilterV4</fct>
+            <fct>DhcpSetOptionInfo</fct>
+            <fct>DhcpSetOptionInfoV5</fct>
+            <fct>DhcpSetOptionValue</fct>
+            <fct>DhcpSetOptionValueV5</fct>
+            <fct>DhcpSetOptionValues</fct>
+            <fct>DhcpSetOptionValuesV5</fct>
+            <fct>DhcpSetServerBindingInfo</fct>
+            <fct>DhcpSetSubnetDelayOffer</fct>
+            <fct>DhcpSetSubnetInfo</fct>
+            <fct>DhcpSetSubnetInfoVQ</fct>
+            <fct>DhcpSetSuperScopeV4</fct>
+            <fct>DhcpSetThreadOptions</fct>
+            <fct>DhcpV4FailoverAddScopeToRelationship</fct>
+            <fct>DhcpV4FailoverCreateRelationship</fct>
+            <fct>DhcpV4FailoverDeleteRelationship</fct>
+            <fct>DhcpV4FailoverDeleteScopeFromRelationship</fct>
+            <fct>DhcpV4FailoverEnumRelationship</fct>
+            <fct>DhcpV4FailoverGetAddressStatus</fct>
+            <fct>DhcpV4FailoverGetClientInfo</fct>
+            <fct>DhcpV4FailoverGetRelationship</fct>
+            <fct>DhcpV4FailoverGetScopeRelationship</fct>
+            <fct>DhcpV4FailoverGetScopeStatistics</fct>
+            <fct>DhcpV4FailoverGetSystemTime</fct>
+            <fct>DhcpV4FailoverSetRelationship</fct>
+            <fct>DhcpV4FailoverTriggerAddrAllocation</fct>
+            <fct>DhcpV4GetFreeIPAddress</fct>
+            <fct>DhcpV4EnumSubnetClients</fct>
+            <fct>DhcpV4EnumSubnetReservations</fct>
+            <fct>DhcpV4CreateClientInfo</fct>
+            <fct>DhcpV4GetClientInfo</fct>
+            <fct>DhcpV4RemoveOptionValue</fct>
+            <fct>DhcpV4GetAllOptionValues</fct>
+            <fct>DhcpV4SetOptionValues</fct>
+            <fct>DhcpV4SetOptionValue</fct>
+            <fct>DhcpV4GetOptionValue</fct>
+            <fct>DhcpV4CreatePolicy</fct>
+            <fct>DhcpV4EnumPolicies</fct>
+            <fct>DhcpV4GetPolicy</fct>
+            <fct>DhcpV4SetPolicy</fct>
+            <fct>DhcpV4DeletePolicy</fct>
+            <fct>DhcpV4SetPolicyEnforcement</fct>
+            <fct>DhcpV4QueryPolicyEnforcement</fct>
+            <fct>DhcpV4AddPolicyRange</fct>
+            <fct>DhcpV4RemovePolicyRange</fct>
+            <fct>DhcpAddSubnetElementV6</fct>
+            <fct>DhcpCreateClassV6</fct>
+            <fct>DhcpCreateOptionV6</fct>
+            <fct>DhcpCreateSubnetV6</fct>
+            <fct>DhcpDeleteClassV6</fct>
+            <fct>DhcpDeleteClientInfoV6</fct>
+            <fct>DhcpDeleteSubnetV6</fct>
+            <fct>DhcpEnumClassesV6</fct>
+            <fct>DhcpEnumOptionsV6</fct>
+            <fct>DhcpEnumOptionValuesV6</fct>
+            <fct>DhcpEnumSubnetsV6</fct>
+            <fct>DhcpEnumSubnetClientsV6</fct>
+            <fct>DhcpEnumSubnetElementsV6</fct>
+            <fct>DhcpGetAllOptionsV6</fct>
+            <fct>DhcpGetAllOptionValuesV6</fct>
+            <fct>DhcpGetClientInfoV6</fct>
+            <fct>DhcpGetMibInfoV6</fct>
+            <fct>DhcpGetOptionInfoV6</fct>
+            <fct>DhcpGetOptionValueV6</fct>
+            <fct>DhcpGetServerBindingInfoV6</fct>
+            <fct>DhcpGetSubnetInfoV6</fct>
+            <fct>DhcpModifyClassV6</fct>
+            <fct>DhcpRemoveOptionV6</fct>
+            <fct>DhcpRemoveOptionValueV6</fct>
+            <fct>DhcpRemoveSubnetElementV6</fct>
+            <fct>DhcpServerGetConfigV6</fct>
+            <fct>DhcpServerSetConfigV6</fct>
+            <fct>DhcpSetClientInfoV6</fct>
+            <fct>DhcpSetOptionInfoV6</fct>
+            <fct>DhcpSetOptionValueV6</fct>
+            <fct>DhcpSetServerBindingInfoV6</fct>
+            <fct>DhcpSetSubnetInfoV6</fct>
+            <fct>DhcpV6CreateClientInfo</fct>
+            <fct>DhcpV6GetFreeIPAddress</fct>
+            <fct>DhcpV6GetStatelessStatistics</fct>
+            <fct>DhcpV6GetStatelessStoreParams</fct>
+            <fct>DhcpV6SetStatelessStoreParams</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature
+id="4029"
+text="Network Management"
+url="http://msdn.microsoft.com/en-us/lib/windows/desktop/aa370675(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>GetNetScheduleAccountInformation</fct>
+            <fct>NetAccessAdd</fct>
+            <fct>NetAccessCheck</fct>
+            <fct>NetAccessDel</fct>
+            <fct>NetAccessEnum</fct>
+            <fct>NetAccessGetInfo</fct>
+            <fct>NetAccessGetUserPerms</fct>
+            <fct>NetAccessSetInfo</fct>
+            <fct>NetAddAlternateComputerName</fct>
+            <fct>NetAlertRaise</fct>
+            <fct>NetAlertRaiseEx</fct>
+            <fct>NetApiBufferAllocate</fct>
+            <fct>NetApiBufferFree</fct>
+            <fct>NetApiBufferReallocate</fct>
+            <fct>NetApiBufferSize</fct>
+            <fct>NetAuditClear</fct>
+            <fct>NetAuditRead</fct>
+            <fct>NetAuditWrite</fct>
+            <fct>NetConfigGet</fct>
+            <fct>NetConfigGetAll</fct>
+            <fct>NetConfigSet</fct>
+            <fct>NetCreateProvisioningPackage</fct>
+            <fct>NetEnumerateComputerNames</fct>
+            <fct>NetErrorLogClear</fct>
+            <fct>NetErrorLogRead</fct>
+            <fct>NetErrorLogWrite</fct>
+            <fct>NetGetAnyDCName</fct>
+            <fct>NetGetDCName</fct>
+            <fct>NetGetDisplayInformationIndex</fct>
+            <fct>NetGetJoinableOUs</fct>
+            <fct>NetGetJoinInformation</fct>
+            <fct>NetGroupAdd</fct>
+            <fct>NetGroupAddUser</fct>
+            <fct>NetGroupDel</fct>
+            <fct>NetGroupDelUser</fct>
+            <fct>NetGroupEnum</fct>
+            <fct>NetGroupGetInfo</fct>
+            <fct>NetGroupGetUsers</fct>
+            <fct>NetGroupSetInfo</fct>
+            <fct>NetGroupSetUsers</fct>
+            <fct>NetJoinDomain</fct>
+            <fct>NetLocalGroupAdd</fct>
+            <fct>NetLocalGroupAddMember</fct>
+            <fct>NetLocalGroupAddMembers</fct>
+            <fct>NetLocalGroupDel</fct>
+            <fct>NetLocalGroupDelMember</fct>
+            <fct>NetLocalGroupDelMembers</fct>
+            <fct>NetLocalGroupEnum</fct>
+            <fct>NetLocalGroupGetInfo</fct>
+            <fct>NetLocalGroupGetMembers</fct>
+            <fct>NetLocalGroupSetInfo</fct>
+            <fct>NetLocalGroupSetMembers</fct>
+            <fct>NetLogonSetServiceBits</fct>
+            <fct>NetMessageBufferSend</fct>
+            <fct>NetMessageNameAdd</fct>
+            <fct>NetMessageNameDel</fct>
+            <fct>NetMessageNameEnum</fct>
+            <fct>NetMessageNameGetInfo</fct>
+            <fct>NetProvisionComputerAccount</fct>
+            <fct>NetQueryDisplayInformation</fct>
+            <fct>NetRemoveAlternateComputerName</fct>
+            <fct>NetRemoteComputerSupports</fct>
+            <fct>NetRemoteTOD</fct>
+            <fct>NetRenameMachineInDomain</fct>
+            <fct>NetRequestOfflineDomainJoin</fct>
+            <fct>NetRequestProvisioningPackageInstall</fct>
+            <fct>NetScheduleJobAdd</fct>
+            <fct>NetScheduleJobDel</fct>
+            <fct>NetScheduleJobEnum</fct>
+            <fct>NetScheduleJobGetInfo</fct>
+            <fct>NetServerComputerNameAdd</fct>
+            <fct>NetServerComputerNameDel</fct>
+            <fct>NetServerDiskEnum</fct>
+            <fct>NetServerEnum</fct>
+            <fct>NetServerGetInfo</fct>
+            <fct>NetServerSetInfo</fct>
+            <fct>NetServerTransportAdd</fct>
+            <fct>NetServerTransportAddEx</fct>
+            <fct>NetServerTransportDel</fct>
+            <fct>NetServerTransportEnum</fct>
+            <fct>NetServiceControl</fct>
+            <fct>NetServiceEnum</fct>
+            <fct>NetServiceGetInfo</fct>
+            <fct>NetServiceInstall</fct>
+            <fct>NetSetPrimaryComputerName</fct>
+            <fct>NetUnjoinDomain</fct>
+            <fct>NetUseAdd</fct>
+            <fct>NetUseDel</fct>
+            <fct>NetUseEnum</fct>
+            <fct>NetUseGetInfo</fct>
+            <fct>NetUserAdd</fct>
+            <fct>NetUserChangePassword</fct>
+            <fct>NetUserDel</fct>
+            <fct>NetUserEnum</fct>
+            <fct>NetUserGetGroups</fct>
+            <fct>NetUserGetInfo</fct>
+            <fct>NetUserGetLocalGroups</fct>
+            <fct>NetUserModalsGet</fct>
+            <fct>NetUserModalsSet</fct>
+            <fct>NetUserSetGroups</fct>
+            <fct>NetUserSetInfo</fct>
+            <fct>NetValidateName</fct>
+            <fct>NetValidatePasswordPolicyFree</fct>
+            <fct>NetValidatePasswordPolicy</fct>
+            <fct>NetWkstaGetInfo</fct>
+            <fct>NetWkstaSetInfo</fct>
+            <fct>NetWkstaTransportAdd</fct>
+            <fct>NetWkstaTransportDel</fct>
+            <fct>NetWkstaTransportEnum</fct>
+            <fct>NetWkstaUserEnum</fct>
+            <fct>NetWkstaUserGetInfo</fct>
+            <fct>NetWkstaUserSetInfo</fct>
+            <fct>SetNetScheduleAccountInformation</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+      
+    <feature
+        id="4036"
+        text="Video Capture"
+        url="http://msdn.microsoft.com/en-us/lib/dd757693(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>capControlCallback</fct>
+            <fct>capCreateCaptureWindow</fct>
+            <fct>capErrorCallback</fct>
+            <fct>capGetDriverDescription</fct>
+            <fct>capStatusCallback</fct>
+            <fct>capVideoStreamCallback</fct>
+            <fct>capWaveStreamCallback</fct>
+            <fct>capYieldCallback</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature
+        id="4037"
+        text="Cabinet"
+        url="http://msdn.microsoft.com/en-us/lib/ff797921(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>DeleteExtractedFiles</fct>
+            <fct>FCIAddFile</fct>
+            <fct>FCICreate</fct>
+            <fct>FCIDestroy</fct>
+            <fct>FCIFlushCabinet</fct>
+            <fct>FCIFlushFolder</fct>
+            <fct>FDICopy</fct>
+            <fct>FDICreate</fct>
+            <fct>FDIDestroy</fct>
+            <fct>FDIIsCabinet</fct>
+            <fct>FDITruncateCabinet</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature
+           id="4038"
+           text="Single-Instance Store Backup Support"
+           url="http://msdn.microsoft.com/en-us/lib/windows/desktop/aa362538(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>SisCreateBackupStructure</fct>
+            <fct>SisCreateRestoreStructure</fct>
+            <fct>SisCSFilesToBackupForLink</fct>
+            <fct>SisFreeAllocatedMemory</fct>
+            <fct>SisFreeBackupStructure</fct>
+            <fct>SisFreeRestoreStructure</fct>
+            <fct>SisRestoredCommonStoreFile</fct>
+            <fct>SisRestoredLink</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature
+           id="4039"
+           text="Performance Counters"
+           url="http://msdn.microsoft.com/en-us/lib/windows/desktop/aa373078(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>ClosePerformanceData</fct>
+            <fct>CollectPerformanceData</fct>
+            <fct>ControlCallback</fct>
+            <fct>CounterCleanup</fct>
+            <fct>CounterInitialize</fct>
+            <fct>CounterPathCallBack</fct>
+            <fct>LoadPerfCounterTextStrings</fct>
+            <fct>OpenPerformanceData</fct>
+            <fct>PdhAddCounter</fct>
+            <fct>PdhAddEnglishCounter</fct>
+            <fct>PdhBindInputDataSource</fct>
+            <fct>PdhBrowseCounters</fct>
+            <fct>PdhBrowseCountersH</fct>
+            <fct>PdhCalculateCounterFromRawValue</fct>
+            <fct>PdhCloseLog</fct>
+            <fct>PdhCloseQuery</fct>
+            <fct>PdhCollectQueryData</fct>
+            <fct>PdhCollectQueryDataEx</fct>
+            <fct>PdhCollectQueryDataWithTime</fct>
+            <fct>PdhComputeCounterStatistics</fct>
+            <fct>PdhConnectMachine</fct>
+            <fct>PdhEnumLogSetNames</fct>
+            <fct>PdhEnumMachines</fct>
+            <fct>PdhEnumMachinesH</fct>
+            <fct>PdhEnumObjectItems</fct>
+            <fct>PdhEnumObjectItemsH</fct>
+            <fct>PdhEnumObjects</fct>
+            <fct>PdhEnumObjectsH</fct>
+            <fct>PdhExpandCounterPath</fct>
+            <fct>PdhExpandWildCardPath</fct>
+            <fct>PdhExpandWildCardPathH</fct>
+            <fct>PdhFormatFromRawValue</fct>
+            <fct>PdhGetCounterInfo</fct>
+            <fct>PdhGetCounterTimeBase</fct>
+            <fct>PdhGetDataSourceTimeRange</fct>
+            <fct>PdhGetDataSourceTimeRangeH</fct>
+            <fct>PdhGetDefaultPerfCounter</fct>
+            <fct>PdhGetDefaultPerfCounterH</fct>
+            <fct>PdhGetDefaultPerfObject</fct>
+            <fct>PdhGetDefaultPerfObjectH</fct>
+            <fct>PdhGetDllVersion</fct>
+            <fct>PdhGetFormattedCounterArray</fct>
+            <fct>PdhGetFormattedCounterValue</fct>
+            <fct>PdhGetLogFileSize</fct>
+            <fct>PdhGetRawCounterArray</fct>
+            <fct>PdhGetRawCounterValue</fct>
+            <fct>PdhIsRealTimeQuery</fct>
+            <fct>PdhLookupPerfIndexByName</fct>
+            <fct>PdhLookupPerfNameByIndex</fct>
+            <fct>PdhMakeCounterPath</fct>
+            <fct>PdhOpenLog</fct>
+            <fct>PdhOpenQuery</fct>
+            <fct>PdhOpenQueryH</fct>
+            <fct>PdhParseCounterPath</fct>
+            <fct>PdhParseInstanceName</fct>
+            <fct>PdhReadRawLogRecord</fct>
+            <fct>PdhRemoveCounter</fct>
+            <fct>PdhSelectDataSource</fct>
+            <fct>PdhSetCounterScaleFactor</fct>
+            <fct>PdhSetDefaultRealTimeDataSource</fct>
+            <fct>PdhSetQueryTimeRange</fct>
+            <fct>PdhUpdateLog</fct>
+            <fct>PdhUpdateLogFileCatalog</fct>
+            <fct>PdhValidatePath</fct>
+            <fct>PdhValidatePathEx</fct>
+            <fct>PerfCreateInstance</fct>
+            <fct>PerfDecrementULongCounterValue</fct>
+            <fct>PerfDecrementULongLongCounterValue</fct>
+            <fct>PerfDeleteInstance</fct>
+            <fct>PerfIncrementULongCounterValue</fct>
+            <fct>PerfIncrementULongLongCounterValue</fct>
+            <fct>PerfQueryInstance</fct>
+            <fct>PerfSetCounterRefValue</fct>
+            <fct>PerfSetCounterSetInfo</fct>
+            <fct>PerfSetULongCounterValue</fct>
+            <fct>PerfSetULongLongCounterValue</fct>
+            <fct>PerfStartProvider</fct>
+            <fct>PerfStartProviderEx</fct>
+            <fct>PerfStopProvider</fct>
+            <fct> UnloadPerfCounterTextStrings</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature
+   id="4041"
+   text="Device Management"
+   url="http://msdn.microsoft.com/en-us/lib/windows/desktop/aa363234(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>CdromDisableDigitalPlayback</fct>
+            <fct>CdromEnableDigitalPlayback</fct>
+            <fct>CdromIsDigitalPlaybackEnabled</fct>
+            <fct>CdromKnownGoodDigitalPlayback</fct>
+            <fct>DeviceIoControl</fct>
+            <fct>DvdLauncher</fct>
+            <fct>InstallNewDevice</fct>
+            <fct>RegisterDeviceNotification</fct>
+            <fct>UnregisterDeviceNotification</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature
+    id="4049"
+    text="WLan Functions"
+    url="http://msdn.microsoft.com/en-us/library/windows/desktop/ms706274(v=vs.85).aspx">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>WFDCancelOpenSession</fct>
+            <fct>WFDCloseDisplaySinkSession</fct>
+            <fct>WFDCloseHandle</fct>
+            <fct>WFDCloseSession</fct>
+            <fct>WFDOpenHandle</fct>
+            <fct>WFDOpenLegacySession</fct>
+            <fct>WFDSetDisplaySinkPersistedGroupIDList</fct>
+            <fct>WFDStartDisplaySink</fct>
+            <fct>WFDStartOpenSession</fct>
+            <fct>WFDStopDisplaySink</fct>
+            <fct>WFDUpdateDeviceVisibility</fct>
+            <fct>WlanAllocateMemory</fct>
+            <fct>WlanCloseHandle</fct>
+            <fct>WlanConnect</fct>
+            <fct>WlanDeleteProfile</fct>
+            <fct>WlanDisconnect</fct>
+            <fct>WlanEnumInterfaces</fct>
+            <fct>WlanExtractPsdIEDataList</fct>
+            <fct>WlanFreeMemory</fct>
+            <fct>WlanGetAvailableNetworkList</fct>
+            <fct>WlanGetFilterList</fct>
+            <fct>WlanGetInterfaceCapability</fct>
+            <fct>WlanGetNetworkBssList</fct>
+            <fct>WlanGetProfile</fct>
+            <fct>WlanGetProfileCustomUserData</fct>
+            <fct>WlanGetProfileList</fct>
+            <fct>WlanGetSecuritySettings</fct>
+            <fct>WlanHostedNetworkForceStart</fct>
+            <fct>WlanHostedNetworkForceStop</fct>
+            <fct>WlanHostedNetworkInitSettings</fct>
+            <fct>WlanHostedNetworkQueryProperty</fct>
+            <fct>WlanHostedNetworkQuerySecondaryKey</fct>
+            <fct>WlanHostedNetworkQueryStatus</fct>
+            <fct>WlanHostedNetworkRefreshSecuritySettings</fct>
+            <fct>WlanHostedNetworkSetProperty</fct>
+            <fct>WlanHostedNetworkSetSecondaryKey</fct>
+            <fct>WlanHostedNetworkStartUsing</fct>
+            <fct>WlanHostedNetworkStopUsing</fct>
+            <fct>WlanIhvControl</fct>
+            <fct>WlanOpenHandle</fct>
+            <fct>WlanQueryAutoConfigParameter</fct>
+            <fct>WlanQueryInterface</fct>
+            <fct>WlanReasonCodeToString</fct>
+            <fct>WlanRegisterNotification</fct>
+            <fct>WlanRegisterVirtualStationNotification</fct>
+            <fct>WlanRenameProfile</fct>
+            <fct>WlanSaveTemporaryProfile</fct>
+            <fct>WlanScan</fct>
+            <fct>WlanSetAutoConfigParameter</fct>
+            <fct>WlanSetFilterList</fct>
+            <fct>WlanSetInterface</fct>
+            <fct>WlanSetProfile</fct>
+            <fct>WlanSetProfileCustomUserData</fct>
+            <fct>WlanSetProfileEapUserData</fct>
+            <fct>WlanSetProfileEapXmlUserData</fct>
+            <fct>WlanSetProfileList</fct>
+            <fct>WlanSetProfilePosition</fct>
+            <fct>WlanSetPsdIEDataList</fct>
+            <fct>WlanSetSecuritySettings</fct>
+            <fct>WlanUIEditProfile</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature
+id="4051"
+text="WdbgExts Extension"
+url="http://msdn.microsoft.com/en-us/library/windows/hardware/ff561243(v=vs.85).aspx">
+      <libs>
+        <lib bl="1" name="wlanapi.dll">
+          <fcts>
+            <fct bl="1">WinDbgExtensionDllInit</fct>
+            <fct bl="1">ExtensionApiVersion</fct>
+            <fct bl="1">CheckVersion</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature
+  id="4052"
+  text="DDE"
+  url="https://msdn.microsoft.com/en-us/library/windows/desktop/ff468836(v=vs.85).aspx">
+      <libs>
+        <lib bl="1" name="">
+          <fcts>
+            <fct bl="1">DdeSetQualityOfService</fct>
+            <fct bl="1">FreeDDElParam</fct>
+            <fct bl="1">ImpersonateDdeClientWindow</fct>
+            <fct bl="1">PackDDElParam</fct>
+            <fct bl="1">ReuseDDElParam</fct>
+            <fct bl="1">UnpackDDElParam</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="4054"
+           text=""
+           url="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>FtpFindFirstFile</fct>
+            <fct>InternetFindNextFile</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+    <feature id="4055"
+           text=""
+           url="">
+      <libs>
+        <lib name="">
+          <fcts>
+            <fct>metsrv.dll</fct>
+          </fcts>
+        </lib>
+      </libs>
+    </feature>
+
+  </features>
+</xml>

@@ -1,0 +1,409 @@
+<xml version="1.0" encoding="utf-8">
+  <!-- 
+This file is part of pestudio solution (www.winitor.com)
+It contains the indicators shown at the frontend and in the report file. 
+-->
+
+  <indicators>
+    <!-- General -->
+    <indicator enable="1" severity="9" id="1000">The file is not an executable file</indicator>
+    <indicator enable="1" severity="1" id="1001">The MZ signature is missing</indicator>
+    <indicator enable="1" severity="2" id="1002">The size (%i bytes) of the file is suspicious</indicator>
+    <indicator enable="1" severity="2" id="1003">The file-ratio of the overlay reaches %s</indicator>
+    <indicator enable="1" severity="1" id="1004">The size (%i bytes) of the optional-header is suspicious</indicator>
+    <indicator enable="1" severity="1" id="1005">The size (%i bytes) of the file-header is suspicious</indicator>
+    <indicator enable="1" severity="1" id="1007">The size (%i bytes) of the certificate is suspicious</indicator>
+    <indicator enable="1" severity="1" id="1008">The file has been post-processed with a tool (%s)</indicator>
+    <indicator enable="1" severity="1" id="1009">The content of the certificate is suspicious</indicator>
+    <indicator enable="1" severity="2" id="1010">The file is Self-Extractable (SFX)</indicator>
+    <indicator enable="1" severity="5" id="1011">The file references a certificate (offset: 0x%08X, size: %i bytes)</indicator>
+    <indicator enable="1" severity="9" id="1023">The file is managed by .NET</indicator>
+    <indicator enable="0" severity="3" id="1024">The file references (%s) debug symbol(s)</indicator>
+    <indicator enable="1" severity="1" id="1025">The file references the Reflective DLL Injection technique</indicator>
+    <indicator enable="0" severity="9" id="1026">The file is bound to (%i) library</indicator>
+    <indicator enable="1" severity="9" id="1027">The file is Code-less</indicator>
+    <indicator enable="1" severity="1" id="1033">The file exposes a thread-local-storage callback (%s:%016X)</indicator>
+    <indicator enable="1" severity="1" id="1034">The file exposes a thread-local-storage callback (%s:%08X)</indicator>
+    <indicator enable="1" severity="1" id="1035">The entry-point is located in a section (name: %s) that is not executable</indicator>
+    <indicator enable="1" severity="3" id="1036">The file checksum (0x%08X) is invalid</indicator>
+    <indicator enable="1" severity="1" id="1037">The entry-point is outside the file</indicator>
+    <indicator enable="1" severity="2" id="1038">The certificate has expired (%s)</indicator>
+    <indicator enable="0" severity="2" id="1039"></indicator>
+    <indicator enable="1" severity="7" id="1040">The file does not contain a digital Certificate</indicator>
+    <indicator enable="0" severity="9" id="1043">The file has no Manifest</indicator>
+    <indicator enable="1" severity="2" id="1044">The Export table contains (%i) gap(s)</indicator>
+    <indicator enable="1" severity="5" id="1050">The file implements Control Flow Guard (CFG)</indicator>
+    <indicator enable="1" severity="1" id="1051">The file will be copied and run from to the system swap if started from the Network</indicator>
+    <indicator enable="1" severity="1" id="1052">The file will be copied and run from to the system swap if started from a removable Media</indicator>
+    <indicator enable="1" severity="2" id="1055">The file runs in the Visual Basic Virtual Machine (VBVM)</indicator>
+    <indicator enable="1" severity="5" id="1056">The file is a Device Driver</indicator>
+    <indicator enable="1" severity="5" id="1057">The file is statically linked to the C Runtime Library</indicator>
+    <indicator enable="1" severity="3" id="1100">The file opts for Data Execution Prevention (DEP)</indicator>
+    <indicator enable="1" severity="9" id="1101">The file ignores Data Execution Prevention (DEP)</indicator>
+    <indicator enable="1" severity="5" id="1102">The file opts for Address Space Layout Randomization (ASLR)</indicator>
+    <indicator enable="1" severity="9" id="1103">The file ignores Address Space Layout Randomization (ASLR)</indicator>
+    <indicator enable="1" severity="5" id="1105">The file ignores Structured Exception Handling (SEH)</indicator>
+    <indicator enable="1" severity="5" id="1106">The file opts for cookies on the stack (GS)</indicator>
+    <indicator enable="1" severity="9" id="1107">The file ignores cookies on the stack (GS)</indicator>
+    <indicator enable="1" severity="9" id="1109">The file ignores Code Integrity</indicator>
+    <indicator enable="1" severity="9" id="1111">The file is isolation aware but should not be isolated</indicator>
+    <indicator enable="0" severity="5" id="1112">The file references Safe Structured Exception Handling (SafeSEH)</indicator>
+    <indicator enable="0" severity="3" id="1113">The file registers (%i) Exception handlers</indicator>
+    <indicator enable="1" severity="1" id="1114">The overlay is scored (%i/%i) by virustotal</indicator>
+    <indicator enable="1" severity="1" id="1115">The dos-header has been found at file offset (0x%08X)</indicator>
+    <indicator enable="1" severity="3" id="1117">The file-checksum should be 0x%08X</indicator>
+    <indicator enable="1" severity="1" id="1120">The file is scored (%i/%i) by virustotal</indicator>
+    <indicator enable="1" severity="9" id="1121">The file has been compiled with Delphi</indicator>
+    <indicator enable="1" severity="2" id="1122">The preferred AV engine (%s) detects the file as infected</indicator>
+    <indicator enable="1" severity="2" id="1123">The preferred AV engine (%s) detects the file as clean</indicator>
+    <indicator enable="1" severity="1" id="1150">The offset (0x%08X) of the file-header is suspicious</indicator>
+    <indicator enable="1" severity="3" id="1152">The file references a debug file (path:"%s")</indicator>
+    <indicator enable="1" severity="2" id="1153">The section (name:%s) is virtualized</indicator>
+    <indicator enable="1" severity="2" id="1154">The GUID (%s) of the debug symbols is suspicious</indicator>
+    <indicator enable="1" severity="2" id="1155">The path of the debug symbols is suspicious</indicator>
+    <indicator enable="1" severity="1" id="1156">The dos-header does not start at the beginning of the file</indicator>
+    <indicator enable="1" severity="2" id="1157">The age (%i) of the debug file is suspicious</indicator>
+    <indicator enable="1" severity="2" id="1200">The value (0x%08X) of 'PointerToSymbolTable' is suspicious</indicator>
+    <indicator enable="1" severity="2" id="1201">The value (%i) of 'NumberOfSymbols' is suspicious</indicator>
+    <indicator enable="1" severity="1" id="1203">The value (0x%08X) of 'size-of-code' is suspicious</indicator>
+    <indicator enable="1" severity="2" id="1204">The value (0x%08X) of 'base-of-code' is suspicious</indicator>
+    <indicator enable="1" severity="2" id="1205">The value (0x%08X) of 'base-of-data' is suspicious</indicator>
+    <indicator enable="1" severity="2" id="1206">The value of 'FileAlignment' is suspicious</indicator>
+    <indicator enable="1" severity="2" id="1207">The value of 'SizeOfImage' is suspicious</indicator>
+    <indicator enable="1" severity="2" id="1208">The size of initialized data reached the max (%i bytes) threshold</indicator>
+    <indicator enable="1" severity="2" id="1209">The value of 'SizeOfHeaders' is suspicious</indicator>
+    <indicator enable="1" severity="2" id="1210">The number (%i) of directories is suspicious</indicator>
+    <indicator enable="1" severity="1" id="1211">The address of the entry-point is zero</indicator>
+    <indicator enable="1" severity="1" id="1213">The shared section(s) reached the max (%i) threshold</indicator>
+    <indicator enable="0" severity="5" id="1214">The file references a library (%s) that is missing</indicator>
+    <indicator enable="1" severity="3" id="1215">The file-ratio of all sections reaches %s</indicator>
+    <indicator enable="1" severity="1" id="1217">The count of nameless sections reached the max (%i) threshold</indicator>
+    <indicator enable="1" severity="2" id="1220">The file-ratio of all resources reaches %i</indicator>
+    <indicator enable="1" severity="1" id="1222">The last section (name:%s) is executable</indicator>
+    <indicator enable="1" severity="1" id="1223">The first section (name:%s) is writable</indicator>
+    <indicator enable="1" severity="1" id="1225">The entry-point is outside the first section</indicator>
+    <indicator enable="0" severity="9" id="1226">The entry-point is inside the first section</indicator>
+    <indicator enable="0" severity="2" id="1227">The file size of the section (name:%s) reached the min (%i bytes) threshold</indicator>
+    <indicator enable="1" severity="5" id="1229">The file signature is '%s'</indicator>
+    <indicator enable="1" severity="3" id="1232">The file is resource-less</indicator>
+    <indicator enable="1" severity="2" id="1233">The file references (%i) languages in the Resources</indicator>
+    <indicator enable="0" severity="3" id="1234">The file contains (%i) custom resource item(s)</indicator>
+    <indicator enable="0" severity="3" id="1235">The file contains (%i) built-in resources item(s)</indicator>
+    <indicator enable="1" severity="1" id="1236">The file contains (%i) resource(s) in a blacklisted language (%s)</indicator>
+    <indicator enable="1" severity="1" id="1237">The resource (type: %s, name: %s) is invalid</indicator>
+    <indicator enable="1" severity="2" id="1238">The signature of the resource (%s:%s) is unknown</indicator>
+    <indicator enable="1" severity="2" id="1239">The file references a resource (%s:%s) which is not supported anymore</indicator>
+    <indicator enable="0" severity="2" id="1240">The manifest does not contain trust information</indicator>
+    <indicator enable="1" severity="9" id="1241">The manifest identity name is "%s"</indicator>
+    <indicator enable="1" severity="7" id="1242">The manifest description name (%s) is different than the file name (%s)</indicator>
+    <indicator enable="0" severity="1" id="1243">The size of the resource (%s.%s) reached the min (%i bytes) threshold</indicator>
+    <indicator enable="1" severity="1" id="1244">The size of the resource (%s.%s) is bigger than the max (%i bytes) threshold</indicator>
+    <indicator enable="1" severity="1" id="1245">The section (name:%s) is blacklisted</indicator>
+    <indicator enable="1" severity="1" id="1246">The count of executable sections reached the max (%i) threshold</indicator>
+    <indicator enable="1" severity="1" id="1247">The file has no Executable section</indicator>
+    <indicator enable="1" severity="1" id="1248">The count of blacklisted sections reached the max (%i) threshold</indicator>
+    <indicator enable="1" severity="2" id="1251">The file references (%i) unknown resource(s)</indicator>
+    <indicator enable="1" severity="5" id="1252">The file exports (%i) obsolete function(s)</indicator>
+    <indicator enable="1" severity="5" id="1253">The file exports (%i) anonymous function(s)</indicator>
+    <indicator enable="1" severity="5" id="1254">The file exports (%i) forwarded function(s)</indicator>
+    <indicator enable="0" severity="5" id="1256">The file exports (%i) decorated function(s)</indicator>
+    <indicator enable="1" severity="1" id="1257">The file exports (%i) duplicated function(s)</indicator>
+    <indicator enable="1" severity="1" id="1258">The file exports (%i) blacklisted function(s)</indicator>
+    <indicator enable="1" severity="1" id="1259">The dos-stub message ("%s") is unusual</indicator>
+    <indicator enable="1" severity="1" id="1260">The dos-stub message is missing</indicator>
+    <indicator enable="1" severity="5" id="1261">The file imports (%i) deprecated function(s)</indicator>
+    <indicator enable="1" severity="2" id="1262">The file imports (%i) anonymous function(s)</indicator>
+    <indicator enable="1" severity="3" id="1263">The file imports (%i) forwarded function(s)</indicator>
+    <indicator enable="1" severity="5" id="1264">The file imports (%i) decorated function(s)</indicator>
+    <indicator enable="1" severity="1" id="1265">The count (%i) of imports is suspicious</indicator>
+    <indicator enable="1" severity="2" id="1266">The file imports (%i) blacklisted function(s)</indicator>
+    <indicator enable="1" severity="2" id="1267">The file references (%i) string(s) with a length exceeding a (%i characters) threshold</indicator>
+    <indicator enable="0" severity="9" id="1268">The file references (%i) whitelist strings</indicator>
+    <indicator enable="1" severity="1" id="1269">The file references (%i) blacklisted library</indicator>
+    <indicator enable="1" severity="5" id="1270">The count (%i) of antidebug functions reached the max (%i) threshold</indicator>
+    <indicator enable="0" severity="5" id="1271">The count (%i) of undocumented functions reached the max (%i) threshold</indicator>
+    <indicator enable="0" severity="3" id="1272">The count (%i) of ordinal functions reached the max (%i) threshold</indicator>
+    <indicator enable="0" severity="5" id="1273">The count (%i) of deprecated functions reached the max (%i) threshold</indicator>
+    <indicator enable="1" severity="1" id="1274">The dos-stub is missing</indicator>
+    <indicator enable="1" severity="1" id="1275">The file iterates through running processes</indicator>
+    <indicator enable="1" severity="1" id="1276">The file iterates through files on the disk</indicator>
+    <indicator enable="1" severity="5" id="1277">The file imports (%i) undocumented function(s)</indicator>
+    <indicator enable="1" severity="2" id="1283">The section (name: %s) is virtualized (only exists in memory)</indicator>
+    <indicator enable="1" severity="1" id="1286">The file subsystem is Unknown</indicator>-->
+    <indicator enable="1" severity="1" id="1301">The (%s) directory is missing</indicator>
+    <indicator enable="1" severity="1" id="1302">The (%s) directory is invalid</indicator>
+    <indicator enable="1" severity="1" id="1303">The (%s) directory is outside the file</indicator>
+    <indicator enable="0" severity="1" id="1304"></indicator>
+    <indicator enable="1" severity="1" id="1305">The Virtual Address (0x%08X) of the %s Directory is suspicious</indicator>
+    <indicator enable="1" severity="1" id="1306">The directories table of the file is empty</indicator>
+    <indicator enable="1" severity="2" id="1320">The date-time-stamp (Year:%i) of the directory (%s) is suspicious</indicator>
+    <indicator enable="1" severity="2" id="1321">The date-time-stamp (Year:%i) of the compiler is suspicious</indicator>
+    <indicator enable="1" severity="2" id="1322">The date-time-stamp of the compiler is empty</indicator>
+    <indicator enable="1" severity="2" id="1323">The date-time-stamp (Year:%i) of the debugger is suspicious</indicator>
+    <indicator enable="0" severity="9" id="1324"></indicator>
+    <indicator enable="1" severity="2" id="1400">The file expects Administrative permission</indicator>
+    <indicator enable="1" severity="1" id="1401">The file requests User Interface Privilege Isolation (UIPI)</indicator>
+    <indicator enable="0" severity="1" id="1423">The file has no Cave</indicator>
+    <indicator enable="1" severity="3" id="1424">The original file name is "%s"</indicator>
+    <indicator enable="1" severity="5" id="1430">The file references (%i) blacklisted string(s)</indicator>
+    <indicator enable="1" severity="1" id="1431">The count (%i) of strings is suspicious</indicator>
+    <indicator enable="1" severity="2" id="1432">The file references an Object Indentifier (%s)</indicator>
+    <indicator enable="1" severity="2" id="1433">The file references a MIME64 encoding string</indicator>
+    <indicator enable="1" severity="1" id="1434">The file references a URL pattern (%s)</indicator>
+    <indicator enable="1" severity="1" id="1435">The count (%i) of blacklisted strings reached the min (%i) threshold</indicator>
+    <indicator enable="1" severity="1" id="1436">The file references a URL (%s) scored (%i/%i) by virustotal</indicator>
+    <indicator enable="1" severity="1" id="1437">The file references a URL (%s) unknown by virustotal</indicator>
+    <indicator enable="1" severity="1" id="1438">The file references function names mapped to other names</indicator>
+    <indicator enable="0" severity="2" id="1439">The certificate references a URL (%s)</indicator>
+    <indicator enable="1" severity="1" id="1481">The file imports (%i) library(s) with invalid name</indicator>
+    <indicator enable="1" severity="1" id="1483">The file imports (%i) library(s) with suspicious name</indicator>
+    <indicator enable="1" severity="2" id="1484">The file has been not found in the repository of virustotal</indicator>
+    <indicator enable="1" severity="1" id="1485">The count (%i) of libraries is suspicious</indicator>
+    <indicator enable="1" severity="2" id="1486">The online scoring service is not reachable</indicator>
+    <indicator enable="0" severity="9" id="1501"></indicator>
+    <indicator enable="0" severity="9" id="1502"></indicator>
+    <indicator enable="1" severity="1" id="1503">The size (%i bytes) of the version resource is bigger than the max (%i bytes) threshold</indicator>
+    <indicator enable="0" severity="9" id="1505"></indicator>
+    <indicator enable="1" severity="2" id="1506">The version '%s' is suspicious</indicator>
+    <indicator enable="0" severity="9" id="1507"></indicator>
+    <indicator enable="0" severity="9" id="1508"></indicator>
+    <indicator enable="0" severity="1" id="1510"></indicator>
+    <indicator enable="0" severity="9" id="1511"></indicator>
+    <indicator enable="1" severity="3" id="1512">The file supports OLE Self-Registration</indicator>
+    <indicator enable="0" severity="1" id="1513">The file version has no Root</indicator>
+    <indicator enable="1" severity="1" id="1514">The file contains another file (type: %s, location: %s, file-offset: 0x%08X) scored (%i/%i) by virustotal</indicator>
+    <indicator enable="1" severity="1" id="1520">The file is target for % machine</indicator>
+    <indicator enable="1" severity="1" id="1521">The file references (%i) insulting string(s)</indicator>
+    <indicator enable="1" severity="1" id="1523">The file intents to execute with UAC auto-elevation</indicator>
+    <indicator enable="0" severity="1" id="1524">The registered exception handlers reached the max (%i) threshold</indicator>
+    <indicator enable="1" severity="1" id="1525">The file contains another file (type: %s, location: %s, file-offset: 0x%08X)</indicator>
+    <indicator enable="1" severity="1" id="1590">The size of the dos-header reached the min (%i bytes) threshold</indicator>
+    <indicator enable="1" severity="1" id="1591">The size of the dos-header reached the max (%i bytes) threshold</indicator>
+    <indicator enable="1" severity="1" id="1600">The file seems to be a fake Microsoft executable</indicator>
+    <indicator enable="1" severity="2" id="1601">The size (%i bytes) of the dos-stub is suspicious</indicator>
+    <indicator enable="0" severity="9" id="1602"></indicator>
+    <indicator enable="1" severity="4" id="1603">The hash of the resource (%s.%s) is well-known</indicator>
+    <indicator enable="0" severity="9" id="1604"></indicator>
+    <indicator enable="1" severity="1" id="1605">The entry-point is located in the last section (name:%s)</indicator>
+    <indicator enable="1" severity="2" id="1606">The count (%i) of sections is suspicious</indicator>
+    <indicator enable="0" severity="9" id="1607"></indicator>
+    <indicator enable="0" severity="9" id="1610"></indicator>
+    <indicator enable="1" severity="1" id="1611">The file references the '%s' Windows builtin service</indicator>
+    <indicator enable="0" severity="7" id="1620">The version information is missing</indicator>
+    <indicator enable="1" severity="2" id="1621">The file is self-extractable with IEXPRESS</indicator>
+    <indicator enable="0" severity="1" id="1622">The strings (type: %s) reached the max (%i) threshold</indicator>
+    <indicator enable="1" severity="2" id="1623">The size of code (%i bytes) is bigger than the size (%i bytes) of code sections</indicator>
+    <indicator enable="1" severity="1" id="1624">The file references (%i) Regular Expression (Regex) patterns</indicator>
+    <indicator enable="1" severity="1" id="1625">The section (name:%s) is not readable</indicator>
+    <indicator enable="1" severity="1" id="1626">The file references (%i) Windows built-in privilege(s)</indicator>
+    <indicator enable="0" severity="2" id="1627">The file references (%i) strings with following hint (%s)</indicator>
+    <indicator enable="1" severity="1" id="1628">The file signature (%s) is blacklisted</indicator>
+    <indicator enable="1" severity="1" id="1629">The file signature (%s) of the overlay is blacklisted</indicator>
+    <indicator enable="1" severity="1" id="1630">The file signature (%s) of the resource (%s.%s) is blacklisted</indicator>
+    <indicator enable="1" severity="1" id="1631">The file contains self-modifying code</indicator>
+    <indicator enable="1" severity="1" id="1632">The file extensions (%i) reached the max (%i) threshold</indicator>
+    <indicator enable="1" severity="3" id="1633">The file references (%i) %s string(s)</indicator>
+    <indicator enable="1" severity="3" id="1634">The file references (%i) functions of a group (%s)</indicator>
+    <indicator enable="1" severity="1" id="1635">The file references (%i) keyboard keys like a Keylogger</indicator>
+    <indicator enable="1" severity="1" id="1636">The file references (%i) file extensions like a Ransomware (or a Wiper)</indicator>
+    <indicator enable="1" severity="1" id="1637">The file references (%i) passwords like a Brute-forcer</indicator>
+
+    <indicator enable="1" severity="2" id="2213">The file has (%i) shared section(s)</indicator>
+    <indicator enable="1" severity="1" id="2215">The section (name:%s) is writable and executable</indicator>
+    <indicator enable="1" severity="2" id="2217">The file has (%i) name-less section(s)</indicator>
+    <indicator enable="1" severity="2" id="2246">The file has (%i) executable section(s)</indicator>
+    <indicator enable="1" severity="2" id="2248">The file has (%i) blacklisted section name(s)</indicator>
+    <indicator enable="1" severity="5" id="2270">The file imports (%i) antidebug function(s)</indicator>
+
+    <!-- Features -->
+    <indicator enable="1" severity="2" id="3000">The file references the Smartcard API</indicator>
+    <indicator enable="1" severity="2" id="3001">The file references a Virtual Machine (VM)</indicator>
+    <indicator enable="1" severity="2" id="3002">The file references the Remote Desktop Session Host Server</indicator>
+    <indicator enable="1" severity="2" id="3003">The file references the Protected Storage</indicator>
+    <indicator enable="1" severity="2" id="3004">The file references the Active Directory (AD)</indicator>
+    <indicator enable="1" severity="2" id="3005">The file references the Windows Native API</indicator>
+    <indicator enable="1" severity="2" id="3006">The file references the Simple Network Management Protocol (SNMP)</indicator>
+    <indicator enable="1" severity="2" id="3007">The file references the Security Descriptor Definition Language (SDDL)</indicator>
+    <indicator enable="1" severity="2" id="3008">The file references the Cabinet (CAB) library</indicator>
+    <indicator enable="1" severity="1" id="3009">The file references the eXtension for Financial Services (XFS) library</indicator>
+    <indicator enable="1" severity="2" id="3010">The file references the Lightweight Directory Access Protocol (LDAP)</indicator>
+    <indicator enable="1" severity="1" id="3011">The file modifies the Registry</indicator>
+    <indicator enable="1" severity="2" id="3012">The file references the Security Account Manager (SAM)</indicator>
+    <indicator enable="1" severity="1" id="3013">The file references the Clipboard</indicator>
+    <indicator enable="1" severity="1" id="3014">The file references the installation of Hooks</indicator>
+    <indicator enable="1" severity="1" id="3015">The file enumerates the list of running processes</indicator>
+    <indicator enable="1" severity="2" id="3016">The file references the Service Control Manager (SCM)</indicator>
+    <indicator enable="0" severity="1" id="3017">The file references the Reflective DLL Library injection technique</indicator>
+    <indicator enable="1" severity="2" id="3018">The file references the Windows Indexing engine</indicator>
+    <indicator enable="1" severity="1" id="3019">The file enumerates the list of loaded modules</indicator>
+    <indicator enable="1" severity="2" id="3020">The file references the Desktop window</indicator>
+    <indicator enable="1" severity="2" id="3021">The file references the Router Administration API</indicator>
+    <indicator enable="1" severity="2" id="3022">The file references the Mail (MAPI) API</indicator>
+    <indicator enable="1" severity="2" id="3023">The file references the Microsoft Identity Manager</indicator>
+    <indicator enable="1" severity="2" id="3024">The file references the Windows Socket (winsock) API</indicator>
+    <indicator enable="1" severity="2" id="3025">The file references the Internet Protocol Helper API</indicator>
+    <indicator enable="0" severity="2" id="3026">The file references libraries at runtime</indicator>
+    <indicator enable="1" severity="2" id="3027">The file spawns another process</indicator>
+    <indicator enable="1" severity="2" id="3028">The file references the Microsoft Digest Access API</indicator>
+    <indicator enable="1" severity="2" id="3029">The file references the Windows Cryptographic Primitives API</indicator>
+    <indicator enable="1" severity="2" id="3030">The file references the Local Security Authority Server (LSASS)</indicator>
+    <indicator enable="1" severity="2" id="3031">The file references the Local Security Authority (LSA)</indicator>
+    <indicator enable="1" severity="2" id="3032">The file references the Internet Explorer Zone Manager</indicator>
+    <indicator enable="1" severity="2" id="3033">The file references the Credential Manager User API</indicator>
+    <indicator enable="1" severity="2" id="3034">The file references the Windows Setup API</indicator>
+    <indicator enable="1" severity="2" id="3035">The file references the Windows Cryptographic API</indicator>
+    <indicator enable="1" severity="2" id="3036">The file references the Windows Debug Helper API</indicator>
+    <indicator enable="1" severity="2" id="3037">The file references the Windows IP Helper API</indicator>
+    <indicator enable="1" severity="2" id="3038">The file references the Power Profile Helper API</indicator>
+    <indicator enable="1" severity="2" id="3039">The file references the Multiple Provider Router (MPR) API</indicator>
+    <indicator enable="1" severity="1" id="3040">The file references the File Transfer Protocol (FTP) API</indicator>
+    <indicator enable="1" severity="2" id="3041">The file references users credentials</indicator>
+    <indicator enable="0" severity="3" id="3042">The file references the resources of an executable</indicator>
+    <indicator enable="1" severity="2" id="3043">The file enumerates files</indicator>
+    <indicator enable="1" severity="2" id="3044">The file references the Backup API</indicator>
+    <indicator enable="1" severity="2" id="3045">The file references the Global Atom Table</indicator>
+    <indicator enable="0" severity="5" id="3046">The file creates or modifies file(s)</indicator>
+    <indicator enable="1" severity="2" id="3047">The file references the Remote Access Service (RAS) API</indicator>
+    <indicator enable="1" severity="2" id="3048">The file references the Performance Counters</indicator>
+    <indicator enable="1" severity="2" id="3049">The file references the Event Log</indicator>
+    <indicator enable="1" severity="2" id="3050">The file references the system Power</indicator>
+    <indicator enable="1" severity="2" id="3051">The file references the HTML Help Control</indicator>
+    <indicator enable="1" severity="3" id="3052">The file queries for Processes and Modules</indicator>
+    <indicator enable="1" severity="2" id="3053">The file references Pipes</indicator>
+    <indicator enable="0" severity="2" id="3054">The file references the Console</indicator>
+    <indicator enable="1" severity="2" id="3055">The file references the Tasks Scheduler</indicator>
+    <indicator enable="1" severity="2" id="3056">The file references the Windows Management Instrumentation (WMI)</indicator>
+    <indicator enable="1" severity="2" id="3057">The file downloads bits from the Internet and save them to a file</indicator>
+    <indicator enable="1" severity="2" id="3058">The file references the Windows default safe DLL search path</indicator>
+    <indicator enable="1" severity="2" id="3059">The file references a Printer Driver</indicator>
+    <indicator enable="1" severity="2" id="3060">The file references Dynamic Data Exchange (DDE)</indicator>
+    <indicator enable="1" severity="1" id="3061">The file enumerates the list of registered windows</indicator>
+    <indicator enable="1" severity="2" id="3062">The file references Function(s) callback executed when the program exits</indicator>
+    <indicator enable="1" severity="1" id="3063">The file transfers control to a Debugger</indicator>
+    <indicator enable="1" severity="2" id="3064">The file references the AutoIt scripting Engine</indicator>
+    <indicator enable="1" severity="2" id="3065">The file references Microsoft the Setup Interface (MSI)</indicator>
+    <indicator enable="1" severity="2" id="3066">The file references Microsoft Detour to trojanize other executable</indicator>
+    <indicator enable="1" severity="2" id="3067">The file references the Domain Name System (DNS) API</indicator>
+    <indicator enable="0" severity="2" id="3068">The file references temporary file(s)</indicator>
+    <indicator enable="1" severity="2" id="3069">The file references the WLAN interface</indicator>
+    <indicator enable="0" severity="3" id="3070">The file references the Environment variables</indicator>
+    <indicator enable="1" severity="2" id="3071">The file references a Control Panel Application callback</indicator>
+    <indicator enable="1" severity="2" id="3072">The file monitors Registry operations</indicator>
+    <indicator enable="1" severity="2" id="3073">The file references the passwords of Internet Explorer</indicator>
+    <indicator enable="1" severity="2" id="3074">The file references the DHCP Client Service</indicator>
+    <indicator enable="1" severity="2" id="3075">The file references the NetBIOS or the DNS name of the local computer</indicator>
+    <indicator enable="1" severity="2" id="3076">The file references the Windows Internet (WinINet) library</indicator>
+    <indicator enable="1" severity="2" id="3077">The file references data on a Socket</indicator>
+    <indicator enable="1" severity="2" id="3078">The file references the Internet Explorer (IE) server</indicator>
+    <indicator enable="1" severity="2" id="3079">The file logs the Internet Explorer (IE) hits</indicator>
+    <indicator enable="1" severity="2" id="3080">The file synthesizes Mouse motion and Buttons clicks</indicator>
+    <indicator enable="1" severity="1" id="3081">The file references the protection of the Virtual Address space</indicator>
+    <indicator enable="1" severity="2" id="3082">The file references the RPC Network Data Representation (NDR) Engine</indicator>
+    <indicator enable="1" severity="2" id="3083">The file references the Windows Software Quality Metrics (SQM)</indicator>
+    <indicator enable="1" severity="2" id="3084">The file references the Event Tracing for Windows (ETW) framework</indicator>
+    <indicator enable="1" severity="2" id="3085">The file inserts itself in the chain of the Clipboard Listeners</indicator>
+    <indicator enable="1" severity="2" id="3086">The file references the Open Database Connectivity (ODBC) installer</indicator>
+    <indicator enable="1" severity="2" id="3087">The file references the Single-Instance Store (SIS) backup framework</indicator>
+    <indicator enable="1" severity="2" id="3088">The file installs a Device or a Driver</indicator>
+    <indicator enable="1" severity="2" id="3089">The file references the ODBC Driver Tracing mechanism</indicator>
+    <indicator enable="1" severity="2" id="3090">The file references Bitlocker</indicator>
+    <indicator enable="1" severity="2" id="3091">The file registers itself as a boot Driver</indicator>
+    <indicator enable="1" severity="2" id="3092">The file walks up and records the stack information</indicator>
+    <indicator enable="1" severity="2" id="3093">The file references the Windows Scripting Host (WSH) engine</indicator>
+    <indicator enable="1" severity="2" id="3094">The file references the Console Based Script Host engine</indicator>
+    <indicator enable="1" severity="2" id="3095">The file references the HTML Application Host engine</indicator>
+    <indicator enable="1" severity="2" id="3096">The file references the VB Scripting Encoder/Decoder engine</indicator>
+    <indicator enable="1" severity="2" id="3097">The file references the Java Scripting Encoder/Decoder engine</indicator>
+    <indicator enable="1" severity="2" id="3098">The file references the Windows File Protection (WFP)</indicator>
+    <indicator enable="1" severity="2" id="3099">The file simulates the Keyboard</indicator>
+    <indicator enable="1" severity="2" id="3100">The file references the Multimedia Class Scheduler service (MMCSS)</indicator>
+    <indicator enable="1" severity="2" id="3101">The file references the Group Policy (GP)</indicator>
+    <indicator enable="0" severity="6" id="3102">The file references a communications device</indicator>
+    <indicator enable="1" severity="2" id="3103">The file monitors a communications device</indicator>
+    <indicator enable="1" severity="2" id="3104">The file references the local Running Object Table (ROT)</indicator>
+    <indicator enable="1" severity="2" id="3105">The file references the Human Interface Devices (HID) Protocol</indicator>
+    <indicator enable="1" severity="2" id="3106">The file references Simple Mail Transfer Protocol (SMTP)</indicator>
+    <indicator enable="1" severity="2" id="3107">The file references the Internet Control Message Protocol (ICMP)</indicator>
+    <indicator enable="1" severity="2" id="3108">The file fingerprints Antivirus or monitoring tools</indicator>
+    <indicator enable="1" severity="2" id="3109">The file references the Windows network Capture Library</indicator>
+    <indicator enable="0" severity="3" id="3110"></indicator>
+    <indicator enable="1" severity="1" id="3111">The file enumerates Network resources</indicator>
+    <indicator enable="1" severity="1" id="3112">The file references Alternate Data Stream (ADS)</indicator>
+    <indicator enable="1" severity="1" id="3113">The file fingerprints Web browsers</indicator>
+    <indicator enable="1" severity="1" id="3114">The file fingerprints Sandboxes</indicator>
+    <indicator enable="1" severity="1" id="3115">The file fingerprints Email clients</indicator>
+    <indicator enable="1" severity="1" id="3116">The file references the Firefox API</indicator>
+    <indicator enable="1" severity="1" id="3117">The file references the Shim Engine</indicator>
+    <indicator enable="1" severity="1" id="3118">The file references the Windows Address Book (WAB)</indicator>
+    <indicator enable="1" severity="1" id="3119">The file references the Recycle Bin</indicator>
+    <indicator enable="1" severity="1" id="3120">The file references the Volume Shadow Administration (vssadmin) tool</indicator>
+    <indicator enable="1" severity="2" id="3121">The file references the Windows Scripting runtime</indicator>
+    <indicator enable="1" severity="2" id="3122">The file references the gzip compression library</indicator>
+    <indicator enable="1" severity="1" id="3123">The file enumerates the list of running threads</indicator>
+    <indicator enable="1" severity="1" id="3124">The file enumerates the list of mounted folders</indicator>
+    <indicator enable="1" severity="2" id="3125">The file installs an Exception Handler</indicator>
+    <indicator enable="1" severity="1" id="3126">The file enumerates the existing Logon sessions</indicator>
+    <indicator enable="1" severity="1" id="3127">The file enumerates the Display devices on the computer</indicator>
+    <indicator enable="1" severity="1" id="3128">The file enumerates the Display monitors on the computer</indicator>
+    <indicator enable="1" severity="1" id="3129">The file enumerates the cache of Internet Explorer</indicator>
+    <indicator enable="1" severity="1" id="3130">The file references zLibDll, an open source ZLIB compression library</indicator>
+
+    <!-- Functions -->
+    <indicator enable="1" severity="5" id="4000">The file references the Security Management API</indicator>
+    <indicator enable="1" severity="5" id="4001">The file references the Authorization API</indicator>
+    <indicator enable="1" severity="5" id="4002">The file references the Registry API</indicator>
+    <indicator enable="1" severity="5" id="4003">The file references the Memory Management API</indicator>
+    <indicator enable="1" severity="5" id="4004">The file references the Tool Help API</indicator>
+    <indicator enable="1" severity="5" id="4005">The file references the Backup API</indicator>
+    <indicator enable="1" severity="5" id="4006">The file references the Event Logging API</indicator>
+    <indicator enable="1" severity="5" id="4007">The file references the Event Tracing API</indicator>
+    <indicator enable="1" severity="5" id="4008">The file references the Error Handling API</indicator>
+    <indicator enable="1" severity="5" id="4009">The file references the Directory Management API</indicator>
+    <indicator enable="1" severity="5" id="4010">The file references the Debugging API</indicator>
+    <indicator enable="1" severity="5" id="4011">The file references the Console API</indicator>
+    <indicator enable="1" severity="5" id="4012">The file references the ImageHlp API</indicator>
+    <indicator enable="0" severity="5" id="4013"></indicator>
+    <indicator enable="1" severity="5" id="4014">The file references the COM API</indicator>
+    <indicator enable="1" severity="5" id="4015">The file references the System Information API</indicator>
+    <indicator enable="1" severity="5" id="4016">The file references the Package Query API</indicator>
+    <indicator enable="1" severity="5" id="4017">The file references the Setup API</indicator>
+    <indicator enable="1" severity="5" id="4018">The file references the Structured Storage API</indicator>
+    <indicator enable="1" severity="5" id="4019">The file references the Dynamic Data Exchange Management Library (DDEML) API</indicator>
+    <indicator enable="1" severity="5" id="4020">The file references the Clipboard API</indicator>
+    <indicator enable="1" severity="5" id="4021">The file references the WinINet API</indicator>
+    <indicator enable="1" severity="5" id="4022">The file references the Dynamic-Link Library API</indicator>
+    <indicator enable="1" severity="5" id="4023">The file references the Process and Thread API</indicator>
+    <indicator enable="1" severity="5" id="4024">The file references the WinHttp API</indicator>
+    <indicator enable="1" severity="5" id="4025">The file references the (Zw) Native API</indicator>
+    <indicator enable="1" severity="5" id="4026">The file references the (Rtl) Native API</indicator>
+    <indicator enable="1" severity="5" id="4027">The file references the (Nt) Native API</indicator>
+    <indicator enable="1" severity="5" id="4028">The file references the DHCP Server Management API</indicator>
+    <indicator enable="1" severity="5" id="4029">The file references the Network Management API</indicator>
+    <indicator enable="1" severity="5" id="4030">The file references the DNS API</indicator>
+    <indicator enable="1" severity="5" id="4031">The file references the Mailslot API</indicator>
+    <indicator enable="1" severity="5" id="4032">The file references the RPC API</indicator>
+    <indicator enable="1" severity="5" id="4033">The file references the Structured Exception Handling (SEH) API</indicator>
+    <indicator enable="1" severity="5" id="4034">The file references the Service API</indicator>
+    <indicator enable="1" severity="5" id="4035">The file references the File Management API</indicator>
+    <indicator enable="1" severity="5" id="4036">The file references the Video Capture API</indicator>
+    <indicator enable="1" severity="5" id="4037">The file references the Cabinet API</indicator>
+    <indicator enable="1" severity="5" id="4038">The file references the Single-Instance Store (SIS) Backup API</indicator>
+    <indicator enable="1" severity="5" id="4039">The file references the Performance Counters API</indicator>
+    <indicator enable="1" severity="5" id="4040">The file references the Atom API</indicator>
+    <indicator enable="1" severity="5" id="4041">The file references the Device Management API</indicator>
+    <indicator enable="0" severity="5" id="4042"></indicator>
+    <indicator enable="1" severity="5" id="4043">The file references the Remote Access Service Custom Scripting API</indicator>
+    <indicator enable="1" severity="5" id="4044">The file references the WinSNMP API</indicator>
+    <indicator enable="1" severity="5" id="4045">The file references the Router Information API</indicator>
+    <indicator enable="1" severity="5" id="4046">The file references the Network Data Representation (Ndr) API</indicator>
+    <indicator enable="1" severity="5" id="4047">The file references the Power Management API</indicator>
+    <indicator enable="1" severity="5" id="4048">The file references the Remote Desktop API</indicator>
+    <indicator enable="1" severity="5" id="4049">The file references the WLAN API</indicator>
+    <indicator enable="1" severity="5" id="4050">The file references the SNMP API</indicator>
+    <indicator enable="1" severity="5" id="4051">The file references the WinDbgExt API</indicator>
+    <indicator enable="1" severity="5" id="4052">The file references the DDE API</indicator>
+    <indicator enable="1" severity="1" id="4053">The file references a Directory Notification watcher</indicator>
+    <indicator enable="1" severity="1" id="4054">The file enumerates files on a FTP server</indicator>
+    <indicator enable="1" severity="1" id="4055">The file references Meterpreter service</indicator>
+  </indicators>
+</xml>

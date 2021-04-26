@@ -1,0 +1,1474 @@
+<xml version="1.0" encoding="utf-8">
+  <!-- 
+  translations.xml is part of pestudio (www.winitor.com)
+  It contains texts shown at the fontend and XML report file.-->
+
+  <misc>
+    <item id="0">hex</item>
+    <item id="1">relative</item>
+    <item id="2">absolute</item>
+    <item id="3">shared</item>
+    <item id="4">clean</item>
+    <item id="5">self-modifying</item>
+    <item id="6">nameless</item>
+    <item id="7">checksum-valid</item>
+    <item id="8">checksum-invalid</item>
+    <item id="9">address-space-layout-randomization (ASLR)</item>
+    <item id="10">code-integrity</item>
+    <item id="11">data-execution-prevention (DEP)</item>
+    <item id="12">image-isolation</item>
+    <item id="13">structured-exception-handling (SEH)</item>
+    <item id="14">image-bound</item>
+    <item id="15">windows-driver-model (WDM)</item>
+    <item id="16">terminal-server-aware</item>
+    <item id="17">low</item>
+    <item id="18">Non-Portable Executable</item>
+    <item id="19">Certificate exist</item>
+    <item id="20">tls-callbacks</item>
+    <item id="21">Exceptions Handler usage</item>
+    <item id="22">Empty score</item>
+    <item id="23">32 bit Images</item>
+    <item id="24">64 bit Images</item>
+    <item id="25">Select a file to open</item>
+    <item id="26">Exe files (*.exe)|*.exe|Dll files (*.dll)|*.dll|Sys files (*.sys)|*.sys|All Files (*.*)|*.*||</item>
+    <item id="27">failure</item>
+    <item id="28">Images (%i of %i)</item>
+    <item id="29">The image is not Portable Executable</item>
+    <item id="30">highest</item>
+    <item id="31">administrator</item>
+    <item id="32">invoker</item>
+    <item id="33">trust-info-missing</item>
+    <item id="34">virustotal</item>
+    <item id="35">internet connection failed</item>
+    <item id="36">the file has not been found in the repository</item>
+    <item id="37">wait...</item>
+    <item id="38">please enable the virustotal submission</item>
+    <item id="39">positives</item>
+    <item id="40">the online scoring service is not reachable</item>
+    <item id="41">disabled</item>
+    <item id="42">scan-id</item>
+    <item id="43">resource</item>
+    <item id="44">response-code</item>
+    <item id="45">scan-date</item>
+    <item id="46">permanent-link</item>
+    <item id="47">verbose</item>
+    <item id="48">engines</item>
+    <item id="49">detections</item>
+    <item id="50">sha1</item>
+    <item id="51">sha256</item>
+    <item id="52">md5</item>
+    <item id="53">details</item>
+    <item id="54">result</item>
+    <item id="55">engine</item>
+    <item id="56">virustotal</item>
+    <item id="57">header</item>
+    <item id="58">results</item>
+    <item id="59">signature</item>
+    <item id="60">exports</item>
+    <item id="61">analysis</item>
+    <item id="62">ordinal</item>
+    <item id="63">anonymous</item>
+    <item id="64">gap</item>
+    <item id="65">forwarded</item>
+    <item id="66">entry-point</item>
+    <item id="67">xml-id</item>
+    <item id="68">symbol</item>
+    <item id="69">gaps</item>
+    <item id="70">address</item>
+    <item id="71">hint</item>
+    <item id="72">offline</item>
+    <item id="73">imphash</item>
+    <item id="74">Network: </item>
+    <item id="75">online</item>
+    <item id="76">bl</item>
+    <item id="77">n/a</item>
+    <item id="78">callback</item>
+    <item id="79">32</item>
+    <item id="80">64</item>
+    <item id="81">map</item>
+    <item id="82">severity</item>
+    <item id="83">detection</item>
+    <item id="84">date (dd.mm.yyyy)</item>
+    <item id="85">age (days)</item>
+    <item id="86">not-supported</item>
+    <item id="87">-</item>
+    <item id="88">x</item>
+    <item id="89">directory</item>
+    <item id="90">directories</item>
+    <item id="91">obfuscated</item>
+    <item id="92">address</item>
+    <item id="93">raw-address</item>
+    <item id="94">size (bytes)</item>
+    <item id="95">location (address)</item>
+    <item id="96">invalid</item>
+    <item id="97">empty</item>
+    <item id="98">missing</item>
+    <item id="99">TimeDateStamp</item>
+    <item id="100">libraries</item>
+    <item id="101">library</item>
+    <item id="102">type</item>
+    <item id="103">file-version</item>
+    <item id="104">image-base</item>
+    <item id="105">imports</item>
+    <item id="106">CPU mismatch</item>
+    <item id="107">type</item>
+    <item id="108">cpu</item>
+    <item id="109">all</item>
+    <item id="110">implicit</item>
+    <item id="111">delay-loaded</item>
+    <item id="112">application</item>
+    <item id="113">blacklist</item>
+    <item id="114">description</item>
+    <item id="115">Imported Library</item>
+    <item id="116">bound</item>
+    <item id="117">types</item>
+    <item id="118">created</item>
+    <item id="119">undocumented</item>
+    <item id="120">16bytes</item>
+    <item id="121">symbol</item>
+    <item id="122">section:offset</item>
+    <item id="123">library</item>
+    <item id="124">whitelist</item>
+    <item id="125">deprecated</item>
+    <item id="126">anti-debug</item>
+    <item id="127">imports</item>
+    <item id="128">registries</item>
+    <item id="129">urls</item>
+    <item id="130">messages Tables</item>
+    <item id="131">control-flow-guard (CFG)</item>
+    <item id="132">delay-loaded</item>
+    <item id="133">strings-tables</item>
+    <item id="134">manifest</item>
+    <item id="135">certificates</item>
+    <item id="136">elevated</item>
+    <item id="137">unsafe</item>
+    <item id="138">top list</item>
+    <item id="139">begin</item>
+    <item id="140">end</item>
+    <item id="141">item</item>
+    <item id="142"></item>
+    <item id="143">address (begin)</item>
+    <item id="144">address (end)</item>
+    <item id="145">address (unwind)</item>
+    <item id="146">expired</item>
+    <item id="147"></item>
+    <item id="148">file</item>
+    <item id="149">duplicated</item>
+    <item id="150">property</item>
+    <item id="151">value</item>
+    <item id="152">detail</item>
+    <item id="153">status</item>
+    <item id="154">headers</item>
+    <item id="155">image</item>
+    <item id="156">error</item>
+    <item id="157">overview</item>
+    <item id="158">date</item>
+    <item id="159">%.2i/%.2i/%.4i</item>
+    <item id="160">time-stamp</item>
+    <item id="161">%.2i:%.2i:%.2i</item>
+    <item id="162">import</item>
+    <item id="163">network error</item>
+    <item id="164">strings</item>
+    <item id="165">string</item>
+    <item id="166">footprints</item>
+    <item id="167">overlay</item>
+    <item id="168">ascii</item>
+    <item id="169">unicode</item>
+    <item id="170">file-header-offset</item>
+    <item id="171">file-version</item>
+    <item id="172">groups</item>
+    <item id="173">not found</item>
+    <item id="174">processor-32bit</item>
+    <item id="175">relocation-stripped</item>
+    <item id="176">large-address-aware</item>
+    <item id="177">uniprocessor</item>
+    <item id="178">system-image</item>
+    <item id="179">dynamic-link-library</item>
+    <item id="180">executable</item>
+    <item id="181">debug-stripped</item>
+    <item id="182">media-run-from-swap</item>
+    <item id="183">network-run-from-swap</item>
+    <item id="184">properties</item>
+    <item id="185">strings-ascii</item>
+    <item id="186">strings-unicode</item>
+    <item id="187">group</item>
+    <item id="188">location</item>
+    <item id="189">exceptions</item>
+    <item id="190">start</item>
+    <item id="191">end</item>
+    <item id="192">data-begin</item>
+    <item id="193">data-end</item>
+    <item id="194">callback</item>
+    <item id="195">standard</item>
+    <item id="196">exception</item>
+    <item id="197">%s not found</item>
+    <item id="198"></item>
+    <item id="199">color-text</item>
+    <item id="200">md5</item>
+    <item id="201">certificate</item>
+    <item id="202">resources</item>
+    <item id="203">type</item>
+    <item id="204">instance</item>
+    <item id="205">size</item>
+    <item id="206">offset</item>
+    <item id="207">code-page</item>
+    <item id="208">language</item>
+    <item id="209">manifest</item>
+    <item id="210">assemblies</item>
+    <item id="211">assembly</item>
+    <item id="212">name</item>
+    <item id="213">non-standard</item>
+    <item id="214">version</item>
+    <item id="215">token</item>
+    <item id="216">total</item>
+    <item id="217">count</item>
+    <item id="218">raw_data</item>
+    <item id="219">version</item>
+    <item id="220">file-type</item>
+    <item id="221">file-subtype</item>
+    <item id="222">file-os</item>
+    <item id="223">index</item>
+    <item id="224">first-bytes-hex</item>
+    <item id="225">first-bytes-text</item>
+    <item id="226">suspicious</item>
+    <item id="227">score-file</item>
+    <item id="228">score-file-details</item>
+    <item id="229">r</item>
+    <item id="230">g</item>
+    <item id="231">b</item>
+    <item id="232">disabled (Menu > Settings)</item>
+    <item id="233">dump into file...</item>
+    <item id="234">md5-without-overlay</item>
+    <item id="235">sha1-without-overlay</item>
+    <item id="236">sha256-without-overlay</item>
+    <item id="237">32-bit</item>
+    <item id="238">64-bit</item>
+    <item id="239">size-without-overlay</item>
+    <item id="240">location (section)</item>
+    <item id="241">trustInfo</item>
+    <item id="242">execution</item>
+    <item id="243">file-offset</item>
+    <item id="244">file-offset-from</item>
+    <item id="245">file-offset-to</item>
+    <item id="246">true</item>
+    <item id="247">false</item>
+    <item id="248">level</item>
+    <item id="249">uiAccess</item>
+    <item id="250">code-less</item>
+    <item id="251">language</item>
+    <item id="252">code</item>
+    <item id="253">character-set</item>
+    <item id="254">items</item>
+    <item id="255">item</item>
+    <item id="256">name</item>
+    <item id="257">value</item>
+    <item id="258">rich-header</item>
+    <item id="259">signature-offset</item>
+    <item id="260">dos-stub</item>
+    <item id="261">PE</item>
+    <item id="262">autoElevate</item>
+    <item id="263">virtualized</item>
+    <item id="264">file-size</item>
+    <item id="265"></item>
+    <item id="266"></item>
+    <item id="267"></item>
+    <item id="268"></item>
+    <item id="269"></item>
+    <item id="270">dos-header</item>
+    <item id="271"></item>
+    <item id="272">file-signature</item>
+    <item id="273">pe-offset</item>
+    <item id="274"></item>
+    <item id="275"></item>
+    <item id="276"></item>
+    <item id="277"></item>
+    <item id="278"></item>
+    <item id="279"></item>
+    <item id="280"></item>
+    <item id="281"></item>
+    <item id="282">version-stamp</item>
+    <item id="283">exports-stamp</item>
+    <item id="284">resources-stamp</item>
+    <item id="285">stamp</item>
+    <item id="286">debugger-stamp</item>
+    <item id="287">e_lfanew</item>
+    <item id="288"></item>
+    <item id="289">relocations</item>
+    <item id="290">file-header</item>
+    <item id="291">machine</item>
+    <item id="292">sections</item>
+    <item id="293">compiler-stamp</item>
+    <item id="294">pointer-symbol-table</item>
+    <item id="295">number-of-symbols</item>
+    <item id="296">size-of-optional-header</item>
+    <item id="297">characteristics</item>
+    <item id="298">e_magic</item>
+    <item id="299"></item>
+    <item id="300"></item>
+    <item id="301"></item>
+    <item id="302"></item>
+    <item id="303"></item>
+    <item id="304"></item>
+    <item id="305"></item>
+    <item id="306"></item>
+    <item id="307"></item>
+    <item id="308">debug</item>
+    <item id="309">relocations</item>
+    <item id="310">optional-header</item>
+    <item id="311">magic</item>
+    <item id="312">linker-version</item>
+    <item id="313">control-flow-guard</item>
+    <item id="314">size-of-code</item>
+    <item id="315">size-of-initialized-data</item>
+    <item id="316">size-of-uninitialized-data</item>
+    <item id="317"></item>
+    <item id="318">base-of-code</item>
+    <item id="319">base-of-data</item>
+    <item id="320">image-base</item>
+    <item id="321">section-alignment</item>
+    <item id="322">file-alignment</item>
+    <item id="323">os-version</item>
+    <item id="324">enable</item>
+    <item id="325">image-version</item>
+    <item id="326"></item>
+    <item id="327">subsystem-version</item>
+    <item id="328">windows-driver-model</item>
+    <item id="329">Win32VersionValue</item>
+    <item id="330">size-of-image</item>
+    <item id="331">size-of-headers</item>
+    <item id="332">file-checksum</item>
+    <item id="333">subsystem</item>
+    <item id="334">DllCharacteristics</item>
+    <item id="335">address-space-layout-randomization</item>
+    <item id="336">data-execution-prevention</item>
+    <item id="337">structured-exception-handling</item>
+    <item id="338">real-checksum</item>
+    <item id="339">threshold</item>
+    <item id="340"></item>
+    <item id="341"></item>
+    <item id="342"></item>
+    <item id="343">size-of-stack-reserve</item>
+    <item id="344">size-of-stack-commit</item>
+    <item id="345">size-of-heap-reserve</item>
+    <item id="346">size-of-heap-commit</item>
+    <item id="347">LoaderFlags</item>
+    <item id="348">directories-number</item>
+    <item id="349">pdb</item>
+    <item id="350">stub-message</item>
+    <item id="351">warning</item>
+    <item id="352">Signer</item>
+    <item id="353">Counter-signer</item>
+    <item id="354">Email</item>
+    <item id="355">Street</item>
+    <item id="356">Postal code</item>
+    <item id="357">valid-from</item>
+    <item id="358">valid-to</item>
+    <item id="359">organization</item>
+    <item id="360">serial-number</item>
+    <item id="361">CRL-Distribution-Point</item>
+    <item id="362">Signing Time</item>
+    <item id="363">Dump PKCS7</item>
+    <item id="364"></item>
+    <item id="365"></item>
+    <item id="366"></item>
+    <item id="367"></item>
+    <item id="368"></item>
+    <item id="369"></item>
+    <item id="370">FileMajorVersion</item>
+    <item id="371">FileMinorVersion</item>
+    <item id="372">FileVersionBuildNumber</item>
+    <item id="373">FileVersionRevisionNumber</item>
+    <item id="374"></item>
+    <item id="375"></item>
+    <item id="376"></item>
+    <item id="377"></item>
+    <item id="378"></item>
+    <item id="379"></item>
+    <item id="380">VarFileInfo</item>
+    <item id="381">LanguageId</item>
+    <item id="382">CodePage</item>
+    <item id="383"></item>
+    <item id="384"></item>
+    <item id="385"></item>
+    <item id="386"></item>
+    <item id="387"></item>
+    <item id="388"></item>
+    <item id="389"></item>
+    <item id="390">export</item>
+    <item id="391">file-ratio</item>
+    <item id="392">export-file-name</item>
+    <item id="393"></item>
+    <item id="394"></item>
+    <item id="395"></item>
+    <item id="396"></item>
+    <item id="397"></item>
+    <item id="398"></item>
+    <item id="399"></item>
+    <item id="400">debugs</item>
+    <item id="401">debug</item>
+    <item id="402">guid</item>
+    <item id="403">%.4X-%2.X-%2.X-%1X%1X-%1X%1X%1X%1X%1X%1X</item>
+    <item id="404">age</item>
+    <item id="405">RSDS</item>
+    <item id="406">Nb09</item>
+    <item id="407">Nb10</item>
+    <item id="408">Nb11</item>
+    <item id="409">format</item>
+    <item id="410">path</item>
+    <item id="411">managed</item>
+    <item id="412"></item>
+    <item id="413"></item>
+    <item id="414"></item>
+    <item id="415"></item>
+    <item id="416"></item>
+    <item id="417"></item>
+    <item id="418"></item>
+    <item id="419"></item>
+    <item id="420"></item>
+    <item id="421"></item>
+    <item id="422"></item>
+    <item id="423"></item>
+    <item id="424"></item>
+    <item id="425"></item>
+    <item id="426"></item>
+    <item id="427"></item>
+    <item id="428"></item>
+    <item id="429"></item>
+    <item id="430"></item>
+    <item id="431"></item>
+    <item id="432"></item>
+    <item id="433"></item>
+    <item id="434"></item>
+    <item id="435"></item>
+    <item id="436"></item>
+    <item id="437"></item>
+    <item id="438"></item>
+    <item id="439"></item>
+    <item id="440"></item>
+    <item id="441"></item>
+    <item id="442">BoundImports</item>
+    <item id="443">BoundImport</item>
+    <item id="444">BoundImportDate</item>
+    <item id="445">type</item>
+    <item id="446">size</item>
+    <item id="447">linker</item>
+    <item id="448">version</item>
+    <item id="449"></item>
+    <item id="450"></item>
+    <item id="451"></item>
+    <item id="452"></item>
+    <item id="453"></item>
+    <item id="454"></item>
+    <item id="455"></item>
+    <item id="456"></item>
+    <item id="457"></item>
+    <item id="458"></item>
+    <item id="459"></item>
+    <item id="460"></item>
+    <item id="461"></item>
+    <item id="462"></item>
+    <item id="463"></item>
+    <item id="464"></item>
+    <item id="465"></item>
+    <item id="466"></item>
+    <item id="467"></item>
+    <item id="468"></item>
+    <item id="469"></item>
+    <item id="470"></item>
+    <item id="471"></item>
+    <item id="472"></item>
+    <item id="473"></item>
+    <item id="474"></item>
+    <item id="475"></item>
+    <item id="476"></item>
+    <item id="477"></item>
+    <item id="478"></item>
+    <item id="479">entropy</item>
+    <item id="480">sections</item>
+    <item id="481">name</item>
+    <item id="482">virtual-size</item>
+    <item id="483">virtual-address</item>
+    <item id="484">raw-size</item>
+    <item id="485">raw-address</item>
+    <item id="486">file-cave</item>
+    <item id="487">contains</item>
+    <item id="488">characteristics</item>
+    <item id="489">blacklisted</item>
+    <item id="490">obfuscated</item>
+    <item id="491">readable</item>
+    <item id="492">writable</item>
+    <item id="493">executable</item>
+    <item id="494">shareable</item>
+    <item id="495"></item>
+    <item id="496">md5</item>
+    <item id="497">section</item>
+    <item id="498"></item>
+    <item id="499"></item>
+    <item id="500"></item>
+    <item id="501"></item>
+    <item id="502">PointerToRelocations</item>
+    <item id="503">PointerToLinenumbers</item>
+    <item id="504">NumberOfRelocations</item>
+    <item id="505">NumberOfLinenumbers</item>
+    <item id="506">characteristics</item>
+    <item id="507">sections</item>
+    <item id="508">ExecutableCode</item>
+    <item id="509">initialized-data</item>
+    <item id="510">uninitialized-data</item>
+    <item id="511">discardable</item>
+    <item id="512"></item>
+    <item id="513"></item>
+    <item id="514">shareable</item>
+    <item id="515">executable</item>
+    <item id="516">readable</item>
+    <item id="517">writable</item>
+    <item id="518">discardable</item>
+    <item id="519">cachable</item>
+    <item id="520">indicators</item>
+    <item id="521">indicator</item>
+    <item id="522">pageable</item>
+    <item id="523">initialized-data</item>
+    <item id="524">uninitialized-data</item>
+    <item id="525">The rate (4 requests/minute) to virustotal has been reached. Please retry in a moment.</item>
+    <item id="526"></item>
+    <item id="527">unknown</item>
+  </misc>
+
+  <version>
+    <os>
+      <item name="VOS_DOS">MS-DOS</item>
+      <item name="VOS_NT">Windows NT</item>
+      <item name="VOS_WINDOWS16">Windows 16-bit</item>
+      <item name="VOS_WINDOWS32">Windows 32-bit</item>
+      <item name="VOS_OS216">OS/2 16-bit</item>
+      <item name="VOS_OS232">OS/2 32-bit</item>
+      <item name="VOS_PM16">PM-16-bit</item>
+      <item name="VOS_PM32">PM-32-bit</item>
+      <item name="VOS_UNKNOWN">Unknown</item>
+    </os>
+
+    <file>
+      <item name="VFT_APP">executable</item>
+      <item name="VFT_DLL">dynamic-link library</item>
+      <item name="VFT_DRV">device-driver</item>
+      <item name="VFT_FONT">font</item>
+      <item name="VFT_STATIC_LIB">static-link library</item>
+      <item name="VFT_VXD">virtual-device</item>
+      <item name="VFT_UNKNOWN">unknown</item>
+    </file>
+
+    <driver>
+      <item name="VFT2_DRV_COMM">Communication-driver</item>
+      <item name="VFT2_DRV_DISPLAY">Display-driver</item>
+      <item name="VFT2_DRV_INSTALLABLE">Installable-driver</item>
+      <item name="VFT2_DRV_KEYBOARD">Keyboard-driver</item>
+      <item name="VFT2_DRV_LANGUAGE">Language-driver</item>
+      <item name="VFT2_DRV_MOUSE">Mouse driver</item>
+      <item name="VFT2_DRV_NETWORK">Network-driver</item>
+      <item name="VFT2_DRV_PRINTER">Printer-driver</item>
+      <item name="VFT2_DRV_SOUND">Sound-driver</item>
+      <item name="VFT2_DRV_SYSTEM">System-driver</item>
+      <item name="VFT2_DRV_VERSIONED_PRINTER">Printer-driver</item>
+      <item name="VFT2_UNKNOWN">Unknown-Driver</item>
+    </driver>
+  </version>
+
+  <!-- locations of items found in the executable -->
+  <locations>
+    <location r="220" g="220" b="220">dos-header</location>
+    <location r="220" g="220" b="220">dos-stub</location>
+    <location r="220" g="220" b="220">file-header</location>
+    <location r="000" g="000" b="000">rich-text</location>
+    <location r="030" g="144" b="225">library</location>
+    <location r="176" g="196" b="222">import</location>
+    <location r="218" g="112" b="214">export</location>
+    <location r="218" g="112" b="214">export-file-name</location>
+    <location r="218" g="112" b="214">resource</location>
+    <location r="244" g="164" b="096">manifest</location>
+    <location r="240" g="230" b="140">pdb</location>
+    <location r="255" g="228" b="196">version</location>
+    <location r="144" g="238" b="144">certificate</location>
+    <location r="046" g="139" b="087">overlay</location>
+    <location r="000" g="000" b="000">unknown</location>
+  </locations>
+
+  <!-- relocations type friendly names -->
+  <relocations>
+    <item>high</item>
+    <item>low</item>
+    <item>high-low</item>
+    <item>low-high</item>
+    <item>absolute</item>
+    <item>high-adjust</item>
+    <item>section</item>
+    <item>mips-jump-address</item>
+    <item>rel32</item>
+    <item>unknown</item>
+  </relocations>
+
+  <!-- id must be synchronized with enum FunctionGroup  -->
+  <groups enable="1">
+    <group id="01" r="255" g="128" b="000">registry</group>
+    <group id="02" r="247" g="071" b="071">execution</group>
+    <group id="03" r="255" g="100" b="177">network</group>
+    <group id="04" r="132" g="189" b="137">cryptography</group>
+    <group id="05" r="045" g="155" b="255">memory</group>
+    <group id="06" r="179" g="223" b="255">file</group>
+    <group id="07" r="127" g="255" b="000">synchronization</group>
+    <group id="08" r="215" g="155" b="125">remote-desktop</group>
+    <group id="09" r="111" g="200" b="006">services</group>
+    <group id="10" r="000" g="000" b="000">n/a</group>
+    <group id="11" r="185" g="130" b="100">resource</group>
+    <group id="12" r="176" g="255" b="255">window</group>
+    <group id="13" r="000" g="000" b="000">n/a</group>
+    <group id="14" r="085" g="110" b="200">hooking</group>
+    <group id="15" r="255" g="255" b="125">data-exchange</group>
+    <group id="16" r="170" g="170" b="170">diagnostic</group>
+    <group id="17" r="085" g="110" b="010">administration</group>
+    <group id="18" r="185" g="010" b="210">exception-handling</group>
+    <group id="19" r="036" g="215" b="130">system-information</group>
+    <group id="20" r="036" g="215" b="130">console</group>
+    <group id="21" r="255" g="198" b="255">dynamic-link-library</group>
+    <group id="22" r="155" g="198" b="255">keyboard-and-mouse</group>
+    <group id="23" r="132" g="114" b="114">storage</group>
+    <group id="24" r="162" g="162" b="162">desktop</group>
+    <group id="25" r="255" g="162" b="162">shell</group>
+    <group id="26" r="255" g="159" b="174">setup</group>
+    <group id="27" r="055" g="159" b="074">power</group>
+    <group id="28" r="125" g="159" b="174">email</group>
+    <group id="29" r="120" g="119" b="114">active-directory</group>
+    <group id="30" r="255" g="239" b="043">security</group>
+  </groups>
+
+  <!-- Directories Friendly Names -->
+  <dirs>
+    <dir>export-table</dir>
+    <dir>import-name</dir>
+    <dir>resource</dir>
+    <dir>exception</dir>
+    <dir>security</dir>
+    <dir>relocation</dir>
+    <dir>debug</dir>
+    <dir>architecture</dir>
+    <dir>global-pointer</dir>
+    <dir>thread-storage</dir>
+    <dir>load-configuration</dir>
+    <dir>bound-import</dir>
+    <dir>import-address</dir>
+    <dir>delay-loaded</dir>
+    <dir>com-runtime</dir>
+    <dir>reserved</dir>
+  </dirs>
+
+  <!-- Resources Friendly Names 
+      id is an (internal) identification of the resource (do not modify this value)
+      severity is the level of severity (as to be seen at the UI - Attention: 0>1)
+    !-->
+  <resources>
+    <item id="0" severity="-1">manifest</item>
+    <item id="1" severity="-1">cursor</item>
+    <item id="2" severity="-1">bitmap</item>
+    <item id="3" severity="-1">icon</item>
+    <item id="4" severity="-1">menu</item>
+    <item id="5" severity="-1">dialog</item>
+    <item id="6" severity="-1">string-table</item>
+    <item id="7" severity="-1">message-table</item>
+    <item id="8" severity="-1">font-directory</item>
+    <item id="9" severity="-1">font</item>
+    <item id="10" severity="-1">accelerator</item>
+    <item id="11" severity="-1">rcdata</item>
+    <item id="12" severity="-1">cursor-group</item>
+    <item id="13" severity="-1">icon-group</item>
+    <item id="14" severity="-1">version</item>
+    <item id="15" severity="-1">dlgInclude</item>
+    <item id="16" severity="-1">Plug-and-play</item>
+    <item id="17" severity="-1">Vxd</item>
+    <item id="18" severity="-1">Animated-cursor</item>
+    <item id="19" severity="-1">Animated-icon</item>
+    <item id="20" severity="-1">HTML</item>
+    <item id="21" severity="-1">MUI</item>
+    <item id="22" severity="-1">icons</item>
+    <item id="23" severity="-1">custom</item>
+    <item id="24" severity="1">executable</item>
+    <item id="25" severity="2">Compiled-HTML</item>
+    <item id="26" severity="-1">Riff</item>
+    <item id="27" severity="-1">GIF</item>
+    <item id="28" severity="-1">PNG</item>
+    <item id="29" severity="-1">BMP</item>
+    <item id="30" severity="2">Typelib</item>
+    <item id="31" severity="2">Registry</item>
+    <item id="32" severity="1">Driver-Installation-File</item>
+    <item id="33" severity="1">PDF</item>
+    <item id="34" severity="1">CAB</item>
+    <item id="35" severity="1">PKZIP</item>
+    <item id="36" severity="1">PKlite</item>
+    <item id="37" severity="1">PKSfx</item>
+    <item id="38" severity="1">JAR</item>
+    <item id="39" severity="1">Delphi-Form</item>
+    <item id="40" severity="1">7zSFX</item>
+    <item id="41" severity="2">Stylesheet-XML</item>
+    <item id="42" severity="2">MOF</item>
+    <item id="43" severity="2">XML Event Log</item>
+    <item id="44" severity="1">Rich-Text</item>
+    <item id="45" severity="1">Nullsoft</item>
+    <item id="46" severity="1">AutoIt</item>
+    <item id="47" severity="-1">Nb10</item>
+    <item id="48" severity="1">Spoon</item>
+    <item id="49" severity="1">RAR</item>
+    <item id="50" severity="1">Smart-installer</item>
+    <item id="51" severity="1">InnoSetup</item>
+    <item id="52" severity="1">Flash</item>
+    <item id="53" severity="1">Flash</item>
+    <item id="54" severity="-1">Debugger</item>
+    <item id="55" severity="-1">FPO-debug</item>
+    <item id="56" severity="-1">Text</item>
+    <item id="57" severity="-1">JPEG</item>
+    <item id="58" severity="-1">Registry-file</item>
+    <item id="59" severity="1">aPLib-compressed</item>
+    <item id="60" severity="1">Python</item>
+    <item id="61" severity="1">Python-script</item>
+    <item id="62" severity="1">SFX</item>
+    <item id="63" severity="-1">XML</item>
+    <item id="64" severity="-1">Delphi-Config</item>
+    <item id="65" severity="-1">any</item>
+    <item id="66" severity="-1">unknown</item>
+  </resources>
+
+  <!-- Subsystems Friendly Names -->
+  <subsystem>
+    <item>Native</item>
+    <item>GUI</item>
+    <item>console</item>
+    <item>Windows-boot-application</item>
+    <item>Windows-CE</item>
+    <item>os2</item>
+    <item>posix</item>
+    <item>win9x-driver</item>
+    <item>EFI-application</item>
+    <item>EFI-driver-boot-service</item>
+    <item>EFI-driver-run-time-service</item>
+    <item>EFI-ROM</item>
+    <item>Xbox</item>
+  </subsystem>
+
+  <!-- Target Machines Friendly Names -->
+  <machines>
+    <item id="00">Intel</item>
+    <item id="01">MipsR3000</item>
+    <item id="02">MipsR6000</item>
+    <item id="03">MipsR10000</item>
+    <item id="04">Mipsv2</item>
+    <item id="05">Alpha</item>
+    <item id="06">SH3</item>
+    <item id="07">SH3DSP</item>
+    <item id="08">SH3E</item>
+    <item id="09">SH4</item>
+    <item id="10">SH5</item>
+    <item id="11">ARM</item>
+    <item id="12">ARMv7</item>
+    <item id="13">ARM-Thumb</item>
+    <item id="14">ARM-Thumb-2-little-Indian</item>
+    <item id="15">AM33</item>
+    <item id="16">PowerPc</item>
+    <item id="17">PowerPcfp</item>
+    <item id="18">IA64</item>
+    <item id="19">Mips16</item>
+    <item id="20">Alpha64</item>
+    <item id="21">MipsFpu</item>
+    <item id="22">MipsFpu16</item>
+    <item id="23">Axp64</item>
+    <item id="24">TriCore</item>
+    <item id="25">CEF</item>
+    <item id="26">EBC</item>
+    <item id="27">Amd64</item>
+    <item id="28">M32R</item>
+    <item id="29">CEE</item>
+    <item id="30">unknown</item>
+  </machines>
+
+  <!-- Manifest execution levels -->
+  <executionlevels>
+    <level>asInvoker</level>
+    <level>highest</level>
+    <level>administrator</level>
+    <level>unknown</level>
+  </executionlevels>
+
+  <!-- debugger Types Friendly Names -->
+  <debuggers>
+    <item>COFF</item>
+    <item>Nb09</item>
+    <item>Nb10</item>
+    <item>Nb11</item>
+    <item>RSDS</item>
+    <item>FPO</item>
+    <item>MISC</item>
+    <item>exception</item>
+    <item>fixu</item>
+    <item>omapToSrc</item>
+    <item>omapFromSrc</item>
+    <item>Borland</item>
+    <item>reserved10</item>
+    <item>clsid</item>
+    <item>PGO</item>
+    <item>vcFeature</item>
+    <item>iltcg</item>
+    <item>mpx</item>
+    <item>unknown</item>
+  </debuggers>
+
+  <!-- Character Sets Friendly Names -->
+  <characters>
+    <item>7-bit ASCII</item>
+    <item>Japan (Shift – JIS X-0208)</item>
+    <item>Korea (Shift – KSC 5601)</item>
+    <item>Taiwan (Big5)</item>
+    <item>Unicode</item>
+    <item>Latin-2 (Eastern European)</item>
+    <item>Cyrillic</item>
+    <item>Multilingual</item>
+    <item>Greek</item>
+    <item>Turkish</item>
+    <item>Hebrew</item>
+    <item>Arabic</item>
+  </characters>
+
+  <severities>
+    <level id="6">Severe</level>
+    <level id="5">Attention</level>
+    <level id="4">Warning</level>
+    <level id="3">Information</level>
+    <level id="2">Almost</level>
+    <level id="1">Good</level>
+  </severities>
+
+  <dependencies>
+    <item>implicit</item>
+    <item>delay-loaded</item>
+    <item>forwarded</item>
+  </dependencies>
+
+  <manifest>
+    <level>Administrator</level>
+    <level>Highest</level>
+    <level>Invoker</level>
+  </manifest>
+
+  <trustees>
+    <trustee id="0">Account operators</trustee>
+    <trustee id="1">Alias to allow previous Windows 2000</trustee>
+    <trustee id="2">Anonymous logon</trustee>
+    <trustee id="3">Authenticated users</trustee>
+    <trustee id="4">Built-in administrators</trustee>
+    <trustee id="5">Built-in guests</trustee>
+    <trustee id="6">Backup operators</trustee>
+    <trustee id="7">Built-in users</trustee>
+    <trustee id="8">Certificate server administrators</trustee>
+    <trustee id="9">Creator group</trustee>
+    <trustee id="10">Creator owner</trustee>
+    <trustee id="11">Domain administrators</trustee>
+    <trustee id="12">Domain computers</trustee>
+    <trustee id="13">Domain controllers</trustee>
+    <trustee id="14">Domain guests</trustee>
+    <trustee id="15">Domain users</trustee>
+    <trustee id="16">Enterprise administrators</trustee>
+    <trustee id="17">Enterprise domain controllers</trustee>
+    <trustee id="18">Everyone</trustee>
+    <trustee id="19">Group Policy administrators</trustee>
+    <trustee id="20">Interactively logged-on user</trustee>
+    <trustee id="21">Local administrator</trustee>
+    <trustee id="22">Local guest</trustee>
+    <trustee id="23">Local service account</trustee>
+    <trustee id="24">Local system</trustee>
+    <trustee id="25">Network logon user</trustee>
+    <trustee id="26">Network configuration operators</trustee>
+    <trustee id="27">Network service account</trustee>
+    <trustee id="28">Printer operators</trustee>
+    <trustee id="29">Personal self</trustee>
+    <trustee id="30">Power users</trustee>
+    <trustee id="31">RAS servers group</trustee>
+    <trustee id="32">Terminal server users</trustee>
+    <trustee id="33">Replicator</trustee>
+    <trustee id="34">Restricted code</trustee>
+    <trustee id="35">Schema administrators</trustee>
+    <trustee id="36">Server operators</trustee>
+    <trustee id="37">Service logon user</trustee>
+  </trustees>
+
+  <knownResources>
+    <item id="0">Word</item>
+    <item id="1">Media-Player</item>
+    <item id="2">Windows</item>
+    <item id="3">Explorer</item>
+    <item id="4">IE</item>
+    <item id="5">regedit</item>
+    <item id="6">visual-basic</item>
+    <item id="7">Adobe-Reader</item>
+    <item id="8">Flash</item>
+    <item id="9">Filezilla</item>
+    <item id="10">Chrome</item>
+    <item id="11">Avira</item>
+    <item id="12">MSI</item>
+    <item id="13">WinRAR</item>
+    <item id="14">WinZip</item>
+    <item id="15">MFC</item>
+    <item id="16">TeamViewer</item>
+    <item id="17">Sysinternals</item>
+    <item id="18">pestudio</item>
+    <item id="19">Karspersky</item>
+    <item id="20">notepad++</item>
+    <item id="21">Manifest</item>
+    <item id="22">Excel</item>
+    <item id="23">Facebook</item>
+    <item id="24">Symantec</item>
+    <item id="25">Google+</item>
+    <item id="26">Yahoo</item>
+    <item id="27">inknown</item>
+  </knownResources>
+
+  <srvsids>
+    <!-- following list (based on https://github.com/gleeda/Volatility-Plugins/blob/master/getservicesids.py) 
+    used in pestudio with authorization of Jamie Levy (Gleeda) jamie.levy@gmail.com -->
+    <srvsid text=".NET CLR Data">S-1-5-80-3476726845-1218940557-3240126423-1396283824-3706223860</srvsid>
+    <srvsid text=".NET CLR Networking">S-1-5-80-3749761688-76038143-2425834820-4129736068-309120712</srvsid>
+    <srvsid text=".NET Data Provider for Oracle">S-1-5-80-603392709-3706100282-1779817366-3290147925-2109454977</srvsid>
+    <srvsid text=".NET Data Provider for SqlServer">S-1-5-80-1168016597-2140435647-491797002-352772175-817350590</srvsid>
+    <srvsid text=".NETFramework">S-1-5-80-255220978-1106536095-1636044468-311807000-281316439</srvsid>
+    <srvsid text="1394ohci">S-1-5-80-799694863-4024754253-4060439485-3284853837-2852070736</srvsid>
+    <srvsid text="ACPI">S-1-5-80-550892281-1246201444-2906082186-2301917840-2280485454</srvsid>
+    <srvsid text="AcpiPmi">S-1-5-80-2750316143-92726786-3671103447-4285640526-595803658</srvsid>
+    <srvsid text="adp94xx">S-1-5-80-4277731759-3688284049-1726419820-405794046-874834352</srvsid>
+    <srvsid text="adpahci">S-1-5-80-1668430318-2462354215-3771841206-4231263990-2365432302</srvsid>
+    <srvsid text="adpu320">S-1-5-80-1558789706-915067316-2610504951-4085128407-2746609837</srvsid>
+    <srvsid text="adsi">S-1-5-80-2580340827-1408356417-1236233457-3361088231-1362281560</srvsid>
+    <srvsid text="AeLookupSvc">S-1-5-80-1452425288-2709461340-3274533413-2407537074-986069024</srvsid>
+    <srvsid text="AFD">S-1-5-80-958185937-3813565417-3041720555-255702914-2218388865</srvsid>
+    <srvsid text="agp440">S-1-5-80-1478021307-2683864309-2840291008-2654641652-1914939368</srvsid>
+    <srvsid text="aic78xx">S-1-5-80-2964793103-1312530465-1873688160-795174673-2945876561</srvsid>
+    <srvsid text="ALG">S-1-5-80-2387347252-3645287876-2469496166-3824418187-3586569773</srvsid>
+    <srvsid text="aliide">S-1-5-80-1587539839-2488332913-1287008632-3751426284-4220573165</srvsid>
+    <srvsid text="amdagp">S-1-5-80-2808999507-317517852-2612044860-3916887390-3713671788</srvsid>
+    <srvsid text="amdide">S-1-5-80-4100430975-1934021090-490597466-3817433801-2954987127</srvsid>
+    <srvsid text="AmdK8">S-1-5-80-2291534435-3322220689-2735625597-3465650106-1340236923</srvsid>
+    <srvsid text="AmdPPM">S-1-5-80-4046459391-4016695280-780100908-1621843708-2839135617</srvsid>
+    <srvsid text="amdsata">S-1-5-80-1967003600-1747618720-202510732-1118110944-2056302645</srvsid>
+    <srvsid text="amdsbs">S-1-5-80-3946629880-3877146532-1020811794-3209710663-3707805237</srvsid>
+    <srvsid text="amdxata">S-1-5-80-2663151763-304964558-3327380674-1150567875-3378868591</srvsid>
+    <srvsid text="AppID">S-1-5-80-4206070390-3011771559-4179333097-3486196663-2896243697</srvsid>
+    <srvsid text="AppIDSvc">S-1-5-80-2078495744-2416903469-4072184685-3943858305-976987417</srvsid>
+    <srvsid text="Appinfo">S-1-5-80-1345931346-2714066941-3624776837-1617505694-3927660246</srvsid>
+    <srvsid text="AppMgmt">S-1-5-80-3213379692-3546485254-1309469428-3810262102-2442199571</srvsid>
+    <srvsid text="arc">S-1-5-80-2586396289-3967100905-3140788560-3910242148-3554126937</srvsid>
+    <srvsid text="arcsas">S-1-5-80-4275531960-1601664531-2254151532-3075236607-956726506</srvsid>
+    <srvsid text="AsyncMac">S-1-5-80-3772676405-1029441937-3739550121-1000989080-3364480489</srvsid>
+    <srvsid text="atapi">S-1-5-80-3126347352-2401679295-1536073615-3396758597-3783091149</srvsid>
+    <srvsid text="AudioEndpointBuilder">S-1-5-80-1580948945-3239616721-2529237571-3761093093-1214243633</srvsid>
+    <srvsid text="Audiosrv">S-1-5-80-2676549577-1911656217-2625096541-4178041876-1366760775</srvsid>
+    <srvsid text="AxInstSV">S-1-5-80-1058592404-331734164-3167594226-3910907650-1299295147</srvsid>
+    <srvsid text="b06bdrv">S-1-5-80-1401731874-3996074688-1963706087-3130220608-1140295258</srvsid>
+    <srvsid text="b57nd60x">S-1-5-80-528874604-3378394362-3426265968-3876211711-2956305666</srvsid>
+    <srvsid text="BattC">S-1-5-80-2490514847-2461341327-10008697-1811907875-602803682</srvsid>
+    <srvsid text="BDESVC">S-1-5-80-2962817144-200689703-2266453665-3849882635-1986547430</srvsid>
+    <srvsid text="Beep">S-1-5-80-3186183977-1861961257-3523979229-167170737-1516062821</srvsid>
+    <srvsid text="BFE">S-1-5-80-1383147646-27650227-2710666058-1662982300-1023958487</srvsid>
+    <srvsid text="BITS">S-1-5-80-864916184-135290571-3087830041-1716922880-4237303741</srvsid>
+    <srvsid text="blbdrive">S-1-5-80-3199704608-2688121514-1535149675-608666402-3313731745</srvsid>
+    <srvsid text="bowser">S-1-5-80-26818074-245702967-483560604-1005139437-3076944027</srvsid>
+    <srvsid text="BrFiltLo">S-1-5-80-1926592986-1411939489-3259133927-4064956769-2216240612</srvsid>
+    <srvsid text="BrFiltUp">S-1-5-80-3843808474-1199403037-3395254522-1605808544-3221186762</srvsid>
+    <srvsid text="Browser">S-1-5-80-764937145-223273921-1726433829-265908364-3948077829</srvsid>
+    <srvsid text="Brserid">S-1-5-80-3715020542-2003794336-3716799247-4001019941-1245790858</srvsid>
+    <srvsid text="BrSerWdm">S-1-5-80-4014097382-2743177720-3750454595-1699596626-866516122</srvsid>
+    <srvsid text="BrUsbMdm">S-1-5-80-1195671069-1048138941-897119314-1432864274-834752102</srvsid>
+    <srvsid text="BrUsbSer">S-1-5-80-1736549233-1399426098-2600293700-2473969234-3259996387</srvsid>
+    <srvsid text="BTHMODEM">S-1-5-80-505608135-4274227953-3632766965-1888639892-3184055934</srvsid>
+    <srvsid text="BTHPORT">S-1-5-80-1409084391-1870647740-2731517552-2815089321-2189562539</srvsid>
+    <srvsid text="bthserv">S-1-5-80-2586557155-168560303-1373426920-983201488-1499765686</srvsid>
+    <srvsid text="cdfs">S-1-5-80-3223837281-1527595016-2901219760-1358189227-808820507</srvsid>
+    <srvsid text="cdrom">S-1-5-80-364680967-1232085744-2960737863-915504889-2752576923</srvsid>
+    <srvsid text="CertPropSvc">S-1-5-80-3256172449-2363790065-3617575471-4144056108-756904704</srvsid>
+    <srvsid text="circlass">S-1-5-80-4066704878-4231214995-2335031091-3527122690-1574766183</srvsid>
+    <srvsid text="CLFS">S-1-5-80-1506673549-1532669541-769420574-1605323189-863873827</srvsid>
+    <srvsid text="clr_optimization_v2.0.50727_32">S-1-5-80-776041216-1751974135-1557427478-1892253070-796752000</srvsid>
+    <srvsid text="CmBatt">S-1-5-80-452204072-1743664639-1560983493-2640850116-597529692</srvsid>
+    <srvsid text="cmdide">S-1-5-80-979911607-31916023-2827320217-2656655436-259985251</srvsid>
+    <srvsid text="CNG">S-1-5-80-3573738861-3694853854-361022443-2442358023-2743921644</srvsid>
+    <srvsid text="Compbatt">S-1-5-80-3960644792-2999129865-644014482-29643289-3842828219</srvsid>
+    <srvsid text="CompositeBus">S-1-5-80-832194277-1022982267-2217674263-2896671990-3011983110</srvsid>
+    <srvsid text="COMSysApp">S-1-5-80-593875016-1044814911-1112741138-2143646632-2690613739</srvsid>
+    <srvsid text="crcdisk">S-1-5-80-3158764370-1001901224-1854525633-1718604346-2756706540</srvsid>
+    <srvsid text="Crusoe">S-1-5-80-3747264324-1669729390-1715156009-1010652712-2439569381</srvsid>
+    <srvsid text="crypt32">S-1-5-80-3020380856-1381845346-309829523-1810616773-418643442</srvsid>
+    <srvsid text="CryptSvc">S-1-5-80-242729624-280608522-2219052887-3187409060-2225943459</srvsid>
+    <srvsid text="CSC">S-1-5-80-3601020880-2087999432-167179594-730776211-2997520967</srvsid>
+    <srvsid text="CscService">S-1-5-80-1987853863-1639573247-1110726908-1137832616-3599624523</srvsid>
+    <srvsid text="DCLocator">S-1-5-80-1564160128-141119064-743480990-78466790-746535033</srvsid>
+    <srvsid text="DcomLaunch">S-1-5-80-1601830629-990752416-3372939810-977361409-3075122917</srvsid>
+    <srvsid text="defragsvc">S-1-5-80-654447679-1163530548-981569129-3608673666-3128964045</srvsid>
+    <srvsid text="DfsC">S-1-5-80-3837255464-839197112-3211601036-3795322556-2690640524</srvsid>
+    <srvsid text="DFSR">S-1-5-80-1267473060-1890374259-1137250836-544356534-2546457154</srvsid>
+    <srvsid text="Dhcp">S-1-5-80-2940520708-3855866260-481812779-327648279-1710889582</srvsid>
+    <srvsid text="discache">S-1-5-80-2142581517-3954605861-2373846864-2138305209-1019737370</srvsid>
+    <srvsid text="Disk">S-1-5-80-1827140278-1118305254-4004251663-1512899043-4081885502</srvsid>
+    <srvsid text="Dnscache">S-1-5-80-859482183-879914841-863379149-1145462774-2388618682</srvsid>
+    <srvsid text="dot3svc">S-1-5-80-3787436395-2174616005-3003730137-1094982900-1570567328</srvsid>
+    <srvsid text="DPS">S-1-5-80-2970612574-78537857-698502321-558674196-1451644582</srvsid>
+    <srvsid text="drmkaud">S-1-5-80-338020179-181244551-1629881386-919369987-4169324252</srvsid>
+    <srvsid text="DXGKrnl">S-1-5-80-3820654016-1545322283-1804062181-1022271772-3696306321</srvsid>
+    <srvsid text="E1G60">S-1-5-80-2212058837-3965059022-779215765-3282659977-917192320</srvsid>
+    <srvsid text="EapHost">S-1-5-80-3578261754-285310837-913589462-2834155770-667502746</srvsid>
+    <srvsid text="Ecache">S-1-5-80-2437473203-2648204866-3612751994-635271166-3967841232</srvsid>
+    <srvsid text="ebdrv">S-1-5-80-1191957972-1903257272-3657591267-1787121440-2523964525</srvsid>
+    <srvsid text="EFS">S-1-5-80-730263862-4055390735-403826019-1175694336-1277635259</srvsid>
+    <srvsid text="ehRecvr">S-1-5-80-567955335-3455378119-3305749985-2554534624-1867504835</srvsid>
+    <srvsid text="Media Center Scheduler Service">S-1-5-80-3864065939-1897331054-469427076-3133256761-1570309435</srvsid>
+    <srvsid text="ehstart">S-1-5-80-2913099195-3001839937-1914692661-1563395363-459793767</srvsid>
+    <srvsid text="elxstor">S-1-5-80-3118383011-3159412168-3368304685-4081854189-1392756948</srvsid>
+    <srvsid text="EmdCache">S-1-5-80-1436322865-2295268783-31549072-3549518694-69512146</srvsid>
+    <srvsid text="EMDMgmt">S-1-5-80-557382581-4103702789-1349398007-826115979-1301810884</srvsid>
+    <srvsid text="ErrDev">S-1-5-80-1580004045-3657569029-3054886754-3760858607-1347140441</srvsid>
+    <srvsid text="ESENT">S-1-5-80-1163726475-4032819940-2637749356-1655080563-3495319901</srvsid>
+    <srvsid text="eventlog">S-1-5-80-880578595-1860270145-482643319-2788375705-1540778122</srvsid>
+    <srvsid text="EventSystem">S-1-5-80-1772571935-1555666882-3369284645-1675012128-2386634627</srvsid>
+    <srvsid text="exfat">S-1-5-80-339744372-1785209941-194342311-2969164887-2874010346</srvsid>
+    <srvsid text="fastfat">S-1-5-80-3825849991-4144931059-247537738-1429287757-2349637904</srvsid>
+    <srvsid text="Fax">S-1-5-80-2117685068-4011115449-2646761356-2137676340-222423812</srvsid>
+    <srvsid text="fdc">S-1-5-80-678085088-615808128-1967178352-3804608619-208504977</srvsid>
+    <srvsid text="fdPHost">S-1-5-80-364023826-931424190-487969545-1024119571-74567675</srvsid>
+    <srvsid text="FDResPub">S-1-5-80-3215268152-2863950836-530904203-4246843131-2183915461</srvsid>
+    <srvsid text="FileInfo">S-1-5-80-3048209083-3162952562-941345871-1437532549-835501875</srvsid>
+    <srvsid text="Filetrace">S-1-5-80-1352441077-2188484239-1994186818-620473926-3758853310</srvsid>
+    <srvsid text="flpydisk">S-1-5-80-2678475722-3718149211-1393662077-3558562392-2203603517</srvsid>
+    <srvsid text="FltMgr">S-1-5-80-916285479-1714977700-1732101595-331036679-1735462769</srvsid>
+    <srvsid text="FontCache">S-1-5-80-3655275221-2954682349-3644260495-855223267-1438849333</srvsid>
+    <srvsid text="FontCache3.0.0.0">S-1-5-80-3782458156-2098404076-3767342964-3617937256-1389734963</srvsid>
+    <srvsid text="FsDepends">S-1-5-80-4244156434-496195918-1908400060-3754471672-3389379472</srvsid>
+    <srvsid text="Fs_Rec">S-1-5-80-1638897150-273717933-3197303335-567190659-606579740</srvsid>
+    <srvsid text="fvevol">S-1-5-80-221025945-1494805562-2841517651-3196795133-192498206</srvsid>
+    <srvsid text="gagp30kx">S-1-5-80-1150850083-1108777032-2236282716-3985597815-2701820264</srvsid>
+    <srvsid text="gpsvc">S-1-5-80-2024188204-2445810227-898691311-2942020084-762398166</srvsid>
+    <srvsid text="hcw85cir">S-1-5-80-2384017851-2441776339-3346382083-2430645704-3475981877</srvsid>
+    <srvsid text="HDAudBus">S-1-5-80-2193151998-1100362924-2192368770-2985476713-896696503</srvsid>
+    <srvsid text="HidBatt">S-1-5-80-1648434057-4219984261-1802816958-334501717-1769477291</srvsid>
+    <srvsid text="HidBth">S-1-5-80-191977210-1053814073-2805336524-1775407748-120039257</srvsid>
+    <srvsid text="HidIr">S-1-5-80-498696395-104441048-3395182230-3082814586-1375447691</srvsid>
+    <srvsid text="hidserv">S-1-5-80-89818136-74175777-88572358-3912780041-2421659406</srvsid>
+    <srvsid text="HidUsb">S-1-5-80-1586586559-167648910-1414982260-3863830924-1724542190</srvsid>
+    <srvsid text="hkmsvc">S-1-5-80-1373701630-3910968185-3388013410-2492353-937432973</srvsid>
+    <srvsid text="HpCISSs">S-1-5-80-2291748755-1591405548-1905550586-2340871825-1258388485</srvsid>
+    <srvsid text="HomeGroupListener">S-1-5-80-4028305664-2774326660-44957573-2454826285-2129126537</srvsid>
+    <srvsid text="HomeGroupProvider">S-1-5-80-2620923248-4247863784-3378508180-2659151310-2535246811</srvsid>
+    <srvsid text="HpSAMD">S-1-5-80-3952044490-1864224763-1322162546-396143671-1619397437</srvsid>
+    <srvsid text="HTTP">S-1-5-80-3734987283-965611577-2130035942-3636592211-2616856863</srvsid>
+    <srvsid text="i2omp">S-1-5-80-970016657-3034632851-3048190821-4182690298-3323420226</srvsid>
+    <srvsid text="hwpolicy">S-1-5-80-3096896632-2411553352-2084109408-2930423838-4282791216</srvsid>
+    <srvsid text="i8042prt">S-1-5-80-738727139-3255065492-2264176241-1836141076-1899426695</srvsid>
+    <srvsid text="iaStorV">S-1-5-80-1156567179-1019273932-444819734-1772733284-2107707318</srvsid>
+    <srvsid text="idsvc">S-1-5-80-2984992224-2588614340-2167448307-2303456600-125847566</srvsid>
+    <srvsid text="iirsp">S-1-5-80-3218395955-317132717-2440444880-267201483-2700625476</srvsid>
+    <srvsid text="IKEEXT">S-1-5-80-698886940-375981264-2691324669-2937073286-3841916615</srvsid>
+    <srvsid text="inetaccs">S-1-5-80-3217419572-1740605331-1127140686-2317006352-2064317000</srvsid>
+    <srvsid text="intelide">S-1-5-80-3664101217-2276051299-423734030-2746486177-2766044424</srvsid>
+    <srvsid text="intelppm">S-1-5-80-817570274-767070440-2629795609-3336305482-1678804590</srvsid>
+    <srvsid text="IPBusEnum">S-1-5-80-2506443892-94066030-1663014834-2885971264-4189966690</srvsid>
+    <srvsid text="IpFilterDriver">S-1-5-80-2750735467-3008441591-3989401642-3215998983-1344927289</srvsid>
+    <srvsid text="iphlpsvc">S-1-5-80-62724632-2456781206-3863850748-1496050881-1042387526</srvsid>
+    <srvsid text="IpInIp">S-1-5-80-1361160473-1867727628-1338406996-3302040194-2851723982</srvsid>
+    <srvsid text="IPMIDRV">S-1-5-80-2771164118-4094026282-2266286801-3306161409-3436440840</srvsid>
+    <srvsid text="IPNAT">S-1-5-80-2368102602-26431353-856636621-1497418614-482242802</srvsid>
+    <srvsid text="IRENUM">S-1-5-80-433158070-3235422099-1317741036-1922328546-1834106188</srvsid>
+    <srvsid text="isapnp">S-1-5-80-1308614567-1511795785-2741360970-8197000-3264788676</srvsid>
+    <srvsid text="iScsiPrt">S-1-5-80-1446792217-3918178545-2165441202-3760590537-1875255596</srvsid>
+    <srvsid text="iteatapi">S-1-5-80-2249099846-2157059493-1994460756-1924820827-2369096692</srvsid>
+    <srvsid text="iteraid">S-1-5-80-750512324-770881543-4197932906-3645560491-3779161573</srvsid>
+    <srvsid text="kbdclass">S-1-5-80-1974511938-2400693546-1685170019-203554928-1466978163</srvsid>
+    <srvsid text="kbdhid">S-1-5-80-3058542000-3285469617-40650340-3734485625-1920508542</srvsid>
+    <srvsid text="KeyIso">S-1-5-80-1206118541-1677721718-2423781911-3372378849-3903984073</srvsid>
+    <srvsid text="KSecDD">S-1-5-80-3810688523-3855579666-1860693470-2666993558-46302070</srvsid>
+    <srvsid text="KSecPkg">S-1-5-80-638937566-1168471176-3064579757-2631269312-170126454</srvsid>
+    <srvsid text="KtmRm">S-1-5-80-2818357584-3387065753-4000393942-342927828-138088443</srvsid>
+    <srvsid text="LanmanServer">S-1-5-80-879696042-2351668846-370232824-2524288904-4023536711</srvsid>
+    <srvsid text="LanmanWorkstation">S-1-5-80-719998295-2833700043-1566817583-4093942769-1414026312</srvsid>
+    <srvsid text="ldap">S-1-5-80-3356507721-3148410333-1453554623-2317622189-363686743</srvsid>
+    <srvsid text="lltdio">S-1-5-80-1339741203-2503426401-303705627-250156843-1210515524</srvsid>
+    <srvsid text="lltdsvc">S-1-5-80-940647296-341435850-43817331-158078607-2483727905</srvsid>
+    <srvsid text="lmhosts">S-1-5-80-172094073-716411664-54255058-185476446-2329512179</srvsid>
+    <srvsid text="Lsa">S-1-5-80-1037107160-813189200-1860894220-2610408748-1807657940</srvsid>
+    <srvsid text="LSI_FC">S-1-5-80-973905250-3368826558-2408393701-2645888229-3042295110</srvsid>
+    <srvsid text="LSI_SAS">S-1-5-80-3066312493-2787136058-3895654580-111488809-2262703568</srvsid>
+    <srvsid text="LSI_SAS2">S-1-5-80-935126585-3333887566-2369146147-2658756633-3860083864</srvsid>
+    <srvsid text="LSI_SCSI">S-1-5-80-702453548-2563122194-4165184037-877730421-2039909086</srvsid>
+    <srvsid text="luafv">S-1-5-80-381203785-1552481550-3565819581-4159540168-38965703</srvsid>
+    <srvsid text="Mcx2Svc">S-1-5-80-3770938798-2726624435-2075025292-3280341113-3618470894</srvsid>
+    <srvsid text="megasas">S-1-5-80-1503963800-3543347063-2443146678-2767313893-605308357</srvsid>
+    <srvsid text="MegaSR">S-1-5-80-4024713676-1017792628-381990976-3540878265-1306153904</srvsid>
+    <srvsid text="MMCSS">S-1-5-80-2799810402-4136494038-1094338311-2889966999-3154753985</srvsid>
+    <srvsid text="Modem">S-1-5-80-2005225957-2795451222-469338742-3947262705-2044891099</srvsid>
+    <srvsid text="monitor">S-1-5-80-4207690787-1085901060-2295361997-2227230598-1253819078</srvsid>
+    <srvsid text="mouclass">S-1-5-80-675551267-1826535266-117093185-28668227-296166608</srvsid>
+    <srvsid text="mouhid">S-1-5-80-3854853272-3832246511-1244659077-3165440039-2262758429</srvsid>
+    <srvsid text="mountmgr">S-1-5-80-3601998905-441174471-4117363912-32772110-2632366064</srvsid>
+    <srvsid text="mpio">S-1-5-80-4261667920-1220466518-1749771309-2316901739-273317064</srvsid>
+    <srvsid text="mpsdrv">S-1-5-80-3142377179-3443479297-2149323391-1756545698-484011292</srvsid>
+    <srvsid text="MpsSvc">S-1-5-80-3088073201-1464728630-1879813800-1107566885-823218052</srvsid>
+    <srvsid text="Mraid35x">S-1-5-80-2250298043-1491746124-3447101336-2334414474-2555807208</srvsid>
+    <srvsid text="MRxDAV">S-1-5-80-2688027615-1506195528-3802338144-777155390-618458321</srvsid>
+    <srvsid text="mrxsmb">S-1-5-80-2162099894-1456621096-2119874347-3743340265-2368304946</srvsid>
+    <srvsid text="mrxsmb10">S-1-5-80-2676550360-252586896-1701879715-2742386574-1171030092</srvsid>
+    <srvsid text="mrxsmb20">S-1-5-80-3970894941-767821303-4047113619-2738918178-2351404876</srvsid>
+    <srvsid text="msahci">S-1-5-80-276420989-3971400029-4249224515-3588854300-972083571</srvsid>
+    <srvsid text="msdsm">S-1-5-80-827450036-3359053657-3286484322-221598818-2985401197</srvsid>
+    <srvsid text="MSDTC">S-1-5-80-3960419045-2460139048-4046793004-1809597027-2250574426</srvsid>
+    <srvsid text="MSDTC Bridge 3.0.0.0">S-1-5-80-1515650939-3601430262-2496924429-640160050-3998290523</srvsid>
+    <srvsid text="Msfs">S-1-5-80-3825916667-3375043415-3384654478-3177665693-2200644784</srvsid>
+    <srvsid text="mshidkmdf">S-1-5-80-4064639957-1408283007-2091294018-2122350837-1986927883</srvsid>
+    <srvsid text="msisadrv">S-1-5-80-537088188-2896597613-2307397767-3752262660-2081934664</srvsid>
+    <srvsid text="MSiSCSI">S-1-5-80-917953661-2020045820-2727011118-2260243830-4032185929</srvsid>
+    <srvsid text="msiserver">S-1-5-80-685333868-2237257676-1431965530-1907094206-2438021966</srvsid>
+    <srvsid text="MSKSSRV">S-1-5-80-1314579368-1827054856-3801607513-4137797117-3785845944</srvsid>
+    <srvsid text="MSPCLOCK">S-1-5-80-3515336427-2373706795-1189292716-3451446183-2383180522</srvsid>
+    <srvsid text="MSPQM">S-1-5-80-2550581486-1497628998-1973453189-3108482975-2816921478</srvsid>
+    <srvsid text="MsRPC">S-1-5-80-4273119239-1126992662-2069961181-78804100-786965295</srvsid>
+    <srvsid text="MSSCNTRS">S-1-5-80-2731410647-2404537004-1422510964-3385838496-1398925663</srvsid>
+    <srvsid text="mssmbios">S-1-5-80-2379877105-2122874852-2028670630-1350450415-3977667049</srvsid>
+    <srvsid text="MSTEE">S-1-5-80-294111013-494549581-4136661504-3518049416-761106507</srvsid>
+    <srvsid text="MTConfig">S-1-5-80-772196467-3194495650-2141286422-1986870660-3602995159</srvsid>
+    <srvsid text="Mup">S-1-5-80-2851636321-923882121-3805946377-1773657562-2703951580</srvsid>
+    <srvsid text="Network Access Protection (NAP) Agent">S-1-5-80-2006800713-1441093265-249754844-3404434343-1444102779</srvsid>
+    <srvsid text="NativeWifiP">S-1-5-80-3451137062-797777108-3464068327-231871278-2024511519</srvsid>
+    <srvsid text="NDIS">S-1-5-80-2183409222-222800135-1539000935-3109909370-1207982808</srvsid>
+    <srvsid text="NdisCap">S-1-5-80-1310191460-362243386-72972191-123604350-1188038626</srvsid>
+    <srvsid text="NdisTapi">S-1-5-80-3307576507-4040802919-832577921-47721884-821370673</srvsid>
+    <srvsid text="Ndisuio">S-1-5-80-2426641292-1095310648-1538795067-2456674997-547968854</srvsid>
+    <srvsid text="NdisWan">S-1-5-80-3137956796-3050520361-1309400342-955303752-3583020413</srvsid>
+    <srvsid text="NDProxy">S-1-5-80-3999445478-1493703614-491198216-2250085872-3662815299</srvsid>
+    <srvsid text="NetBIOS">S-1-5-80-298519744-3326885196-200884095-1345730765-1206919721</srvsid>
+    <srvsid text="NetBT">S-1-5-80-3481163626-3922336224-2171110286-845444925-873416656</srvsid>
+    <srvsid text="Netlogon">S-1-5-80-1589317753-1926951874-3424712441-2302911845-2572860984</srvsid>
+    <srvsid text="Netman">S-1-5-80-2898649604-2335086160-1904548223-3761738420-3855444835</srvsid>
+    <srvsid text="netprofm">S-1-5-80-3635958274-2059881490-2225992882-984577281-633327304</srvsid>
+    <srvsid text="NetTcpPortSharing">S-1-5-80-1773860938-1487242074-882566118-4272343956-2175834232</srvsid>
+    <srvsid text="nfrd960">S-1-5-80-3739586395-593861784-2557645679-4197025642-341497066</srvsid>
+    <srvsid text="NlaSvc">S-1-5-80-3141615172-2057878085-1754447212-2405740020-3916490453</srvsid>
+    <srvsid text="Npfs">S-1-5-80-1093399993-2276725296-2148262981-2274078422-4284582767</srvsid>
+    <srvsid text="nsi">S-1-5-80-2310782386-4237065203-3688974353-390202159-3511571085</srvsid>
+    <srvsid text="nsiproxy">S-1-5-80-4100249314-4086313984-28913695-873679419-2144728263</srvsid>
+    <srvsid text="NTDS">S-1-5-80-1664281202-2302623734-631624840-3461998672-2259661997</srvsid>
+    <srvsid text="Ntfs">S-1-5-80-1256884789-1691082103-446998474-1367286246-1639025938</srvsid>
+    <srvsid text="ntrigdigi">S-1-5-80-2470698091-2858014709-2643764839-982706939-3434751516</srvsid>
+    <srvsid text="Null">S-1-5-80-2407861648-785230825-3529290450-2326204529-1810679516</srvsid>
+    <srvsid text="nvraid">S-1-5-80-3495072887-919096479-2204902451-1048921326-800355041</srvsid>
+    <srvsid text="nvstor">S-1-5-80-3611874924-3178792031-3565391826-286563291-3680247785</srvsid>
+    <srvsid text="nv_agp">S-1-5-80-2661219475-1923594960-1294537542-2454943126-82436970</srvsid>
+    <srvsid text="NwlnkFlt">S-1-5-80-4169196349-563482612-2169411968-43761830-802868667</srvsid>
+    <srvsid text="NwlnkFwd">S-1-5-80-1643415749-1981533051-3884744798-2669202348-601031005</srvsid>
+    <srvsid text="ohci1394">S-1-5-80-1196941233-2569882653-2923823926-962244991-4277418</srvsid>
+    <srvsid text="p2pimsvc">S-1-5-80-967499406-1694984581-2959056265-2481940682-939264259</srvsid>
+    <srvsid text="p2psvc">S-1-5-80-1971585524-2528565899-3324366483-1300752743-2325226580</srvsid>
+    <srvsid text="Parport">S-1-5-80-3473791808-4104434288-1928902041-1743473672-1277326840</srvsid>
+    <srvsid text="partmgr">S-1-5-80-156989346-1343554423-902067029-1673992682-1866693543</srvsid>
+    <srvsid text="Parvdm">S-1-5-80-4196153372-502005009-1971508045-3354250645-3015555128</srvsid>
+    <srvsid text="PcaSvc">S-1-5-80-1948712186-1330865447-943413596-1669284603-1648638051</srvsid>
+    <srvsid text="pci">S-1-5-80-2069178898-4023461412-1711560041-390887617-271771820</srvsid>
+    <srvsid text="pciide">S-1-5-80-4052642423-944120264-588619640-546327341-1110646568</srvsid>
+    <srvsid text="pcmcia">S-1-5-80-2795309555-3957969320-2916397881-2593713121-382316838</srvsid>
+    <srvsid text="pcw">S-1-5-80-59707871-3298565586-1716270302-948228651-1074156479</srvsid>
+    <srvsid text="PEAUTH">S-1-5-80-1570874813-103103538-3327933986-104584388-2119773521</srvsid>
+    <srvsid text="PeerDistSvc">S-1-5-80-3124040864-3101396827-3094488734-3028845762-1939139329</srvsid>
+    <srvsid text="PerfDisk">S-1-5-80-4023986828-1464965280-3211893748-414212150-4115790068</srvsid>
+    <srvsid text="PerfNet">S-1-5-80-2413971036-1590988147-3808667159-2204172745-1373631640</srvsid>
+    <srvsid text="PerfOS">S-1-5-80-3515570427-2977692895-3762163048-1504969852-99088878</srvsid>
+    <srvsid text="PerfProc">S-1-5-80-3544016446-4087985546-3773506770-1472693371-3235341583</srvsid>
+    <srvsid text="pla">S-1-5-80-2661322625-712705077-2999183737-3043590567-590698655</srvsid>
+    <srvsid text="PlugPlay">S-1-5-80-1981970923-922788642-3535304421-2999920573-318732269</srvsid>
+    <srvsid text="PNRPAutoReg">S-1-5-80-3141781312-1794533130-3616533224-2008760771-2116720301</srvsid>
+    <srvsid text="PNRPsvc">S-1-5-80-372467825-374176116-1198570892-3192490889-1232022613</srvsid>
+    <srvsid text="PolicyAgent">S-1-5-80-3044542841-3639452079-4096941652-1606687743-1256249853</srvsid>
+    <srvsid text="PortProxy">S-1-5-80-4126081702-1836807445-3803306975-1029803806-2479180530</srvsid>
+    <srvsid text="Power">S-1-5-80-2343416411-2961288913-598565901-392633850-2111459193</srvsid>
+    <srvsid text="PptpMiniport">S-1-5-80-3735226416-1729687437-1959510470-190511368-398645692</srvsid>
+    <srvsid text="Processor">S-1-5-80-3367479018-119754134-174380200-3035551807-2744700953</srvsid>
+    <srvsid text="PROCEXP">S-1-5-80-2422153244-111630262-1029994140-3645224535-4078427153</srvsid>
+    <srvsid text="ProfSvc">S-1-5-80-3816717743-33564931-1112267079-3548917561-928358339</srvsid>
+    <srvsid text="ProtectedStorage">S-1-5-80-656433041-336319937-100815201-2263438610-4002557366</srvsid>
+    <srvsid text="Psched">S-1-5-80-133730547-3458667493-930392497-3658715967-3359215708</srvsid>
+    <srvsid text="ql2300">S-1-5-80-1010784341-3590640432-2144716203-2371202623-2111191834</srvsid>
+    <srvsid text="ql40xx">S-1-5-80-3680784227-2138494325-1045417256-846249285-1494284974</srvsid>
+    <srvsid text="QWAVE">S-1-5-80-1659118645-3148100556-861291880-3953320898-4045657812</srvsid>
+    <srvsid text="QWAVEdrv">S-1-5-80-3324762131-3390532780-137711907-1761928331-1932425801</srvsid>
+    <srvsid text="RasAcd">S-1-5-80-951069737-1097907447-3199478753-2018050253-2083677786</srvsid>
+    <srvsid text="RasAgileVpn">S-1-5-80-4022575210-2284560452-710265691-3594820739-387418549</srvsid>
+    <srvsid text="RasAuto">S-1-5-80-1802467488-1541022566-2033325545-854566965-652742428</srvsid>
+    <srvsid text="Rasl2tp">S-1-5-80-1290287420-3502600185-382990664-1700026297-1337626153</srvsid>
+    <srvsid text="RasMan">S-1-5-80-4176366874-305252471-2256717057-2714189771-3552532790</srvsid>
+    <srvsid text="RasPppoe">S-1-5-80-4122454071-3550668693-4211410744-1298358403-2272725717</srvsid>
+    <srvsid text="RasSstp">S-1-5-80-1331337031-2474836174-2661672254-391271513-2096420174</srvsid>
+    <srvsid text="rdbss">S-1-5-80-2489667-2470848582-3865645512-452901963-4178804252</srvsid>
+    <srvsid text="rdpbus">S-1-5-80-3687944073-3313860148-3136628839-3387249243-1709534714</srvsid>
+    <srvsid text="RDPCDD">S-1-5-80-2431288241-149984296-2543083935-4067350611-1975817884</srvsid>
+    <srvsid text="RDPDD">S-1-5-80-981872547-3861006530-3984275202-4085961120-2027028908</srvsid>
+    <srvsid text="RDPDR">S-1-5-80-23661045-4033652049-3526044993-1401805078-1749661838</srvsid>
+    <srvsid text="RDPENCDD">S-1-5-80-3464459778-79086046-1894495498-3954672505-2750168721</srvsid>
+    <srvsid text="RDPNP">S-1-5-80-191927475-3325244020-2133763035-2511185485-3827563125</srvsid>
+    <srvsid text="RDPREFMP">S-1-5-80-1432111213-2818786930-2152807080-3377190559-901933699</srvsid>
+    <srvsid text="RDPWD">S-1-5-80-1857653372-1313752195-3783661666-502273730-1171188227</srvsid>
+    <srvsid text="rdyboost">S-1-5-80-3474873350-2412947251-3085823233-2315640422-3546857610</srvsid>
+    <srvsid text="RemoteAccess">S-1-5-80-1954729425-4294152082-187165618-318331177-3831297489</srvsid>
+    <srvsid text="RemoteRegistry">S-1-5-80-2822507136-3601578665-1013168651-121944544-1825232178</srvsid>
+    <srvsid text="RpcEptMapper">S-1-5-80-521322694-906040134-3864710659-1525148216-3451224162</srvsid>
+    <srvsid text="RpcLocator">S-1-5-80-4056015446-1496461683-1723632270-3351149576-1119802320</srvsid>
+    <srvsid text="RpcSs">S-1-5-80-979556362-403687129-3954533659-2335141334-1547273080</srvsid>
+    <srvsid text="rspndr">S-1-5-80-25112808-303066962-2306571906-3820953744-554449017</srvsid>
+    <srvsid text="s3cap">S-1-5-80-3189092957-1825937568-2097962828-592273195-15751640</srvsid>
+    <srvsid text="SamSs">S-1-5-80-3453257571-682267348-3447719424-2810041157-893746920</srvsid>
+    <srvsid text="sbp2port">S-1-5-80-2172748946-1139208647-3745649895-1734051075-2323558886</srvsid>
+    <srvsid text="SCardSvr">S-1-5-80-1209419826-1829913269-3824447628-1153237837-3789837839</srvsid>
+    <srvsid text="scfilter">S-1-5-80-3145502940-3408664484-1477142494-2517801300-3177717725</srvsid>
+    <srvsid text="Schedule">S-1-5-80-4125092361-1567024937-842823819-2091237918-836075745</srvsid>
+    <srvsid text="SCPolicySvc">S-1-5-80-1691538513-4084330536-1620899472-1113280783-3554754292</srvsid>
+    <srvsid text="SDRSVC">S-1-5-80-2983134835-1185273323-1712700529-1489848661-2325612824</srvsid>
+    <srvsid text="secdrv">S-1-5-80-1722176216-3611007545-3657005850-3814612847-1080390000</srvsid>
+    <srvsid text="seclogon">S-1-5-80-1399994486-219206332-302438500-304602034-1537790326</srvsid>
+    <srvsid text="SENS">S-1-5-80-4259241309-1822918763-1176128033-1339750638-3428293995</srvsid>
+    <srvsid text="SensrSvc">S-1-5-80-3168472476-176724102-2968832672-2340942973-2241613192</srvsid>
+    <srvsid text="Serenum">S-1-5-80-1658387481-2925800327-3198882180-3147662777-2274689045</srvsid>
+    <srvsid text="Serial">S-1-5-80-3562253942-857828347-2712713407-944836455-3636585461</srvsid>
+    <srvsid text="sermouse">S-1-5-80-3369720968-4228855631-3683183521-2094993598-1022421131</srvsid>
+    <srvsid text="ServiceModelEndpoint 3.0.0.0">S-1-5-80-675414407-775065359-1035864904-999747831-2072146957</srvsid>
+    <srvsid text="erviceModelOperation 3.0.0.0">S-1-5-80-1904953591-2738210791-1061154185-3936071259-221446881</srvsid>
+    <srvsid text="ServiceModelService 3.0.0.0">S-1-5-80-297390187-2405189348-2222284465-2989988878-4218767654</srvsid>
+    <srvsid text="SessionEnv">S-1-5-80-4022436659-1090538466-1613889075-870485073-3428993833</srvsid>
+    <srvsid text="sffdisk">S-1-5-80-1220365695-3871163487-2301282001-885120026-718998505</srvsid>
+    <srvsid text="sffp_mmc">S-1-5-80-1593449009-2408870187-1077724223-1518188577-3728252823</srvsid>
+    <srvsid text="sffp_sd">S-1-5-80-1659054941-531967795-1983128084-3748020815-2241757750</srvsid>
+    <srvsid text="sfloppy">S-1-5-80-1407380289-3518059920-3931497022-2754447733-2222417609</srvsid>
+    <srvsid text="SharedAccess">S-1-5-80-2009329905-444645132-2728249442-922493431-93864177</srvsid>
+    <srvsid text="ShellHWDetection">S-1-5-80-1690854464-3758363787-3981977099-3843555589-1401248062</srvsid>
+    <srvsid text="sisagp">S-1-5-80-2037654479-150732571-4235160932-1988269395-3027078133</srvsid>
+    <srvsid text="SiSRaid2">S-1-5-80-2290943609-1211775869-3660739483-1432647055-1639441565</srvsid>
+    <srvsid text="SiSRaid4">S-1-5-80-1016766434-4163349990-2054491751-1265000292-413406215</srvsid>
+    <srvsid text="slsvc">S-1-5-80-2119565420-4155874467-2934723793-509086461-374458824</srvsid>
+    <srvsid text="SLUINotify">S-1-5-80-429025866-4105586292-427562881-1309981334-1060966148</srvsid>
+    <srvsid text="Smb">S-1-5-80-97513841-1071082959-3069755588-526311685-2961431215</srvsid>
+    <srvsid text="SMSvcHost 3.0.0.0">S-1-5-80-2400470686-1781479961-2091307112-2920730856-2901594176</srvsid>
+    <srvsid text="SNMPTRAP">S-1-5-80-3964583643-2633443559-2834438935-3739664028-1580655619</srvsid>
+    <srvsid text="spldr">S-1-5-80-2246094146-3761615012-3991572358-959820157-1291755210</srvsid>
+    <srvsid text="Spooler">S-1-5-80-3951239711-1671533544-1416304335-3763227691-3930497994</srvsid>
+    <srvsid text="sppsvc">S-1-5-80-123231216-2592883651-3715271367-3753151631-4175906628</srvsid>
+    <srvsid text="sppuinotify">S-1-5-80-2105443381-1869407242-828286827-1344996006-2512971347</srvsid>
+    <srvsid text="srv">S-1-5-80-3318989984-2647182497-3022510041-1919214433-3551303480</srvsid>
+    <srvsid text="srv2">S-1-5-80-1034188721-156321652-2901307485-3049929104-2850741453</srvsid>
+    <srvsid text="srvnet">S-1-5-80-385674269-2427993094-4248660116-187565782-2803330530</srvsid>
+    <srvsid text="SSDPSRV">S-1-5-80-486568272-975562994-1883531608-2732234258-332540751</srvsid>
+    <srvsid text="SstpSvc">S-1-5-80-3435701886-799518250-3791383489-3228296122-2938884314</srvsid>
+    <srvsid text="stexstor">S-1-5-80-2502136977-515215333-1091199184-4078967732-698071891</srvsid>
+    <srvsid text="StiSvc">S-1-5-80-3182985763-1431228038-2757062859-428472846-3914011746</srvsid>
+    <srvsid text="storflt">S-1-5-80-3877927215-2009774003-1789373229-1350139498-1490546062</srvsid>
+    <srvsid text="StorSvc">S-1-5-80-3355894222-2288616474-3163838539-1515771758-43395969</srvsid>
+    <srvsid text="storvsc">S-1-5-80-2227193670-1472088527-4216801891-1255609005-3742950393</srvsid>
+    <srvsid text="swenum">S-1-5-80-2499453150-1816575225-2698105218-861119070-2299588587</srvsid>
+    <srvsid text="swprv">S-1-5-80-1614360071-3471039648-1078047007-3707138327-1664821506</srvsid>
+    <srvsid text="Symc8xx">S-1-5-80-3277458932-3608563558-2424252742-1006353051-3439664691</srvsid>
+    <srvsid text="Sym_hi">S-1-5-80-714262929-1152213303-426872964-3738532716-4000887735</srvsid>
+    <srvsid text="Sym_u3">S-1-5-80-73616012-2741736120-1450548080-3749295283-3869351969</srvsid>
+    <srvsid text="SysMain">S-1-5-80-2590341223-3996088049-3993122417-23640849-324535191</srvsid>
+    <srvsid text="TabletInputService">S-1-5-80-949921180-3923668869-394927020-528789358-3592448931</srvsid>
+    <srvsid text="TapiSrv">S-1-5-80-4230913304-2206818457-801678004-120036174-1892434133</srvsid>
+    <srvsid text="TBS">S-1-5-80-4167276341-681140529-2035857140-584847688-708058301</srvsid>
+    <srvsid text="Tcpip">S-1-5-80-2869215396-3426808149-752611693-425565463-2833823703</srvsid>
+    <srvsid text="TCPIP6">S-1-5-80-842221325-3630721446-2015653073-424833842-1069621030</srvsid>
+    <srvsid text="TCPIP6TUNNEL">S-1-5-80-1243767512-207181711-1639953288-846964026-179032965</srvsid>
+    <srvsid text="tcpipreg">S-1-5-80-183440435-3873164873-1814133288-2746138770-1127128543</srvsid>
+    <srvsid text="TCPIPTUNNEL">S-1-5-80-517380867-1805075581-15937331-3649701458-2279870393</srvsid>
+    <srvsid text="TDPIPE">S-1-5-80-1205525636-1316560639-1871536985-2915653626-3847227622</srvsid>
+    <srvsid text="TDTCP">S-1-5-80-2653571336-860310240-1707811817-3246300807-2032786575</srvsid>
+    <srvsid text="tdx">S-1-5-80-1811008277-2130293716-2312968959-3698054739-726352487</srvsid>
+    <srvsid text="TermDD">S-1-5-80-600900383-3940208308-3622757659-1160125390-3717916961</srvsid>
+    <srvsid text="TermService">S-1-5-80-446051430-1559341753-4161941529-1950928533-810483104</srvsid>
+    <srvsid text="Themes">S-1-5-80-1189432293-2777010110-2640223427-1344437502-1956879817</srvsid>
+    <srvsid text="THREADORDER">S-1-5-80-56840347-690487168-3179794702-1332568925-762031181</srvsid>
+    <srvsid text="TPAutoConnSvc">S-1-5-80-537470750-3688389562-3749243086-269898693-579266445</srvsid>
+    <srvsid text="TPVCGateway">S-1-5-80-1495131930-2676463755-2136540566-1190107536-2533052015</srvsid>
+    <srvsid text="TrkWks">S-1-5-80-768763963-4214222998-2156221936-2953597973-713500239</srvsid>
+    <srvsid text="TrustedInstaller">S-1-5-80-956008885-3418522649-1831038044-1853292631-2271478464</srvsid>
+    <srvsid text="TSDDD">S-1-5-80-602153688-1728218534-2156437410-2444491971-1703742505</srvsid>
+    <srvsid text="tssecsrv">S-1-5-80-3250179172-3414919659-2784612865-1947102831-1832745880</srvsid>
+    <srvsid text="tunmp">S-1-5-80-3666930311-739912689-1101093007-1147922636-412121971</srvsid>
+    <srvsid text="tunnel">S-1-5-80-3579196564-3960183121-2393617881-1570124860-2153905208</srvsid>
+    <srvsid text="uagp35">S-1-5-80-3249175164-480052304-527258952-251146422-1017202920</srvsid>
+    <srvsid text="udfs">S-1-5-80-4290168682-2694755981-2883756118-2205499398-4079537721</srvsid>
+    <srvsid text="UGatherer">S-1-5-80-2413584400-2834772909-3391057178-2993126719-4094614649</srvsid>
+    <srvsid text="UGTHRSVC">S-1-5-80-900581847-2069635957-4095211819-2149323943-1216697729</srvsid>
+    <srvsid text="UI0Detect">S-1-5-80-997887591-2350776071-3817597635-4146973621-2526406719</srvsid>
+    <srvsid text="uliagpkx">S-1-5-80-4194149548-235381792-2829184477-3934495640-667433095</srvsid>
+    <srvsid text="uliahci">S-1-5-80-2051301031-3598501189-881763489-2611917303-2352103085</srvsid>
+    <srvsid text="UlSata">S-1-5-80-4294381996-3573690956-4084941264-2318251564-135754816</srvsid>
+    <srvsid text="ulsata2">S-1-5-80-2849548708-3602852847-3953931013-1110249439-3333230880</srvsid>
+    <srvsid text="umbus">S-1-5-80-3018007626-163191633-622627787-1206491734-2917835273</srvsid>
+    <srvsid text="UmPass">S-1-5-80-2029728201-2796881031-2302868875-2454600822-1203790938</srvsid>
+    <srvsid text="UmRdpService">S-1-5-80-2014626298-1656748749-3847481816-918933055-2469338456</srvsid>
+    <srvsid text="upnphost">S-1-5-80-448846144-1414373772-1578130625-718576682-2306699751</srvsid>
+    <srvsid text="usb">S-1-5-80-3724553804-53543757-2557641770-141295351-1687883918</srvsid>
+    <srvsid text="usbccgp">S-1-5-80-4022141922-741376770-3260236731-1675477288-3792235576</srvsid>
+    <srvsid text="usbcir">S-1-5-80-2601879200-4032607390-2815923362-3101623786-2213233685</srvsid>
+    <srvsid text="usbehci">S-1-5-80-1032545752-2203350250-1701939687-317337126-3231707909</srvsid>
+    <srvsid text="usbhub">S-1-5-80-676136802-2607101929-335774531-4135730467-913299484</srvsid>
+    <srvsid text="usbohci">S-1-5-80-3434778094-456680973-2488395463-338906152-1015349184</srvsid>
+    <srvsid text="usbprint">S-1-5-80-3620574345-1163766744-4010839292-3531329841-768311061</srvsid>
+    <srvsid text="USBSTOR">S-1-5-80-376233901-499118290-773318279-1925188704-297947815</srvsid>
+    <srvsid text="usbuhci">S-1-5-80-2717376493-4290053016-2054941639-3048903775-1780974753</srvsid>
+    <srvsid text="UxSms">S-1-5-80-2815190569-4075358141-1041947382-2198045348-980246365</srvsid>
+    <srvsid text="VaultSvc">S-1-5-80-2901324718-895851292-2096622302-170690027-1637913602</srvsid>
+    <srvsid text="vdrvroot">S-1-5-80-2236596344-777810374-464678914-301799185-133794676</srvsid>
+    <srvsid text="vds">S-1-5-80-2196396108-1448510645-203779624-3888580976-3789157697</srvsid>
+    <srvsid text="vga">S-1-5-80-1636345116-1749775499-167646407-1402041886-784684825</srvsid>
+    <srvsid text="VgaSave">S-1-5-80-1604054522-1120073184-2766342441-3740248177-2194771659</srvsid>
+    <srvsid text="vhdmp">S-1-5-80-2349230263-3936233330-585165183-483748113-2063106807</srvsid>
+    <srvsid text="viaagp">S-1-5-80-269018121-2628019534-3958128902-1689023713-3977233287</srvsid>
+    <srvsid text="ViaC7">S-1-5-80-702914695-4281403409-954615538-3988029004-192649218</srvsid>
+    <srvsid text="viaide">S-1-5-80-3488702259-1115883433-1783531185-1350626685-2323838072</srvsid>
+    <srvsid text="vm3dmp">S-1-5-80-3414199520-1924951526-579304523-1555932441-262361574</srvsid>
+    <srvsid text="VMAUDIO">S-1-5-80-3316781363-2712907428-2579548995-1296955556-57435734</srvsid>
+    <srvsid text="vmbus">S-1-5-80-394042835-174396444-3357755573-789530950-2357907384</srvsid>
+    <srvsid text="VMBusHID">S-1-5-80-3485585108-3288609388-3381644673-894183282-3425970148</srvsid>
+    <srvsid text="vmci">S-1-5-80-2053731399-3564616636-592537298-4187980385-3071434599</srvsid>
+    <srvsid text="vmdebug">S-1-5-80-4081816966-3135276745-2345987325-2511854693-3099376874</srvsid>
+    <srvsid text="vmhgfs">S-1-5-80-2844247271-1920892496-2185725435-2733799570-1491885128</srvsid>
+    <srvsid text="VMMEMCTL">S-1-5-80-2713566713-2012099321-1704287870-164250842-2950185051</srvsid>
+    <srvsid text="vmmouse">S-1-5-80-616456234-2657522756-2692773202-1293725715-2143369223</srvsid>
+    <srvsid text="vmrawdsk">S-1-5-80-470576323-3739623512-411527224-1524486745-930631467</srvsid>
+    <srvsid text="VMTools">S-1-5-80-994229404-1081919929-268374983-1858992150-4232923339</srvsid>
+    <srvsid text="VMUpgradeHelper">S-1-5-80-3615470141-4057994987-1930054357-1444440834-2714780835</srvsid>
+    <srvsid text="vmvss">S-1-5-80-3972256235-858188783-2536722634-3029314587-3393749697</srvsid>
+    <srvsid text="volmgr">S-1-5-80-1570634675-3893565091-22195573-2267868061-2898682217</srvsid>
+    <srvsid text="volmgrx">S-1-5-80-2228288927-839465256-4097931996-4258784654-3424789253</srvsid>
+    <srvsid text="volsnap">S-1-5-80-2161309226-1540144261-2901834345-3792977468-1183436922</srvsid>
+    <srvsid text="vsmraid">S-1-5-80-1269120828-58111527-683397690-4062780901-3407528550</srvsid>
+    <srvsid text="VSS">S-1-5-80-3195062495-2862850656-3724129271-1847284719-4038691091</srvsid>
+    <srvsid text="vwifibus">S-1-5-80-4271242282-3170619077-2600330701-1558677754-1139114601</srvsid>
+    <srvsid text="W32Time">S-1-5-80-4267341169-2882910712-659946508-2704364837-2204554466</srvsid>
+    <srvsid text="W3SVC">S-1-5-80-989796750-4090848350-2040919084-978865222-2182970707</srvsid>
+    <srvsid text="WacomPen">S-1-5-80-1272828037-3321607953-1682131387-4084423848-3273467238</srvsid>
+    <srvsid text="WANARP">S-1-5-80-145391760-3682396335-1395736941-2543690743-1822485816</srvsid>
+    <srvsid text="Wanarpv6">S-1-5-80-3957613141-1606606214-622769385-3049525404-2510868034</srvsid>
+    <srvsid text="wbengine">S-1-5-80-1549550529-11381693-4027442525-4081535042-2424139505</srvsid>
+    <srvsid text="WbioSrvc">S-1-5-80-1577343513-2244782562-3500840712-2807016722-4230555396</srvsid>
+    <srvsid text="wcncsvc">S-1-5-80-1555863574-1012459212-3842453055-37978308-1142448422</srvsid>
+    <srvsid text="WcsPlugInService">S-1-5-80-4064017820-1559943312-846267769-2219870576-1957141527</srvsid>
+    <srvsid text="Wd">S-1-5-80-3405261312-3324525412-773550320-3159108954-1126011555</srvsid>
+    <srvsid text="Wdf01000">S-1-5-80-2731089040-2526960094-3333867314-868407530-1311763772</srvsid>
+    <srvsid text="WdiServiceHost">S-1-5-80-3139157870-2983391045-3678747466-658725712-1809340420</srvsid>
+    <srvsid text="WdiSystemHost">S-1-5-80-3524758515-3090971750-345616940-2322499744-3530715838</srvsid>
+    <srvsid text="WebClient">S-1-5-80-324959683-3395802011-921526492-919036580-1730255754</srvsid>
+    <srvsid text="Wecsvc">S-1-5-80-4059739203-877974739-1245631912-527174227-2996563517</srvsid>
+    <srvsid text="wercplsupport">S-1-5-80-3594706986-2537596223-181334840-1741483385-1351671666</srvsid>
+    <srvsid text="WerSvc">S-1-5-80-3299868208-4286319593-1091140620-3583751967-1732444380</srvsid>
+    <srvsid text="WfpLwf">S-1-5-80-2019001281-2253379323-945087313-3738653069-3773415333</srvsid>
+    <srvsid text="WIMMount">S-1-5-80-4016954646-3779912912-520790876-2627662839-2216516612</srvsid>
+    <srvsid text="win32dd">S-1-5-80-1367312344-4235937835-3348187091-2947416599-1643272376</srvsid>
+    <srvsid text="WinDefend">S-1-5-80-1913148863-3492339771-4165695881-2087618961-4109116736</srvsid>
+    <srvsid text="Windows Workflow Foundation 3.0.0.0">S-1-5-80-3760743496-293058752-544796799-945139227-648175845</srvsid>
+    <srvsid text="WinHttpAutoProxySvc">S-1-5-80-2455429942-3131183193-3617688776-595395669-3772047725</srvsid>
+    <srvsid text="Winmgmt">S-1-5-80-3750560858-172214265-3889451188-1914796615-4100997547</srvsid>
+    <srvsid text="WinRM">S-1-5-80-569256582-2953403351-2909559716-1301513147-412116970</srvsid>
+    <srvsid text="Winsock">S-1-5-80-3758380775-581010763-2947690711-3499621892-3054972477</srvsid>
+    <srvsid text="WinSock2">S-1-5-80-197470898-1564017914-2276667423-138762734-2890991316</srvsid>
+    <srvsid text="Wlansvc">S-1-5-80-1428027539-3309602793-2678353003-1498846795-3763184142</srvsid>
+    <srvsid text="WmiAcpi">S-1-5-80-404760553-4074834012-3606039051-2170089041-3496108291</srvsid>
+    <srvsid text="WmiApRpl">S-1-5-80-1672893355-2301755825-1450106782-2724904875-1401714515</srvsid>
+    <srvsid text="wmiApSrv">S-1-5-80-1851371743-411767070-3743290205-1090512353-603110601</srvsid>
+    <srvsid text="WMPNetworkSvc">S-1-5-80-2375682873-768044350-3534595160-1005545032-2873800392</srvsid>
+    <srvsid text="WPCSvc">S-1-5-80-2153317275-3787551921-2333987345-3394040919-509713777</srvsid>
+    <srvsid text="WPDBusEnum">S-1-5-80-113310567-2163499630-2787090463-221477905-209227094</srvsid>
+    <srvsid text="ws2ifsl">S-1-5-80-1339864866-2803517768-580965624-1158720225-1206284216</srvsid>
+    <srvsid text="wscsvc">S-1-5-80-3232712927-1625117661-2590453128-1738570065-3637376297</srvsid>
+    <srvsid text="WSearch">S-1-5-80-117416528-2204451360-1913602512-1355018040-1234992034</srvsid>
+    <srvsid text="WSearchIdxPi">S-1-5-80-1961591210-2878639619-2091680054-2529124376-3572759234</srvsid>
+    <srvsid text="wuauserv">S-1-5-80-1014140700-3308905587-3330345912-272242898-93311788</srvsid>
+    <srvsid text="WudfPf">S-1-5-80-69171120-2364612362-2758615892-3595098197-2063739924</srvsid>
+    <srvsid text="WUDFRd">S-1-5-80-1839061227-813336325-324579571-4216704371-1399658985</srvsid>
+    <srvsid text="wudfsvc">S-1-5-80-2652678385-582572993-1835434367-1344795993-749280709</srvsid>
+    <srvsid text="WwanSvc">S-1-5-80-3981856537-581775623-1136376035-2066872258-409572886</srvsid>
+    <srvsid text="xmlprov">S-1-5-80-2933569122-2468899862-1495779727-289297006-142656920</srvsid>
+  </srvsids>
+
+  <hints>
+    <hint id="01">guid</hint>
+    <hint id="02">privilege</hint>
+    <hint id="03">registry</hint>
+    <hint id="04">oid</hint>
+    <hint id="05">security-description-language</hint>
+    <hint id="06">user-agent</hint>
+    <hint id="07">rtti</hint>
+    <hint id="08">pipe</hint>
+    <hint id="09">pdb</hint>
+    <hint id="10">dos-message</hint>
+    <hint id="11">wmi</hint>
+    <hint id="12">Windows-dll</hint>
+    <hint id="13">utility</hint>
+    <hint id="14">mutex</hint>
+    <hint id="15">query</hint>
+    <hint id="16">security-identificator</hint>
+    <hint id="17">file-system</hint>
+    <hint id="18">regular-expression</hint>
+    <hint id="19">ip-address</hint>
+    <hint id="20">keyboard-key</hint>
+    <hint id="21">security</hint>
+    <hint id="22">size</hint>
+    <hint id="-1">unknown</hint>
+  </hints>
+
+  <avs>
+    <av fn="AegisLab">AegisLab</av>
+    <av fn="Agnitum">Agnitum</av>
+    <av fn="AhnLab">V3</av>
+    <av fn="Antiy Labs">Antiy-AVL</av>
+    <av fn="ALWIL">Avast! Antivirus</av>
+    <av fn="AVG Technologies">AVG</av>
+    <av fn="Avira">AntiVir</av>
+    <av fn="BluePex">AVware</av>
+    <av fn="Baidu">Baidu-International</av>
+    <av fn="BitDefender GmbH">BitDefender</av>
+    <av fn="Bkav Corporation">Bkav</av>
+    <av fn="ByteHero Information Security Technology Team">ByteHero</av>
+    <av fn="Cat Computer Services">Quick Heal</av>
+    <av fn="CMC InfoSec">CMC Antivirus</av>
+    <av fn="Commtouch">Command Antivirus</av>
+    <av fn="ClamAV">ClamAV</av>
+    <av fn="Comodo">Comodo</av>
+    <av fn="Doctor Web, Ltd.">DrWeb</av>
+    <av fn="ESTsoft">ALYac</av>
+    <av fn="Emsi Software GmbH">Emsisoft</av>
+    <av fn="Eset Software">ESET NOD32</av>
+    <av fn="Fortinet">Fortinet</av>
+    <av fn="FRISK Software">F-Prot</av>
+    <av fn="F-Secure">F-Secure</av>
+    <av fn="G DATA Software">GData</av>
+    <av fn="Hacksoft">The Hacker</av>
+    <av fn="Hauri">ViRobot</av>
+    <av fn="Ikarus Software">Ikarus</av>
+    <av fn="INCA Internet">nProtect</av>
+    <av fn="Jiangmin">Jiangmin</av>
+    <av fn="K7 Computing">K7AntiVirus, K7GW</av>
+    <av fn="Kaspersky Lab">Kaspersky</av>
+    <av fn="Kingsoft">Kingsoft</av>
+    <av fn="Malwarebytes Corporation">Malwarebytes Anti-malware</av>
+    <av fn="McAfee">VirusScan</av>
+    <av fn="Microsoft">Malware Protection</av>
+    <av fn="Microworld">eScan</av>
+    <av fn="Nano Security">Nano Antivirus</av>
+    <av fn="Norman">Norman Antivirus</av>
+    <av fn="Panda Security">Panda Platinum</av>
+    <av fn="PC Tools">PCTools</av>
+    <av fn="Qihoo 360">Qihoo 360</av>
+    <av fn="Rising Antivirus">Rising</av>
+    <av fn="Sophos">SAV</av>
+    <av fn="SUPERAntiSpyware">SUPERAntiSpyware</av>
+    <av fn="Symantec AntiVirus"></av>
+    <av fn="ThreatTrack Security">VIPRE Antivirus</av>
+    <av fn="TotalDefense">TotalDefense</av>
+    <av fn="Trend Micro">TrendMicro, TrendMicro-HouseCall</av>
+    <av fn="VirusBlokAda">VBA32</av>
+    <av fn="Zillya!">Zillya</av>
+  </avs>
+</xml>
