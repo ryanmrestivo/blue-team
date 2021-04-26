@@ -1,0 +1,15 @@
+This software is released AS-IS, with no statements or guarantees as to 
+its effectiveness or stability.  While it shouldn't cause any problems 
+whatsoever with your system, there's always the chance that someone may find
+a way to blame a system crash or loss of data on software like this...you've
+been warned!
+
+This software is released under the GNU Public License - 
+http://www.gnu.org/copyleft/gpl.html
+
+See also - http://en.wikipedia.org/wiki/GNU_General_Public_License
+
+So, please feel free to view or modify the source code; if you do choose to 
+modify the source code, please be sure to provide proper attribution and credit.
+
+Questions, comments, etc., can be sent to keydet89 at yahoo dot com.

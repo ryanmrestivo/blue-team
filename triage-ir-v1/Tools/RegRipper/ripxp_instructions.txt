@@ -1,0 +1,28 @@
+These are the instructions for installing and running ripXP:
+
+Installing
+RipXP uses all of the same plugins available with RegRipper, so simply 
+extract the files in this archive into the same directory with RegRipper
+(rr.exe) and rip (rip.exe). 
+
+Running
+1.  Using your tool-of-choice (I use FTK Imager), open the image and
+extract the hive files you're interested in from the system32\config
+directory, as well as from user profile(s), into a directory (ie, 
+D:\cases\case001\xp\config).
+
+2.  Using that same tool, within the image navigate to the directory
+where the Restore Point directories are located (usually C:\System 
+Volume Information\{GUID}\).  Extract all of the RP* directories 
+into a directory on your analysis system (ie, D:\cases\case001\xp\restore).
+
+3.  To see the options used by ripXP, simply type:
+
+C:\ripXP>ripxp
+
+RipXP allows you to run one plugin across a designated hive file, and
+all corresponding hive files in the Restore Point directories.
+
+C:\ripXP>ripxp -r d:\case\config\ntuser.dat -d d:\case\restore -p userassist
+
+copyright 2009 H. Carvey

@@ -1,0 +1,89 @@
+Contents
+
+The software and code on this DVD is provided in support of the "Windows
+Registry Forensics" book.  
+
+This DVD contains four directories, each of which is described as follows:
+
+RegRipper
+------------------------------------------------------------
+This directory contains the RegRipper suite of tools, to include rip and ripxp, 
+as well as instructions as to their use.  For the tools, a Perl script is 
+provided along with a "compiled" Windows executable version of each script.
+You can run the tools from the DVD, or you can copy them to your system.  To 
+run the Windows executables, you need to be sure to have the p2x588.dll in the
+same directory as the .exe file.  The best approach is to just copy all of the 
+files to another location.
+
+This directory also contains the Plugin Browser tool discussed in chapter 2
+of the book.
+
+The use of all of the included tools is described in chapter 2 of the book.
+
+RegSlack
+------------------------------------------------------------
+Jolanta Thomassen's regslack tool for retrieving unallocated space from a
+hive file.  Too use the tool, type a command such as:
+
+C:\tools>regslack d:\cases\case2\system > d:\cases\case2\system_slack.txt
+
+If you meet Jolanta, thank her for her efforts with this tool.  Or email her
+at jolantathomassen@hotmail.com.
+
+Maclookup
+------------------------------------------------------------
+This directory contains the maclookup.pl Perl script.  Unfortunately, I ran
+into considerable difficulty trying to "compile" the code into a Windows 
+executable with Perl2Exe, due to module dependencies.  As such, I opted to
+leave the code as is...but running it on any system that supports Perl is
+fairly trivial.  With Perl installed (for Windows, I use ActiveState's 
+ActivePerl, version 5.8.8), be sure that you have the appropriate modules
+installed (review the script, or the readme.txt from this directory).
+
+Regscan
+------------------------------------------------------------
+This directory contains RegScan, which is a command line tool meant to be 
+run on a live system.  This tool is described in chapter 2 of the book, 
+and can be copied from the DVD and run from another location. 
+
+Running regscan from a command prompt will extract information from the
+system you're currently logged into; to save the information, use a 
+command similar to the following:
+
+C:\tools>regscan > regscan.txt
+
+..or..
+
+C:\tools>regscan > %COMPUTERNAME%_regscan.txt
+
+As with the other tools, be sure that you keep the p2x588.dll file in the
+same directory as the EXE file.
+
+Grab
+------------------------------------------------------------
+This directory contains a tool I wrote to use with either an acquired image
+mounted with ImDisk, or with F-Response.  This tool can be run to automate the
+collection of files from a system or image, as part of incident response or
+triage activities.
+
+To see how to run this tool, simply navigate to the directory at the command
+prompt and type "grab"; the syntax information will be displayed.
+
+As with the other tools, be sure that you keep the p2x588.dll file in the
+same directory as the EXE file.
+
+All of the software is released AS-IS, with no statements or guarantees as to 
+its effectiveness or stability.  While it shouldn't cause any problems 
+whatsoever with your system, there's always the chance that someone may find
+a way to blame a system crash or loss of data on software like this...you've
+been warned!
+
+This software is released under the GNU Public License - 
+http://www.gnu.org/copyleft/gpl.html
+
+See also - http://en.wikipedia.org/wiki/GNU_General_Public_License
+
+So, please feel free to view or modify the source code; if you do choose to 
+modify the source code, please be sure to provide proper attribution and credit.
+
+Questions, comments, etc., can be sent to keydet89 at yahoo dot com.

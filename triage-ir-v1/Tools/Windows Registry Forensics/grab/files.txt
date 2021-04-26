@@ -1,0 +1,15 @@
+# Files to look for and copy
+Windows\system32\config\software
+Windows\system32\config\system
+Windows\system32\config\security
+Windows\system32\config\SAM
+Windows\system32\config\appevent.evt
+Windows\system32\config\secevent.evt
+Windows\system32\config\sysevent.evt
+Windows\debug\mrt.log
+
+# XP
+Windows\schedlgu.txt
+
+# Windows 2003 and above
+Windows\Tasks\schedlgu.txt
