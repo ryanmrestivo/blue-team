@@ -1,0 +1,7 @@
+future==0.16.0
+oletools==0.51
+pdfminer==20140328
+pefile==2017.9.3
+python-magic==0.4.13
+rarfile==3.0
+yara-python==3.6.3

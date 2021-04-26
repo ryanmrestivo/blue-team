@@ -1,0 +1,4 @@
+venv/
+#logs/
+*.pyc
+test_files/

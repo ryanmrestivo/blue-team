@@ -1,0 +1,7 @@
+netaddr
+psutil
+pylzma
+yara-python
+colorama
+rfc5424-logging-handler
+pycrypto
