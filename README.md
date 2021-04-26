@@ -886,21 +886,3 @@ the [browser malware](#browser-malware) section.*
 * [Security](https://github.com/sbilly/awesome-security)
 * [Threat Intelligence](https://github.com/hslatman/awesome-threat-intelligence)
 * [YARA](https://github.com/InQuest/awesome-yara)
-
-# [Contributing](CONTRIBUTING.md)
-
-Pull requests and issues with suggestions are welcome! Please read the
-[CONTRIBUTING](CONTRIBUTING.md) guidelines before submitting a PR.
-
-# Thanks
-
-This list was made possible by:
-
-* Lenny Zeltser and other contributors for developing REMnux, where I
-  found many of the tools in this list;
-* Michail Hale Ligh, Steven Adair, Blake Hartstein, and Mather Richard for
-  writing the *Malware Analyst's Cookbook*, which was a big inspiration for
-  creating the list;
-* And everyone else who has sent pull requests or suggested links to add here!
-
-Thanks!
