@@ -1,0 +1,2083 @@
+{
+  "Rules": [
+    {
+      "Name": "Privileged ports",
+      "Description": "Flag when privileged ports are opened.",
+      "Flag": "WARNING",
+      "ResultType": "PORT",
+      "Clauses": [
+        {
+          "Field": "port",
+          "Operation": "LessThan",
+          "Data": [
+            "1024"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Privileged users",
+      "Description": "Flag when privileged users are modified.",
+      "Flag": "WARNING",
+      "ResultType": "USER",
+      "Clauses": [
+        {
+          "Field": "Privileged",
+          "Operation": "IsTrue"
+        }
+      ]
+    },
+    {
+      "Name": "Hidden users",
+      "Description": "Flag when hidden user accounts are modified.",
+      "Flag": "WARNING",
+      "ResultType": "USER",
+      "Clauses": [
+        {
+          "Field": "Hidden",
+          "Operation": "IsTrue"
+        }
+      ]
+    },
+    {
+      "Name": "Unsigned binaries",
+      "Description": "Flag when unsigned/incorrectly signed binaries are added.",
+      "Flag": "WARNING",
+      "ChangeTypes": [
+        "CREATED",
+        "MODIFIED"
+      ],
+      "ResultType": "FILE",
+      "Expression": "is_exe AND NOT valid_windows_signature AND null_mac_signature",
+      "Clauses": [
+        {
+          "Label": "is_exe",
+          "Field": "IsExecutable",
+          "Operation": "IsTrue"
+        },
+        {
+          "Label": "valid_windows_signature",
+          "Field": "SignatureStatus",
+          "Operation": "Equals",
+          "Data": [
+            "Valid"
+          ]
+        },
+        {
+          "Label": "null_mac_signature",
+          "Field": "MacSignatureStatus",
+          "Operation": "IsNull"
+        }
+      ]
+    },
+    {
+      "Name": "Unsigned binaries",
+      "Description": "Flag when unsigned/incorrectly signed binaries are added.",
+      "Flag": "WARNING",
+      "ChangeTypes": [
+        "CREATED",
+        "MODIFIED"
+      ],
+      "ResultType": "FILEMONITOR",
+      "Expression": "is_exe AND NOT valid_windows_signature AND null_mac_signature",
+      "Clauses": [
+        {
+          "Label": "is_exe",
+          "Field": "FileSystemObject.IsExecutable",
+          "Operation": "IsTrue"
+        },
+        {
+          "Label": "valid_windows_signature",
+          "Field": "FileSystemObject.SignatureStatus",
+          "Operation": "Equals",
+          "Data": [
+            "Valid"
+          ]
+        },
+        {
+          "Label": "null_mac_signature",
+          "Field": "FileSystemObject.MacSignatureStatus",
+          "Operation": "IsNull"
+        }
+      ]
+    },
+    {
+      "Name": "SetUid",
+      "Description": "Flag UID is set on a file.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "LINUX",
+        "MACOS"
+      ],
+      "ChangeTypes": [
+        "CREATED",
+        "MODIFIED"
+      ],
+      "ResultType": "FILE",
+      "Clauses": [
+        {
+          "Field": "SetUid",
+          "Operation": "IsTrue"
+        }
+      ]
+    },
+    {
+      "Name": "SetGid",
+      "Description": "Flag GID is set on a file.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "LINUX",
+        "MACOS"
+      ],
+      "ChangeTypes": [
+        "CREATED",
+        "MODIFIED"
+      ],
+      "ResultType": "FILE",
+      "Clauses": [
+        {
+          "Field": "SetGid",
+          "Operation": "IsTrue"
+        }
+      ]
+    },
+    {
+      "Name": "SetGid",
+      "Description": "Flag GID is set on a file.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "LINUX",
+        "MACOS"
+      ],
+      "ChangeTypes": [
+        "CREATED",
+        "MODIFIED"
+      ],
+      "ResultType": "FILEMONITOR",
+      "Clauses": [
+        {
+          "Field": "FileSystemObject.SetGid",
+          "Operation": "IsTrue"
+        }
+      ]
+    },
+    {
+      "Name": "SetUid",
+      "Description": "Flag UID is set on a file.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "LINUX",
+        "MACOS"
+      ],
+      "ChangeTypes": [
+        "CREATED",
+        "MODIFIED"
+      ],
+      "ResultType": "FILEMONITOR",
+      "Clauses": [
+        {
+          "Field": "FileSystemObject.SetUid",
+          "Operation": "IsTrue"
+        }
+      ]
+    },
+    {
+      "Name": "SetGid",
+      "Description": "Flag GID is set on a file.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "LINUX",
+        "MACOS"
+      ],
+      "ChangeTypes": [
+        "CREATED",
+        "MODIFIED"
+      ],
+      "ResultType": "FILE",
+      "Clauses": [
+        {
+          "Field": "SetGid",
+          "Operation": "IsTrue"
+        }
+      ]
+    },
+    {
+      "Name": "Missing ASLR",
+      "Description": "Flag when executables are created without ASLR.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ChangeTypes": [
+        "CREATED",
+        "MODIFIED"
+      ],
+      "ResultType": "FILE",
+      "Expression": "EXE AND NOT ASLR",
+      "Clauses": [
+        {
+          "Label": "EXE",
+          "Field": "IsExecutable",
+          "Operation": "IsTrue"
+        },
+        {
+          "Label": "ASLR",
+          "Field": "Characteristics",
+          "Operation": "Contains",
+          "Data": [
+            "IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE",
+            "IMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Missing ASLR",
+      "Description": "Flag when executables are created without ASLR.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ChangeTypes": [
+        "CREATED",
+        "MODIFIED"
+      ],
+      "ResultType": "FILEMONITOR",
+      "Expression": "EXE AND NOT ASLR",
+      "Clauses": [
+        {
+          "Label": "EXE",
+          "Field": "FileSystemObject.IsExecutable",
+          "Operation": "IsTrue"
+        },
+        {
+          "Label": "ASLR",
+          "Field": "FileSystemObject.Characteristics",
+          "Operation": "Contains",
+          "Data": [
+            "IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE",
+            "IMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Missing DEP",
+      "Description": "Flag when executables are created without DEP.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ChangeTypes": [
+        "CREATED",
+        "MODIFIED"
+      ],
+      "ResultType": "FILE",
+      "Expression": "EXE AND NOT DEP",
+      "Clauses": [
+        {
+          "Label": "EXE",
+          "Field": "IsExecutable",
+          "Operation": "IsTrue"
+        },
+        {
+          "Label": "DEP",
+          "Field": "Characteristics",
+          "Operation": "Contains",
+          "Data": [
+            "IMAGE_DLLCHARACTERISTICS_NX_COMPAT"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Missing DEP",
+      "Description": "Flag when executables are created without DEP.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ChangeTypes": [
+        "CREATED",
+        "MODIFIED"
+      ],
+      "ResultType": "FILEMONITOR",
+      "Expression": "EXE AND NOT DEP",
+      "Clauses": [
+        {
+          "Label": "EXE",
+          "Field": "FileSystemObject.IsExecutable",
+          "Operation": "IsTrue"
+        },
+        {
+          "Label": "DEP",
+          "Field": "FileSystemObject.Characteristics",
+          "Operation": "Contains",
+          "Data": [
+            "IMAGE_DLLCHARACTERISTICS_NX_COMPAT"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Missing Signed Enforcement",
+      "Description": "Flag when executables are signed binaries are created without Force Integrity Flag.",
+      "Flag": "INFORMATION",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ChangeTypes": [
+        "CREATED",
+        "MODIFIED"
+      ],
+      "ResultType": "FILE",
+      "Expression": "EXE AND SIGNED AND NOT INTEGRITYFLAG",
+      "Clauses": [
+        {
+          "Label": "EXE",
+          "Field": "IsExecutable",
+          "Operation": "IsTrue"
+        },
+        {
+          "Label": "SIGNED",
+          "Field": "SignatureStatus",
+          "Operation": "IsTrue"
+        },
+        {
+          "Label": "INTEGRITYFLAG",
+          "Field": "Characteristics",
+          "Operation": "Contains",
+          "Data": [
+            "IMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Missing Signed Enforcement",
+      "Description": "Flag when executables are signed binaries are created without Force Integrity Flag.",
+      "Flag": "INFORMATION",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ChangeTypes": [
+        "CREATED",
+        "MODIFIED"
+      ],
+      "ResultType": "FILEMONITOR",
+      "Expression": "EXE AND SIGNED AND NOT INTEGRITYFLAG",
+      "Clauses": [
+        {
+          "Label": "EXE",
+          "Field": "FileSystemObject.IsExecutable",
+          "Operation": "IsTrue"
+        },
+        {
+          "Label": "SIGNED",
+          "Field": "FileSystemObject.SignatureStatus",
+          "Operation": "IsTrue"
+        },
+        {
+          "Label": "INTEGRITYFLAG",
+          "Field": "FileSystemObject.Characteristics",
+          "Operation": "Contains",
+          "Data": [
+            "IMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Certificates",
+      "Description": "Flag when certificates are placed on disk.",
+      "Flag": "INFORMATION",
+      "ResultType": "FILE",
+      "Clauses": [
+        {
+          "Field": "Path",
+          "Operation": "EndsWith",
+          "Data": [
+            ".cer",
+            ".der",
+            ".crt"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Certificates",
+      "Description": "Flag when certificates are placed on disk.",
+      "Flag": "INFORMATION",
+      "ResultType": "FILEMONITOR",
+      "Clauses": [
+        {
+          "Field": "Path",
+          "Operation": "EndsWith",
+          "Data": [
+            ".cer",
+            ".der",
+            ".crt"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "UPNP Ports",
+      "Description": "Universal Plug n' Play.",
+      "Flag": "INFORMATION",
+      "ResultType": "PORT",
+      "Clauses": [
+        {
+          "Field": "port",
+          "Operation": "Equals",
+          "Data": [
+            "1900"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Keystore Files",
+      "Description": "Java keystore files contain encryption keys and certificates.",
+      "Flag": "INFORMATION",
+      "ResultType": "FILE",
+      "Clauses": [
+        {
+          "Field": "Path",
+          "Operation": "EndsWith",
+          "Data": [
+            ".keystore"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Keystore Files",
+      "Description": "Java keystore files contain encryption keys and certificates.",
+      "Flag": "INFORMATION",
+      "ResultType": "FILEMONITOR",
+      "Clauses": [
+        {
+          "Field": "Path",
+          "Operation": "EndsWith",
+          "Data": [
+            ".keystore"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Firewall Settings Modified",
+      "Description": "Flag when OS X firewall settings are modified.",
+      "Flag": "INFORMATION",
+      "Platforms": [
+        "MACOS"
+      ],
+      "ResultType": "FILE",
+      "Clauses": [
+        {
+          "Field": "Path",
+          "Operation": "Equals",
+          "Data": [
+            "/Library/Preferences/com.apple.alf.plist"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Firewall Settings Modified",
+      "Description": "Flag when OS X firewall settings are modified.",
+      "Flag": "INFORMATION",
+      "Platforms": [
+        "MACOS"
+      ],
+      "ResultType": "FILEMONITOR",
+      "Clauses": [
+        {
+          "Field": "Path",
+          "Operation": "Equals",
+          "Data": [
+            "/Library/Preferences/com.apple.alf.plist"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "COM Objects Modified",
+      "Description": "Flags when a COM Object has been Added, Removed or Modified.",
+      "Flag": "INFORMATION",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ResultType": "REGISTRY",
+      "Clauses": [
+        {
+          "Field": "KEY",
+          "Operation": "Contains",
+          "Data": [
+            "HKEY_LOCAL_MACHINE\\\\SOFTWARE\\Classes\\CLSID"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Weak Permissions on UID Binaries",
+      "Description": "Flags if a binary is Executable by everyone but has SETUID.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "LINUX",
+        "MACOS"
+      ],
+      "ResultType": "FILE",
+      "Clauses": [
+        {
+          "Field": "IsExecutable",
+          "Operation": "IsTrue"
+        },
+        {
+          "Field": "SetUid",
+          "Operation": "IsTrue"
+        },
+        {
+          "Field": "Permissions",
+          "Operation": "Contains",
+          "DictData": [
+            {
+              "Key": "Other",
+              "Value": "Execute"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Weak Permissions on UID Binaries",
+      "Description": "Flags if a binary is Executable by everyone but has SETUID.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "LINUX",
+        "MACOS"
+      ],
+      "ResultType": "FILEMONITOR",
+      "Clauses": [
+        {
+          "Field": "FileSystemObject.IsExecutable",
+          "Operation": "IsTrue"
+        },
+        {
+          "Field": "FileSystemObject.SetUid",
+          "Operation": "IsTrue"
+        },
+        {
+          "Field": "FileSystemObject.Permissions",
+          "Operation": "Contains",
+          "DictData": [
+            {
+              "Key": "Other",
+              "Value": "Execute"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Weak Permissions on GID Binaries",
+      "Description": "Flags if a binary is Executable by everyone but has SETGID.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "LINUX",
+        "MACOS"
+      ],
+      "ResultType": "FILE",
+      "Clauses": [
+        {
+          "Field": "IsExecutable",
+          "Operation": "IsTrue"
+        },
+        {
+          "Field": "SetGid",
+          "Operation": "IsTrue"
+        },
+        {
+          "Field": "Permissions",
+          "Operation": "Contains",
+          "DictData": [
+            {
+              "Key": "Other",
+              "Value": "Execute"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Weak Permissions on GID Binaries",
+      "Description": "Flags if a binary is Executable by everyone but has SETGID.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "LINUX",
+        "MACOS"
+      ],
+      "ResultType": "FILEMONITOR",
+      "Clauses": [
+        {
+          "Field": "FileSystemObject.IsExecutable",
+          "Operation": "IsTrue"
+        },
+        {
+          "Field": "FileSystemObject.SetGid",
+          "Operation": "IsTrue"
+        },
+        {
+          "Field": "FileSystemObject.Permissions",
+          "Operation": "Contains",
+          "DictData": [
+            {
+              "Key": "Other",
+              "Value": "Execute"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "SIP Violation",
+      "Description": "Flags if System Integrity Protection prevented an action.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "MACOS"
+      ],
+      "ResultType": "LOG",
+      "Clauses": [
+        {
+          "Field": "Summary",
+          "Operation": "Contains",
+          "Data": [ "sandbox" ]
+        }
+      ]
+    },
+    {
+      "Name": "Signatory Change",
+      "Description": "Flag when the signatory of an executable changes.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ChangeTypes": [
+        "MODIFIED"
+      ],
+      "ResultType": "FILE",
+      "Clauses": [
+        {
+          "Field": "SignatureStatus.SigningCertificate.Issuer",
+          "Operation": "WasModified"
+        }
+      ]
+    },
+    {
+      "Name": "Signatory Change",
+      "Description": "Flag when the signatory of an executable changes.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ChangeTypes": [
+        "MODIFIED"
+      ],
+      "ResultType": "FILEMONITOR",
+      "Clauses": [
+        {
+          "Field": "FileSystemObject.SignatureStatus.SigningCertificate.Issuer",
+          "Operation": "WasModified"
+        }
+      ]
+    },
+    {
+      "Name": "Modified Items in Program Files",
+      "Description": "Flag when the a file is modified in Program files.",
+      "Flag": "INFORMATION",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ChangeTypes": [
+        "MODIFIED"
+      ],
+      "ResultType": "FILE",
+      "Clauses": [
+        {
+          "Field": "Path",
+          "Operation": "Regex",
+          "Data": [
+            "[A-Z]:\\\\Program Files\\\\",
+            "[A-Z]:\\\\Program Files \\(x86\\)\\\\"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Modified Items in Program Files",
+      "Description": "Flag when the a file is modified in Program files.",
+      "Flag": "INFORMATION",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ChangeTypes": [
+        "MODIFIED"
+      ],
+      "ResultType": "FILEMONITOR",
+      "Clauses": [
+        {
+          "Field": "Path",
+          "Operation": "Regex",
+          "Data": [
+            "[A-Z]:\\\\Program Files\\\\",
+            "[A-Z]:\\\\Program Files \\(x86\\)\\\\"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Modified Items in System Files",
+      "Description": "Flag when the a file is modified in System files.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ChangeTypes": [
+        "MODIFIED"
+      ],
+      "ResultType": "FILE",
+      "Expression": "0 AND NOT 1",
+      "Clauses": [
+        {
+          "Label": "0",
+          "Field": "Path",
+          "Operation": "Regex",
+          "Data": [ "[A-Z]:\\\\Windows\\\\" ]
+        },
+        {
+          "Label": "1",
+          "Field": "PATH",
+          "Operation": "Regex",
+          "Data": [
+            "[A-Z]:\\+Windows\\+appcompat\\+Programs\\+.*",
+            "[A-Z]:\\+Windows\\+AppReadiness\\+.*",
+            "[A-Z]:\\+Windows\\+Logs\\+waasmedia\\+.*",
+            "[A-Z]:\\+Windows\\+ServiceProfiles\\+LocalService\\+.*",
+            "[A-Z]:\\+Windows\\+ServiceProfiles\\+NetworkService\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+catroot2\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+config\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+LogFiles\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+SleepStudy\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+sru\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+winevt\\+.*",
+            "[A-Z]:\\+Windows\\+(SysWOW64|System32)\\+Windows\\.Security\\.Authentication\\.Identity\\.Provider\\.dll"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Modified Items in System Files",
+      "Description": "Flag when the a file is modified in System files.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ChangeTypes": [
+        "MODIFIED"
+      ],
+      "ResultType": "FILEMONITOR",
+      "Expression": "0 AND NOT 1",
+      "Clauses": [
+        {
+          "Label": "0",
+          "Field": "Path",
+          "Operation": "Regex",
+          "Data": [ "[A-Z]:\\\\Windows\\\\" ]
+        },
+        {
+          "Label": "1",
+          "Field": "PATH",
+          "Operation": "Regex",
+          "Data": [
+            "[A-Z]:\\+Windows\\+appcompat\\+Programs\\+.*",
+            "[A-Z]:\\+Windows\\+AppReadiness\\+.*",
+            "[A-Z]:\\+Windows\\+Logs\\+waasmedia\\+.*",
+            "[A-Z]:\\+Windows\\+ServiceProfiles\\+LocalService\\+.*",
+            "[A-Z]:\\+Windows\\+ServiceProfiles\\+NetworkService\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+catroot2\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+config\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+LogFiles\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+SleepStudy\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+sru\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+winevt\\+.*",
+            "[A-Z]:\\+Windows\\+(SysWOW64|System32)\\+Windows\\.Security\\.Authentication\\.Identity\\.Provider\\.dll"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Frequently attacked binaries",
+      "Description": "List from GTFOBINS.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "LINUX",
+        "MACOS"
+      ],
+      "ResultType": "FILE",
+      "Expression": "0 AND 1",
+      "Clauses": [
+        {
+          "Label": "0",
+          "Field": "Path",
+          "Operation": "Regex",
+          "Data": [
+            "\/apt-get^",
+            "\/apt^",
+            "\/aria2c^",
+            "\/arp^",
+            "\/ash^",
+            "\/awk^",
+            "\/base32^",
+            "\/base64^",
+            "\/bash^",
+            "\/bpftrace^",
+            "\/bundler^",
+            "\/busctl^",
+            "\/busybox^",
+            "\/byebug^",
+            "\/cancel^",
+            "\/cat^",
+            "\/chmod^",
+            "\/chown^",
+            "\/chroot^",
+            "\/cobc^",
+            "\/cp^",
+            "\/cpan^",
+            "\/cpulimit^",
+            "\/crash^",
+            "\/crontab^",
+            "\/crash^",
+            "\/curl^",
+            "\/cut^",
+            "\/dash^",
+            "\/date^",
+            "\/dd^",
+            "\/dialog^",
+            "\/diff^",
+            "\/dmesg^",
+            "\/dmsetup^",
+            "\/dnf^",
+            "\/docker^",
+            "\/dpkg^",
+            "\/easy_install^",
+            "\/eb^",
+            "\/ed^",
+            "\/emacs^",
+            "\/env^",
+            "\/Equalsn^",
+            "\/expand^",
+            "\/expect^",
+            "\/facter^",
+            "\/file^",
+            "\/find^",
+            "\/finger^",
+            "\/flock^",
+            "\/fmt^",
+            "\/fold^",
+            "\/ftp^",
+            "\/gawk^",
+            "\/gcc^",
+            "\/gdb^",
+            "\/gem^",
+            "\/genisoimage^",
+            "\/gimp^",
+            "\/git^",
+            "\/grep^",
+            "\/gtester^",
+            "\/hd^",
+            "\/head^",
+            "\/hexdump^",
+            "\/gighlight^",
+            "\/iconv^",
+            "\/iftop^",
+            "\/ionice^",
+            "\/iftopirb^",
+            "\/jjs^",
+            "\/journalctl^",
+            "\/jq^",
+            "\/jrunscript^",
+            "\/ksh^",
+            "\/ksshell^",
+            "\/ld.so^",
+            "\/ldconfig^",
+            "\/less^",
+            "\/logsave^",
+            "\/look^",
+            "\/LessThanrace^",
+            "\/lua^",
+            "\/lwp-download^",
+            "\/lwp-rEqualsuest^",
+            "\/mail^",
+            "\/make^",
+            "\/man^",
+            "\/mawk^",
+            "\/more^",
+            "\/mount^",
+            "\/mtr^",
+            "\/mv^",
+            "\/mysql^",
+            "\/nano^",
+            "\/nawk^",
+            "\/nc^",
+            "\/nice^",
+            "\/nl^",
+            "\/nmap^",
+            "\/node^",
+            "\/nohup^",
+            "\/nroff^",
+            "\/nsenter^",
+            "\/od^",
+            "\/openssl^",
+            "\/pdb^",
+            "\/perl^",
+            "\/pg^",
+            "\/php^",
+            "\/pic^",
+            "\/pico^",
+            "\/pip^",
+            "\/pry^",
+            "\/puppet^",
+            "\/python^",
+            "\/rake^",
+            "\/readelf^",
+            "\/red^",
+            "\/redcarpet^",
+            "\/rlogin^",
+            "\/rlwrap^",
+            "\/rpm^",
+            "\/rpmquery^",
+            "\/rsync^",
+            "\/ruby^",
+            "\/run-mailcap^",
+            "\/run-parts^",
+            "\/rvim^",
+            "\/scp^",
+            "\/screen^",
+            "\/script^",
+            "\/sed^",
+            "\/service^",
+            "\/setarch^",
+            "\/sftp^",
+            "\/shuf^",
+            "\/smbclient^",
+            "\/socat^",
+            "\/soelim^",
+            "\/sort^",
+            "\/sqlite3^",
+            "\/ssh^",
+            "\/start-stop-daemon^",
+            "\/stdbuf^",
+            "\/strace^",
+            "\/strings^",
+            "\/systemctl^",
+            "\/tac^",
+            "\/tail^",
+            "\/tar^",
+            "\/taskset^",
+            "\/tclsh^",
+            "\/tcpdump^",
+            "\/tee^",
+            "\/telnet^",
+            "\/tftp^",
+            "\/time^",
+            "\/timeout^",
+            "\/tmux^",
+            "\/top^",
+            "\/ul^",
+            "\/unexpand^",
+            "\/uniq^",
+            "\/unshare^",
+            "\/uudecode^",
+            "\/uuencode^",
+            "\/valgrind^",
+            "\/vi^",
+            "\/vim^",
+            "\/watch^",
+            "\/wget^",
+            "\/whois^",
+            "\/wish^",
+            "\/xargs^",
+            "\/xxd^",
+            "\/yelp^",
+            "\/yum^",
+            "\/zip^",
+            "\/zsh^",
+            "\/zsoelim^",
+            "\/zypper^"
+          ]
+        },
+        {
+          "Label": "1",
+          "Field": "IsExecutable",
+          "Operation": "IsTrue"
+        }
+      ]
+    },
+    {
+      "Name": "Frequently attacked binaries",
+      "Description": "List from GTFOBINS.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "LINUX",
+        "MACOS"
+      ],
+      "ResultType": "FILEMONITOR",
+      "Expression": "0 AND 1",
+      "Clauses": [
+        {
+          "Label": "0",
+          "Field": "Path",
+          "Operation": "Regex",
+          "Data": [
+            "\/apt-get^",
+            "\/apt^",
+            "\/aria2c^",
+            "\/arp^",
+            "\/ash^",
+            "\/awk^",
+            "\/base32^",
+            "\/base64^",
+            "\/bash^",
+            "\/bpftrace^",
+            "\/bundler^",
+            "\/busctl^",
+            "\/busybox^",
+            "\/byebug^",
+            "\/cancel^",
+            "\/cat^",
+            "\/chmod^",
+            "\/chown^",
+            "\/chroot^",
+            "\/cobc^",
+            "\/cp^",
+            "\/cpan^",
+            "\/cpulimit^",
+            "\/crash^",
+            "\/crontab^",
+            "\/crash^",
+            "\/curl^",
+            "\/cut^",
+            "\/dash^",
+            "\/date^",
+            "\/dd^",
+            "\/dialog^",
+            "\/diff^",
+            "\/dmesg^",
+            "\/dmsetup^",
+            "\/dnf^",
+            "\/docker^",
+            "\/dpkg^",
+            "\/easy_install^",
+            "\/eb^",
+            "\/ed^",
+            "\/emacs^",
+            "\/env^",
+            "\/Equalsn^",
+            "\/expand^",
+            "\/expect^",
+            "\/facter^",
+            "\/file^",
+            "\/find^",
+            "\/finger^",
+            "\/flock^",
+            "\/fmt^",
+            "\/fold^",
+            "\/ftp^",
+            "\/gawk^",
+            "\/gcc^",
+            "\/gdb^",
+            "\/gem^",
+            "\/genisoimage^",
+            "\/gimp^",
+            "\/git^",
+            "\/grep^",
+            "\/gtester^",
+            "\/hd^",
+            "\/head^",
+            "\/hexdump^",
+            "\/gighlight^",
+            "\/iconv^",
+            "\/iftop^",
+            "\/ionice^",
+            "\/iftopirb^",
+            "\/jjs^",
+            "\/journalctl^",
+            "\/jq^",
+            "\/jrunscript^",
+            "\/ksh^",
+            "\/ksshell^",
+            "\/ld.so^",
+            "\/ldconfig^",
+            "\/less^",
+            "\/logsave^",
+            "\/look^",
+            "\/LessThanrace^",
+            "\/lua^",
+            "\/lwp-download^",
+            "\/lwp-rEqualsuest^",
+            "\/mail^",
+            "\/make^",
+            "\/man^",
+            "\/mawk^",
+            "\/more^",
+            "\/mount^",
+            "\/mtr^",
+            "\/mv^",
+            "\/mysql^",
+            "\/nano^",
+            "\/nawk^",
+            "\/nc^",
+            "\/nice^",
+            "\/nl^",
+            "\/nmap^",
+            "\/node^",
+            "\/nohup^",
+            "\/nroff^",
+            "\/nsenter^",
+            "\/od^",
+            "\/openssl^",
+            "\/pdb^",
+            "\/perl^",
+            "\/pg^",
+            "\/php^",
+            "\/pic^",
+            "\/pico^",
+            "\/pip^",
+            "\/pry^",
+            "\/puppet^",
+            "\/python^",
+            "\/rake^",
+            "\/readelf^",
+            "\/red^",
+            "\/redcarpet^",
+            "\/rlogin^",
+            "\/rlwrap^",
+            "\/rpm^",
+            "\/rpmquery^",
+            "\/rsync^",
+            "\/ruby^",
+            "\/run-mailcap^",
+            "\/run-parts^",
+            "\/rvim^",
+            "\/scp^",
+            "\/screen^",
+            "\/script^",
+            "\/sed^",
+            "\/service^",
+            "\/setarch^",
+            "\/sftp^",
+            "\/shuf^",
+            "\/smbclient^",
+            "\/socat^",
+            "\/soelim^",
+            "\/sort^",
+            "\/sqlite3^",
+            "\/ssh^",
+            "\/start-stop-daemon^",
+            "\/stdbuf^",
+            "\/strace^",
+            "\/strings^",
+            "\/systemctl^",
+            "\/tac^",
+            "\/tail^",
+            "\/tar^",
+            "\/taskset^",
+            "\/tclsh^",
+            "\/tcpdump^",
+            "\/tee^",
+            "\/telnet^",
+            "\/tftp^",
+            "\/time^",
+            "\/timeout^",
+            "\/tmux^",
+            "\/top^",
+            "\/ul^",
+            "\/unexpand^",
+            "\/uniq^",
+            "\/unshare^",
+            "\/uudecode^",
+            "\/uuencode^",
+            "\/valgrind^",
+            "\/vi^",
+            "\/vim^",
+            "\/watch^",
+            "\/wget^",
+            "\/whois^",
+            "\/wish^",
+            "\/xargs^",
+            "\/xxd^",
+            "\/yelp^",
+            "\/yum^",
+            "\/zip^",
+            "\/zsh^",
+            "\/zsoelim^",
+            "\/zypper^"
+          ]
+        },
+        {
+          "Label": "1",
+          "Field": "FileSystemObject.IsExecutable",
+          "Operation": "IsTrue"
+        }
+      ]
+    },
+    {
+      "Name": "Modified Services",
+      "Description": "Flag when a startup item is modified.",
+      "Flag": "WARNING",
+      "ChangeTypes": [
+        "MODIFIED"
+      ],
+      "ResultType": "SERVICE"
+    },
+    {
+      "Name": "Modified Hosts File",
+      "Description": "Flag when the hosts file is modified.",
+      "Flag": "WARNING",
+      "ChangeTypes": [
+        "MODIFIED"
+      ],
+      "ResultType": "FILE",
+      "Expression": "WINDOWS OR NIX",
+      "Clauses": [
+        {
+          "Label": "WINDOWS",
+          "Field": "Path",
+          "Operation": "Regex",
+          "Data": [
+            "[A-Z]:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts"
+          ]
+        },
+        {
+          "Label": "NIX",
+          "Field": "Path",
+          "Operation": "Equals",
+          "Data": [
+            "/etc/hosts"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Modified Hosts File",
+      "Description": "Flag when the hosts file is modified.",
+      "Flag": "WARNING",
+      "ChangeTypes": [
+        "MODIFIED"
+      ],
+      "ResultType": "FILEMONITOR",
+      "Expression": "WINDOWS OR NIX",
+      "Clauses": [
+        {
+          "Label": "WINDOWS",
+          "Field": "Path",
+          "Operation": "Regex",
+          "Data": [
+            "[A-Z]:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts"
+          ]
+        },
+        {
+          "Label": "NIX",
+          "Field": "Path",
+          "Operation": "Equals",
+          "Data": [
+            "/etc/hosts"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Signed File was modified",
+      "Description": "A signed file was modified.",
+      "Flag": "WARNING",
+      "ChangeTypes": [
+        "MODIFIED"
+      ],
+      "ResultType": "FILE",
+      "Expression": "is_exe AND (windows OR NOT macos_null)",
+      "Clauses": [
+        {
+          "Label": "is_exe",
+          "Field": "IsExecutable",
+          "Operation": "IsTrue"
+        },
+        {
+          "Label": "windows",
+          "Field": "SignatureStatus",
+          "Operation": "Equals",
+          "Data": [
+            "Valid"
+          ]
+        },
+        {
+          "Label": "macos_null",
+          "Field": "MacSignatureStatus",
+          "Operation": "IsNull"
+        }
+      ]
+    },
+    {
+      "Name": "Signed File was modified",
+      "Description": "A signed file was modified.",
+      "Flag": "WARNING",
+      "ChangeTypes": [
+        "MODIFIED"
+      ],
+      "ResultType": "FILEMONITOR",
+      "Expression": "is_exe AND (windows OR NOT macos_null)",
+      "Clauses": [
+        {
+          "Label": "is_exe",
+          "Field": "FileSystemObject.IsExecutable",
+          "Operation": "IsTrue"
+        },
+        {
+          "Label": "windows",
+          "Field": "FileSystemObject.SignatureStatus",
+          "Operation": "Equals",
+          "Data": [
+            "Valid"
+          ]
+        },
+        {
+          "Label": "macos_null",
+          "Field": "FileSystemObject.MacSignatureStatus",
+          "Operation": "IsNull"
+        }
+      ]
+    },
+    {
+      "Name": "Files Frequently Modified by Windows",
+      "Description": "These files are frequently modified by the system itself.",
+      "Flag": "VERBOSE",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ResultType": "FILE",
+      "Clauses": [
+        {
+          "Field": "Path",
+          "Operation": "Regex",
+          "Data": [
+            "[A-Z]:\\+ProgramData\\+Microsoft\\+DiagnosticLogCSP\\+.*",
+            "[A-Z]:\\+ProgramData\\+Microsoft\\+SmsRouter\\+MessageStore\\+.*",
+            "[A-Z]:\\+ProgramData\\+Microsoft\\+Windows\\+AppRepository\\+.*",
+            "[A-Z]:\\+ProgramData\\+USOShared\\+Logs\\+System\\+.*",
+            "[A-Z]:\\+Windows\\+appcompat\\+Programs\\+.*",
+            "[A-Z]:\\+Windows\\+AppReadiness\\+.*",
+            "[A-Z]:\\+Windows\\+Logs\\+waasmedia\\+.*",
+            "[A-Z]:\\+Windows\\+ServiceProfiles\\+LocalService\\+.*",
+            "[A-Z]:\\+Windows\\+ServiceProfiles\\+NetworkService\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+catroot2\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+config\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+LogFiles\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+SleepStudy\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+sru\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+winevt\\+.*",
+            "[A-Z]:\\+Windows\\+(SysWOW64|System32)\\+Windows\\.Security\\.Authentication\\.Identity\\.Provider\\.dll",
+            "[A-Z]:\\+Users\\+[^\\[:;|=,+*?<>\"\\\\]+\\+AppData\\+Local\\+ConnectedDevicesPlatform\\+.*",
+            "[A-Z]:\\+Users\\+[^\\[:;|=,+*?<>\"\\\\]+\\+AppData\\+Local\\+Packages\\+Microsoft.Windows.Search_.*",
+            "[A-Z]:\\+Users\\+[^\\[:;|=,+*?<>\"\\\\]+\\+AppData\\+Local\\+Temp\\+StructuredQuery\\.log",
+            "[A-Z]:\\+Users\\+[^\\[:;|=,+*?<>\"\\\\]+\\+AppData\\+Roaming\\+Microsoft\\+Windows\\+Recent\\+.*",
+            "[A-Z]:\\+Users\\+[^\\[:;|=,+*?<>\"\\\\]+\\+ntuser\\.dat\\..*",
+            "^[A-Z]:\\\\pagefile.sys$",
+            "^[A-Z]:\\\\hiberfil.sys$",
+            "^[A-Z]:\\\\swapfile.sys$"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Files Frequently Modified by Windows",
+      "Description": "These files are frequently modified by the system itself.",
+      "Flag": "VERBOSE",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ResultType": "FILEMONITOR",
+      "Clauses": [
+        {
+          "Field": "Path",
+          "Operation": "Regex",
+          "Data": [
+            "[A-Z]:\\+ProgramData\\+Microsoft\\+DiagnosticLogCSP\\+.*",
+            "[A-Z]:\\+ProgramData\\+Microsoft\\+SmsRouter\\+MessageStore\\+.*",
+            "[A-Z]:\\+ProgramData\\+Microsoft\\+Windows\\+AppRepository\\+.*",
+            "[A-Z]:\\+ProgramData\\+USOShared\\+Logs\\+System\\+.*",
+            "[A-Z]:\\+Windows\\+appcompat\\+Programs\\+.*",
+            "[A-Z]:\\+Windows\\+AppReadiness\\+.*",
+            "[A-Z]:\\+Windows\\+Logs\\+waasmedia\\+.*",
+            "[A-Z]:\\+Windows\\+ServiceProfiles\\+LocalService\\+.*",
+            "[A-Z]:\\+Windows\\+ServiceProfiles\\+NetworkService\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+catroot2\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+config\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+LogFiles\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+SleepStudy\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+sru\\+.*",
+            "[A-Z]:\\+Windows\\+System32\\+winevt\\+.*",
+            "[A-Z]:\\+Windows\\+(SysWOW64|System32)\\+Windows\\.Security\\.Authentication\\.Identity\\.Provider\\.dll",
+            "[A-Z]:\\+Users\\+[^\\[:;|=,+*?<>\"\\\\]+\\+AppData\\+Local\\+ConnectedDevicesPlatform\\+.*",
+            "[A-Z]:\\+Users\\+[^\\[:;|=,+*?<>\"\\\\]+\\+AppData\\+Local\\+Packages\\+Microsoft.Windows.Search_.*",
+            "[A-Z]:\\+Users\\+[^\\[:;|=,+*?<>\"\\\\]+\\+AppData\\+Local\\+Temp\\+StructuredQuery\\.log",
+            "[A-Z]:\\+Users\\+[^\\[:;|=,+*?<>\"\\\\]+\\+AppData\\+Roaming\\+Microsoft\\+Windows\\+Recent\\+.*",
+            "[A-Z]:\\+Users\\+[^\\[:;|=,+*?<>\"\\\\]+\\+ntuser\\.dat\\..*",
+            "^[A-Z]:\\\\pagefile.sys$",
+            "^[A-Z]:\\\\hiberfil.sys$",
+            "^[A-Z]:\\\\swapfile.sys$"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Registry Keys Frequently Modified by Windows",
+      "Description": "These registry keys are Frequently modified by the system itself.",
+      "Flag": "VERBOSE",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ResultType": "REGISTRY",
+      "Clauses": [
+        {
+          "Field": "Key",
+          "Operation": "Regex",
+          "Data": [
+            "MrtCache"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Files Frequently Modified by Macos",
+      "Description": "These files are Frequently modified by the system itself.",
+      "Flag": "VERBOSE",
+      "Platforms": [
+        "MACOS"
+      ],
+      "ResultType": "FILE",
+      "Clauses": [
+        {
+          "Field": "Key",
+          "Operation": "Regex",
+          "Data": [
+            "^/.Spotlight-V100"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Files Frequently Modified by Macos",
+      "Description": "These files are Frequently modified by the system itself.",
+      "Flag": "VERBOSE",
+      "Platforms": [
+        "MACOS"
+      ],
+      "ResultType": "FILEMONITOR",
+      "Clauses": [
+        {
+          "Field": "Key",
+          "Operation": "Regex",
+          "Data": [
+            "^/.Spotlight-V100"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "LOLBAS List",
+      "Description": "This is the LOLBAS items which are not included in the other system file rules.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ResultType": "FILE",
+      "Clauses": [
+        {
+          "Operation": "IsTrue",
+          "Field": "IsExecutable"
+        },
+        {
+          "Field": "Path",
+          "Operation": "EndsWith",
+          "Data": [
+            "\\Bginfo.exe",
+            "\\dnx.exe",
+            "\\msxsl.exe",
+            "\\rcsi.exe",
+            "\\Microsoft\\Teams\\current\\Squirrel.exe",
+            "\\te.exe",
+            "\\Tracker.exe",
+            "\\Microsoft\\Teams\\update.exe"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "LOLBAS List",
+      "Description": "This is the LOLBAS items which are not included in the other system file rules.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ResultType": "FILEMONITOR",
+      "Clauses": [
+        {
+          "Operation": "IsTrue",
+          "Field": "FileSystemObject.IsExecutable"
+        },
+        {
+          "Field": "Path",
+          "Operation": "EndsWith",
+          "Data": [
+            "\\Bginfo.exe",
+            "\\dnx.exe",
+            "\\msxsl.exe",
+            "\\rcsi.exe",
+            "\\Microsoft\\Teams\\current\\Squirrel.exe",
+            "\\te.exe",
+            "\\Tracker.exe",
+            "\\Microsoft\\Teams\\update.exe"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Expired Certificates",
+      "Description": "These Certificates are expired.",
+      "Flag": "WARNING",
+      "ResultType": "CERTIFICATE",
+      "ChangeTypes": [
+        "MODIFIED",
+        "CREATED"
+      ],
+      "Clauses": [
+        {
+          "Field": "Certificate.NotAfter",
+          "Operation": "IsExpired"
+        }
+      ]
+    },
+    {
+      "Name": "Binaries with expired signatures",
+      "Description": "These binaries have expired signatures.",
+      "Flag": "WARNING",
+      "ResultType": "FILE",
+      "ChangeTypes": [
+        "MODIFIED",
+        "CREATED"
+      ],
+      "Clauses": [
+        {
+          "Field": "SignatureStatus.SigningCertificate.NotAfter",
+          "Operation": "IsExpired"
+        }
+      ]
+    },
+    {
+      "Name": "Binaries with expired signatures",
+      "Description": "These binaries have expired signatures.",
+      "Flag": "WARNING",
+      "ResultType": "FILEMONITOR",
+      "ChangeTypes": [
+        "MODIFIED",
+        "CREATED"
+      ],
+      "Clauses": [
+        {
+          "Field": "FileSystemObject.SignatureStatus.SigningCertificate.NotAfter",
+          "Operation": "IsExpired"
+        }
+      ]
+    },
+    {
+      "Name": "TPM Keys",
+      "Description": "These TPM Keys have been changed.",
+      "Flag": "WARNING",
+      "ResultType": "FILE",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "Clauses": [
+        {
+          "Field": "Path",
+          "Operation": "EndsWith",
+          "Data": [
+            ".PCPKEY"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "TPM Auth Values Changed",
+      "Description": "These TPM Auth Values have been changed in the registry.",
+      "Flag": "WARNING",
+      "ResultType": "REGISTRY",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "Expression": "PATH AND (OWNER_FULL OR OWNER_NEW OR OWNER_STATUS OR STORAGE OR LOCKOUT)",
+      "Clauses": [
+        {
+          "Label": "PATH",
+          "Field": "Path",
+          "Operation": "EndsWith",
+          "Data": [
+            "\\System\\CurrentControlSet\\Services\\TPM\\WMI\\Admin"
+          ]
+        },
+        {
+          "Label": "OWNER_FULL",
+          "Field": "Values.OwnerAuthFull",
+          "Operation": "WasModified"
+        },
+        {
+          "Label": "OWNER_NEW",
+          "Field": "Values.OwnerAuthNew",
+          "Operation": "WasModified"
+        },
+        {
+          "Label": "OWNER_STATUS",
+          "Field": "Values.OwnerAuthStatus",
+          "Operation": "WasModified"
+        },
+        {
+          "Label": "STORAGE",
+          "Field": "Values.StorageOwnerAuth",
+          "Operation": "WasModified"
+        },
+        {
+          "Label": "LOCKOUT",
+          "Field": "Values.LockoutHash",
+          "Operation": "WasModified"
+        }
+      ]
+    },
+    {
+      "Name": "TPM Endorsement Auth Value",
+      "Description": "The TPM Endorsement Auth was changed.",
+      "Flag": "WARNING",
+      "ResultType": "REGISTRY",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "Clauses": [
+        {
+          "Field": "Path",
+          "Operation": "EndsWith",
+          "Data": [
+            "\\System\\CurrentControlSet\\Services\\TPM\\WMI\\Endorsement"
+          ]
+        },
+        {
+          "Field": "Values.EndorsementAuth",
+          "Operation": "WasModified"
+        }
+      ]
+    },
+    {
+      "Name": "Use Null Derived Owner Auth Changed",
+      "Description": "The UseNullDerivedOwnerAuth setting was changed.",
+      "Flag": "WARNING",
+      "ResultType": "REGISTRY",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "Expression": "UNDOA AND (PATH_WMI OR PATH_POLICIES)",
+      "Clauses": [
+        {
+          "Label": "PATH_WMI",
+          "Field": "Path",
+          "Operation": "EndsWith",
+          "Data": [
+            "\\System\\CurrentControlSet\\Services\\TPM\\WMI"
+          ]
+        },
+        {
+          "Label": "PATH_POLICIES",
+          "Field": "Path",
+          "Operation": "EndsWith",
+          "Data": [
+            "\\Software\\Policies\\Microsoft\\TPM"
+          ]
+        },
+        {
+          "Label": "UNDOA",
+          "Field": "Values.UseNullDerivedOwnerAuth",
+          "Operation": "WasModified"
+        }
+      ]
+    },
+    {
+      "Name": "OS Managed Auth Level Changed",
+      "Description": "The TPM OS Managed Auth Level was Changed.",
+      "Flag": "WARNING",
+      "ResultType": "REGISTRY",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "Clauses": [
+        {
+          "Field": "Path",
+          "Operation": "EndsWith",
+          "Data": [
+            "\\Software\\Policies\\Microsoft\\TPM"
+          ]
+        },
+        {
+          "Field": "Values.OSManagedAuthLevel",
+          "Operation": "WasModified"
+        }
+      ]
+    },
+    {
+      "Name": "SHA Root of Trust Modified",
+      "Description": "The systems root of trust has been modified.",
+      "Flag": "WARNING",
+      "ResultType": "TPM",
+      "Platforms": [
+        "WINDOWS",
+        "LINUX"
+      ],
+      "Expression": "ANY_SHA AND (SHA_PCR0 OR SHA_PCR1 OR SHA_PCR2 OR SHA_PCR3 OR SHA_PCR4 OR SHA_PCR5 OR SHA_PCR6 OR SHA_PCR7)",
+      "Clauses": [
+        {
+          "Field": "PCRs",
+          "Operation": "ContainsKey",
+          "Label": "ANY_SHA",
+          "Data": [ "(Sha, 0)" ]
+        },
+        {
+          "Field": "PCRs.(Sha, 0)",
+          "Operation": "WasModified",
+          "Label": "SHA_PCR0"
+        },
+        {
+          "Field": "PCRs.(Sha, 1)",
+          "Operation": "WasModified",
+          "Label": "SHA_PCR1"
+        },
+        {
+          "Field": "PCRs.(Sha, 2)",
+          "Operation": "WasModified",
+          "Label": "SHA_PCR2"
+        },
+        {
+          "Field": "PCRs.(Sha, 3)",
+          "Operation": "WasModified",
+          "Label": "SHA_PCR3"
+        },
+        {
+          "Field": "PCRs.(Sha, 4)",
+          "Operation": "WasModified",
+          "Label": "SHA_PCR4"
+        },
+        {
+          "Field": "PCRs.(Sha, 5)",
+          "Operation": "WasModified",
+          "Label": "SHA_PCR5"
+        },
+        {
+          "Field": "PCRs.(Sha, 6)",
+          "Operation": "WasModified",
+          "Label": "SHA_PCR6"
+        },
+        {
+          "Field": "PCRs.(Sha, 7)",
+          "Operation": "WasModified",
+          "Label": "SHA_PCR7"
+        }
+      ]
+    },
+    {
+      "Name": "SHA256 Root of Trust Modified",
+      "Description": "The systems root of trust has been modified.",
+      "Flag": "WARNING",
+      "ResultType": "TPM",
+      "Platforms": [
+        "WINDOWS",
+        "LINUX"
+      ],
+      "Expression": "ANY_SHA256 AND (SHA256_PCR0 OR SHA256_PCR1 OR SHA256_PCR2 OR SHA256_PCR3 OR SHA256_PCR4 OR SHA256_PCR5 OR SHA256_PCR6 OR SHA256_PCR7)",
+      "Clauses": [
+        {
+          "Field": "PCRs",
+          "Operation": "ContainsKey",
+          "Label": "ANY_SHA256",
+          "Data": [ "(Sha256, 0)" ]
+        },
+        {
+          "Field": "PCRs.(Sha256, 0)",
+          "Operation": "WasModified",
+          "Label": "SHA256_PCR0"
+        },
+        {
+          "Field": "PCRs.(Sha256, 1)",
+          "Operation": "WasModified",
+          "Label": "SHA256_PCR1"
+        },
+        {
+          "Field": "PCRs.(Sha256, 2)",
+          "Operation": "WasModified",
+          "Label": "SHA256_PCR2"
+        },
+        {
+          "Field": "PCRs.(Sha256, 3)",
+          "Operation": "WasModified",
+          "Label": "SHA256_PCR3"
+        },
+        {
+          "Field": "PCRs.(Sha256, 4)",
+          "Operation": "WasModified",
+          "Label": "SHA256_PCR4"
+        },
+        {
+          "Field": "PCRs.(Sha256, 5)",
+          "Operation": "WasModified",
+          "Label": "SHA256_PCR5"
+        },
+        {
+          "Field": "PCRs.(Sha256, 6)",
+          "Operation": "WasModified",
+          "Label": "SHA256_PCR6"
+        },
+        {
+          "Field": "PCRs.(Sha256, 7)",
+          "Operation": "WasModified",
+          "Label": "SHA256_PCR7"
+        }
+      ]
+    },
+    {
+      "Name": "SHA384 Root of Trust Modified",
+      "Description": "The systems root of trust has been modified.",
+      "Flag": "WARNING",
+      "ResultType": "TPM",
+      "Platforms": [
+        "WINDOWS",
+        "LINUX"
+      ],
+      "Expression": "ANY_SHA384 AND (SHA384_PCR0 OR SHA384_PCR1 OR SHA384_PCR2 OR SHA384_PCR3 OR SHA384_PCR4 OR SHA384_PCR5 OR SHA384_PCR6 OR SHA384_PCR7)",
+      "Clauses": [
+        {
+          "Field": "PCRs",
+          "Operation": "ContainsKey",
+          "Label": "ANY_SHA384",
+          "Data": [ "(Sha384, 0)" ]
+        },
+        {
+          "Field": "PCRs.(Sha384, 0)",
+          "Operation": "WasModified",
+          "Label": "SHA384_PCR0"
+        },
+        {
+          "Field": "PCRs.(Sha384, 1)",
+          "Operation": "WasModified",
+          "Label": "SHA384_PCR1"
+        },
+        {
+          "Field": "PCRs.(Sha384, 2)",
+          "Operation": "WasModified",
+          "Label": "SHA384_PCR2"
+        },
+        {
+          "Field": "PCRs.(Sha384, 3)",
+          "Operation": "WasModified",
+          "Label": "SHA384_PCR3"
+        },
+        {
+          "Field": "PCRs.(Sha384, 4)",
+          "Operation": "WasModified",
+          "Label": "SHA384_PCR4"
+        },
+        {
+          "Field": "PCRs.(Sha384, 5)",
+          "Operation": "WasModified",
+          "Label": "SHA384_PCR5"
+        },
+        {
+          "Field": "PCRs.(Sha384, 6)",
+          "Operation": "WasModified",
+          "Label": "SHA384_PCR6"
+        },
+        {
+          "Field": "PCRs.(Sha384, 7)",
+          "Operation": "WasModified",
+          "Label": "SHA384_PCR7"
+        }
+      ]
+    },
+    {
+      "Name": "SHA512 Root of Trust Modified",
+      "Description": "The systems root of trust has been modified.",
+      "Flag": "WARNING",
+      "ResultType": "TPM",
+      "Platforms": [
+        "WINDOWS",
+        "LINUX"
+      ],
+      "Expression": "ANY_SHA512 AND (SHA512_PCR0 OR SHA512_PCR1 OR SHA512_PCR2 OR SHA512_PCR3 OR SHA512_PCR4 OR SHA512_PCR5 OR SHA512_PCR6 OR SHA512_PCR7)",
+      "Clauses": [
+        {
+          "Field": "PCRs",
+          "Operation": "ContainsKey",
+          "Label": "ANY_SHA512",
+          "Data": [ "(Sha512, 0)" ]
+        },
+        {
+          "Field": "PCRs.(Sha512, 0)",
+          "Operation": "WasModified",
+          "Label": "SHA512_PCR0"
+        },
+        {
+          "Field": "PCRs.(Sha512, 1)",
+          "Operation": "WasModified",
+          "Label": "SHA512_PCR1"
+        },
+        {
+          "Field": "PCRs.(Sha512, 2)",
+          "Operation": "WasModified",
+          "Label": "SHA512_PCR2"
+        },
+        {
+          "Field": "PCRs.(Sha512, 3)",
+          "Operation": "WasModified",
+          "Label": "SHA512_PCR3"
+        },
+        {
+          "Field": "PCRs.(Sha512, 4)",
+          "Operation": "WasModified",
+          "Label": "SHA512_PCR4"
+        },
+        {
+          "Field": "PCRs.(Sha512, 5)",
+          "Operation": "WasModified",
+          "Label": "SHA512_PCR5"
+        },
+        {
+          "Field": "PCRs.(Sha512, 6)",
+          "Operation": "WasModified",
+          "Label": "SHA512_PCR6"
+        },
+        {
+          "Field": "PCRs.(Sha512, 7)",
+          "Operation": "WasModified",
+          "Label": "SHA512_PCR7"
+        }
+      ]
+    },
+    {
+      "Name": "SM3_256 Root of Trust Modified",
+      "Description": "The systems root of trust has been modified.",
+      "Flag": "WARNING",
+      "ResultType": "TPM",
+      "Platforms": [
+        "WINDOWS",
+        "LINUX"
+      ],
+      "Expression": "ANY_SM3_256 AND (SM3_256_PCR0 OR SM3_256_PCR1 OR SM3_256_PCR2 OR SM3_256_PCR3 OR SM3_256_PCR4 OR SM3_256_PCR5 OR SM3_256_PCR6 OR SM3_256_PCR7)",
+      "Clauses": [
+        {
+          "Field": "PCRs",
+          "Operation": "ContainsKey",
+          "Label": "ANY_SM3_256",
+          "Data": [ "(Sm3256, 0)" ]
+        },
+        {
+          "Field": "PCRs.(Sm3256, 0)",
+          "Operation": "WasModified",
+          "Label": "SM3_256_PCR0"
+        },
+        {
+          "Field": "PCRs.(Sm3256, 1)",
+          "Operation": "WasModified",
+          "Label": "SM3_256_PCR1"
+        },
+        {
+          "Field": "PCRs.(Sm3256, 2)",
+          "Operation": "WasModified",
+          "Label": "SM3_256_PCR2"
+        },
+        {
+          "Field": "PCRs.(Sm3256, 3)",
+          "Operation": "WasModified",
+          "Label": "SM3_256_PCR3"
+        },
+        {
+          "Field": "PCRs.(Sm3256, 4)",
+          "Operation": "WasModified",
+          "Label": "SM3_256_PCR4"
+        },
+        {
+          "Field": "PCRs.(Sm3256, 5)",
+          "Operation": "WasModified",
+          "Label": "SM3_256_PCR5"
+        },
+        {
+          "Field": "PCRs.(Sm3256, 6)",
+          "Operation": "WasModified",
+          "Label": "SM3_256_PCR6"
+        },
+        {
+          "Field": "PCRs.(Sm3256, 7)",
+          "Operation": "WasModified",
+          "Label": "SM3_256_PCR7"
+        }
+      ]
+    },
+    {
+      "Name": "Group Policy Modified",
+      "Description": "These registry keys track group policy history and modification may indicate a change in group policy.",
+      "Flag": "WARNING",
+      "Platforms": [
+        "WINDOWS"
+      ],
+      "ResultType": "REGISTRY",
+      "Expression": "SYSTEM_POLICY OR USER_POLICY",
+      "Clauses": [
+        {
+          "Field": "Key",
+          "Operation": "StartsWith",
+          "Label": "SYSTEM_POLICY",
+          "Data": [
+            "HKEY_LOCAL_MACHINE\\\\Software\\Microsoft\\Windows\\CurrentVersion\\Group Policy\\History"
+          ]
+        },
+        {
+          "Field": "Key",
+          "Operation": "StartsWith",
+          "Label": "USER_POLICY",
+          "Data": [
+            "HKEY_CURRENT_USER\\\\Software\\Microsoft\\Windows\\CurrentVersion\\Group Policy\\History"
+          ]
+        }
+      ]
+    }
+  ],
+  "DefaultLevels": {
+    "PORT": "INFORMATION",
+    "FILE": "DEBUG",
+    "SERVICE": "INFORMATION",
+    "CERTIFICATE": "INFORMATION",
+    "USER": "INFORMATION",
+    "REGISTRY": "DEBUG",
+    "FIREWALL": "INFORMATION",
+    "COM": "INFORMATION",
+    "LOG": "DEBUG",
+    "TPM": "INFORMATION",
+    "KEY": "INFORMATION",
+    "PROCESS": "INFORMATION",
+    "DRIVER": "INFORMATION",
+    "WIFI": "INFORMATION",
+    "FILEMONITOR": "DEBUG"
+  }
+}
