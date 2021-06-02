@@ -1,8 +1,0 @@
-<resultSetViewers>
-
-	<resultSetViewer>
-		<class>dpf.mt.gpinf.mapas.impl.MapaViewer</class>
-	</resultSetViewer>
-
-</resultSetViewers>
-
