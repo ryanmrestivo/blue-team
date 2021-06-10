@@ -1,0 +1,117 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Bad Type Cast Exception Class Implementation
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Copyright 1987-2017 PARMAVEX SERVICES
+//
+// Licensed under the European Union Public Licence (EUPL), Version 1.1 or -
+// as soon they will be approved by the European Commission - subsequent
+// versions of the EUPL (the "Licence"). You may not use this work except in
+// compliance with the Licence. You may obtain a copy of the Licence at:
+//
+// http://ec.europa.eu/idabc/eupl
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the Licence is distributed on an "AS IS" basis,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the Licence for the specific language governing permissions and
+// limitations under the Licence. This source code is free software. It
+// must not be sold, leased, rented, sub-licensed or used for any form of
+// monetary recompense whatsoever. This notice must not be removed or altered
+// from this source distribution.
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Remarks
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Include Files
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 1. Own Interface
+#include "PxsBase/Header Files/BadCastException.h"
+
+// 2. C System Files
+
+// 3. C++ System Files
+
+// 4. Other Libraries
+
+// 5. This Project
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Default constructor
+BadCastException::BadCastException()
+                 :Exception( PXS_ERROR_TYPE_SYSTEM,
+                             PXS_ERROR_BAD_TYPE_CAST,
+                             nullptr,
+                             nullptr )
+{
+}
+
+// Constructor with the throwing method/function
+BadCastException::BadCastException( const char* pszFunction )
+                 :Exception( PXS_ERROR_TYPE_APPLICATION,
+                             PXS_ERROR_BAD_TYPE_CAST,
+                             nullptr,
+                             pszFunction )
+{
+}
+
+// Copy constructor
+BadCastException::BadCastException( const BadCastException& oBadCast )
+                 :Exception( PXS_ERROR_TYPE_SYSTEM,
+                             PXS_ERROR_BAD_TYPE_CAST,
+                             nullptr,
+                             nullptr )
+{
+    *this = oBadCast;
+}
+
+// Destructor - do not throw any exceptions
+BadCastException::~BadCastException()
+{
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Operators
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Assignment operator
+BadCastException& BadCastException::operator= (const BadCastException& oBadCast)
+{
+    if ( this == &oBadCast ) return *this;
+
+    // Base class
+    Exception::operator= ( oBadCast );
+
+    m_uErrorCode  = oBadCast.m_uErrorCode;
+    m_uErrorType  = oBadCast.m_uErrorType;
+    m_CrashString = oBadCast.m_CrashString;
+    m_Description = oBadCast.m_Description;
+    m_Details     = oBadCast.m_Details;
+    m_Message     = oBadCast.m_Message;
+
+    return *this;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Public Methods
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Protected Methods
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Private Methods
+///////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Header Files\AuditData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\AuditDatabase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\AuditRecord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\CommunicationPortInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\Ddk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\DeviceInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\DiskInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\DisplayInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\DriveInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\EventLogInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\GroupUserInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\KerberosTicketInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\NtServiceInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\ObjectPermissionInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\OdbcInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\OpenNetworkPortInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\PeripheralInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\PrinterInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\ProcessInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\SecurityInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\SmbiosInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\SoftwareInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\TaskSchedulerInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\TcpIpInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\WindowsFirewallInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\WindowsNetworkInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\WinAudit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\WellKnowPortsMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\CpuInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\WinAuditFrame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\AuditThreadParameter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\OdbcExportDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\ConfigurationSettings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\DatabaseAdministrationDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\WinAuditConfigDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\AccessDatabase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\OdbcDatabase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\Odbc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\OdbcRecordSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\EventLogRecord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\WindowsInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\AuditThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source Files\AuditData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\AuditDatabase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\AuditRecord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\CommunicationPortInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\DeviceInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\DisplayInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\DriveInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\EventLogInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\GroupUserInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\KerberosTicketInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\NtServiceInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\ObjectPermissionInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\OdbcInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\OpenNetworkPortInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\PeripheralInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\PrinterInfomation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\ProcessInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\SecurityInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\SmbiosInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\SoftwareInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\TaskSchedulerInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\TcpIpInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\WindowsFirewallInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\WindowsNetworkInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\DiskInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\CpuInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\WinAuditFrame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\WinAuditGlobals.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\AuditThreadParameter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\OdbcExportDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\ConfigurationSettings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\DatabaseAdministrationDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\WinAuditConfigDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\AccessDatabase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\OdbcRecordSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\Odbc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\OdbcDatabase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\EventLogRecord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\WindowsInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\AuditThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource Files\winaudit_en.txt" />
+    <None Include="Resource Files\save_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\close_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_be_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_br_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_cz_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_da_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_de_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_es_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_fi_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_fr_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_gb_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_gr_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_id_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_il_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_it_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_jp_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_nl_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_pl_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_pt_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_ru_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_sk_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_th_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_tr_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\log_file_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\not_saved_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\winaudit_freeware.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\close_on_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\tree_node_open.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\tree_leaf.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\tree_node_closed.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\winaudit_help.rtf" />
+    <None Include="Resource Files\winaudit_id.txt" />
+    <None Include="Resource Files\winaudit_zh_tw.txt" />
+    <None Include="Resource Files\winaudit_cs.txt" />
+    <None Include="Resource Files\winaudit_da.txt" />
+    <None Include="Resource Files\winaudit_de.txt" />
+    <None Include="Resource Files\winaudit_es.txt" />
+    <None Include="Resource Files\winaudit_fi.txt" />
+    <None Include="Resource Files\winaudit_hu.txt" />
+    <None Include="Resource Files\winaudit_it.txt" />
+    <None Include="Resource Files\winaudit_jp.txt" />
+    <None Include="Resource Files\winaudit_ko.txt" />
+    <None Include="Resource Files\winaudit_nl.txt" />
+    <None Include="Resource Files\winaudit_pl.txt" />
+    <None Include="Resource Files\winaudit_ru.txt" />
+    <None Include="Resource Files\winaudit_sk.txt" />
+    <None Include="Resource Files\winaudit_sr.txt" />
+    <None Include="Resource Files\winaudit_th.txt" />
+    <None Include="Resource Files\winaudit_tr.txt" />
+    <None Include="Resource Files\flag_kr_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_rs_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_hu_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\flag_tw_16.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource Files\winaudit_el.txt" />
+    <None Include="Resource Files\winaudit_he.txt" />
+    <None Include="Resource Files\winaudit_fr_fr.txt" />
+    <None Include="Resource Files\winaudit_fr_be.txt" />
+    <None Include="Resource Files\winaudit_pt_br.txt" />
+    <None Include="Resource Files\winaudit_pt_pt.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource Files\winaudit.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

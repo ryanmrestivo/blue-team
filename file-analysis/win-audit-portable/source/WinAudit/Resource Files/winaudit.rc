@@ -1,0 +1,156 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// WinAudit Resource File
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Include Files
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 1. Own Interface
+
+// 2. C System Files
+#include <VerRsrc.h>
+
+// 3. C++ System Files
+
+// 4. Other Libraries
+#include "../../PxsBase/Resource Files/pxsbase.rc"
+
+// 5. This Project
+#include "WinAudit/Header Files/Resources.h"
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Version Information
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+#define VER_FILEVERSION             3,2,1,0
+#define VER_FILEVERSION_STR         "3.2.1.0\0"
+
+#if defined ( _WIN64 )
+    #define VER_FILE_DESCRIPTION    "Parmavex WinAudit Freeware 64-Bit\0"
+    #define VER_ORIGINAL_FILE_NAME  "WinAudit64.exe\0"
+#else
+    #define VER_FILE_DESCRIPTION    "Parmavex WinAudit Freeware\0"
+    #define VER_ORIGINAL_FILE_NAME  "WinAudit.exe\0"
+#endif
+
+// See VERSIONINFO Resource
+1 VERSIONINFO
+  FILEVERSION     VER_FILEVERSION
+  PRODUCTVERSION  VER_FILEVERSION
+  FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+  #if DEBUG
+  FILEFLAGS       VS_FF_DEBUG
+  #endif
+  FILEOS          VOS_NT_WINDOWS32
+  FILETYPE        VFT_APP
+  FILESUBTYPE     VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080904E4"
+        BEGIN
+            VALUE "Comments",         "Freeware Software - not for sale, lease, "
+                                      "rent, sub-license or for any monetary "
+                                      "recompense whatsoever.\0"
+            VALUE "CompanyName",      "Parmavex Services\0"
+            VALUE "FileDescription",  VER_FILE_DESCRIPTION
+            VALUE "FileVersion",      VER_FILEVERSION_STR
+            VALUE "InternalName",     "Parmavex WinAudit Freeware\0"
+            VALUE "LegalCopyright",   "Copyright (c) Parmavex Services 1987 - "
+                                      "2017, all rights reserved.\0"
+            VALUE "LegalTrademarks",  "\0"
+            VALUE "OriginalFilename", VER_ORIGINAL_FILE_NAME
+            VALUE "PrivateBuild",     "\0"
+            VALUE "ProductName",      "Parmavex WinAudit Freeware\0"
+            VALUE "ProductVersion",   VER_FILEVERSION_STR
+            VALUE "SpecialBuild",     "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x809, 1252
+    END
+END
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Icons
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+PXS_IDI_WINAUDIT_FREEWARE   ICON    DISCARDABLE     "winaudit_freeware.ico"
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Raw Data
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Language files - ISO 639-1
+IDR_STRINGS_WINAUDIT_CS     10  DISCARDABLE "winaudit_cs.txt"       // Czech
+IDR_STRINGS_WINAUDIT_DA     10  DISCARDABLE "winaudit_da.txt"       // Danish
+IDR_STRINGS_WINAUDIT_DE     10  DISCARDABLE "winaudit_de.txt"       // German
+IDR_STRINGS_WINAUDIT_EL     10  DISCARDABLE "winaudit_el.txt"       // Greek
+IDR_STRINGS_WINAUDIT_ES     10  DISCARDABLE "winaudit_es.txt"       // Spanish
+IDR_STRINGS_WINAUDIT_EN     10  DISCARDABLE "winaudit_en.txt"       // English (UK)
+IDR_STRINGS_WINAUDIT_FI     10  DISCARDABLE "winaudit_fi.txt"       // Finnish
+IDR_STRINGS_WINAUDIT_FR_BE  10  DISCARDABLE "winaudit_fr_be.txt"    // French (Belgium)
+IDR_STRINGS_WINAUDIT_FR_FR  10  DISCARDABLE "winaudit_fr_fr.txt"    // French (France)
+IDR_STRINGS_WINAUDIT_HE     10  DISCARDABLE "winaudit_he.txt"       // Hebrew
+IDR_STRINGS_WINAUDIT_HU     10  DISCARDABLE "winaudit_hu.txt"       // Hungarian
+IDR_STRINGS_WINAUDIT_ID     10  DISCARDABLE "winaudit_id.txt"       // Indonesian
+IDR_STRINGS_WINAUDIT_IT     10  DISCARDABLE "winaudit_it.txt"       // Italian
+IDR_STRINGS_WINAUDIT_JP     10  DISCARDABLE "winaudit_jp.txt"       // Japanese
+IDR_STRINGS_WINAUDIT_KO     10  DISCARDABLE "winaudit_ko.txt"       // Korean
+IDR_STRINGS_WINAUDIT_NL     10  DISCARDABLE "winaudit_nl.txt"       // Dutch
+IDR_STRINGS_WINAUDIT_PL     10  DISCARDABLE "winaudit_pl.txt"       // Polish
+IDR_STRINGS_WINAUDIT_PT_BR  10  DISCARDABLE "winaudit_pt_br.txt"    // Portugese (Brazil)
+IDR_STRINGS_WINAUDIT_PT_PT  10  DISCARDABLE "winaudit_pt_pt.txt"    // Portuguese (Portugal)
+IDR_STRINGS_WINAUDIT_RU     10  DISCARDABLE "winaudit_ru.txt"       // Russian
+IDR_STRINGS_WINAUDIT_SR     10  DISCARDABLE "winaudit_sr.txt"       // Serbian
+IDR_STRINGS_WINAUDIT_SK     10  DISCARDABLE "winaudit_sk.txt"       // Slovakian
+IDR_STRINGS_WINAUDIT_TH     10  DISCARDABLE "winaudit_th.txt"       // Thai
+IDR_STRINGS_WINAUDIT_TR     10  DISCARDABLE "winaudit_tr.txt"       // Turkish
+IDR_STRINGS_WINAUDIT_ZH_TW  10  DISCARDABLE "winaudit_zh_tw.txt"    // Chinese Traditional
+
+// Help
+IDR_WINAUDIT_HELP_RTF       10  DISCARDABLE "winaudit_help.rtf"
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Bitmaps
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+IDB_CLOSE_16            BITMAP  DISCARDABLE     "close_16.bmp"
+IDB_CLOSE_ON_16         BITMAP  DISCARDABLE     "close_on_16.bmp"
+IDB_LOG_FILE_16         BITMAP  DISCARDABLE     "log_file_16.bmp"
+IDB_NOT_SAVED_16        BITMAP  DISCARDABLE     "not_saved_16.bmp"
+IDB_SAVE_16             BITMAP  DISCARDABLE     "save_16.bmp"
+IDB_TREE_NODE_CLOSED    BITMAP  DISCARDABLE     "tree_node_closed.bmp"
+IDB_TREE_NODE_OPEN      BITMAP  DISCARDABLE     "tree_node_open.bmp"
+IDB_TREE_LEAF           BITMAP  DISCARDABLE     "tree_leaf.bmp"
+
+// Flags
+IDB_FLAG_BE_16          BITMAP  DISCARDABLE     "flag_be_16.bmp"    // Belgium
+IDB_FLAG_BR_16          BITMAP  DISCARDABLE     "flag_br_16.bmp"    // Brazil
+IDB_FLAG_CZ_16          BITMAP  DISCARDABLE     "flag_cz_16.bmp"    // Czech Republic
+IDB_FLAG_DA_16          BITMAP  DISCARDABLE     "flag_da_16.bmp"    // Denmark
+IDB_FLAG_DE_16          BITMAP  DISCARDABLE     "flag_de_16.bmp"    // Germany
+IDB_FLAG_ES_16          BITMAP  DISCARDABLE     "flag_es_16.bmp"    // Spain
+IDB_FLAG_FI_16          BITMAP  DISCARDABLE     "flag_fi_16.bmp"    // Finland
+IDB_FLAG_FR_16          BITMAP  DISCARDABLE     "flag_fr_16.bmp"    // France
+IDB_FLAG_GB_16          BITMAP  DISCARDABLE     "flag_gb_16.bmp"    // UK
+IDB_FLAG_GR_16          BITMAP  DISCARDABLE     "flag_gr_16.bmp"    // Greece
+IDB_FLAG_HU_16          BITMAP  DISCARDABLE     "flag_hu_16.bmp"    // Hungary
+IDB_FLAG_KR_16          BITMAP  DISCARDABLE     "flag_kr_16.bmp"    // Korea, Republic of (South)
+IDB_FLAG_JP_16          BITMAP  DISCARDABLE     "flag_jp_16.bmp"    // Japan
+IDB_FLAG_NL_16          BITMAP  DISCARDABLE     "flag_nl_16.bmp"    // Netherlands
+IDB_FLAG_ID_16          BITMAP  DISCARDABLE     "flag_id_16.bmp"    // Indonesia
+IDB_FLAG_IL_16          BITMAP  DISCARDABLE     "flag_il_16.bmp"    // Israel
+IDB_FLAG_IT_16          BITMAP  DISCARDABLE     "flag_it_16.bmp"    // Italy
+IDB_FLAG_PL_16          BITMAP  DISCARDABLE     "flag_pl_16.bmp"    // Poland
+IDB_FLAG_PT_16          BITMAP  DISCARDABLE     "flag_pt_16.bmp"    // Portugal
+IDB_FLAG_RU_16          BITMAP  DISCARDABLE     "flag_ru_16.bmp"    // Russian Federation
+IDB_FLAG_RS_16          BITMAP  DISCARDABLE     "flag_rs_16.bmp"    // Serbia
+IDB_FLAG_SK_16          BITMAP  DISCARDABLE     "flag_sk_16.bmp"    // Slovakia
+IDB_FLAG_TH_16          BITMAP  DISCARDABLE     "flag_th_16.bmp"    // Thailand
+IDB_FLAG_TR_16          BITMAP  DISCARDABLE     "flag_tr_16.bmp"    // Turkey
+IDB_FLAG_TW_16          BITMAP  DISCARDABLE     "flag_tw_16.bmp"    // Taiwan

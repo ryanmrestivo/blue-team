@@ -1,0 +1,73 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// PxsBase Resource File
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Include Files
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 1. Own Interface
+
+// 2. C System Files
+#include <VerRsrc.h>
+
+// 3. C++ System Files
+
+// 4. Other Libraries
+
+// 5. This Project
+#include "../Header Files/Resources.h"
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Version Information
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Icons
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Raw Data
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Language files - ISO 639-1
+IDR_PXSBASE_STRINGS_CS    10 DISCARDABLE "pxsbase_cs.txt"     // Czech
+IDR_PXSBASE_STRINGS_DA    10 DISCARDABLE "pxsbase_da.txt"     // Danish
+IDR_PXSBASE_STRINGS_DE    10 DISCARDABLE "pxsbase_de.txt"     // German
+IDR_PXSBASE_STRINGS_EL    10 DISCARDABLE "pxsbase_el.txt"     // Greek
+IDR_PXSBASE_STRINGS_ES    10 DISCARDABLE "pxsbase_es.txt"     // Spanish
+IDR_PXSBASE_STRINGS_EN    10 DISCARDABLE "pxsbase_en.txt"     // English (UK)
+IDR_PXSBASE_STRINGS_FI    10 DISCARDABLE "pxsbase_fi.txt"     // Finnish
+IDR_PXSBASE_STRINGS_FR_BE 10 DISCARDABLE "pxsbase_fr_be.txt"  // French (Belgium)
+IDR_PXSBASE_STRINGS_FR_FR 10 DISCARDABLE "pxsbase_fr_fr.txt"  // French (France)
+IDR_PXSBASE_STRINGS_HE    10 DISCARDABLE "pxsbase_he.txt"     // Hebrew
+IDR_PXSBASE_STRINGS_HU    10 DISCARDABLE "pxsbase_hu.txt"     // Hungarian
+IDR_PXSBASE_STRINGS_ID    10 DISCARDABLE "pxsbase_id.txt"     // Indonesian
+IDR_PXSBASE_STRINGS_IT    10 DISCARDABLE "pxsbase_it.txt"     // Italian
+IDR_PXSBASE_STRINGS_JP    10 DISCARDABLE "pxsbase_jp.txt"     // Japanese
+IDR_PXSBASE_STRINGS_KO    10 DISCARDABLE "pxsbase_ko.txt"     // Korean
+IDR_PXSBASE_STRINGS_NL    10 DISCARDABLE "pxsbase_nl.txt"     // Dutch
+IDR_PXSBASE_STRINGS_PL    10 DISCARDABLE "pxsbase_pl.txt"     // Polish
+IDR_PXSBASE_STRINGS_PT_BR 10 DISCARDABLE "pxsbase_pt_br.txt"  // Portugese (Brazil)
+IDR_PXSBASE_STRINGS_PT_PT 10 DISCARDABLE "pxsbase_pt_pt.txt"  // Portuguese (Portugal)
+IDR_PXSBASE_STRINGS_RU    10 DISCARDABLE "pxsbase_ru.txt"     // Russian
+IDR_PXSBASE_STRINGS_SR    10 DISCARDABLE "pxsbase_sr.txt"     // Serbian
+IDR_PXSBASE_STRINGS_SK    10 DISCARDABLE "pxsbase_sk.txt"     // Slovakian
+IDR_PXSBASE_STRINGS_TH    10 DISCARDABLE "pxsbase_th.txt"     // Thai
+IDR_PXSBASE_STRINGS_TR    10 DISCARDABLE "pxsbase_tr.txt"     // Turkish
+IDR_PXSBASE_STRINGS_ZH_TW 10 DISCARDABLE "pxsbase_zh_tw.txt"  // Chinese Traditional
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Help
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Bitmaps
+///////////////////////////////////////////////////////////////////////////////////////////////////
+

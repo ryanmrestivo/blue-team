@@ -1,11 +1,10 @@
-﻿<xml version="1.0" encoding="utf-8" bl="1">
-  <!--
-  signatures.xml file is part of pestudio (www.winitor.com)
-  It contains the file signatures detected by pestudio.
-	
-	Large part of this file originates from: http://handlers.sans.org/jclausing/userdb.txt
-	-->
+﻿<!--
+This file is part of the pestudio solution (www.winitor.com).
 
+This file may not be used outside of the context of pestudio. 
+Any usage of this file outside of the context of pestudio (e.g. in third-party application) must be explicitely authorized.
+-->
+<xml version="1.0" encoding="utf-8" bl="1">
   <sigs>
     <sig id="100" bl="1">
       <text>!EP (ExE Pack) V1.0 -> Elite Coding Group</text>

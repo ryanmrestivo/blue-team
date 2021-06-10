@@ -1,0 +1,118 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Invalid Function Call Exception Class Implementation
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Copyright 1987-2017 PARMAVEX SERVICES
+//
+// Licensed under the European Union Public Licence (EUPL), Version 1.1 or -
+// as soon they will be approved by the European Commission - subsequent
+// versions of the EUPL (the "Licence"). You may not use this work except in
+// compliance with the Licence. You may obtain a copy of the Licence at:
+//
+// http://ec.europa.eu/idabc/eupl
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the Licence is distributed on an "AS IS" basis,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the Licence for the specific language governing permissions and
+// limitations under the Licence. This source code is free software. It
+// must not be sold, leased, rented, sub-licensed or used for any form of
+// monetary recompense whatsoever. This notice must not be removed or altered
+// from this source distribution.
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Remarks
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Include Files
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 1. Own Interface
+#include "PxsBase/Header Files/FunctionException.h"
+
+// 2. C System Files
+
+// 3. C++ System Files
+
+// 4. Other Libraries
+
+// 5. This Project
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Default constructor
+FunctionException::FunctionException()
+                  :Exception( PXS_ERROR_TYPE_SYSTEM,
+                              ERROR_INVALID_FUNCTION,
+                              nullptr,
+                              nullptr )
+{
+}
+
+// Constructor with additional details and the throwing method/function
+FunctionException::FunctionException( LPCWSTR pszDetails, const char* pszFunction )
+                  :Exception( PXS_ERROR_TYPE_SYSTEM,
+                              ERROR_INVALID_FUNCTION,
+                              pszDetails,
+                              pszFunction )
+{
+}
+
+// Copy constructor
+FunctionException::FunctionException( const FunctionException& oFunction)
+                  :Exception( PXS_ERROR_TYPE_SYSTEM,
+                              ERROR_INVALID_FUNCTION,
+                              nullptr,
+                              nullptr )
+{
+    *this = oFunction;
+}
+
+// Destructor
+FunctionException::~FunctionException()
+{
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Operators
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Assignment operator
+FunctionException& FunctionException::operator= (
+                                          const FunctionException& oFunction )
+{
+    if ( this == &oFunction ) return *this;
+
+    // Base class
+    Exception::operator= ( oFunction );
+
+    m_uErrorCode  = oFunction.m_uErrorCode;
+    m_uErrorType  = oFunction.m_uErrorType;
+    m_CrashString = oFunction.m_CrashString;
+    m_Description = oFunction.m_Description;
+    m_Details     = oFunction.m_Details;
+    m_Message     = oFunction.m_Message;
+
+    return *this;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Public Methods
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Protected Methods
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Private Methods
+///////////////////////////////////////////////////////////////////////////////////////////////////

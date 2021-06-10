@@ -1,0 +1,272 @@
+<!--
+This file is part of the pestudio solution (www.winitor.com).
+
+This file may not be used outside of the context of pestudio. 
+Any usage of this file outside of the context of pestudio (e.g. in third-party application) must be explicitely authorized.
+-->
+<xml version="1.0" encoding="utf-8" md5="">
+  <mitre url="https://attack.mitre.org">
+
+    <tactics url="tactics">
+      <!-- based on https://attack.mitre.org/tactics/ -->
+      <ta id="0001" de="The adversary is trying to get into your network.">Initial Access</ta>
+      <ta id="0002" de="The adversary is trying to run malicious code.">Execution</ta>
+      <ta id="0003" de="The adversary is trying to maintain their foothold.">Persistence</ta>
+      <ta id="0004" de="The adversary is trying to gain higher-level permissions.">Privilege Escalation</ta>
+      <ta id="0005" de="The adversary is trying to avoid being detected.">Defense Evasion</ta>
+      <ta id="0006" de="The adversary is trying to steal account names and passwords.">Credential Access</ta>
+      <ta id="0007" de="The adversary is trying to figure out your environment.">Discovery</ta>
+      <ta id="0008" de="The adversary is trying to move through your environment.">Lateral Movement</ta>
+      <ta id="0009" de="The adversary is trying to gather data of interest to their goal.">Collection</ta>
+      <ta id="0010" de="The adversary is trying to steal data.">Exfiltration</ta>
+      <ta id="0011" de="The adversary is trying to communicate with compromised systems to control them.">Command and Control</ta>
+      <ta id="0040" de="The adversary is trying to manipulate, interrupt, or destroy your systems and data.">Impact</ta>
+    </tactics>
+
+    <techniques url="techniques">
+      <!-- based on https://attack.mitre.org/techniques/ -->
+      <ti id="1001" ta="0011">Data Obfuscation</ti>
+      <ti id="1002" ta="0010">Data Compressed</ti>
+      <ti id="1003" ta="0006">Credential Dumping</ti>
+      <ti id="1004" ta="0003">Winlogon Helper DLL</ti>
+      <ti id="1005" ta="0009">Data from Local System</ti>
+      <ti id="1006" ta="0005">File System Logical Offsets</ti>
+      <ti id="1007" ta="0007">System Service Discovery</ti>
+      <ti id="1008" ta="0011">Fallback Channels</ti>
+      <ti id="1009" ta="0005">Binary Padding</ti>
+      <ti id="1010" ta="0007">Application Window Discovery</ti>
+      <ti id="1011" ta="0010">Exfiltration Over Other Network Medium</ti>
+      <ti id="1012" ta="0007">Query Registry</ti>
+      <ti id="1013" ta="0003">Port Monitors</ti>
+      <ti id="1014" ta="0005">Rootkit</ti>
+      <ti id="1015" ta="0003">Accessibility Features</ti>
+      <ti id="1016" ta="0007">System Network Configuration Discovery</ti>
+      <ti id="1017" ta="0008">Application Deployment Software</ti>
+      <ti id="1018" ta="0007">Remote System Discovery</ti>
+      <ti id="1019" ta="0003">System Firmware</ti>
+      <ti id="1020" ta="0010">Automated Exfiltration</ti>
+      <ti id="1021" ta="0008">Remote Services</ti>
+      <ti id="1022" ta="0010">Data Encrypted</ti>
+      <ti id="1023" ta="0003">Shortcut Modification</ti>
+      <ti id="1024" ta="0011">Custom Cryptographic Protocol</ti>
+      <ti id="1025" ta="0009">Data from Removable Media</ti>
+      <ti id="1026" ta="0009">Multiband Communication</ti>
+      <ti id="1027" ta="0005">Obfuscated Files or Information</ti>
+      <ti id="1028" ta="0002">Windows Remote Management</ti>
+      <ti id="1029" ta="0010">Scheduled Transfer</ti>
+      <ti id="1030" ta="0010">Data Transfer Size Limits</ti>
+      <ti id="1031" ta="0003">Modify Existing Service</ti>
+      <ti id="1032" ta="0011">Standard Cryptographic Protocol</ti>
+      <ti id="1033" ta="0007">System Owner/User Discovery</ti>
+      <ti id="1034" ta="0003">Path Interception</ti>
+      <ti id="1035" ta="0002">Service Execution</ti>
+      <ti id="1036" ta="0005">Masquerading</ti>
+      <ti id="1037" ta="0008">Logon Scripts</ti>
+      <ti id="1038" ta="0003">DLL Search Order Hijacking</ti>
+      <ti id="1039" ta="0009">Data from Network Shared Drive</ti>
+      <ti id="1040" ta="0006">Network Sniffing</ti>
+      <ti id="1041" ta="0010">Exfiltration Over Command and Control Channel</ti>
+      <ti id="1042" ta="0003">Change Default File Association</ti>
+      <ti id="1043" ta="0011">Commonly Used Port</ti>
+      <ti id="1044" ta="0003">File System Permissions Weakness</ti>
+      <ti id="1045" ta="0005">Software Packing</ti>
+      <ti id="1046" ta="0007">Network Service Scanning</ti>
+      <ti id="1047" ta="0002">Windows Management Instrumentation</ti>
+      <ti id="1048" ta="0010">Exfiltration Over Alternative Protocol</ti>
+      <ti id="1049" ta="0007">System Network Connections Discovery</ti>
+      <ti id="1050" ta="0003">New Service</ti>
+      <ti id="1051" ta="0008">Shared Webroot</ti>
+      <ti id="1052" ta="0010">Exfiltration Over Physical Medium</ti>
+      <ti id="1053" ta="0002">Scheduled Task</ti>
+      <ti id="1054" ta="0005">Indicator Blocking</ti>
+      <ti id="1055" ta="0005">Process Injection</ti>
+      <ti id="1056" ta="0009">Input Capture</ti>
+      <ti id="1057" ta="0007">Process Discovery</ti>
+      <ti id="1058" ta="0003">Service Registry Permissions Weakness</ti>
+      <ti id="1059" ta="0002">Command-Line Interface</ti>
+      <ti id="1060" ta="0003">Registry Run Keys / Startup Folder</ti>
+      <ti id="1061" ta="0002">Graphical User Interface</ti>
+      <ti id="1062" ta="0003">Hypervisor</ti>
+      <ti id="1063" ta="0007">Security Software Discovery</ti>
+      <ti id="1064" ta="0005">Scripting</ti>
+      <ti id="1065" ta="0011">Uncommonly Used Port</ti>
+      <ti id="1066" ta="0005">Indicator Removal from Tools</ti>
+      <ti id="1067" ta="0003">Bootkit</ti>
+      <ti id="1068" ta="0004">Exploitation for Privilege Escalation</ti>
+      <ti id="1069" ta="0007">Permission Groups Discovery</ti>
+      <ti id="1070" ta="0005">Indicator Removal on Host</ti>
+      <ti id="1071" ta="0011">Standard Application Layer Protocol</ti>
+      <ti id="1072" ta="0002">Third-party Software</ti>
+      <ti id="1073" ta="0005">DLL Side-Loading</ti>
+      <ti id="1074" ta="0009">Data Staged</ti>
+      <ti id="1075" ta="0008">Pass the Hash</ti>
+      <ti id="1076" ta="0008">Remote Desktop Protocol</ti>
+      <ti id="1077" ta="0008">Windows Admin Shares</ti>
+      <ti id="1078" ta="0005">Valid Accounts</ti>
+      <ti id="1079" ta="0011">Multilayer Encryption</ti>
+      <ti id="1080" ta="0008">Taint Shared Content</ti>
+      <ti id="1081" ta="0006">Credentials in Files</ti>
+      <ti id="1082" ta="0007">System Information Discovery</ti>
+      <ti id="1083" ta="0007">File and Directory Discovery</ti>
+      <ti id="1084" ta="0003">Windows Management Instrumentation Event Subscription</ti>
+      <ti id="1085" ta="0005">Rundll32</ti>
+      <ti id="1086" ta="0002">PowerShell</ti>
+      <ti id="1087" ta="0007">Account Discovery</ti>
+      <ti id="1088" ta="0005">Bypass User Account Control</ti>
+      <ti id="1089" ta="0005">Disabling Security Tools</ti>
+      <ti id="1090" ta="0011">Connection Proxy</ti>
+      <ti id="1091" ta="0001">Replication Through Removable Media</ti>
+      <ti id="1092" ta="0011">Communication Through Removable Media</ti>
+      <ti id="1093" ta="0005">Process Hollowing</ti>
+      <ti id="1094" ta="0011">Custom Command and Control Protocol</ti>
+      <ti id="1095" ta="0011">Standard Non-Application Layer Protocol</ti>
+      <ti id="1096" ta="0005">NTFS File Attributes</ti>
+      <ti id="1097" ta="0008">Pass the Ticket</ti>
+      <ti id="1098" ta="0006">Account Manipulation</ti>
+      <ti id="1099" ta="0005">Timestomp</ti>
+      <ti id="1100" ta="0003">Web Shell</ti>
+      <ti id="1101" ta="0003">Security Support Provider</ti>
+      <ti id="1102" ta="0011">Web Service</ti>
+      <ti id="1103" ta="0003">AppInit DLLs</ti>
+      <ti id="1104" ta="0011">Multi-Stage Channels</ti>
+      <ti id="1105" ta="0011">Remote File Copy</ti>
+      <ti id="1106" ta="0002">Execution through API</ti>
+      <ti id="1107" ta="0005">File Deletion</ti>
+      <ti id="1108" ta="0005">Redundant Access</ti>
+      <ti id="1109" ta="0005">Component Firmware</ti>
+      <ti id="1110" ta="0006">Brute Force</ti>
+      <ti id="1111" ta="0006">Two-Factor Authentication Interception</ti>
+      <ti id="1112" ta="0005">Modify Registry</ti>
+      <ti id="1113" ta="0009">Screen Capture</ti>
+      <ti id="1114" ta="0009">Email Collection</ti>
+      <ti id="1115" ta="0009">Clipboard Data</ti>
+      <ti id="1116" ta="0005">Code Signing</ti>
+      <ti id="1117" ta="0005">Regsvr32</ti>
+      <ti id="1118" ta="0005">InstallUtil</ti>
+      <ti id="1119" ta="0009">Automated Collection</ti>
+      <ti id="1120" ta="0007">Peripheral Device Discovery</ti>
+      <ti id="1121" ta="0005">Regsvcs/Regasm</ti>
+      <ti id="1122" ta="0005">Component Object Model Hijacking</ti>
+      <ti id="1123" ta="0009">Audio Capture</ti>
+      <ti id="1124" ta="0007">System Time Discovery</ti>
+      <ti id="1125" ta="0009">Video Capture</ti>
+      <ti id="1126" ta="0005">Network Share Connection Removal</ti>
+      <ti id="1127" ta="0005">Trusted Developer Utilities</ti>
+      <ti id="1128" ta="0003">Netsh Helper DLL</ti>
+      <ti id="1129" ta="0002">Execution through Module Load</ti>
+      <ti id="1130" ta="0005">Install Root Certificate</ti>
+      <ti id="1131" ta="0003">Authentication Package</ti>
+      <ti id="1132" ta="0011">Data Encoding</ti>
+      <ti id="1133" ta="0001">External Remote Services</ti>
+      <ti id="1134" ta="0005">Access Token Manipulation</ti>
+      <ti id="1135" ta="0007">Network Share Discovery</ti>
+      <ti id="1136" ta="0003">Create Account</ti>
+      <ti id="1137" ta="0003">Office Application Startup</ti>
+      <ti id="1138" ta="0003">Application Shimming</ti>
+      <ti id="1139" ta="0006">Bash History</ti>
+      <ti id="1140" ta="0005">Deobfuscate/Decode Files or Information</ti>
+      <ti id="1141" ta="0006">Input Prompt</ti>
+      <ti id="1142" ta="0006">Keychain</ti>
+      <ti id="1143" ta="0005">Hidden Window</ti>
+      <ti id="1144" ta="0005">Gatekeeper Bypass</ti>
+      <ti id="1145" ta="0006">Private Keys</ti>
+      <ti id="1146" ta="0005">Clear Command History</ti>
+      <ti id="1147" ta="0005">Hidden Users</ti>
+      <ti id="1148" ta="0005">HISTCONTROL</ti>
+      <ti id="1149" ta="0005">LC_MAIN Hijacking</ti>
+      <ti id="1150" ta="0005">Plist Modification</ti>
+      <ti id="1151" ta="0005">Space after Filename</ti>
+      <ti id="1152" ta="0005">Launchctl</ti>
+      <ti id="1153" ta="0002">Source</ti>
+      <ti id="1154" ta="0002">Trap</ti>
+      <ti id="1155" ta="0002">AppleScript</ti>
+      <ti id="1156" ta="0003">.bash_profile and .bashrc</ti>
+      <ti id="1157" ta="0003">Dylib Hijacking</ti>
+      <ti id="1158" ta="0005">Hidden Files and Directories</ti>
+      <ti id="1159" ta="0003">Launch Agent</ti>
+      <ti id="1160" ta="0003">Launch Daemon</ti>
+      <ti id="1161" ta="0003">LC_LOAD_DYLIB Addition</ti>
+      <ti id="1162" ta="0003">Login Item</ti>
+      <ti id="1168" ta="0003">Local Job Scheduling</ti>
+      <ti id="1169" ta="0004">Sudo</ti>
+      <ti id="1170" ta="0005">Mshta</ti>
+      <ti id="1171" ta="0006">LLMNR/NBT-NS Poisoning and Relay</ti>
+      <ti id="1172" ta="0011">Domain Fronting</ti>
+      <ti id="1173" ta="0002">Dynamic Data Exchange</ti>
+      <ti id="1174" ta="0006">Password Filter DLL</ti>
+      <ti id="1175" ta="0008">Distributed Component Object Model</ti>
+      <ti id="1176" ta="0003">Browser Extensions</ti>
+      <ti id="1177" ta="0002">LSASS Driver</ti>
+      <ti id="1178" ta="0001">SID-History Injection</ti>
+      <ti id="1179" ta="0003">Hooking</ti>
+      <ti id="1180" ta="0003">Screensaver</ti>
+      <ti id="1181" ta="0005">Extra Window Memory Injection</ti>
+      <ti id="1182" ta="0003">AppCert DLLs</ti>
+      <ti id="1183" ta="0004">Image File Execution Options Injection</ti>
+      <ti id="1184" ta="0008">SSH Hijacking</ti>
+      <ti id="1185" ta="0009">Man in the Browser</ti>
+      <ti id="1186" ta="0005">Process Doppelgaenging</ti>
+      <ti id="1187" ta="0006">Forced Authentication</ti>
+      <ti id="1188" ta="0011">Multi-hop Proxy</ti>
+      <ti id="1189" ta="0001">Drive-by Compromise</ti>
+      <ti id="1190" ta="0001">Exploit Public-Facing Application</ti>
+      <ti id="1191" ta="0005">CMSTP</ti>
+      <ti id="1192" ta="0001">Spearphishing Link</ti>
+      <ti id="1193" ta="0001">Spearphishing Attachment</ti>
+      <ti id="1194" ta="0001">Spearphishing via Service</ti>
+      <ti id="1195" ta="0001">Supply Chain Compromise</ti>
+      <ti id="1196" ta="0005">Control Panel Items</ti>
+      <ti id="1197" ta="0005">BITS Jobs</ti>
+      <ti id="1198" ta="0005">SIP and Trust Provider Hijacking</ti>
+      <ti id="1199" ta="0001">Trusted Relationship</ti>
+      <ti id="1200" ta="0001">Hardware Additions</ti>
+      <ti id="1201" ta="0007">Password Policy Discovery</ti>
+      <ti id="1202" ta="0005">Indirect Command Execution</ti>
+      <ti id="1203" ta="0002">Exploitation for Client Execution</ti>
+      <ti id="1204" ta="0002">User Execution</ti>
+      <ti id="1205" ta="0005">Port Knocking</ti>
+      <ti id="1206" ta="0004">Sudo Caching</ti>
+      <ti id="1207" ta="0005">DCShadow</ti>
+      <ti id="1208" ta="0006">Kerberoasting</ti>
+      <ti id="1209" ta="0003">Time Providers</ti>
+      <ti id="1210" ta="0008">Exploitation of Remote Services</ti>
+      <ti id="1211" ta="0005">Exploitation for Defense Evasion</ti>
+      <ti id="1212" ta="0006">Exploitation for Credential Access</ti>
+      <ti id="1213" ta="0009">Data from Information Repositories</ti>
+      <ti id="1214" ta="0006">Credentials in Registry</ti>
+      <ti id="1215" ta="0003">Kernel Modules and Extensions</ti>
+      <ti id="1216" ta="0005">Signed Script Proxy Execution</ti>
+      <ti id="1217" ta="0007">Browser Bookmark Discovery</ti>
+      <ti id="1218" ta="0005">Signed Binary Proxy Execution</ti>
+      <ti id="1219" ta="0011">Remote Access Tools</ti>
+      <ti id="1221" ta="0005">Template Injection</ti>
+      <ti id="1222" ta="0005">File Permissions Modification</ti>
+      <ti id="1223" ta="0005">Compiled HTML File</ti>
+      <ti id="1480" ta="0005">Execution Guardrails</ti>
+      <ti id="1482" ta="0007">Domain Trust Discovery</ti>
+      <ti id="1483" ta="0011">Domain Generation Algorithms</ti>
+      <ti id="1484" ta="0005">Group Policy Modification</ti>
+      <ti id="1485" ta="0040">Data Destruction</ti>
+      <ti id="1486" ta="0040">Data Encrypted for Impact</ti>
+      <ti id="1487" ta="0040">Disk Structure Wipe</ti>
+      <ti id="1488" ta="0040">Disk Content Wipe</ti>
+      <ti id="1489" ta="0040">Service Stop</ti>
+      <ti id="1490" ta="0040">Inhibit System Recovery</ti>
+      <ti id="1491" ta="0040">Defacement</ti>
+      <ti id="1492" ta="0040">Stored Data Manipulation</ti>
+      <ti id="1493" ta="0040">Transmitted Data Manipulation</ti>
+      <ti id="1494" ta="0040">Runtime Data Manipulation</ti>
+      <ti id="1495" ta="0040">Firmware Corruption</ti>
+      <ti id="1496" ta="0040">Resource Hijacking</ti>
+      <ti id="1497" ta="0005">Virtualization/Sandbox Evasion</ti>
+      <ti id="1498" ta="0040">Network Denial of Service</ti>
+      <ti id="1499" ta="0040">Endpoint Denial of Service</ti>
+      <ti id="1500" ta="0005">Compile After Delivery</ti>
+      <ti id="1501" ta="0003">Systemd Service</ti>
+      <ti id="1529" ta="0003">System Shutdown/Reboot</ti>
+      <ti id="1547" ta="0003">Startup Folder</ti>
+      <ti id="1560" ta="0009">Archive Collected Data</ti>
+    </techniques>
+  </mitre>
+</xml>
+
