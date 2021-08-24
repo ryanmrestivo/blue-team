@@ -2,8 +2,6 @@
 # This simple script disables ALL radios - be they wireless, wired, Bluetooth, etc.
 # This is handy for instances where you think a machine might be compromised and you want to
 # ensure it doesn't talk to anything else on any other networks.
-#
-# Reference: the Forensics 101 talk given at the MN Gov't IT Symposium in 2018
 
 Disable-NetAdapter -Name * -Confirm:$false
 Write-Output ""

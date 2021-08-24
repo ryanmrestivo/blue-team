@@ -1,19 +1,4 @@
-#
 
-<div align="center">
-<p align="center">
-  <a href="" rel="noopener">
- <img width=200px height=200px src="assets/CISA_Logo.png" alt="CISA logo"></a>
-</p>
-
-<h3 align="center">CHIRP</h3>
-
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/cisagov/chirp.svg)](https://github.com/cisagov/chirp/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/cisagov/chirp.svg)](https://github.com/cisagov/chirp/pulls)
-[![License](https://img.shields.io/badge/license-CC0_1.0-blue.svg)](/LICENSE)
-
----
 
 <p align="center"> A DFIR tool written in Python.
     <br>
