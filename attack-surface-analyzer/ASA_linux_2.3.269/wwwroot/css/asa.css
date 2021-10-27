@@ -1,0 +1,331 @@
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+html, body {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+.object-properties {
+    padding-left: 20px;
+}
+
+.object-fields {
+    padding-left: 20px;
+}
+
+label.prop-name {
+    font-weight: 600;
+}
+
+label.field-name {
+    font-weight: 600;
+}
+
+a {
+    color: #fff;
+}
+a:hover {
+    color: #db7500;
+}
+a.dotted:link {
+    text-decoration: underline dotted;
+    text-underline-offset: 3px;
+}
+a.dotted:hover {
+    text-decoration: underline solid;
+}
+
+hr {
+    background-color: white;
+}
+
+body {
+    overflow: hidden;
+}
+
+main {
+    position: absolute;
+    top: 4.5rem;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: #fff;
+    background-color: #121212;
+}
+
+.content {
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.bg-custom {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.bg-custom-secondary{
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #0078d4;
+    border-color: #0078d4;
+}
+.btn-secondary {
+    color: #fff;
+    background-color: #db7500;
+    border-color: #db7500;
+}
+
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+.hover-shadow-circle:hover {
+    box-shadow: 0px 0px 6px 3px rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+}
+
+.jt-cards {
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    padding: 1.5rem 2rem 1.5rem 2rem;
+    margin: -1.3rem .3rem 0 .3rem;
+    position: inherit;
+}
+.jt-cards img {
+    filter:invert(100%);
+}
+
+.navbar {
+    justify-content: space-between;
+    height: 4.5rem;
+    padding: 0 1.75rem 0 1.75rem;
+}
+.navbar-custom {
+    background-color: #222222;
+}
+.navbar-brand {
+    font-size: 1.2rem;
+}
+.navbar-brand:hover { 
+    border-bottom: thin;
+    border-bottom-style: solid;
+}
+.navbar-text {
+
+}
+.navbar-toggler {
+    background-color: rgba(255, 255, 255, 0.13);
+    border-radius: 0;
+}
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    border-color: white;
+    border-style: solid;
+}
+
+.navbar-dropmenu {
+    width: 15rem;
+    position: relative;
+    z-index: 10;
+}
+.navbar-dropmenu .dropmenu-list {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    background-color: #323130;
+}
+.navbar-dropmenu .nav-item {
+    font-size: 0.9rem;
+    padding-bottom: .5rem;
+    width: 95%;
+    align-self: center;
+}
+.navbar-dropmenu .nav-item:first-of-type {
+    padding-top: 1rem;
+}
+.navbar-dropmenu .nav-item:last-of-type {
+    padding-bottom: 1rem;
+}
+.navbar-dropmenu .nav-item a {
+    display: flex;
+    align-items: center;
+    color: white;
+    height: 3rem;
+    line-height: 3rem;
+}
+.navbar-dropmenu .nav-item a.active {
+    background-color: rgba(255,255,255,0.3);
+}
+.navbar-dropmenu .nav-item a:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+.navbar-dropmenu .nav-item .oi {
+    font-size: 1.1rem;
+    width: 1.65rem;
+    position: unset;
+    margin-left: 1rem;
+}
+.navbar-dropmenu .rule {
+    width: 13rem;
+    border-width: 2px;
+    border-color: white;
+}
+
+.navbar-quickmenu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.navbar-quickmenu .nav-item{
+    display: flex;
+    position: relative;
+    width: 4.5rem;
+    flex-direction: column;
+    color: white;
+    margin: 0 .2rem 0 .2rem;
+}
+.navbar-quickmenu .nav-item a.active {
+    background-color: rgba(255,255,255,0.3);
+}
+.navbar-quickmenu .nav-item a:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+.navbar-quickmenu .nav-item .nav-link{
+    padding: .5rem 0 .5rem 0;
+}
+.navbar-quickmenu .oi {
+    font-size: 1.25rem;
+}
+.navbar-quickmenu .label {
+    font-size: .8rem;
+    align-self: center;
+    margin-bottom: 0;
+}
+.navbar-quickmenu a {
+    color: white;
+    text-align: center;
+}
+
+.navbar-end {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 15.5rem;
+}
+.navbar-end .gh-logo {
+    border: solid;
+    border-color: gray;
+    border-radius: 50%;
+}
+.navbar-end .logo {
+    height: 32px;
+    width: auto;
+}
+.navbar-end .logo-sm {
+    height: 32px;
+    width: auto;
+    border: thin;
+    border-style: outset;
+    border-color: lightgray;
+}
+
+.page-item {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: black;
+}
+.page-item .page-link {
+    background-color: #bdbdbd;
+    border-color: black;
+}
+.page-item .page-link:hover {
+    color: white !important;
+}
+.page-item.active .page-link {
+    background-color: gray;
+    border-color: black;
+    color: white;
+}
+.page-item .page-step {
+    background-color: #0078d4;
+    border-color: black;
+    color: white !important;
+}
+.page-item .page-step:hover {
+    color: #db7500 !important;
+}
+
+.run-box {
+    padding: .5rem 1rem .5rem 1rem;
+    margin: 0 -15px 1rem -15px;
+}
+
+.result-number {
+}
+
+.result-text {
+    color: red;
+}
+
+.rule-text {
+}
+
+.version {
+    font-size: smaller;
+    font-weight: bold;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+
+/* Large devices and below */
+@media (max-width: 1199.98px) {
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+    .navbar-quickmenu .nav-item {
+        width: 3.9rem;
+    }
+    .navbar-end {
+        width: 8.5rem;
+    }
+}
+
+/* Medium devices and below */
+@media (max-width: 991.98px) {
+    .navbar-brand {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Small devices and below */
+@media (max-width: 576px) {
+    .navbar-end {
+        width: 2rem;
+    }
+}

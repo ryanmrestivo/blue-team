@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <OutputType>Exe</OutputType>
     <ReleaseVersion>2.1-alpha</ReleaseVersion>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
     <AssemblyName>Asa</AssemblyName>
     <RootNamespace>Microsoft.CST.AttackSurfaceAnalyzer.Cli</RootNamespace>
@@ -30,17 +30,20 @@
   </ItemGroup>
 
   <ItemGroup>
-	<None Include="..\icon-128.png" Pack="true" PackagePath="" />
-	<None Include="..\LICENSE.txt" Pack="true" PackagePath="" />
+    <None Include="..\icon-128.png" Pack="true" PackagePath="" />
+    <None Include="..\LICENSE.txt" Pack="true" PackagePath="" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="3.10.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.10.0" />
+    <PackageReference Include="Microsoft.CST.OAT" Version="1.0.99" />
+    <PackageReference Include="Microsoft.CST.OAT.Blazor.Components" Version="1.0.99" />
+    <PackageReference Include="Sarif.Sdk" Version="2.4.12" />
+    <PackageReference Include="Tewr.Blazor.FileReader" Version="3.2.0.21211" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CST.OAT.Blazor.Components" Version="1.0.70" />
-    <PackageReference Include="Tewr.Blazor.FileReader" Version="2.0.0.20242" />
-    <PackageReference Include="Tewr.Blazor.FileReader.Wasm" Version="0.11.19128" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Update="Nerdbank.GitVersioning" Version="3.3.37" />
+    <PackageReference Update="Nerdbank.GitVersioning" Version="3.4.231" />
   </ItemGroup>
 </Project>

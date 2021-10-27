@@ -10,7 +10,7 @@ parameters:
 # Version of Dotnet SDK to use
 - name: dotnetVersion
   type: string
-  default: '3.1.x'
+  default: '5.x'
 # Version of NuGet Tool to use
 - name: nugetVersion
   type: string
@@ -68,7 +68,7 @@ jobs:
   - task: DotNetCoreCLI@2
     displayName: Build .NET Core App
     inputs:
-      command: 'build'
+      command: 'publish'
       arguments: '${{ parameters.projectPath }} -c ${{ parameters.buildConfiguration }} -o bin/netcoreapp/${{ parameters.projectName }}_netcoreapp_$(ReleaseVersion)'
       publishWebProjects: false
       zipAfterPublish: false

@@ -6,10 +6,11 @@ references:
     - https://bohops.com/2018/08/18/abusing-the-com-registry-structure-part-2-loading-techniques-for-evasion-and-persistence/
 author: Kutepov Anton, oscd.community
 date: 2019/10/23
-modified: 2019/11/07
+modified: 2021/09/17
 tags:
     - attack.persistence
-    - attack.t1122
+    - attack.t1122 # an old one
+    - attack.t1546.015
 logsource:
     category: registry_event
     product: windows
@@ -18,7 +19,7 @@ detection:
         EventType: 'CreateKey'  # don't want DeleteKey events
         TargetObject|contains|all: 
             - 'HKU\'
-            - '_Classes\CLSID\'
+            - 'Classes\CLSID\'
             - '\TreatAs'
     condition: selection
 falsepositives:

@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  chocotester:
+    container_name: AsaDetonator
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - type: bind
+        source: D:/AsaDetonator/output
+        target: C:/output
+      - type: bind
+        source: D:/AsaDetonator/input
+        target: C:/input
+      - type: bind
+        source: D:/AsaDetonator/logs
+        target: C:/logs

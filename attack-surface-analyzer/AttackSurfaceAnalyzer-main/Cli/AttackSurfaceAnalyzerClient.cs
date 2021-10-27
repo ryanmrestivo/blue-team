@@ -1,11 +1,11 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License.
+using CommandLine;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.CodeAnalysis.Sarif;
 using Microsoft.CST.AttackSurfaceAnalyzer.Collectors;
 using Microsoft.CST.AttackSurfaceAnalyzer.Objects;
 using Microsoft.CST.AttackSurfaceAnalyzer.Types;
 using Microsoft.CST.AttackSurfaceAnalyzer.Utils;
-using CommandLine;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.CST.OAT;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
@@ -19,7 +19,6 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -33,7 +32,7 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
         private static readonly List<BaseMonitor> monitors = new List<BaseMonitor>();
         private static List<BaseCompare> comparators = new List<BaseCompare>();
 
-        public static DatabaseManager DatabaseManager { get; private set; }
+        public static DatabaseManager? DatabaseManager { get; private set; }
 
         private static void SetupLogging(CommandOptions opts)
         {
@@ -70,7 +69,7 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
 
             AttackSurfaceAnalyzer.Utils.Strings.Setup();
 
-            var argsResult = Parser.Default.ParseArguments<CollectCommandOptions, MonitorCommandOptions, ExportMonitorCommandOptions, ExportCollectCommandOptions, ConfigCommandOptions, GuiCommandOptions, VerifyOptions>(args)
+            var argsResult = Parser.Default.ParseArguments<CollectCommandOptions, MonitorCommandOptions, ExportMonitorCommandOptions, ExportCollectCommandOptions, ConfigCommandOptions, GuiCommandOptions, VerifyOptions, GuidedModeCommandOptions>(args)
                 .MapResult(
                     (CollectCommandOptions opts) =>
                     {
@@ -126,6 +125,13 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
             Environment.Exit((int)argsResult);
         }
 
+        /// <summary>
+        /// Loads the rules from the provided file, if it is not null or empty.  Or falls back to the embedded rules if it is.
+        /// </summary>
+        /// <param name="analysisFile"></param>
+        /// <returns>The loaded RuleFile</returns>
+        private static RuleFile LoadRulesFromFileOrEmbedded(string? analysisFile) => string.IsNullOrEmpty(analysisFile) ? RuleFile.LoadEmbeddedFilters() : RuleFile.FromFile(analysisFile);
+
         private static ASA_ERROR RunGuidedModeCommand(GuidedModeCommandOptions opts)
         {
             opts.RunId = opts.RunId?.Trim() ?? DateTime.Now.ToString("o", CultureInfo.InvariantCulture);
@@ -156,7 +162,13 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
 
             RunCollectCommand(collectorOpts);
 
-            var analysisFile = string.IsNullOrEmpty(opts.AnalysesFile) ? RuleFile.LoadEmbeddedFilters() : RuleFile.FromFile(opts.AnalysesFile);
+            var analysisFile = LoadRulesFromFileOrEmbedded(opts.AnalysesFile);
+
+            if (!analysisFile.Rules.Any())
+            {
+                Log.Warning(Strings.Get("Err_NoRules"));
+                return ASA_ERROR.INVALID_RULES;
+            }
 
             var compareOpts = new CompareCommandOptions(firstCollectRunId, secondCollectRunId)
             {
@@ -191,13 +203,21 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
             {
                 results.TryAdd(key, monitorResult[key]);
             });
-
-            return ExportGuidedModeResults(results, opts);
+            var exOpts = new ExportOptions();
+            exOpts.OutputSarif = opts.ExportSarif;
+            exOpts.OutputPath = opts.OutputPath;
+            exOpts.ExplodedOutput = opts.ExplodedOutput;
+            return ExportCompareResults(results, exOpts, AsaHelpers.MakeValidFileName(opts.RunId), analysisFile.GetHash(), analysisFile.Rules);
         }
 
         public static ConcurrentDictionary<(RESULT_TYPE, CHANGE_TYPE), List<CompareResult>> AnalyzeMonitored(CompareCommandOptions opts)
         {
-            if (opts is null) { return new ConcurrentDictionary<(RESULT_TYPE, CHANGE_TYPE), List<CompareResult>>(); }
+            if (DatabaseManager is null)
+            {
+                Log.Error("Err_DatabaseManagerNull", "InsertCompareResults");
+                return new ConcurrentDictionary<(RESULT_TYPE, CHANGE_TYPE), List<CompareResult>>();
+            }
+            if (opts is null || opts.SecondRunId is null) { return new ConcurrentDictionary<(RESULT_TYPE, CHANGE_TYPE), List<CompareResult>>(); }
             var analyzer = new AsaAnalyzer(new AnalyzerOptions(opts.RunScripts));
             return AnalyzeMonitored(opts, analyzer, DatabaseManager.GetMonitorResults(opts.SecondRunId), opts.AnalysesFile ?? throw new ArgumentNullException(nameof(opts.AnalysesFile)));
         }
@@ -206,6 +226,7 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
         {
             if (opts is null) { return new ConcurrentDictionary<(RESULT_TYPE, CHANGE_TYPE), List<CompareResult>>(); }
             var results = new ConcurrentDictionary<(RESULT_TYPE, CHANGE_TYPE), List<CompareResult>>();
+            var analysesHash = ruleFile.GetHash();
             Parallel.ForEach(collectObjects, monitorResult =>
             {
                 var shellResult = new CompareResult()
@@ -215,6 +236,7 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
                 };
 
                 shellResult.Rules = analyzer.Analyze(ruleFile.Rules, shellResult).ToList();
+                shellResult.AnalysesHash = analysesHash;
 
                 if (opts.ApplySubObjectRulesToMonitor)
                 {
@@ -232,7 +254,6 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
                 }
 
                 shellResult.Analysis = shellResult.Rules.Count > 0 ? shellResult.Rules.Max(x => ((AsaRule)x).Flag) : ruleFile.DefaultLevels[shellResult.ResultType];
-
                 results.TryAdd((monitorResult.ResultType, monitorResult.ChangeType), new List<CompareResult>());
                 results[(monitorResult.ResultType, monitorResult.ChangeType)].Add(shellResult);
             });
@@ -242,8 +263,13 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
         private static ASA_ERROR RunVerifyRulesCommand(VerifyOptions opts)
         {
             var analyzer = new AsaAnalyzer(new AnalyzerOptions(opts.RunScripts));
-            var ruleFile = string.IsNullOrEmpty(opts.AnalysisFile) ? RuleFile.LoadEmbeddedFilters() : RuleFile.FromFile(opts.AnalysisFile);
-            var violations = analyzer.EnumerateRuleIssues(ruleFile.GetRules());
+            var ruleFile = LoadRulesFromFileOrEmbedded(opts.AnalysisFile);
+            if (!ruleFile.Rules.Any())
+            {
+                Log.Warning(Strings.Get("Err_NoRules"));
+                return ASA_ERROR.INVALID_RULES;
+            }
+            var violations = analyzer.EnumerateRuleIssues(ruleFile.Rules);
             OAT.Utils.Strings.Setup();
             OAT.Utils.Helpers.PrintViolations(violations);
             if (violations.Any())
@@ -257,6 +283,11 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
 
         internal static void InsertCompareResults(ConcurrentDictionary<(RESULT_TYPE, CHANGE_TYPE), List<CompareResult>> results, string? FirstRunId, string SecondRunId, string AnalysesHash)
         {
+            if (DatabaseManager is null)
+            {
+                Log.Error("Err_DatabaseManagerNull", "InsertCompareResults");
+                return;
+            }
             DatabaseManager.InsertCompareRun(FirstRunId, SecondRunId, AnalysesHash, RUN_STATUS.RUNNING);
             foreach (var key in results.Keys)
             {
@@ -291,6 +322,9 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
         private static ASA_ERROR RunGuiCommand(GuiCommandOptions opts)
         {
             var server = Host.CreateDefaultBuilder(Array.Empty<string>())
+#if RELEASE
+                .UseContentRoot(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location))
+#endif
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
@@ -328,7 +362,11 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
             else
             {
                 SetupDatabase(opts);
-
+                if (DatabaseManager is null)
+                {
+                    Log.Error("Err_DatabaseManagerNull", "RunConfigCommand");
+                    return ASA_ERROR.DATABASE_NULL;
+                }
                 if (opts.ListRuns)
                 {
                     if (DatabaseManager.FirstRun)
@@ -405,6 +443,11 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
 
         private static ASA_ERROR RunExportCollectCommand(ExportCollectCommandOptions opts)
         {
+            if (DatabaseManager is null)
+            {
+                Log.Error("Err_DatabaseManagerNull", "RunExportCollectCommand");
+                return ASA_ERROR.DATABASE_NULL;
+            }
             if (opts.OutputPath != null && !Directory.Exists(opts.OutputPath))
             {
                 Log.Fatal(Strings.Get("Err_OutputPathNotExist"), opts.OutputPath);
@@ -447,85 +490,35 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
                 }
             }
 
+            var ruleFile = LoadRulesFromFileOrEmbedded(opts.AnalysesFile);
+            if (!ruleFile.Rules.Any())
+            {
+                Log.Warning(Strings.Get("Err_NoRules"));
+                return ASA_ERROR.INVALID_RULES;
+            }
+
             Log.Information(Strings.Get("Comparing"), opts.FirstRunId, opts.SecondRunId);
 
             CompareCommandOptions options = new CompareCommandOptions(opts.FirstRunId, opts.SecondRunId)
             {
                 DatabaseFilename = opts.DatabaseFilename,
-                AnalysesFile = string.IsNullOrEmpty(opts.AnalysesFile) ? RuleFile.LoadEmbeddedFilters() : RuleFile.FromFile(opts.AnalysesFile),
+                AnalysesFile = ruleFile,
                 DisableAnalysis = opts.DisableAnalysis,
                 SaveToDatabase = opts.SaveToDatabase,
                 RunScripts = opts.RunScripts
             };
 
             var results = CompareRuns(options);
-
+            var analysesHash = options.AnalysesFile.GetHash();
             if (opts.SaveToDatabase)
             {
-                InsertCompareResults(results, opts.FirstRunId, opts.SecondRunId, options.AnalysesFile.GetHash());
+                InsertCompareResults(results, opts.FirstRunId, opts.SecondRunId, analysesHash);
             }
 
-            return ExportCompareResults(results, opts, AsaHelpers.MakeValidFileName(opts.FirstRunId + "_vs_" + opts.SecondRunId));
+            return ExportCompareResults(results, opts, AsaHelpers.MakeValidFileName(opts.FirstRunId + "_vs_" + opts.SecondRunId), analysesHash, ruleFile.Rules);
         }
 
-        private static ASA_ERROR ExportGuidedModeResults(ConcurrentDictionary<(RESULT_TYPE, CHANGE_TYPE), List<CompareResult>> resultsIn, GuidedModeCommandOptions opts)
-        {
-            if (opts.RunId == null)
-            {
-                return ASA_ERROR.INVALID_ID;
-            }
-            var results = resultsIn.Select(x => new KeyValuePair<string, object>($"{x.Key.Item1}_{x.Key.Item2}", x.Value)).ToDictionary(x => x.Key, x => x.Value);
-            JsonSerializer serializer = JsonSerializer.Create(new JsonSerializerSettings()
-            {
-                Formatting = Formatting.Indented,
-                NullValueHandling = NullValueHandling.Ignore,
-                DefaultValueHandling = DefaultValueHandling.Ignore,
-                Converters = new List<JsonConverter>() { new StringEnumConverter() },
-                ContractResolver = new AsaExportContractResolver()
-            });
-            var outputPath = opts.OutputPath;
-            if (outputPath is null)
-            {
-                outputPath = Directory.GetCurrentDirectory();
-            }
-            if (opts.ExplodedOutput)
-            {
-                results.Add("metadata", AsaHelpers.GenerateMetadata());
-
-                string path = Path.Combine(outputPath, AsaHelpers.MakeValidFileName(opts.RunId));
-                Directory.CreateDirectory(path);
-                foreach (var key in results.Keys)
-                {
-                    string filePath = Path.Combine(path, AsaHelpers.MakeValidFileName(key));
-                    using (StreamWriter sw = new StreamWriter(filePath)) //lgtm[cs/path-injection]
-                    {
-                        using (JsonWriter writer = new JsonTextWriter(sw))
-                        {
-                            serializer.Serialize(writer, results[key]);
-                        }
-                    }
-                }
-                Log.Information(Strings.Get("OutputWrittenTo"), (new DirectoryInfo(path)).FullName);
-            }
-            else
-            {
-                string path = Path.Combine(outputPath, AsaHelpers.MakeValidFileName(opts.RunId + "_summary.json.txt"));
-                var output = new Dictionary<string, object>();
-                output["results"] = results;
-                output["metadata"] = AsaHelpers.GenerateMetadata();
-                using (StreamWriter sw = new StreamWriter(path)) //lgtm[cs/path-injection]
-                {
-                    using (JsonWriter writer = new JsonTextWriter(sw))
-                    {
-                        serializer.Serialize(writer, output);
-                    }
-                }
-                Log.Information(Strings.Get("OutputWrittenTo"), (new FileInfo(path)).FullName);
-            }
-            return ASA_ERROR.NONE;
-        }
-
-        private static ASA_ERROR ExportCompareResults(ConcurrentDictionary<(RESULT_TYPE, CHANGE_TYPE), List<CompareResult>> resultsIn, ExportOptions opts, string baseFileName)
+        private static ASA_ERROR ExportCompareResults(ConcurrentDictionary<(RESULT_TYPE, CHANGE_TYPE), List<CompareResult>> resultsIn, ExportOptions opts, string baseFileName, string analysesHash, IEnumerable<AsaRule> rules)
         {
             var results = resultsIn.Select(x => new KeyValuePair<string, object>($"{x.Key.Item1}_{x.Key.Item2}", x.Value)).ToDictionary(x => x.Key, x => x.Value);
             JsonSerializer serializer = JsonSerializer.Create(new JsonSerializerSettings()
@@ -541,20 +534,29 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
             {
                 outputPath = Directory.GetCurrentDirectory();
             }
+            var metadata = AsaHelpers.GenerateMetadata();
+            metadata.Add("analyses-hash", analysesHash);
             if (opts.ExplodedOutput)
             {
-                results.Add("metadata", AsaHelpers.GenerateMetadata());
+                results.Add("metadata", metadata);
 
                 string path = Path.Combine(outputPath, AsaHelpers.MakeValidFileName(baseFileName));
                 Directory.CreateDirectory(path);
                 foreach (var key in results.Keys)
                 {
                     string filePath = Path.Combine(path, AsaHelpers.MakeValidFileName(key));
-                    using (StreamWriter sw = new StreamWriter(filePath)) //lgtm[cs/path-injection]
+                    if (opts.OutputSarif)
                     {
-                        using (JsonWriter writer = new JsonTextWriter(sw))
+                        WriteSarifLog(new Dictionary<string, object>() { { key, results[key] } }, rules, filePath);
+                    }
+                    else
+                    {
+                        using (StreamWriter sw = new StreamWriter(filePath)) //lgtm[cs/path-injection]
                         {
-                            serializer.Serialize(writer, results[key]);
+                            using (JsonWriter writer = new JsonTextWriter(sw))
+                            {
+                                serializer.Serialize(writer, results[key]);
+                            }
                         }
                     }
                 }
@@ -565,17 +567,209 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
                 string path = Path.Combine(outputPath, AsaHelpers.MakeValidFileName(baseFileName + "_summary.json.txt"));
                 var output = new Dictionary<string, object>();
                 output["results"] = results;
-                output["metadata"] = AsaHelpers.GenerateMetadata();
-                using (StreamWriter sw = new StreamWriter(path)) //lgtm[cs/path-injection]
+                output["metadata"] = metadata;
+
+                if (opts.OutputSarif)
                 {
-                    using (JsonWriter writer = new JsonTextWriter(sw))
-                    {
-                        serializer.Serialize(writer, output);
-                    }
+                    string pathSarif = Path.Combine(outputPath, AsaHelpers.MakeValidFileName(baseFileName + "_summary.Sarif"));
+                    WriteSarifLog(output, rules, pathSarif);
+                    Log.Information(Strings.Get("OutputWrittenTo"), (new FileInfo(pathSarif)).FullName);
                 }
-                Log.Information(Strings.Get("OutputWrittenTo"), (new FileInfo(path)).FullName);
+                else
+                {
+
+                    using (StreamWriter sw = new StreamWriter(path)) //lgtm[cs/path-injection]
+                    {
+                        using (JsonWriter writer = new JsonTextWriter(sw))
+                        {
+                            serializer.Serialize(writer, output);
+                        }
+                    }
+                    Log.Information(Strings.Get("OutputWrittenTo"), (new FileInfo(path)).FullName);
+                }
             }
             return ASA_ERROR.NONE;
+        }
+
+        /// <summary>
+        /// Write log in Sarif format
+        /// </summary>
+        /// <param name="output">output of the analyzer result</param>
+        /// <param name="rules">list of rules used</param>
+        /// <param name="outputFilePath">file path of the Sarif log</param>
+        public static void WriteSarifLog(Dictionary<string, object> output, IEnumerable<AsaRule> rules, string outputFilePath)
+        {
+            var log = GenerateSarifLog(output, rules);
+
+            var settings = new JsonSerializerSettings()
+            {
+                Formatting = Formatting.Indented,
+            };
+
+            File.WriteAllText(outputFilePath, JsonConvert.SerializeObject(log, settings));
+        }
+
+        public static SarifLog GenerateSarifLog(Dictionary<string, object> output, IEnumerable<AsaRule> rules)
+        {
+            var metadata = (Dictionary<string, string>)output["metadata"];
+            var results = (Dictionary<string, object>)output["results"];
+            var version = metadata["compare-version"];
+
+            var log = new SarifLog();
+            SarifVersion sarifVersion = SarifVersion.Current;
+            log.SchemaUri = sarifVersion.ConvertToSchemaUri();
+            log.Version = sarifVersion;
+            log.Runs = new List<Run>();
+            var run = new Run();
+            var artifacts = new List<Artifact>();
+            run.Tool = new Tool
+            {
+                Driver = new ToolComponent
+                {
+                    Name = $"Attack Surface Analyzer",
+                    InformationUri = new Uri("https://github.com/microsoft/AttackSurfaceAnalyzer/"),
+                    Organization = "Microsoft",
+                    Version = version,
+                }
+            };
+
+            var reportingDescriptors = new List<ReportingDescriptor>();
+
+            foreach (var rule in rules)
+            {
+                if (!reportingDescriptors.Any(r => r.Id == rule.Name))
+                {
+                    var reportingDescriptor = new ReportingDescriptor()
+                    {
+                        FullDescription = new MultiformatMessageString() { Text = rule.Description },
+                        Id = rule.Name,
+                    };
+                    reportingDescriptor.DefaultConfiguration = new ReportingConfiguration()
+                    {
+                        Level = GetSarifFailureLevel((ANALYSIS_RESULT_TYPE)rule.Severity)
+                    };
+                    reportingDescriptor.SetProperty("ChangeTypes", string.Join(',', rule.ChangeTypes));
+                    reportingDescriptor.SetProperty("Platforms", string.Join(',', rule.Platforms));
+                    reportingDescriptor.SetProperty("ResultType", rule.ResultType.ToString());
+                    reportingDescriptors.Add(reportingDescriptor);
+                }
+            }
+
+            run.Tool.Driver.Rules = new List<ReportingDescriptor>(reportingDescriptors);
+
+            var sarifResults = new List<Result>();
+
+            foreach (var item in results)
+            {
+                var compareResults = (List<CompareResult>)item.Value;
+                foreach (var compareResult in compareResults)
+                {
+                    if (!artifacts.Any(a => a.Location.Description.Text.ToString() == compareResult.Identity))
+                    {
+                        var artifact = new Artifact
+                        {
+                            Location = new ArtifactLocation()
+                            {
+                                Index = artifacts.Count,
+                                Description = new Message() { Text = compareResult.Identity }
+                            }
+                        };
+
+                        if (Uri.TryCreate(compareResult.Identity, UriKind.RelativeOrAbsolute, out Uri? outUri))
+                        {
+                            artifact.Location.Uri = outUri;
+                        }
+
+                        artifact.SetProperty("Analysis", compareResult.Analysis.ToString());
+
+                        if (compareResult.Base != null)
+                        {
+                            artifact.SetProperty("Base", compareResult.Base);
+                        }
+
+                        if (!string.IsNullOrWhiteSpace(compareResult.BaseRunId))
+                        {
+                            artifact.SetProperty("BaseRunId", compareResult.BaseRunId.ToString());
+                        }
+
+                        artifact.SetProperty("ChangeType", compareResult.ChangeType.ToString());
+
+                        if (compareResult.Compare != null)
+                        {
+                            artifact.SetProperty("Compare", compareResult.Compare);
+                        }
+
+                        if (!string.IsNullOrWhiteSpace(compareResult.CompareRunId))
+                        {
+                            artifact.SetProperty("CompareRunId", compareResult.CompareRunId);
+                        }
+
+                        if (compareResult.Diffs != null && compareResult.Diffs.Count > 0)
+                        {
+                            artifact.SetProperty("Diffs", compareResult.Diffs);
+                        }
+
+                        artifact.SetProperty("ResultType", compareResult.ResultType.ToString());
+
+                        artifacts.Add(artifact);
+                    }
+
+                    foreach (var rule in compareResult.Rules)
+                    {
+                        var sarifResult = new Result();
+                        int index = artifacts.FindIndex(a => a.Location.Description.Text == compareResult.Identity);
+
+                        sarifResult.Locations = new List<Location>()
+                        {
+                            new Location() {
+                                PhysicalLocation = new PhysicalLocation()
+                                {
+                                    ArtifactLocation = new ArtifactLocation()
+                                    {
+                                        Index = index
+                                    }
+                                }
+                            }
+                        };
+
+                        sarifResult.Level = GetSarifFailureLevel((ANALYSIS_RESULT_TYPE)rule.Severity);
+
+                        if (!string.IsNullOrWhiteSpace(rule.Name))
+                        {
+                            sarifResult.RuleId = rule.Name;
+                        }
+
+                        sarifResult.Message = new Message() { Text = string.Format("{0}: {1} ({2})", rule.Name, compareResult.Identity, compareResult.ChangeType.ToString()) };
+
+                        sarifResults.Add(sarifResult);
+                    }
+                }
+            }
+
+            run.Results = sarifResults;
+            run.Artifacts = artifacts;
+
+            run.SetProperty("compare-os", metadata["compare-os"]);
+            run.SetProperty("compare-osversion", metadata["compare-osversion"]);
+            run.SetProperty("analyses-hash", metadata["analyses-hash"]);
+
+            log.Runs.Add(run);
+
+            return log;
+        }
+
+        private static FailureLevel GetSarifFailureLevel(ANALYSIS_RESULT_TYPE type)
+        {
+            return type switch
+            {
+                ANALYSIS_RESULT_TYPE.NONE or
+                ANALYSIS_RESULT_TYPE.VERBOSE or
+                ANALYSIS_RESULT_TYPE.DEBUG or
+                ANALYSIS_RESULT_TYPE.INFORMATION => FailureLevel.Note,
+                ANALYSIS_RESULT_TYPE.WARNING => FailureLevel.Warning,
+                ANALYSIS_RESULT_TYPE.ERROR or ANALYSIS_RESULT_TYPE.FATAL => FailureLevel.Error,
+                _ => FailureLevel.None,
+            };
         }
 
         private class AsaExportContractResolver : DefaultContractResolver
@@ -602,12 +796,25 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
                     }
                 }
 
+                if (property.DeclaringType == typeof(CompareResult))
+                {
+                    if (property.PropertyName == "AnalysesHash")
+                    {
+                        property.ShouldSerialize = _ => { return false; };
+                    }
+                }
+
                 return property;
             }
         }
 
         private static ASA_ERROR RunExportMonitorCommand(ExportMonitorCommandOptions opts)
         {
+            if (DatabaseManager is null)
+            {
+                Log.Error("Err_DatabaseManagerNull", "RunExportMonitorCommand");
+                return ASA_ERROR.DATABASE_NULL;
+            }
             if (opts.RunId is null)
             {
                 var runIds = DatabaseManager.GetLatestRunIds(1, RUN_TYPE.MONITOR);
@@ -621,26 +828,40 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
                     return ASA_ERROR.INVALID_ID;
                 }
             }
+
+            var ruleFile = LoadRulesFromFileOrEmbedded(opts.AnalysesFile);
+            if (!ruleFile.Rules.Any())
+            {
+                Log.Warning(Strings.Get("Err_NoRules"));
+                return ASA_ERROR.INVALID_RULES;
+            }
             var monitorCompareOpts = new CompareCommandOptions(null, opts.RunId)
             {
                 DisableAnalysis = opts.DisableAnalysis,
-                AnalysesFile = string.IsNullOrEmpty(opts.AnalysesFile) ? RuleFile.LoadEmbeddedFilters() : RuleFile.FromFile(opts.AnalysesFile),
+                AnalysesFile = ruleFile,
                 ApplySubObjectRulesToMonitor = opts.ApplySubObjectRulesToMonitor,
                 RunScripts = opts.RunScripts
             };
 
             var monitorResult = AnalyzeMonitored(monitorCompareOpts);
 
+            var analysesHash = monitorCompareOpts.AnalysesFile.GetHash();
+
             if (opts.SaveToDatabase)
             {
-                InsertCompareResults(monitorResult, null, opts.RunId, monitorCompareOpts.AnalysesFile.GetHash());
+                InsertCompareResults(monitorResult, null, opts.RunId, analysesHash);
             }
 
-            return ExportCompareResults(monitorResult, opts, AsaHelpers.MakeValidFileName(opts.RunId));
+            return ExportCompareResults(monitorResult, opts, AsaHelpers.MakeValidFileName(opts.RunId), analysesHash, ruleFile.Rules);
         }
 
         public static void WriteMonitorJson(string RunId, int ResultType, string OutputPath)
         {
+            if (DatabaseManager is null)
+            {
+                Log.Error("Err_DatabaseManagerNull", "WriteMonitorJson");
+                return;
+            }
             var invalidFileNameChars = Path.GetInvalidPathChars().ToList();
             OutputPath = new string(OutputPath.Select(ch => invalidFileNameChars.Contains(ch) ? Convert.ToChar(invalidFileNameChars.IndexOf(ch) + 65) : ch).ToArray());
 
@@ -669,6 +890,11 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
 
         private static ASA_ERROR RunMonitorCommand(MonitorCommandOptions opts)
         {
+            if (DatabaseManager is null)
+            {
+                Log.Error("Err_DatabaseManagerNull", "RunMonitorCommand");
+                return ASA_ERROR.DATABASE_NULL;
+            }
             if (opts.RunId is string)
             {
                 opts.RunId = opts.RunId.Trim();
@@ -739,7 +965,7 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
                 }
             }
 
-            void consoleCancelDelegate(object sender, ConsoleCancelEventArgs args)
+            void consoleCancelDelegate(object? sender, ConsoleCancelEventArgs args)
             {
                 args.Cancel = true;
                 exitEvent.Set();
@@ -801,7 +1027,11 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
             {
                 throw new ArgumentNullException(nameof(opts));
             }
-
+            if (DatabaseManager is null)
+            {
+                Log.Error("Err_DatabaseManagerNull", "CompareRuns");
+                return new ConcurrentDictionary<(RESULT_TYPE, CHANGE_TYPE), List<CompareResult>>();
+            }
             comparators = new List<BaseCompare>();
 
             Dictionary<string, string> EndEvent = new Dictionary<string, string>();
@@ -824,50 +1054,59 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
 
             if (!opts.DisableAnalysis)
             {
-                watch = Stopwatch.StartNew();
-                var analyzer = new AsaAnalyzer(new AnalyzerOptions(opts.RunScripts));
-                var platform = DatabaseManager.RunIdToPlatform(opts.SecondRunId);
-                var violations = analyzer.EnumerateRuleIssues(opts.AnalysesFile.GetRules());
-                OAT.Utils.Strings.Setup();
-                OAT.Utils.Helpers.PrintViolations(violations);
-                if (violations.Any())
+                if (opts.AnalysesFile is not null)
                 {
-                    Log.Error("Encountered {0} issues with rules in {1}. Skipping analysis.", violations.Count(), opts.AnalysesFile.Source ?? "Embedded");
-                }
-                else
-                {
-                    if (c.Results.Count > 0)
+                    watch = Stopwatch.StartNew();
+                    var analyzer = new AsaAnalyzer(new AnalyzerOptions(opts.RunScripts));
+                    var platform = DatabaseManager.RunIdToPlatform(opts.SecondRunId);
+                    var violations = analyzer.EnumerateRuleIssues(opts.AnalysesFile.Rules);
+                    var analysesHash = opts.AnalysesFile.GetHash();
+                    OAT.Utils.Strings.Setup();
+                    OAT.Utils.Helpers.PrintViolations(violations);
+                    if (violations.Any())
                     {
-                        foreach (var key in c.Results.Keys)
+                        Log.Error("Encountered {0} issues with rules in {1}. Skipping analysis.", violations.Count(), opts.AnalysesFile?.Source ?? "Embedded");
+                    }
+                    else
+                    {
+                        if (c.Results.Count > 0)
                         {
-                            if (c.Results[key] is List<CompareResult> queue)
+                            foreach (var key in c.Results.Keys)
                             {
-                                queue.AsParallel().ForAll(res =>
+                                if (c.Results[key] is List<CompareResult> queue)
                                 {
-                                    // Select rules with the appropriate change type, platform and target
-                                    // - Target is also checked inside Analyze, but this shortcuts repeatedly
-                                    // checking rules which don't apply
-                                    var selectedRules = opts.AnalysesFile.Rules.Where((rule) =>
-                                        (rule.ChangeTypes == null || rule.ChangeTypes.Contains(res.ChangeType))
-                                            && (rule.Platforms == null || rule.Platforms.Contains(platform))
-                                            && (rule.ResultType == res.ResultType));
-                                    res.Rules = analyzer.Analyze(selectedRules, res.Base, res.Compare).ToList();
-                                    res.Analysis = res.Rules.Count
-                                                   > 0 ? res.Rules.Max(x => ((AsaRule)x).Flag) : opts.AnalysesFile.DefaultLevels[res.ResultType];
-                                });
+                                    queue.AsParallel().ForAll(res =>
+                                    {
+                                        // Select rules with the appropriate change type, platform and target
+                                        // - Target is also checked inside Analyze, but this shortcuts repeatedly
+                                        // checking rules which don't apply
+                                        var selectedRules = opts.AnalysesFile.Rules.Where((rule) =>
+                                            (rule.ChangeTypes == null || rule.ChangeTypes.Contains(res.ChangeType))
+                                                && (rule.Platforms == null || rule.Platforms.Contains(platform))
+                                                && (rule.ResultType == res.ResultType));
+                                        res.Rules = analyzer.Analyze(selectedRules, res.Base, res.Compare).ToList();
+                                        res.Analysis = res.Rules.Count
+                                                       > 0 ? res.Rules.Max(x => ((AsaRule)x).Flag) : opts.AnalysesFile.DefaultLevels[res.ResultType];
+                                        res.AnalysesHash = analysesHash;
+                                    });
+                                }
                             }
                         }
                     }
-                }
 
-                watch.Stop();
-                t = TimeSpan.FromMilliseconds(watch.ElapsedMilliseconds);
-                answer = string.Format(CultureInfo.InvariantCulture, "{0:D2}h:{1:D2}m:{2:D2}s:{3:D3}ms",
-                                        t.Hours,
-                                        t.Minutes,
-                                        t.Seconds,
-                                        t.Milliseconds);
-                Log.Information(Strings.Get("Completed"), "Analysis", answer);
+                    watch.Stop();
+                    t = TimeSpan.FromMilliseconds(watch.ElapsedMilliseconds);
+                    answer = string.Format(CultureInfo.InvariantCulture, "{0:D2}h:{1:D2}m:{2:D2}s:{3:D3}ms",
+                                            t.Hours,
+                                            t.Minutes,
+                                            t.Seconds,
+                                            t.Milliseconds);
+                    Log.Information(Strings.Get("Completed"), "Analysis", answer);
+                }
+                else
+                {
+                    Log.Error(Strings.Get("Err_AnalysisNull"));
+                }
             }
 
             return c.Results;
@@ -875,6 +1114,11 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
 
         public static ASA_ERROR RunGuiMonitorCommand(MonitorCommandOptions opts)
         {
+            if (DatabaseManager is null)
+            {
+                Log.Error("Err_DatabaseManagerNull", "RunGuiMonitorCommand");
+                return ASA_ERROR.DATABASE_NULL;
+            }
             if (opts is null)
             {
                 return ASA_ERROR.NO_COLLECTORS;
@@ -890,7 +1134,7 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
             {
                 Log.Warning(Strings.Get("Err_NoMonitors"));
             }
-            var run = new AsaRun(RunId: opts.RunId, Timestamp: DateTime.Now, Version: AsaHelpers.GetVersionString(), Platform: AsaHelpers.GetPlatform(), ResultTypes: setResultTypes, Type: RUN_TYPE.MONITOR);
+            var run = new AsaRun(RunId: opts?.RunId ?? string.Empty, Timestamp: DateTime.Now, Version: AsaHelpers.GetVersionString(), Platform: AsaHelpers.GetPlatform(), ResultTypes: setResultTypes, Type: RUN_TYPE.MONITOR);
 
             DatabaseManager.InsertRun(run);
             foreach (var c in monitors)
@@ -903,6 +1147,7 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
 
         public static int StopMonitors()
         {
+
             foreach (var c in monitors)
             {
                 Log.Information(Strings.Get("End"), c.GetType().Name);
@@ -911,6 +1156,12 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
             }
 
             FlushResults();
+
+            if (DatabaseManager is null)
+            {
+                Log.Error("Err_DatabaseManagerNull", "RunGuiMonitorCommand");
+                return (int)ASA_ERROR.DATABASE_NULL;
+            }
 
             DatabaseManager.Commit();
 
@@ -923,27 +1174,32 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
             {
                 if (!Elevation.IsAdministrator())
                 {
-                    Log.Warning(Strings.Get("Err_RunAsAdmin"));
+                    Log.Information(Strings.Get("Err_RunAsAdmin"));
                 }
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
                 if (!Elevation.IsRunningAsRoot())
                 {
-                    Log.Warning(Strings.Get("Err_RunAsRoot"));
+                    Log.Information(Strings.Get("Err_RunAsRoot"));
                 }
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
                 if (!Elevation.IsRunningAsRoot())
                 {
-                    Log.Warning(Strings.Get("Err_RunAsRoot"));
+                    Log.Information(Strings.Get("Err_RunAsRoot"));
                 }
             }
         }
 
         public static ASA_ERROR RunCollectCommand(CollectCommandOptions opts)
         {
+            if (DatabaseManager is null)
+            {
+                Log.Error("Err_DatabaseManagerNull", "RunCollectCommand");
+                return ASA_ERROR.DATABASE_NULL;
+            }
             if (opts == null) { return ASA_ERROR.NO_COLLECTORS; }
             collectors.Clear();
             AdminOrWarn();
@@ -1119,11 +1375,19 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
             using CancellationTokenSource source = new CancellationTokenSource();
             CancellationToken token = source.Token;
 
-            void cancelKeyDelegate(object sender, ConsoleCancelEventArgs args)
+            void cancelKeyDelegate(object? sender, ConsoleCancelEventArgs args)
             {
                 Log.Information("Cancelling collection. Rolling back transaction. Please wait to avoid corrupting database.");
                 source.Cancel();
-                DatabaseManager.CloseDatabase();
+
+                if (DatabaseManager is null)
+                {
+                    Log.Error("Err_DatabaseManagerNull", "InsertCompareResults");
+                }
+                else
+                {
+                    DatabaseManager.CloseDatabase();
+                }
                 Environment.Exit((int)ASA_ERROR.CANCELLED);
             }
             Console.CancelKeyPress += cancelKeyDelegate;
@@ -1159,6 +1423,10 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Cli
 
         private static void FlushResults()
         {
+            if (DatabaseManager is null)
+            {
+                return;
+            }
             var prevFlush = DatabaseManager.QueueSize;
             var totFlush = prevFlush;
 

@@ -5,6 +5,7 @@
         public WifiObject(string SSID)
         {
             this.SSID = SSID;
+            this.ResultType = Types.RESULT_TYPE.WIFI;
         }
 
         public string? Authentication { get; set; }
@@ -20,6 +21,6 @@
         }
 
         public string? Password { get; set; }
-        public string SSID { get; }
+        public string SSID { get; set; }
     }
 }

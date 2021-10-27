@@ -116,14 +116,13 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Collectors
 
         public void Compare(IEnumerable<(CollectObject, string)> differentObjects, IEnumerable<(CollectObject, CollectObject)> modifiedObjects, string? firstRunId, string secondRunId)
         {
-            differentObjects.AsParallel().ForAll(different =>
+            differentObjects?.AsParallel().ForAll(different =>
             {
                 var colObj = different.Item1;
                 var obj = new CompareResult()
                 {
                     BaseRunId = firstRunId,
                     CompareRunId = secondRunId,
-                    BaseRowKey = colObj.RowKey,
                 };
 
                 if (different.Item2.Equals(firstRunId))
@@ -138,7 +137,7 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Collectors
                 }
             });
 
-            modifiedObjects.AsParallel().ForAll(modified =>
+            modifiedObjects?.AsParallel().ForAll(modified =>
             {
                 var compareLogic = new CompareLogic();
                 compareLogic.Config.IgnoreCollectionOrder = true;
@@ -152,9 +151,7 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Collectors
                         Base = first,
                         Compare = second,
                         BaseRunId = firstRunId,
-                        CompareRunId = secondRunId,
-                        BaseRowKey = modified.Item1.RowKey,
-                        CompareRowKey = modified.Item2.RowKey,
+                        CompareRunId = secondRunId
                     };
 
                     var properties = first.GetType().GetProperties();
@@ -165,6 +162,10 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Collectors
                         {
                             try
                             {
+                                if (Attribute.IsDefined(prop, typeof(SkipCompareAttribute)))
+                                {
+                                    continue;
+                                }
                                 List<Diff> diffs;
                                 object? added = null;
                                 object? removed = null;
@@ -193,7 +194,7 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Collectors
                                     if (firstVal is List<string> && secondVal is List<string>)
                                     {
                                         added = ((List<string>)secondVal).Except((List<string>)firstVal);
-                                        removed = ((List<string>)firstVal).Except((List<string>?)prop.GetValue(second));
+                                        removed = ((List<string>)firstVal).Except((List<string>)secondVal);
                                         if (!((IEnumerable<string>)added).Any())
                                         {
                                             added = null;
@@ -230,6 +231,24 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Collectors
                                             added = null;
                                         }
                                         if (!((IEnumerable<KeyValuePair<string, string>>)removed).Any())
+                                        {
+                                            removed = null;
+                                        }
+                                    }
+                                    else if (firstVal is Dictionary<string, List<string>> firstDictionary && secondVal is Dictionary<string, List<string>> secondDictionary)
+                                    {
+                                        added = secondDictionary
+                                            .Except(firstDictionary)
+                                            .ToDictionary(x => x.Key, x => x.Value);
+
+                                        removed = firstDictionary
+                                            .Except(secondDictionary)
+                                            .ToDictionary(x => x.Key, x => x.Value);
+                                        if (!((Dictionary<string, List<string>>)added).Any())
+                                        {
+                                            added = null;
+                                        }
+                                        if (!((Dictionary<string, List<string>>)removed).Any())
                                         {
                                             removed = null;
                                         }

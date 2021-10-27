@@ -1,4 +1,5 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License.
+using Serilog;
 using System;
 using System.IO;
 using System.Linq;
@@ -9,20 +10,36 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Utils
 {
     public static class CryptoHelpers
     {
+        /// <summary>
+        /// Perform a hash of a string.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static string CreateHash(string input)
         {
-            byte[] hashOutput = sha512.ComputeHash(Encoding.UTF8.GetBytes(input));
-            return Convert.ToBase64String(hashOutput);
-        }
-
-        public static byte[] CreateHash(byte[] input)
-        {
-            return sha512.ComputeHash(input);
+            try
+            {
+                byte[] hashOutput = sha512.ComputeHash(Encoding.UTF8.GetBytes(input));
+                return Convert.ToBase64String(hashOutput);
+            }
+            catch (CryptographicException e)
+            {
+                Log.Warning(e, Strings.Get("Err_CreateHash"), input is null ? "null string" : $"'{input}'");
+                return string.Empty;
+            }
         }
 
         public static string CreateHash(Stream stream)
         {
-            return Convert.ToBase64String(sha512.ComputeHash(stream) ?? Array.Empty<byte>());
+            try
+            {
+                return Convert.ToBase64String(sha512.ComputeHash(stream) ?? Array.Empty<byte>());
+            }
+            catch (CryptographicException e)
+            {
+                Log.Warning(e, Strings.Get("Err_CreateHash"), "stream");
+                return string.Empty;
+            }
         }
 
         public static double GetRandomPositiveDouble(double max)
@@ -51,7 +68,6 @@ namespace Microsoft.CST.AttackSurfaceAnalyzer.Utils
 
         private static readonly RNGCryptoServiceProvider crypto = new RNGCryptoServiceProvider();
 
-        // These are not intended to be cryptographically secure hashes These are used as a uniqueness check
-        private static readonly HashAlgorithm sha512 = SHA512.Create();
+        private static readonly HashAlgorithm sha512 = SHA512Managed.Create();
     }
 }
