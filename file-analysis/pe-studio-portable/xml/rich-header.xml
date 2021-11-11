@@ -1,8 +1,8 @@
 <!--
 This file is part of the pestudio solution (www.winitor.com).
+Any usage of this file outside of the context of pestudio (e.g. in third-party application, tools chain, etc...) must be explicitely authorized.
 
-This file may not be used outside of the context of pestudio. 
-Any usage of this file outside of the context of pestudio (e.g. in third-party application) must be explicitely authorized.
+Please note that this file will be modified when running pestudio.
 -->
 <xml version="1.0" encoding="utf-8">
   <richheader>
@@ -356,6 +356,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
       <item value="09782" ide="04">6.0 SP6</item>
       <item value="08168" ide="04">6.0</item>
       <item value="08169" ide="04">6.0</item>
+      <item value="08176" ide="04">6.0</item>
       <item value="08495" ide="04">6.0 SP3</item>
       <item value="08041" ide="05">5.0</item>
       <item value="08783" ide="05">5.0</item>
@@ -505,15 +506,20 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
       <item value="23524" ide="17">14.0</item>
       <item value="23615" ide="17">14.0</item>
       <item value="25834" ide="17">14.0</item>
+      <item value="25835" ide="17">14.0</item>
       <item value="26715" ide="17">14.0</item>
+      <item value="27412" ide="17">14.0</item>
+      <item value="28900" ide="17">14.0</item>
       <item value="28920" ide="17">14.0</item>
-      <item value="29112" ide="17">14.0</item>
       <item value="28619" ide="17">14.0</item>
       <item value="28805" ide="17">14.0</item>
       <item value="28806" ide="17">14.0</item>
+      <item value="29112" ide="17">14.0</item>
       <item value="29118" ide="17">14.0</item>
       <item value="29335" ide="17">14.0</item>
       <item value="29336" ide="17">14.0</item>
+      <item value="29804" ide="17">14.0</item>
+      <item value="29395" ide="17">14.0</item>
       <item value="23506" ide="17">14.0.1</item>
       <item value="23907" ide="17">14.0.1</item>
       <item value="23917" ide="17">14.0 preview 2</item>
@@ -531,6 +537,8 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
       <item value="24234" ide="17">14.0.3.d</item>
       <item value="24237" ide="17">14.0</item>
       <item value="24245" ide="17">14.0</item>
+      <item value="29913" ide="17">14.0</item>
+      <item value="29915" ide="17">14.0</item>
       <item value="24406" ide="17">14.0 preview 4</item>
       <item value="24425" ide="17">14.0 TFS Test VMs</item>
       <item value="22823" ide="18">14.0 RC </item>
@@ -561,6 +569,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
       <item value="25424" ide="18">14.0.3.b</item>
       <item value="25425" ide="18">14.0.3.c</item>
       <item value="25431" ide="18">14.0.3.d</item>
+      <item value="28105" ide="18">14.0</item>
       <item value="28315" ide="18">14.0</item>
       <item value="24629" ide="19">14.10 RC</item>
       <item value="25008" ide="19">14.10</item>

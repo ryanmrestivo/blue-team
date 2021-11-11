@@ -1,8 +1,8 @@
 ﻿<!--
 This file is part of the pestudio solution (www.winitor.com).
+Any usage of this file outside of the context of pestudio (e.g. in third-party application, tools chain, etc...) must be explicitely authorized.
 
-This file may not be used outside of the context of pestudio. 
-Any usage of this file outside of the context of pestudio (e.g. in third-party application) must be explicitely authorized.
+Please note that this file will be modified when running pestudio.
 -->
 <xml version="1.0" encoding="utf-8" md5="">
 
@@ -14,6 +14,85 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     </setting>
   </settings>
 
+  <!-- SID (Security Identifiers) -->
+  <sids gp="30">
+    <sid name="">S-1-0</sid>
+    <sid name="">S-1-0-0</sid>
+    <sid name="">S-1-1</sid>
+    <sid name="">S-1-1-0</sid>
+    <sid name="">S-1-2</sid>
+    <sid name="">S-1-2-0</sid>
+    <sid name="">S-1-2-1</sid>
+    <sid name="">S-1-3</sid>
+    <sid name="">S-1-3-0</sid>
+    <sid name="">S-1-3-1</sid>
+    <sid name="">S-1-3-2</sid>
+    <sid name="">S-1-3-3</sid>
+    <sid name="">S-1-3-4</sid>
+    <sid name="">S-1-4</sid>
+    <sid name="">S-1-5</sid>
+    <sid name="">S-1-5-1</sid>
+    <sid name="">S-1-5-2</sid>
+    <sid name="">S-1-5-3</sid>
+    <sid name="">S-1-5-4</sid>
+    <sid name="">S-1-5-6</sid>
+    <sid name="">S-1-5-7</sid>
+    <sid name="">S-1-5-8</sid>
+    <sid name="">S-1-5-9</sid>
+    <sid name="">S-1-5-10</sid>
+    <sid name="">S-1-5-11</sid>
+    <sid name="">S-1-5-114</sid>
+    <sid name="">S-1-5-12</sid>
+    <sid name="">S-1-5-13</sid>
+    <sid name="">S-1-5-14</sid>
+    <sid name="">S-1-5-15</sid>
+    <sid name="">S-1-5-17</sid>
+    <sid name="">S-1-5-18</sid>
+    <sid name="">S-1-5-19</sid>
+    <sid name="">S-1-5-20</sid>
+    <sid name="">S-1-5-21</sid>
+    <sid name="">S-1-5-32-544</sid>
+    <sid name="">S-1-5-32-545</sid>
+    <sid name="">S-1-5-32-546</sid>
+    <sid name="">S-1-5-32-547</sid>
+    <sid name="">S-1-5-32-548</sid>
+    <sid name="">S-1-5-32-549</sid>
+    <sid name="">S-1-5-32-550</sid>
+    <sid name="">S-1-5-32-551</sid>
+    <sid name="">S-1-5-32-552</sid>
+    <sid name="">S-1-5-64-10</sid>
+    <sid name="">S-1-5-64-14</sid>
+    <sid name="">S-1-5-64-21</sid>
+    <sid name="">S-1-5-80</sid>
+    <sid name="">S-1-5-83-0</sid>
+    <sid name="">S-1-16-0</sid>
+    <sid name="Low Mandatory Level">S-1-16-4096</sid>
+    <sid name="">S-1-16-8192</sid>
+    <sid name="">S-1-16-8448</sid>
+    <sid name="">S-1-16-12288</sid>
+    <sid name="">S-1-16-16384</sid>
+    <sid name="">S-1-16-20480</sid>
+    <sid name="">S-1-16-28672</sid>
+    <sid name="">S-1-5-32-554</sid>
+    <sid name="">S-1-5-32-555</sid>
+    <sid name="">S-1-5-32-556</sid>
+    <sid name="">S-1-5-32-557</sid>
+    <sid name="">S-1-5-32-558</sid>
+    <sid name="">S-1-5-32-559</sid>
+    <sid name="">S-1-5-32-560</sid>
+    <sid name="">S-1-5-32-561</sid>
+    <sid name="">S-1-5-32-562</sid>
+    <sid name="">S-1-5-32-569</sid>
+    <sid name="">S-1-5-32-573</sid>
+    <sid name="">S-1-5-32-574</sid>
+    <sid name="">S-1-5-32-575</sid>
+    <sid name="">S-1-5-32-576</sid>
+    <sid name="">S-1-5-32-577</sid>
+    <sid name="">S-1-5-32-578</sid>
+    <sid name="">S-1-5-32-579</sid>
+    <sid name="">S-1-5-32-580</sid>
+  </sids>
+  
   <psws hint="25">
     <psw>nopassword</psw>
     <psw>password12</psw>
@@ -198,6 +277,9 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <regex>([3-9]{1}[0-9]{14,15}[D=](1[1-9])((0[1-9])|(1[0-2]))[0-9]{8,30})</regex>
     <regex>((b|B)[0-9]{13,19}\^[A-Za-z\s]{0,30}\/[A-Za-z\s]{0,30}\^(0[7-9]|1[0-5])((0[1-9])|(1[0-2]))[0-9\s]{3,50}[0-9]{1})</regex>
     <regex>([0-9]{15,16}[D=](0[7-9]|1[0-5])((0[1-9])|(1[0-2]))[0-9]{8,30})</regex>
+    <regex>\b(bc1|[13])[a-zA-HJ-NP-Z0-9]{26,35}\b</regex>
+    <regex>\b0x[a-fA-F0-9]{40}\b</regex>
+    <regex>\b4([0-9]|[A-B])(.){93}\b</regex>
   </regexs>
 
   <privs gp="30">
@@ -565,6 +647,8 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <ext>dsw</ext>
     <ext>dtd</ext>
     <ext>detour</ext>
+    <ext>detourc</ext>
+    <ext>detourd</ext>
     <ext>download</ext>
     <ext>db2</ext>
     <ext>dll</ext>
@@ -1171,7 +1255,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
 
   <!-- Registry -->
   <regs hint="01">
-    <reg>RegistryKey</reg>
+    <reg gp="01">RegistryKey</reg>
     <reg>ShellServiceObjectDelayLoad</reg>
     <reg>CurrentVersion</reg>
     <reg>Windows\CurrentVersion</reg>
@@ -1206,13 +1290,13 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <reg>HKEY_DYN_DATA</reg>
     <reg gp="01">SYSTEM\ControlSet001\Services\</reg>
     <reg gp="01">System\CurrentControlSet\Services\</reg>
-    <reg>HKCR</reg>
-    <reg>HKCU</reg>
-    <reg>HKLM</reg>
-    <reg>HKPD</reg>
-    <reg>HKDD</reg>
-    <reg>HKCC</reg>
-    <reg>HKCU</reg>
+    <reg gp="01">HKCR</reg>
+    <reg gp="01">HKCU</reg>
+    <reg gp="01">HKLM</reg>
+    <reg gp="01">HKPD</reg>
+    <reg gp="01">HKDD</reg>
+    <reg gp="01">HKCC</reg>
+    <reg gp="01">HKCU</reg>
     <reg>Hardware\</reg>
     <reg>disabletaskmanager</reg>
     <reg>warnonintranet</reg>
@@ -1451,85 +1535,6 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <product>00426-293-8170032-85146</product>
   </products>
 
-  <!-- SID (Security Identifiers) -->
-  <sids gp="30">
-    <sid name="">S-1-0</sid>
-    <sid name="">S-1-0-0</sid>
-    <sid name="">S-1-1</sid>
-    <sid name="">S-1-1-0</sid>
-    <sid name="">S-1-2</sid>
-    <sid name="">S-1-2-0</sid>
-    <sid name="">S-1-2-1</sid>
-    <sid name="">S-1-3</sid>
-    <sid name="">S-1-3-0</sid>
-    <sid name="">S-1-3-1</sid>
-    <sid name="">S-1-3-2</sid>
-    <sid name="">S-1-3-3</sid>
-    <sid name="">S-1-3-4</sid>
-    <sid name="">S-1-4</sid>
-    <sid name="">S-1-5</sid>
-    <sid name="">S-1-5-1</sid>
-    <sid name="">S-1-5-2</sid>
-    <sid name="">S-1-5-3</sid>
-    <sid name="">S-1-5-4</sid>
-    <sid name="">S-1-5-6</sid>
-    <sid name="">S-1-5-7</sid>
-    <sid name="">S-1-5-8</sid>
-    <sid name="">S-1-5-9</sid>
-    <sid name="">S-1-5-10</sid>
-    <sid name="">S-1-5-11</sid>
-    <sid name="">S-1-5-114</sid>
-    <sid name="">S-1-5-12</sid>
-    <sid name="">S-1-5-13</sid>
-    <sid name="">S-1-5-14</sid>
-    <sid name="">S-1-5-15</sid>
-    <sid name="">S-1-5-17</sid>
-    <sid name="">S-1-5-18</sid>
-    <sid name="">S-1-5-19</sid>
-    <sid name="">S-1-5-20</sid>
-    <sid name="">S-1-5-21</sid>
-    <sid name="">S-1-5-32-544</sid>
-    <sid name="">S-1-5-32-545</sid>
-    <sid name="">S-1-5-32-546</sid>
-    <sid name="">S-1-5-32-547</sid>
-    <sid name="">S-1-5-32-548</sid>
-    <sid name="">S-1-5-32-549</sid>
-    <sid name="">S-1-5-32-550</sid>
-    <sid name="">S-1-5-32-551</sid>
-    <sid name="">S-1-5-32-552</sid>
-    <sid name="">S-1-5-64-10</sid>
-    <sid name="">S-1-5-64-14</sid>
-    <sid name="">S-1-5-64-21</sid>
-    <sid name="">S-1-5-80</sid>
-    <sid name="">S-1-5-83-0</sid>
-    <sid name="">S-1-16-0</sid>
-    <sid name="Low Mandatory Level">S-1-16-4096</sid>
-    <sid name="">S-1-16-8192</sid>
-    <sid name="">S-1-16-8448</sid>
-    <sid name="">S-1-16-12288</sid>
-    <sid name="">S-1-16-16384</sid>
-    <sid name="">S-1-16-20480</sid>
-    <sid name="">S-1-16-28672</sid>
-    <sid name="">S-1-5-32-554</sid>
-    <sid name="">S-1-5-32-555</sid>
-    <sid name="">S-1-5-32-556</sid>
-    <sid name="">S-1-5-32-557</sid>
-    <sid name="">S-1-5-32-558</sid>
-    <sid name="">S-1-5-32-559</sid>
-    <sid name="">S-1-5-32-560</sid>
-    <sid name="">S-1-5-32-561</sid>
-    <sid name="">S-1-5-32-562</sid>
-    <sid name="">S-1-5-32-569</sid>
-    <sid name="">S-1-5-32-573</sid>
-    <sid name="">S-1-5-32-574</sid>
-    <sid name="">S-1-5-32-575</sid>
-    <sid name="">S-1-5-32-576</sid>
-    <sid name="">S-1-5-32-577</sid>
-    <sid name="">S-1-5-32-578</sid>
-    <sid name="">S-1-5-32-579</sid>
-    <sid name="">S-1-5-32-580</sid>
-  </sids>
-
   <offices>
     <office hint="23">AutoOpen</office>
     <office hint="23">SummaryInformation</office>
@@ -1609,6 +1614,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <util>extrac32</util>
     <util>exec</util>
     <util>execute</util>
+    <util>ExecQuery</util>
     <util ti="1105">expand</util>
     <util>explorer</util>
     <util ti="1079">encrypt</util>
@@ -1640,9 +1646,9 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <util>InstallService</util>
     <util>javascript</util>
     <util>JScript</util>
+    <util ti="1089">pkill</util>
     <util ti="1089">kill</util>
     <util ti="1089">Killing</util>
-    <util bl="1" ti="1089">killkill</util>
     <util>iexplore</util>
     <util gp="13" ti="1002">inflate</util>
     <util>logonui</util>
@@ -1752,7 +1758,6 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <util>ScriptingEngine</util>
     <util ti="1053">schtasks</util>
     <util ti="1053">schtask</util>
-    <util>ExecQuery</util>
     <util>symerr</util>
     <util ti="1055">svchost</util>
     <util>spoolsvc</util>
@@ -1789,6 +1794,8 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <util ti="1045">UPX1</util>
     <util ti="1045">UPX2</util>
     <util ti="1045">UCL data compression library.</util>
+    <util>UltraVnc</util>
+    <util>UltraVncSC</util>
     <util>ver</util>
     <util>vbox</util>
     <util>vba6</util>
@@ -1827,7 +1834,9 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <util>aPLib v1.01  -  the smaller the better :)</util>
     <util>Safengine Shielden v2.3.0.0</util>
 
-  </utils>
+  
+
+</utils>
 
   <!-- keyboard keys -->
   <keys hint="22">
@@ -2217,9 +2226,13 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <stub bl="1">!Windows ONLY!</stub>
     <stub bl="1">Win32 Program!</stub>
     <stub bl="1">!Windows Program</stub>
+    <stub bl="0">Wine builtin DLL</stub>
   </stubs>
 
   <strings>
+    <string bl="1" >ethereum</string>
+    <string bl="1" >bitcoin</string>
+    <string bl="1" >xmr</string>
     <string bl="1" gp="04" ti="1022">EncryptMessage</string>
     <string bl="1" gp="04" ti="1022">Decryption</string>
     <string bl="1" gp="23" ti="----">$I30</string>
@@ -3036,16 +3049,9 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <string bl="1">\\.\FILEM</string>
     <string bl="1">webcam</string>
     <string bl="1" hint="13">PROCEXPLORER</string>
-    <string bl="1">MSScriptControl.ScriptControl.1</string>
-    <string bl="1">Embedded Control</string>
-    <string bl="1">OCXNAME</string>
-    <string bl="1">Mr.Black</string>
     <string bl="1">WinZip Self-Extractor - Password</string>
     <string bl="1">This self-extracting Zip file is password protected.</string>
-    <string bl="1">Windows Installer XML (3.0.5419.0)</string>
     <string bl="1">Your personal files are encrypted!</string>
-    <string bl="1">Your decryption price will</string>
-    <string bl="1">Everything is fine now decrypting all files.</string>
     <string bl="1" hint="13">WScript.Shell</string>
     <string bl="1" hint="13">Shell.Execute</string>
     <string bl="1">System Volume Information</string>
@@ -3056,11 +3062,15 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <string gp="01">Registry</string>
     <string gp="01" ta="0005">CreateSubKey</string>
     <string gp="--">Copyright (c) 1998-2009 by Joergen Ibsen All Rights Reserved.</string>
-    <string ti="1560" gp="13">Powered by SmartAssembly 6.8.0.121</string>
-    <string ti="1560" gp="13">!Powered by SmartAssembly 6.6.1.44</string>
-    <string ti="1560" gp="13">!Powered by SmartAssembly 6.6.4.95</string>
-    <string ti="1560" gp="13">$Info: This file is packed with the UPX executable packer http://upx.sf.net $</string>
-    <string ti="1560" gp="13">$Id: UPX 3.91 Copyright (C) 1996-2013 the UPX Team. All Rights Reserved. $</string>
+    <string ti="1560" gp="10">Powered by SmartAssembly 6.8.0.121</string>
+    <string ti="1560" gp="10">!Powered by SmartAssembly 6.6.1.44</string>
+    <string ti="1560" gp="10">!Powered by SmartAssembly 6.6.4.95</string>
+    <string ti="1560" gp="10">SmartAssembly.Attributes</string>
+    <string ti="1560" gp="10">SmartAssembly.Delegates</string>
+    <string ti="1560" gp="10">SmartAssembly.SmartExceptionsCore</string>
+    <string ti="1560" gp="10">SmartAssembly.SmartUsageCore</string>
+    <string ti="1560" gp="10">$Info: This file is packed with the UPX executable packer http://upx.sf.net $</string>
+    <string ti="1560" gp="10">$Id: UPX 3.91 Copyright (C) 1996-2013 the UPX Team. All Rights Reserved. $</string>
     <string gp="--">Screen Capture</string>
     <string gp="--">Webcam Capture</string>
     <string gp="--">Packet Sniffer</string>
@@ -3109,20 +3119,16 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <string gp="14" ti="1179" >WH_SYSMSGFILTER</string>
     <string gp="14" ti="1179" >WH_SHELL</string>
 
+    <string gp="30" bl="1">ConsentPromptBehaviorAdmin</string>
     <string gp="03">wininet</string>
     <string gp="--">Start scanner</string>
     <string gp="--">Scanner completed</string>
     <string gp="--">Start crypter</string>
     <string gp="--">Files encrypted</string>
     <string gp="--">MemoryScanner</string>
-    <string gp="--">ActiveX Control</string>
     <string gp="--">\\.\PhysicalDrive%d</string>
     <string gp="--">Microsoft Windows Auto Update</string>
     <string gp="--">IsAdmin</string>
-    <string gp="04">CryptKeyType</string>
-    <string gp="04">CryptKeyId</string>
-    <string gp="--">NetAdapter</string>
-    <string gp="--">Gateway</string>
     <string gp="--">DHCPServer</string>
     <string gp="--">DnsServer</string>
     <string gp="04">Microsoft Enhanced Cryptographic Provider v1.0</string>
@@ -3137,8 +3143,6 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <string gp="04">StrongEncryptionTransform</string>
     <string gp="04">AesCryptoServiceProvider</string>
     <string>vm_protect</string>
-    <string>%BOTID%</string>
-    <string>%BOTNET%</string>
     <string>FtpServer</string>
     <string>FtpUserName</string>
     <string>FtpPassword</string>
@@ -3148,7 +3152,11 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <string gp="04">RijndaelManaged</string>
     <string gp="04">CryptoStreamMode</string>
     <string gp="04">CryptoStream</string>
+    <string gp="04">RNGCryptoServiceProvider</string>
+    <string gp="04">RSACryptoServiceProvider</string>
+    <string gp="04">SHA1CryptoServiceProvider</string>
     <string gp="04">ICryptoTransform</string>
+    <string gp="10" ti="1001">DotfuscatorAttribute</string>
     <string gp="10" ti="1001">FromBase64String</string>
     <string gp="10" ti="1001">ToBase64String</string>
     <string gp="10" ti="1001">Base64Decode</string>
@@ -3162,7 +3170,6 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <string gp="03">ProcessRequest</string>
     <string gp="03">HttpContext</string>
     <string gp="03" ti="1086">DownloadString</string>
-    <string gp="02" ti="1086">Invoke</string>
     <string gp="02" ti="1086">DynamicRun</string>
     <string gp="02" ti="1086">InvokeV</string>
     <string gp="02" ti="1086">CallMethod</string>
@@ -3173,46 +3180,12 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <string gp="01">RegRead</string>
     <string gp="02">CallByName</string>
 
-    <string>InjectByPid</string>
     <string>sendkeys</string>
-    <string>opencmd</string>
-    <string>VendorIdentifier</string>
-    <string>SystemBiosVersion</string>
-    <string>SystemBiosDate</string>
-    <string>VideoBiosVersion</string>
-    <string>VideoBiosDate</string>
-    <string>Windows File Protection</string>
-    <string>LogonFailure</string>
-    <string>killthread</string>
     <string>startkeylogger</string>
     <string>stopkeylogger</string>
-    <string>listprocesses</string>
-    <string>killprocess</string>
-    <string>stopspy</string>
-    <string>PopServer</string>
-    <string>PopPort</string>
-    <string>PopAccount</string>
-    <string>PopPassword</string>
-    <string>SmtpServer</string>
-    <string>SmtpPort</string>
-    <string>SmtpAccount</string>
-    <string>SmtpPassword</string>
-    <string>WininetCacheCredentials</string>
-    <string>PasswordType</string>
-    <string>OutpostMonitor</string>
 
     <string>DisableAllPrivileges</string>
     <string>SetPrivilege</string>
-    <string gp="03">Download.Complete</string>
-    <string gp="03">Download.Cancelled</string>
-    <string gp="03">Download.Failed</string>
-    <string>ClearBrowsingHistoryOnExit</string>
-    <string>GetMACAddress</string>
-    <string>GetProcessesByName</string>
-    <string gp="03">WebRequest</string>
-    <string gp="03">WebResponse</string>
-    <string gp="03">GetResponse</string>
-    <string>GetVolumeSerial</string>
     <string>ENCRYPtSTRING</string>
     <string>ENCRYPTBYTe</string>
     <string>VBRUN</string>
@@ -3221,23 +3194,8 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <string gp="04">DESCryptoServiceProvider</string>
     <string gp="04">MD5CryptoServiceProvider</string>
     <string gp="04">TripleDESCryptoServiceProvider</string>
-    <string>PaddingMode</string>
-    <string>iexplorer</string>
     <string>ExecuteCommand</string>
     <string>RunPE</string>
-    <string>CCleaner</string>
-    <string>Binder</string>
-    <string>SpyTheSpy</string>
-    <string>TCPEye</string>
-    <string>SpeedGear</string>
-    <string>IPBlocker</string>
-    <string>procexp</string>
-    <string>Payment ok</string>
-    <string>Payment Received. Proceed to decryption.</string>
-    <string>Waiting Payment</string>
-    <string>Waiting TOR Connection</string>
-    <string>TorLocker</string>
-    <string>TorLocker_v0.9.3</string>
     <string gp="13" ti="1002">Inflate</string>
     <string gp="13" ti="1002">ZipAndEncrypt</string>
     <string gp="13" ti="1002">ZipAndAES</string>
@@ -3248,78 +3206,22 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <string>EncryptFile</string>
     <string>RunAsShellUser</string>
     <string>SVNCStartServer</string>
-    <string>Terminal Server</string>
-    <string>Enterprise</string>
     <string>LanmanNT</string>
-    <string>CONNECTED</string>
-    <string>SENDME</string>
-    <string>RESOLVE</string>
-    <string>CWSandbox</string>
-    <string>AVAST Software</string>
-    <string>redirects</string>
-    <string>httpinjects</string>
-    <string>modify</string>
-    <string>coin-miner</string>
     <string>urlmon</string>
-    <string>inhibitPolicyMapping</string>
-    <string>infinite</string>
-    <string>relativename</string>
     <string gp="03">LanmanWorkstation</string>
     <string gp="03">LanmanServer</string>
-    <string>Seed</string>
-    <string>prot testing</string>
-    <string>experience Destroy</string>
-    <string>payload</string>
-    <string>Shell.Application</string>
-    <string>UltraVnc</string>
-    <string>UltraVncSC</string>
     <string>RunProgram</string>
-    <string>Macromedia</string>
-    <string>FlashPlayer</string>
-    <string>NetworkService\Cookies\</string>
-    <string>server</string>
-    <string>CONNECT</string>
-    <string>Launcher</string>
-    <string>remote</string>
-    <string>random</string>
-    <string>inject</string>
-    <string>hook</string>
-    <string>crack</string>
-    <string>script</string>
-    <string>Clipboard</string>
-    <string>Privilege</string>
-    <string>Reboot</string>
     <string>CabinetFile</string>
     <string>cabfile</string>
-    <string>Socket</string>
-    <string>Console</string>
     <string>shell</string>
     <string>reverse</string>
     <string>HookProc</string>
-    <string>attempt</string>
-    <string>drop</string>
-    <string>Download</string>
-    <string>Upload</string>
-    <string>CONNECT</string>
     <string ti="1027">petite</string>
     <string ti="1027">.petite</string>
-    <string>deflate</string>
-    <string>Referer</string>
     <string>WinSta0</string>
-    <string>Gh0st</string>
-    <string>sharedaccess</string>
     <string>localgroup</string>
     <string>administrators</string>
     <string>Administrator</string>
-    <string>nsocket</string>
-    <string>webkit</string>
-    <string>sandbox</string>
-    <string>keystroke</string>
-    <string>scanning</string>
-    <string>Callback</string>
-    <string>torrent</string>
-    <string>downspeed</string>
-    <string>webseeds</string>
     <string gp="03">POST</string>
     <string gp="03">TRANSPORT:</string>
     <string gp="03">LHOST:</string>
@@ -3329,106 +3231,33 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <string>payload</string>
     <string>tracker</string>
     <string>watchdog</string>
-    <string>WinRAR SFX</string>
-    <string>\\cryptme\\</string>
-    <string>Windows Update Service</string>
-    <string>serialNumber</string>
-    <string>userPassword</string>
-    <string>serial</string>
-    <string>encryption</string>
     <string>PECompact2</string>
     <string>logFile</string>
     <string>application/pdf</string>
     <string>Run as a daemon</string>
     <string>serverTimeout</string>
-    <string>Server closed connection</string>
-    <string>nameserver</string>
-    <string>OLLYDBG</string>
-    <string>BankID</string>
-    <string>WebBrowser</string>
-    <string>Logout</string>
-    <string>downloader</string>
-    <string>browser</string>
-    <string>Downloader</string>
     <string ti="1059">Shell</string>
-    <string>pidrun</string>
-    <string>geturl</string>
-    <string>likubes</string>
-    <string>Sitikat</string>
-    <string>Reply from</string>
-    <string>downfile</string>
-    <string>quitz</string>
-    <string>debugmessage</string>
-    <string>debugclient</string>
-    <string>debugfile</string>
     <string>POST</string>
     <string>CONNECT</string>
-    <string>NetSubKey</string>
-    <string>AckPacket</string>
-    <string>Connection</string>
     <string ti="1060">autoRunKeyPath</string>
-    <string>SIGNATURE</string>
-    <string>messageId</string>
-    <string>HeartBeat</string>
-    <string>Request</string>
-    <string>Unload</string>
-    <string>RequestLoop</string>
-    <string>HeartBeatLoop</string>
-    <string gp="03">TcpClient</string>
-    <string gp="03">NetworkStream</string>
-    <string>CreateDomain</string>
-    <string>ComputeHash</string>
     <string>PROCMON_WINDOW_CLASS</string>
-    <string>WdcWindow</string>
     <string>Dumper64</string>
     <string>APISpy32Class</string>
     <string>TokenPrivilege</string>
     <string>WebKit2WebProcess</string>
     <string>Rijndael</string>
-    <string>SystemBiosVersion</string>
-    <string>VideoBiosVersion</string>
-    <string>Identifier</string>
-    <string>plugins</string>
-    <string>clientkey</string>
-    <string>rpcsrv</string>
-    <string>Engine started</string>
-    <string>Running in background</string>
-    <string>\DosDevices\DKOM_Driver</string>
-    <string>\Device\DKOM_Driver</string>
-    <string>Process successfully hidden.</string>
     <string>RegSAM</string>
     <string>DownloadUrl</string>
-    <string>QueueDownloader</string>
     <string>ZipManager</string>
     <string>ZipStorer</string>
-    <string>webBrowser1</string>
-    <string>Monetizer</string>
-    <string>amonetize</string>
-    <string>Couponserver</string>
-    <string>IexplorerMinVersion</string>
-    <string>IsControlled</string>
     <string>Microsoft Network Monitoring Service</string>
     <string>Host Process for Windows Services</string>
-    <string>MsNetMonitor</string>
-    <string>Windows Filter Driver</string>
     <string>IsUserAdministrator</string>
     <string>NotifyDownloading</string>
     <string>CheckAdminPrivileges</string>
-    <string>TrackOnDefaultBrowser</string>
-    <string>GetDomain</string>
-    <string>checkdomain</string>
-    <string>bytesDownloaded</string>
-    <string>God Mode</string>
-    <string>logger</string>
-    <string>Hook cleaning on</string>
-    <string>PiD obfuscation on</string>
-    <string>Code injection successful!</string>
-    <string>Code injection failed!</string>
-    <string>Injecting code ...</string>
-    <string>Code Injection</string>
-    <string>Keylogging disabled.</string>
-    <string>DisallowRun</string>
     <string>NoDriveTypeAutoRun</string>
+    <string ti="1045">Decompress</string>
+    <string ti="1045">LzmaDecoder</string>
     <string ti="1045">LZO real-time data compression library.</string>
     <string ti="1045">CryptoLibV2_freeBuffer</string>
     <string ti="1045">CryptoLibV2_getRandom</string>
@@ -3440,15 +3269,6 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <string>Resistance is futile</string>
     <string>Anti-debug</string>
     <string>Detoured</string>
-    <string>Client hook allocation failure.</string>
-    <string>silentpostback</string>
-    <string>AlreadyRunning</string>
-    <string>keeplog</string>
-    <string>StubRun</string>
-    <string>StubExtract</string>
-    <string>VBoxGuest</string>
-    <string>Betabot</string>
-    <string>Hashtable</string>
     <string>Monitor</string>
     <string>RegServer</string>
     <string>HTTPMail User Name</string>
@@ -3457,105 +3277,34 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <string>ActiveOnlineKeyStrokes</string>
     <string>ActiveOnlineKeylogger</string>
     <string>AntiVirusDisableNotify</string>
-    <string>BTMemoryLoadLibary: Cant attach library</string>
     <string>DownloadFail</string>
     <string>DownloadSuccess</string>
-    <string>Progman</string>
     <string>UPLOADEXEC</string>
     <string>UPLOADFILE</string>
     <string>UnActiveOfflineKeylogger</string>
     <string>UnActiveOnlineKeyStrokes</string>
     <string>UnBlockContact</string>
     <string>Video Capture</string>
-    <string>WEBCAMLIVE</string>
-    <string>WEBCAMSTOP</string>
     <string>wscsvc</string>
-    <string>httpstop</string>
-    <string>logstop</string>
-    <string>ftfpstop</string>
-    <string>procsstop</string>
-    <string>securestop</string>
-    <string>reconnect</string>
-    <string>disconnect</string>
-    <string>botid</string>
-    <string>flusharp</string>
-    <string>flushdns</string>
-    <string>crash</string>
-    <string>killthreads</string>
-    <string>killproc</string>
-    <string>killid</string>
-    <string>Kennwort</string>
-    <string>Object dump complete.</string>
-    <string>Ping flood</string>
-    <string>ROOTED</string>
-    <string>Rebooting system</string>
-    <string>Reconnecting</string>
-    <string>Referer: %s</string>
-    <string>Remote Command Prompt</string>
-    <string>Removing Bot</string>
-    <string>[DDoS]</string>
-    <string>[KEYLOG]: %s</string>
-    <string>[PSNIFF]</string>
-    <string>[PING]</string>
-    <string>[TFTP]</string>
-    <string>[UPD]</string>
     <string>administrador</string>
     <string>administrat</string>
     <string>administrateur</string>
-    <string>Download complete</string>
-    <string>ALIEN-Z</string>
-    <string>\Google\Chrome\User Data</string>
-    <string>VncSrvWndProc</string>
-    <string>VncStopServer</string>
-    <string>VncStartServer</string>
-    <string>VNCCreateServer</string>
-    <string>VNCServerThread</string>
-    <string>VNCStartServer</string>
-    <string>FPUMaskValue</string>
-    <string>PhysicalDrive0</string>
-    <string>Protection Error</string>
-    <string>LOADER ERROR</string>
-    <string>Host is down.</string>
-    <string>No route to host.</string>
-    <string>debugger</string>
-    <string>emulat</string>
     <string>GetProcesses</string>
     <string gp="05">MemoryStream</string>
     <string>GZipStream</string>
     <string>0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/</string>
-    <string>putfile:</string>
-    <string>getfile:</string>
-    <string>source</string>
-    <string>Connecting</string>
-    <string>Downloading</string>
-    <string>Connecting</string>
-    <string>Reconnect Pause</string>
-    <string>Transfer Error</string>
-    <string>Connection Error</string>
-    <string>OpenRequest Error</string>
-    <string>SendRequest Error</string>
-    <string>Request Error</string>
-    <string>Server Error</string>
-    <string>Redirection</string>
-    <string>Delete</string>
     <string>NoRemove</string>
     <string>ForceRemove</string>
     <string>Keylogger</string>
     <string>crypter</string>
     <string>NetKeyLogger</string>
-    <string>pipeline</string>
     <string>miner</string>
-    <string>Download ERROR</string>
-    <string>Execute ERROR</string>
     <string>webBrowser2</string>
     <string>IEFrame</string>
     <string>master</string>
     <string>mysql</string>
     <string>daemon</string>
     <string>backup</string>
-    <string>marta</string>
-    <string>redhat</string>
-    <string>exploitable</string>
     <string>passwd</string>
     <string>proxypasswd</string>
     <string>proxyuser</string>
@@ -3567,105 +3316,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <string>RunSelectedHidden</string>
     <string>RunSelectedShow</string>
     <string>RemoteMachineName</string>
-    <string>AheadLib</string>
-    <string>web-browser</string>
-    <string>SetHook</string>
-    <string>TMemoryScanner</string>
-    <string>Protect</string>
-    <string>SecurityAnonymous</string>
-    <string>SecurityIdentification</string>
-    <string>SecurityImpersonation</string>
-    <string>SecurityDelegation</string>
-    <string gp="03">WebServices</string>
     <string>DownloadData</string>
-
-    <string>\\.\PhysicalDrive0</string>
-
-    <string>windowsupdate</string>
-    <string>wilderssecurity</string>
-    <string>castlecops</string>
-    <string>spamhaus</string>
-    <string>cpsecure</string>
-    <string>arcabit</string>
-    <string>emsisoft</string>
-    <string>sunbelt</string>
-    <string>securecomputing</string>
-    <string>computerassociates</string>
-    <string>networkassociates</string>
-    <string>etrust</string>
-    <string>rootkit</string>
-    <string>spyware</string>
-
-    <!-- VM patterns -->
-    <string>vmdebug</string>
-    <string>VMware Replay Debugging Helper</string>
-    <string>VMware VMCI Bus Driver</string>
-    <string>vmci</string>
-    <string>VMware Pointing Device</string>
-    <string>vmmouse</string>
-    <string>msvmmouf</string>
-    <string>MS Virtual SCSI Disk Device</string>
-    <string>VMware Workstation v10</string>
-    <string>VMwareDragDetWndClass</string>
-    <string>VMwareSwitchUserControlClass</string>
-    <string>VMware</string>
-    <string>VMware Pointing</string>
-    <string>VMware server memory</string>
-    <string>VMware Replay</string>
-    <string>AntiVirtualBox</string>
-    <string>AntiVmWare</string>
-    <string>AntiVirtualPC</string>
-    <string>AntiMalwarebytes</string>
-    <string>AntiOllydbg</string>
-    <string>AntiWireshark</string>
-    <string>antiSpyware</string>
-    <string>Anti-Virus</string>
-    <string>avast!</string>
-    <string>AntiVir</string>
-    <string>Malware</string>
-    <string>Norton Personal Firewall</string>
-    <string>ZoneAlarm</string>
-    <string>Comodo Firewall</string>
-    <string>eTrust EZ Firewall</string>
-    <string>F-Secure Internet Security</string>
-    <string>McAfee Personal Firewall</string>
-    <string>Outpost Personal Firewall</string>
-    <string>Panda Internet Seciruty Suite</string>
-    <string>Panda Anti-Virus/Firewall</string>
-    <string>BitDefnder/Bull Guard Antivirus</string>
-    <string>Rising Firewall</string>
-    <string>360Safe AntiArp</string>
-    <string>Kingsoft Safe</string>
-    <string>Fiddler</string>
-    <string>wireshark</string>
-    <string>Chromium</string>
-    <string>SCREENSHOT</string>
-    <string>RunProgram</string>
-    <string>PendingFileRenameOperations</string>
-    <string>InstallHOOK</string>
-    <string>InstallLocalHOOK</string>
-    <string>UninstallHOOK</string>
-    <string>ZLibEx</string>
-    <string>Xenocode Virtual Desktop</string>
-    <string>Spoon Virtual Machine</string>
-    <string>Xenocode Virtual Appliance Runtime</string>
-    <string>CPlApplet</string>
-    <string>NETWORK SERVICE</string>
-    <string>Administrative Tools</string>
-    <string>CREATE_SUSPENDED</string>
-    <string gp="13" ti="1002">VBScript.Encode</string>
-    <string gp="13" ti="1002">JScript.Encode</string>
-    <string>ExeScriptPAD</string>
-    <string>ExeScript</string>
-    <string>ExeScript Host</string>
-    <string>Godmode</string>
-    <string gp="13" ti="1002">DECOMPRESSOR</string>
-    <string>antivirus</string>
-    <string>AntivirusProduct</string>
-    <string>DefaultBrowser</string>
-    <string>MemoryProtection</string>
-    <string>BaseScript</string>
-    <string>Updater</string>
     <string>IDetourHook</string>
     <string>DetourHook</string>
     <string>CaptureScreen</string>
@@ -3690,6 +3341,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
 
     <string>WM_HTML_GETOBJECT</string>
     <string>WM_COPYDATA</string>
+    <string gp="15">WM_CLIPBOARDUPDATE</string>
 
     <string>SE_PRIVILEGE_ENABLED_BY_DEFAULT</string>
     <string>SE_PRIVILEGE_ENABLED</string>
@@ -3768,6 +3420,8 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <string hint="03">READ_REGISTER_UCHAR</string>
     <string hint="03">READ_REGISTER_ULONG</string>
     <string hint="03">WRITE_REGISTER_ULONG</string>
+    <string gp="21" bl="0">DLL_PROCESS_ATTACH</string>
+    <string gp="21" bl="0">DLL_PROCESS_DETACH</string>
 
     <!-- AutoIt -->
     <string>/AutoIt3ExecuteLine</string>
@@ -3794,6 +3448,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <string bl="1" wl="0" gp="10" ti="1132">ENIGMA</string>
     <string bl="1" wl="0" gp="10" ti="1132">Enigma Protector</string>
     <string bl="1" wl="0" gp="10" ti="1132">UpackByDwing@</string>
+    <string bl="1" wl="0" gp="--" hint="01">new:72C24DD5-D70A-438B-8A42-98424B88AFB8</string>
 
     <!-- Github -->
     <string bl="1" wl="0" gp="24">GDIScreenshot</string>

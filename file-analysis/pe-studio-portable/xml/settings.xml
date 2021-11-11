@@ -1,8 +1,8 @@
 <!--
 This file is part of the pestudio solution (www.winitor.com).
+Any usage of this file outside of the context of pestudio (e.g. in third-party application, tools chain, etc...) must be explicitely authorized.
 
-This file may not be used outside of the context of pestudio. 
-Any usage of this file outside of the context of pestudio (e.g. in third-party application) must be explicitely authorized.
+Please note that this file will be modified when running pestudio.
 -->
 <xml version="1.0" encoding="utf-8">
 
@@ -19,39 +19,41 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
   </files>
 
   <setting>
-    <dos-stub enable="1" show="1"/>
-    <dos-header enable="1" show="1"/>
-    <file-header enable="1" show="1"/>
-    <rich-header enable="1" show="1" fn="1" details="1"/>
-    <optional-header enable="1" show="1"/>
-    <directories enable="1" show="1" empty="1"/>
-    <sections enable="1" show="1" bl="1" files="1"/>
-    <indicators enable="1" show="1" id="0" bl="1" gp="1" hint="1" sus="1" mitre="1" l1="1" l2="1" l3="1" l4="1"/>
-    <libraries enable="1" show="1" bound="0" ftk="1" ftko="1" type="1" stamp="0" desc="1"/>
-    <imports enable="1" show="1" gp="1" type="1" bl="1" od="1" ad="0" un="0" dp="0" hint="1" thunk="1" ti="1" ta="1" lib="1"/>
-    <exports enable="1" show="1" fwd="1" gap="1" od="1" dup="1" decorate="1"/>
-    <exceptions enable="1" show="1"/>
-    <relocations enable="1" show="1"/>
-    <tls enable="1" show="1"/>
-    <certificate enable="1" show="1"/>
-    <resources enable="1" show="1" offset="1" bl="1" standard="0" hash="0" lang="1" size="1" hex="1" txt="1"/>
-    <strings enable="1" show="1" bl="1" wl="1" hint="1" gp="1" mitre="1" offset="1" size="1" type="3" ti="1" ta="1" min="3" utf8="1" utf16="1"/>
-    <debug enable="1" show="1"/>
-    <manifest enable="1" show="1"/>
-    <version enable="1" show="1"/>
-    <overlay enable="1" show="1" bl="1" offset="1"/>
+    <dos-stub enable="1"/>
+    <dos-header enable="1"/>
+    <file-header enable="1"/>
+    <rich-header enable="1" fn="1" details="1"/>
+    <optional-header enable="1"/>
+    <directories enable="1" empty="1"/>
+    <sections enable="1" bl="1" files="1"/>
+    <indicators enable="1" id="0" bl="1" gp="1" hint="1" sus="1" mitre="1" l1="1" l2="1" l3="1" l4="1"/>
+    <libraries enable="1" ftk="0" ftko="0" type="1" stamp="0" desc="1" bl="1"/>
+    <functions enable="1" gp="1" type="1" bl="1" od="1" un="0" dp="0" hint="0" ti="1" ta="1" lib="1" dup="0"/>
+    <exports enable="1" fwd="1" gap="1" od="1" dup="1" decorate="1" msdn="1"/>
+    <exceptions enable="0"/>
+    <relocations enable="0"/>
+    <tls enable="1"/>
+    <certificate enable="1"/>
+    <resources enable="1" location="1" bl="1" hash="1" lang="1" size="1" hex="1" txt="0"/>
+    <dotnet enable="1" streams="1" tables="1" man="1" uman="1"/>
+    <strings enable="1" bl="1" wl="1" hint="1" gp="1" mitre="1" offset="1" size="1" type="3" ti="1" ta="1" min="3" utf8="1" utf16="1"/>
+    <debug enable="1"/>
+    <manifest enable="1"/>
+    <version enable="1"/>
+    <overlay enable="1" bl="1" offset="1"/>
     <report enable="1"/>
-    <mitre enable="1" show="1" short="0" fn="1"/>
+    <mitre enable="1" short="0" fn="1"/>
     <msdn enable="1"/>
     <google enable="1"/>
-    <score-file enable="1" show="1" all="1" detected="0" undetected="0"/>
+    <score-file enable="1" all="1" detected="0" undetected="0"/>
     <score-overlay enable="1"/>
     <caption enable="1"/>
     <read-only enable="0"/>
     <thresholds enable="1"/>
+    <hints color="1"/>
   </setting>
 
-  <colors>
+  <colors enable="1">
     <color id="01" r="000" g="000" b="000">black</color>
     <color id="02" r="255" g="255" b="255">white</color>
     <color id="03" r="088" g="088" b="088">gray_dark</color>
@@ -90,25 +92,32 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <section>/51</section>
     <section>/55</section>
     <section>/57</section>
+    <section>/61</section>
     <section>/63</section>
     <section>/67</section>
     <section>/70</section>
+    <section>/73</section>
     <section>/77</section>
     <section>/78</section>
     <section>/80</section>
     <section>/81</section>
+    <section>/87</section>
     <section>/89</section>
     <section>/91</section>
     <section>/92</section>
     <section>/99</section>
     <section>/102</section>
+    <section>/105</section>
     <section>/112</section>
     <section>/113</section>
+    <section>/123</section>
     <section>/124</section>
+    <section>/134</section>
     <section>mods</section>
     <section>.CRT</section>
     <section>.bss</section>
     <section>.data</section>
+    <section>data</section>
     <section>.didata</section>
     <section>.didat</section>
     <section>.dynamic</section>
@@ -131,6 +140,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <section>.sxdata</section>
     <section>.sdata</section>
     <section>.symtab</section>
+    <section>text</section>
     <section>.text</section>
     <section>.textbss</section>
     <section>.tls</section>
@@ -141,4 +151,63 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <section>INIT</section>
     <section>CODE</section>
   </sections>
+
+  <streams>
+    <stream id="00" bl="0">#~</stream>
+    <stream id="01" bl="0">#Strings</stream>
+    <stream id="02" bl="0">#US</stream>
+    <stream id="03" bl="0">#GUID</stream>
+    <stream id="04" bl="0">#Blob</stream>
+    <stream id="ff" bl="1">Unknown</stream>
+  </streams>
+
+  <tables>
+    <table id="00">Module</table>
+    <table id="01">TypeRef</table>
+    <table id="02">TypeDef</table>
+    <table id="03">FieldPtr</table>
+    <table id="04">Field</table>
+    <table id="05">MethodPtr</table>
+    <table id="06">Managed Function(s)</table>
+    <table id="07">ParamPtr</table>
+    <table id="08">Param</table>
+    <table id="09">InterfaceImpl</table>
+    <table id="10">MemberRef</table>
+    <table id="11">Constant</table>
+    <table id="12">CustomAttribute</table>
+    <table id="13">FieldMarshal</table>
+    <table id="14">DeclSecurity</table>
+    <table id="15">ClassLayout</table>
+    <table id="16">FieldLayout</table>
+    <table id="17">StandAloneSig</table>
+    <table id="18">EventMap</table>
+    <table id="19">EventPtr</table>
+    <table id="20">Event</table>
+    <table id="21">PropertyMap</table>
+    <table id="22">PropertyPtr</table>
+    <table id="23">Property</table>
+    <table id="24">MethodSemantics</table>
+    <table id="25">MethodImpl</table>
+    <table id="26">External Module(s)</table>
+    <table id="27">TypeSpec</table>
+    <table id="28">Unmanaged Function(s)</table>
+    <table id="29">FieldRVA</table>
+    <table id="30">ENCLog</table>
+    <table id="31">ENCMap</table>
+    <table id="32">Assembly</table>
+    <table id="33">AssemblyProcessor</table>
+    <table id="34">AssemblyOS</table>
+    <table id="35">AssemblyRef</table>
+    <table id="36">AssemblyRefProcessor</table>
+    <table id="37">AssemblyRefOS</table>
+    <table id="38">File</table>
+    <table id="39">ExportedType</table>
+    <table id="40">ManifestResource</table>
+    <table id="41">NestedClass</table>
+    <table id="42">GenericParam</table>
+    <table id="43">MethodSpec</table>
+    <table id="44">GenericParamConstraint</table>
+    <table id="99">Unknown</table>
+  </tables>
+
 </xml>

@@ -1,8 +1,8 @@
 <!--
 This file is part of the pestudio solution (www.winitor.com).
+Any usage of this file outside of the context of pestudio (e.g. in third-party application, tools chain, etc...) must be explicitely authorized.
 
-This file may not be used outside of the context of pestudio. 
-Any usage of this file outside of the context of pestudio (e.g. in third-party application) must be explicitely authorized.
+Please note that this file will be modified when running pestudio.
 -->
 <xml version="1.0" encoding="utf-8" md5="">
   <mitre url="https://attack.mitre.org">

@@ -1,8 +1,8 @@
 ﻿<!--
 This file is part of the pestudio solution (www.winitor.com).
+Any usage of this file outside of the context of pestudio (e.g. in third-party application, tools chain, etc...) must be explicitely authorized.
 
-This file may not be used outside of the context of pestudio. 
-Any usage of this file outside of the context of pestudio (e.g. in third-party application) must be explicitely authorized.
+Please note that this file will be modified when running pestudio.
 -->
 <xml version="1.0" encoding="utf-8" bl="1">
   <sigs>
@@ -126,9 +126,9 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
       <ep>false</ep>
     </sig>
 
-    <sig id="114" bl="1">
-      <text>.NET executable</text>
-      <pattern>
+    <sig id="114" bl="0">
+      <text>Microsoft .NET</text>
+        <pattern>
         FF 25 00 20 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
         00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
       </pattern>
@@ -8631,7 +8631,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
       <ep>false</ep>
     </sig>
 
-    <sig id="" bl="0">
+      <sig id="" bl="0">
       <text>Microsoft Visual C++ (3.0 old crap)</text>
       <pattern>
         64 A1 00 00 00 00 55 xx xx 6A FF 68 xx xx xx xx 68 xx xx xx xx 50 xx xx xx xx xx 00 00 83 EC 10
@@ -9194,7 +9194,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <sig id="" bl="0">
       <text>Microsoft Visual Studio .NET</text>
       <pattern>
-        FF 25 00 20 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+          FF 25 00 20 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
       </pattern>
       <ep>true</ep>
     </sig>

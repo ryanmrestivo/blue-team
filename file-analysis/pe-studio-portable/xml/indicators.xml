@@ -1,13 +1,12 @@
 <!--
 This file is part of the pestudio solution (www.winitor.com).
+Usage of this file outside of the context of pestudio (e.g. in third-party application, tools chain, etc...) must be explicitely authorized.
 
-This file may not be used outside of the context of pestudio. 
-Any usage of this file outside of the context of pestudio (e.g. in third-party application) must be explicitely authorized.
+Please note that this file can be modified when running pestudio.
 -->
 <xml version="1.0" encoding="utf-8" detail="">
   <indicators>
-    <indicator enable="1" severity="3" id="1000" detail="status: %s">The file is not an executable file</indicator>
-    <indicator enable="1" severity="1" id="1001" detail="status: %s">The MZ signature is missing</indicator>
+    <indicator enable="1" severity="1" id="1001" detail="result: %s">The MZ signature is missing</indicator>
     <indicator enable="1" severity="2" id="1002" detail="size: %i bytes">The size of the file is suspicious</indicator>
     <indicator enable="1" severity="2" id="1003" detail="ratio: %s">The file-ratio of the overlay is suspicious</indicator>
     <indicator enable="1" severity="1" id="1004" detail="size: %i bytes">The size of the optional-header is suspicious</indicator>
@@ -17,10 +16,11 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <indicator enable="1" severity="1" id="1009" detail="status: %s">The content of the certificate is suspicious</indicator>
     <indicator enable="1" severity="2" id="1010" detail="status: %s">The file is Self-Extractable (SFX)</indicator>
     <indicator enable="1" severity="3" id="1011" detail="size: %i bytes">The file references a certificate</indicator>
-    <indicator enable="1" severity="1" id="1012" detail="status: %s">The compiler time stamp is outside of the Certificate time stamp</indicator>
+    <indicator enable="1" severity="1" id="1012" detail="status: %s">The compiler time stamp is than the Certificate time stamp</indicator>
     <indicator enable="1" severity="1" id="1018" detail="hint: %s">The rich-header has been tampered</indicator>
     <indicator enable="1" severity="4" id="1019" detail="status: %s">The file contains a rich-header</indicator>
-    <indicator enable="1" severity="4" id="1023" detail="status: %s">The file is managed</indicator>
+    <indicator enable="1" severity="4" id="1023" detail="status: %s">The file is managed by the .NET runtime</indicator>
+    <indicator enable="1" severity="3" id="1024" detail="count: %i">The .NET file references unmanaged functions</indicator>
     <indicator enable="1" severity="1" id="1025" detail="status: %s">The file references the Reflective DLL Injection technique</indicator>
     <indicator enable="1" severity="4" id="1026" detail="count: %i">The file is bound to other library(ies)</indicator>
     <indicator enable="1" severity="3" id="1027" detail="status: %s">The file is Code-less</indicator>
@@ -59,7 +59,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <indicator enable="1" severity="2" id="1154" detail="value: %s">The GUID of the debug symbols is suspicious</indicator>
     <indicator enable="1" severity="2" id="1155" detail="path: %s">The path of the debug symbols is suspicious</indicator>
     <indicator enable="1" severity="2" id="1157" detail="age: %i">The age of the debug symbols is suspicious</indicator>
-    <indicator enable="1" severity="1" id="1158" detail="status: %s">The format of the debug symbols is suspicious</indicator>
+    <indicator enable="1" severity="1" id="1158" detail="type: %s">The format of the debug symbols is suspicious</indicator>
     <indicator enable="0" severity="2" id="1200" detail="value: 0x%08X">The value of 'pointer-symbol-table' is suspicious</indicator>
     <indicator enable="1" severity="2" id="1201" detail="value: 0x%08X">The value of 'number-of-symbols' is suspicious</indicator>
     <indicator enable="1" severity="1" id="1203" detail="value: 0x%08X">The value of 'size-of-code' is suspicious</indicator>
@@ -68,7 +68,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <indicator enable="1" severity="2" id="1206" detail="value: 0x%08X">The value of 'FileAlignment' is suspicious</indicator>
     <indicator enable="1" severity="2" id="1207" detail="value: 0x%08X">The value of 'SizeOfImage' is suspicious</indicator>
     <indicator enable="1" severity="2" id="1209" detail="value: 0x%08X">The value of 'SizeOfHeaders' is suspicious</indicator>
-    <indicator enable="1" severity="1" id="1210" detail="count: %i">The count of directories is suspicious</indicator>
+    <indicator enable="1" severity="2" id="1210" detail="count: %i">The count of directories is unusual</indicator>
     <indicator enable="1" severity="1" id="1211" detail="address: 0x%08X">The address of the entry-point is suspicious</indicator>
     <indicator enable="1" severity="4" id="1215" detail="ratio: %.02f">The file-ratio of the section(s) has been determined</indicator>
     <indicator enable="1" severity="2" id="1216" detail="ratio: %.02f">The file-ratio of the section(s) is high</indicator>
@@ -94,7 +94,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <indicator enable="1" severity="2" id="1257" detail="count: %i">The file exports duplicated function(s)</indicator>
     <indicator enable="0" severity="1" id="1258" detail="count: %i">The file exports blacklist function(s)</indicator>
     <indicator enable="1" severity="1" id="1259" detail="text: %s">The dos-stub message is unusual</indicator>
-    <indicator enable="1" severity="1" id="1260" detail="status: %s">The dos-stub message is missing</indicator>
+    <indicator enable="1" severity="1" id="1260" detail="result: %s">The dos-stub message is missing</indicator>
     <indicator enable="1" severity="3" id="1261" detail="count: %i">The file imports deprecated function(s)</indicator>
     <indicator enable="1" severity="2" id="1262" detail="count: %i">The file imports anonymous function(s)</indicator>
     <indicator enable="1" severity="3" id="1263" detail="count: %i">The file imports forwarded function(s)</indicator>
@@ -102,18 +102,30 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <indicator enable="1" severity="1" id="1265" detail="count: %i">The count of imports is suspicious</indicator>
     <indicator enable="1" severity="1" id="1266" detail="type: %s, count: %i">The file imports symbol(s)</indicator>
     <indicator enable="1" severity="2" id="1267" detail="size: %i bytes">The file references a string with a suspicious size</indicator>
+    <indicator enable="1" severity="2" id="1269" detail="count: %i">The file references blacklist library(ies)</indicator>
     <indicator enable="1" severity="1" id="1274" detail="status: %s">The dos-stub is missing</indicator>
     <indicator enable="1" severity="3" id="1277" detail="count: %i">The file imports undocumented function(s)</indicator>
     <indicator enable="1" severity="1" id="1286" detail="status: %s">The file subsystem is unknown</indicator>
+    <indicator enable="1" severity="1" id="1286" detail="status: %s">The file subsystem is unknown</indicator>
     <indicator enable="1" severity="4" id="1287" detail="type: %s">The file subsystem has been found</indicator>
+    <indicator enable="1" severity="2" id="1288" detail="name: %s">A .NET property is missing</indicator>
+    <indicator enable="1" severity="1" id="1289" detail="name: %s">A .NET stream name is blacklist</indicator>
+    <indicator enable="1" severity="2" id="1290" detail="stream[%i]">A .NET stream is suspicious</indicator>
+    <indicator enable="1" severity="1" id="1291" detail="name: %s">A .NET stream is duplicated</indicator>
+    <indicator enable="1" severity="2" id="1292" detail="ratio: %s">The file-ratio of the .NET resources is high</indicator>
+    <indicator enable="1" severity="3" id="1293" detail="status: %s">The .NET file is strongly-named</indicator>
+    <indicator enable="1" severity="3" id="1294" detail="count: %i">The .NET file references Managed Methods</indicator>
+    <indicator enable="1" severity="3" id="1295" detail="count: %i">The .NET file references Unmanaged Methods</indicator>
+    <indicator enable="1" severity="3" id="1296" detail="count: %i">The .NET file references Unmanaged Libraries</indicator>
+    <indicator enable="1" severity="1" id="1297" detail="name: %s">The .NET file is obfuscated</indicator>
     <indicator enable="1" severity="1" id="1301" detail="type: %s">A directory is missing</indicator>
     <indicator enable="1" severity="1" id="1302" detail="type: %s">A directory is invalid</indicator>
     <indicator enable="1" severity="1" id="1306" detail="status: %s">The directories table is empty</indicator>
-    <indicator enable="1" severity="2" id="1320" detail="type: %s">The time-stamp of a directory is suspicious</indicator>
+    <indicator enable="1" severity="2" id="1320" detail="directory: %s, stamp: %s">The time-stamp of a directory is suspicious</indicator>
     <indicator enable="1" severity="2" id="1321" detail="year: %i">The time-stamp of the compiler is suspicious</indicator>
     <indicator enable="1" severity="1" id="1400" detail="level: %s">The file execution privilege has been found</indicator>
     <indicator enable="1" severity="1" id="1401" detail="status: %s">The file requests User Interface Privilege Isolation (UIPI)</indicator>
-    <indicator enable="1" severity="3" id="1424" detail="name: %s">The original name of the file has been found</indicator>
+    <indicator enable="1" severity="3" id="1424" detail="name: %s">The original name of the file has been detected</indicator>
     <indicator enable="1" severity="4" id="1430" detail="type: %s, count: %i">The file references string(s)</indicator>
     <indicator enable="1" severity="1" id="1431" detail="count: %i">The count of strings is suspicious</indicator>
     <indicator enable="1" severity="1" id="1434" detail="url: %s">The file references a URL pattern</indicator>

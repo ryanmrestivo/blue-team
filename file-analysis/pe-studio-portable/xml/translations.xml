@@ -1,8 +1,8 @@
 <!--
 This file is part of the pestudio solution (www.winitor.com).
+Any usage of this file outside of the context of pestudio (e.g. in third-party application, tools chain, etc...) must be explicitely authorized.
 
-This file may not be used outside of the context of pestudio. 
-Any usage of this file outside of the context of pestudio (e.g. in third-party application) must be explicitely authorized.
+Please note that this file will be modified when running pestudio.
 -->
 <xml version="1.0" encoding="utf-8">
   <misc>
@@ -16,13 +16,13 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <item id="7">checksum-valid</item>
     <item id="8">checksum-invalid</item>
     <item id="9">address-space-layout-randomization (ASLR)</item>
-    <item id="10">code-integrity</item>
+    <item id="10">code-integrity (CI)</item>
     <item id="11">data-execution-prevention (DEP)</item>
     <item id="12">image-isolation</item>
     <item id="13">structured-exception-handling (SEH)</item>
     <item id="14">image-bound</item>
     <item id="15">windows-driver-model (WDM)</item>
-    <item id="16">terminal-server-aware</item>
+    <item id="16">terminal-server-aware (TSA)</item>
     <item id="17">low</item>
     <item id="18">Non-Portable Executable</item>
     <item id="19">Certificate exist</item>
@@ -35,14 +35,14 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <item id="26">Exe files (*.exe)|*.exe|Dll files (*.dll)|*.dll|Sys files (*.sys)|*.sys|All Files (*.*)|*.*||</item>
     <item id="27">failure</item>
     <item id="28">Images (%i of %i)</item>
-    <item id="29">The image is not Portable Executable</item>
+    <item id="29">Image not found</item>
     <item id="30">highest</item>
     <item id="31">administrator</item>
     <item id="32">invoker</item>
     <item id="33">trust-info-missing</item>
     <item id="34">virustotal</item>
     <item id="35">internet connection failed</item>
-    <item id="36">the file has not been found in the repository</item>
+    <item id="36">valid</item>
     <item id="37">wait...</item>
     <item id="38">please enable the virustotal submission</item>
     <item id="39">positives</item>
@@ -111,7 +111,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <item id="102">type</item>
     <item id="103">file-version</item>
     <item id="104">image-base</item>
-    <item id="105">imports</item>
+    <item id="105">functions</item>
     <item id="106">CPU mismatch</item>
     <item id="107">type</item>
     <item id="108">cpu</item>
@@ -147,7 +147,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <item id="138">top list</item>
     <item id="139">begin</item>
     <item id="140">end</item>
-    <item id="141">item</item>
+    <item id="141"></item>
     <item id="142">score</item>
     <item id="143">address (begin)</item>
     <item id="144">address (end)</item>
@@ -219,7 +219,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <item id="210">assemblies</item>
     <item id="211">assembly</item>
     <item id="212">name</item>
-    <item id="213"></item>
+    <item id="213">line-stripped-from-file</item>
     <item id="214">version</item>
     <item id="215">token</item>
     <item id="216">total</item>
@@ -323,7 +323,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <item id="314">size-of-code</item>
     <item id="315">size-of-initialized-data</item>
     <item id="316">size-of-uninitialized-data</item>
-    <item id="317"></item>
+    <item id="317">local-symbols-stripped-from-file</item>
     <item id="318">base-of-code</item>
     <item id="319">base-of-data</item>
     <item id="320">image-base</item>
@@ -346,7 +346,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <item id="337">structured-exception-handling</item>
     <item id="338">real-checksum</item>
     <item id="339">threshold</item>
-    <item id="340"></item>
+    <item id="340">import-stamp</item>
     <item id="341"></item>
     <item id="342"></item>
     <item id="343">size-of-stack-reserve</item>
@@ -360,9 +360,9 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <item id="351">warning</item>
     <item id="352">Signer</item>
     <item id="353">Counter-signer</item>
-    <item id="354">Email</item>
-    <item id="355">Street</item>
-    <item id="356">Postal code</item>
+    <item id="354">email</item>
+    <item id="355">street</item>
+    <item id="356">postal-code</item>
     <item id="357">valid-from</item>
     <item id="358">valid-to</item>
     <item id="359">organization</item>
@@ -371,44 +371,44 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <item id="362">Signing Time</item>
     <item id="363">Dump PKCS7</item>
     <item id="364">encoding</item>
-    <item id="365"></item>
-    <item id="366"></item>
-    <item id="367"></item>
-    <item id="368"></item>
-    <item id="369"></item>
+    <item id="365">bytes-of-machine-words-reversed-Hi</item>
+    <item id="366">bytes-of-machine-words-reversed-Low</item>
+    <item id="367">unexpected</item>
+    <item id="368">expected</item>
+    <item id="369">.NET</item>
     <item id="370">FileMajorVersion</item>
     <item id="371">FileMinorVersion</item>
     <item id="372">FileVersionBuildNumber</item>
     <item id="373">FileVersionRevisionNumber</item>
-    <item id="374"></item>
-    <item id="375"></item>
-    <item id="376"></item>
-    <item id="377"></item>
-    <item id="378"></item>
-    <item id="379"></item>
+    <item id="374">major-runtime-version</item>
+    <item id="375">minor-runtime-version</item>
+    <item id="376">entry-point-token</item>
+    <item id="377">flags</item>
+    <item id="378">version</item>
+    <item id="379">streams</item>
     <item id="380">VarFileInfo</item>
     <item id="381">LanguageId</item>
     <item id="382">CodePage</item>
-    <item id="383"></item>
-    <item id="384"></item>
-    <item id="385"></item>
-    <item id="386"></item>
-    <item id="387"></item>
-    <item id="388"></item>
-    <item id="389"></item>
+    <item id="383">IL-Only</item>
+    <item id="384">32-bit-required</item>
+    <item id="385">IL-Library</item>
+    <item id="386">strong-name-signed</item>
+    <item id="387">track-debug-data</item>
+    <item id="388">BSJB</item>
+    <item id="389">strings</item>
     <item id="390">export</item>
     <item id="391">file-ratio</item>
     <item id="392">export-file-name</item>
     <item id="393">executables</item>
-    <item id="394"></item>
-    <item id="395"></item>
-    <item id="396"></item>
-    <item id="397"></item>
-    <item id="398"></item>
-    <item id="399"></item>
+    <item id="394">32-bit-preferred</item>
+    <item id="395">native-entry-point</item>
+    <item id="396">typelibId</item>
+    <item id="397">stream</item>
+    <item id="398">tables</item>
+    <item id="399">table</item>
     <item id="400">debugs</item>
     <item id="401">debug</item>
-    <item id="402">guid</item>
+    <item id="402">Guid</item>
     <item id="403">%.4X-%2.X-%2.X-%1X%1X-%1X%1X%1X%1X%1X%1X</item>
     <item id="404">age</item>
     <item id="405">RSDS</item>
@@ -418,19 +418,19 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <item id="409">format</item>
     <item id="410">path</item>
     <item id="411">managed</item>
-    <item id="412"></item>
-    <item id="413"></item>
-    <item id="414"></item>
-    <item id="415"></item>
-    <item id="416"></item>
-    <item id="417"></item>
+    <item id="412">resources-size</item>
+    <item id="413">strong-name-signature-size</item>
+    <item id="414">rows</item>
+    <item id="415">export-address-table-jump-size</item>
+    <item id="416">vtable-fixup-size</item>
+    <item id="417">drag-and-drop a file to analyse...</item>
     <item id="418"></item>
-    <item id="419"></item>
-    <item id="420"></item>
-    <item id="421"></item>
-    <item id="422"></item>
-    <item id="423"></item>
-    <item id="424"></item>
+    <item id="419">jump</item>
+    <item id="420">heap-sizes</item>
+    <item id="421">extra-data</item>
+    <item id="422">.NET-Managed</item>
+    <item id="423">.NET-Unmanaged</item>
+    <item id="424">.NET property not yet supported</item>
     <item id="425"></item>
     <item id="426"></item>
     <item id="427"></item>
@@ -608,21 +608,21 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
   </relocations>
 
   <!-- Certificate revision friendly names -->
-  <certificate_revisions>
+  <cert_revisions>
     <item>WIN_CERT_REVISION_1_0</item>
     <item>WIN_CERT_REVISION_2_0</item>
     <item>unknown</item>
-  </certificate_revisions>
+  </cert_revisions>
 
-  <certificate_types>
+  <cert_types>
     <item>WIN_CERT_TYPE_X509</item>
     <item>WIN_CERT_TYPE_PKCS_SIGNED_DATA</item>
     <item>WIN_CERT_TYPE_RESERVED_1</item>
     <item>WIN_CERT_TYPE_TS_STACK_SIGNED</item>
     <item>unknown</item>
-  </certificate_types>
+  </cert_types>
 
-  <gps enable="1">
+  <groups enable="1">
     <gp id="01" r="255" g="128" b="000" enable="1">registry</gp>
     <gp id="02" r="247" g="071" b="071" enable="1">execution</gp>
     <gp id="03" r="255" g="100" b="177" enable="1">network</gp>
@@ -644,7 +644,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <gp id="19" r="239" g="228" b="176" enable="1">reckoning</gp>
     <gp id="20" r="036" g="215" b="130" enable="1">console</gp>
     <gp id="21" r="255" g="198" b="255" enable="1">dynamic-library</gp>
-    <gp id="22" r="155" g="198" b="255" enable="1">keyboard-and-mouse</gp>
+    <gp id="22" r="155" g="198" b="255" enable="1">input-output</gp>
     <gp id="23" r="132" g="114" b="114" enable="1">storage</gp>
     <gp id="24" r="162" g="162" b="162" enable="1">desktop</gp>
     <gp id="25" r="255" g="162" b="162" enable="1">shell</gp>
@@ -655,9 +655,9 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <gp id="30" r="255" g="239" b="043" enable="1">security</gp>
     <gp id="31" r="204" g="238" b="255" enable="1">time</gp>
     <gp id="32" r="232" g="255" b="206" enable="1">printer</gp>
-  </gps>
+  </groups>
 
-  <!-- Directories Friendly Names -->
+  <!-- Directories friendly names -->
   <dirs>
     <dir>export-table</dir>
     <dir>import-name</dir>
@@ -673,90 +673,85 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <dir>bound-import</dir>
     <dir>import-address</dir>
     <dir>delay-loaded</dir>
-    <dir>com-runtime</dir>
+    <dir>.NET</dir>
     <dir>reserved</dir>
   </dirs>
 
   <!--
       attributes:
-      <id="">       is an identificator of the resource type (do not modify this value)
-      <severity=""> is the criticality level (range from 0 to 4)
-                    0 None
-                    1 Alert
-                    2 Warning
-                    3 Information
-                    4 Detail
+      <id="">   is the identificator of the resource type (do not modify this value)
+      <severity="">  is the severity level see <severity> below
     !-->
   <resources>
-    <item id="00" severity="0">manifest</item>
-    <item id="01" severity="0">cursor</item>
-    <item id="02" severity="0">bitmap</item>
-    <item id="03" severity="0">icon</item>
-    <item id="04" severity="0">menu</item>
-    <item id="05" severity="0">dialog</item>
-    <item id="06" severity="0">dialog-data</item>
-    <item id="07" severity="0">string-table</item>
-    <item id="08" severity="0">message-table</item>
-    <item id="09" severity="0">font-directory</item>
-    <item id="10" severity="0">font</item>
-    <item id="11" severity="0">accelerator</item>
-    <item id="12" severity="0">rcdata</item>
-    <item id="13" severity="0">cursor-group</item>
-    <item id="14" severity="0">icon-group</item>
-    <item id="15" severity="0">version</item>
-    <item id="16" severity="0">dlgInclude</item>
-    <item id="17" severity="0">Plug-and-play</item>
-    <item id="18" severity="0">Vxd</item>
-    <item id="19" severity="0">Animated-cursor</item>
-    <item id="20" severity="0">Animated-icon</item>
-    <item id="21" severity="0">HTML</item>
-    <item id="22" severity="0">MUI</item>
-    <item id="23" severity="0">icons</item>
-    <item id="24" severity="0">custom</item>
-    <item id="25" severity="1">executable</item>
-    <item id="26" severity="2">Compiled-HTML</item>
-    <item id="27" severity="0">Riff</item>
-    <item id="28" severity="0">GIF</item>
-    <item id="29" severity="0">PNG</item>
-    <item id="30" severity="0">BMP</item>
-    <item id="31" severity="1">typelib</item>
-    <item id="32" severity="1">registry</item>
-    <item id="33" severity="1">Driver-Installation-File</item>
-    <item id="34" severity="1">PDF</item>
-    <item id="35" severity="1">CAB</item>
-    <item id="36" severity="1">PKZIP</item>
-    <item id="37" severity="1">PKlite</item>
-    <item id="38" severity="1">PKSfx</item>
-    <item id="39" severity="2">JAR</item>
-    <item id="40" severity="2">Delphi</item>
-    <item id="41" severity="1">7zSFX</item>
-    <item id="42" severity="2">Stylesheet-XML</item>
-    <item id="43" severity="2">MOF</item>
-    <item id="44" severity="2">XML-Event-Log</item>
-    <item id="45" severity="1">RTF</item>
-    <item id="46" severity="1">Nullsoft</item>
-    <item id="47" severity="1">AutoIt</item>
-    <item id="48" severity="0">Nb10</item>
-    <item id="49" severity="1">Spoon</item>
-    <item id="50" severity="1">RAR</item>
-    <item id="51" severity="1">Smart-installer</item>
-    <item id="52" severity="1">InnoSetup</item>
-    <item id="53" severity="1">Flash</item>
-    <item id="54" severity="1">Flash</item>
-    <item id="55" severity="0">Debugger</item>
-    <item id="56" severity="0">FPO-debug</item>
-    <item id="57" severity="0">Text</item>
-    <item id="58" severity="0">JPEG</item>
-    <item id="59" severity="2">Registry-file</item>
-    <item id="60" severity="1">aPLib-compressed</item>
-    <item id="61" severity="2">Python</item>
-    <item id="62" severity="2">Python-script</item>
-    <item id="63" severity="1">SFX</item>
-    <item id="64" severity="0">XML</item>
-    <item id="65" severity="1">MS-Office</item>
-    <item id="66" severity="2">ZLIB</item>
-    <item id="67" severity="0">unknown</item>
-    <item id="69" severity="0">any</item>
+    <resource id="00" severity="0">manifest</resource>
+    <resource id="01" severity="0">cursor</resource>
+    <resource id="02" severity="0">bitmap</resource>
+    <resource id="03" severity="0">icon</resource>
+    <resource id="04" severity="0">menu</resource>
+    <resource id="05" severity="0">dialog</resource>
+    <resource id="06" severity="0">dialog-data</resource>
+    <resource id="07" severity="0">string-table</resource>
+    <resource id="08" severity="0">message-table</resource>
+    <resource id="09" severity="0">font-directory</resource>
+    <resource id="10" severity="0">font</resource>
+    <resource id="11" severity="0">accelerator</resource>
+    <resource id="12" severity="0">rcdata</resource>
+    <resource id="13" severity="0">cursor-group</resource>
+    <resource id="14" severity="0">icon-group</resource>
+    <resource id="15" severity="0">version</resource>
+    <resource id="16" severity="0">dlgInclude</resource>
+    <resource id="17" severity="0">Plug-and-play</resource>
+    <resource id="18" severity="0">Vxd</resource>
+    <resource id="19" severity="0">Animated-cursor</resource>
+    <resource id="20" severity="0">Animated-icon</resource>
+    <resource id="21" severity="0">HTML</resource>
+    <resource id="22" severity="0">MUI</resource>
+    <resource id="23" severity="0">icons</resource>
+    <resource id="24" severity="0">custom</resource>
+    <resource id="25" severity="1">executable</resource>
+    <resource id="26" severity="2">Compiled-HTML</resource>
+    <resource id="27" severity="0">Riff</resource>
+    <resource id="28" severity="0">GIF</resource>
+    <resource id="29" severity="0">PNG</resource>
+    <resource id="30" severity="0">BMP</resource>
+    <resource id="31" severity="1">typelib</resource>
+    <resource id="32" severity="1">registry</resource>
+    <resource id="33" severity="1">Driver-Installation-File</resource>
+    <resource id="34" severity="1">PDF</resource>
+    <resource id="35" severity="1">CAB</resource>
+    <resource id="36" severity="1">PKZIP</resource>
+    <resource id="37" severity="1">PKlite</resource>
+    <resource id="38" severity="1">PKSfx</resource>
+    <resource id="39" severity="2">JAR</resource>
+    <resource id="40" severity="2">Delphi</resource>
+    <resource id="41" severity="1">7zSFX</resource>
+    <resource id="42" severity="2">Stylesheet-XML</resource>
+    <resource id="43" severity="2">MOF</resource>
+    <resource id="44" severity="2">XML-Event-Log</resource>
+    <resource id="45" severity="1">RTF</resource>
+    <resource id="46" severity="1">Nullsoft</resource>
+    <resource id="47" severity="1">AutoIt</resource>
+    <resource id="48" severity="0">Nb10</resource>
+    <resource id="49" severity="1">Spoon</resource>
+    <resource id="50" severity="1">RAR</resource>
+    <resource id="51" severity="1">Smart-installer</resource>
+    <resource id="52" severity="1">InnoSetup</resource>
+    <resource id="53" severity="1">Flash</resource>
+    <resource id="54" severity="1">Flash</resource>
+    <resource id="55" severity="0">Debugger</resource>
+    <resource id="56" severity="0">FPO-debug</resource>
+    <resource id="57" severity="0">Text</resource>
+    <resource id="58" severity="0">JPEG</resource>
+    <resource id="59" severity="2">Registry-file</resource>
+    <resource id="60" severity="1">aPLib-compressed</resource>
+    <resource id="61" severity="2">Python</resource>
+    <resource id="62" severity="2">Python-script</resource>
+    <resource id="63" severity="1">SFX</resource>
+    <resource id="64" severity="0">XML</resource>
+    <resource id="65" severity="1">MS-Office</resource>
+    <resource id="66" severity="2">ZLIB</resource>
+    <resource id="67" severity="0">unknown</resource>
+    <resource id="69" severity="0">any</resource>
   </resources>
 
   <!-- Subsystems Friendly Names -->
@@ -859,16 +854,19 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
   </characters>
 
   <severities>
-    <level id="1">High</level>
-    <level id="2">Medium</level>
-    <level id="3">Low</level>
-    <level id="4">Information</level>
+    <severity id="1">high</severity>
+    <severity id="2">medium</severity>
+    <severity id="3">low</severity>
+    <severity id="4">info</severity>
+    <severity id="5">unknown</severity>
   </severities>
 
   <dependencies>
     <item>implicit</item>
     <item>delay-load</item>
     <item>forward</item>
+    <item>.NET</item>
+    <item>unknown</item>
   </dependencies>
 
   <manifest>
@@ -877,7 +875,12 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <level>Invoker</level>
   </manifest>
 
-  <hints>
+  <magic_numbers>
+    <item>PE</item>
+    <item>PE+</item>
+  </magic_numbers>
+
+  <hints color="1">
     <hint id="01">guid</hint>
     <hint id="02">privilege</hint>
     <hint id="03">registry</hint>
@@ -903,7 +906,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <hint id="23">office</hint>
     <hint id="24">base64</hint>
     <hint id="25">password</hint>
-    <hint id="26">import</hint>
+    <hint id="26">function</hint>
     <hint id="27">export</hint>
     <hint id="28">format-string</hint>
     <hint id="-1">unknown</hint>
@@ -962,4 +965,5 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <av fn="VirusBlokAda">VBA32</av>
     <av fn="Zillya!">Zillya</av>
   </avs>
+  
 </xml>

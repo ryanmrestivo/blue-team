@@ -1,11 +1,12 @@
 <!--
 This file is part of the pestudio solution (www.winitor.com).
+Any usage of this file outside of the context of pestudio (e.g. in third-party application, tools chain, etc...) must be explicitely authorized.
 
-This file may not be used outside of the context of pestudio. 
-Any usage of this file outside of the context of pestudio (e.g. in third-party application) must be explicitely authorized.
+Please note that this file will be modified when running pestudio.
 -->
 <xml version="1.0" encoding="utf-8">
   <libs>
+    <lib name="storageusage.dll" gp="--" bl="1" desc="Storage Usage"></lib>
     <lib name="msxfs.dll" gp="--" bl="1" desc="Extension for Financial Services (XFS)"></lib>
     <lib name="xfs_conf.dll" gp="--" bl="1" desc="Extension for Financial Services (XFS)"></lib>
     <lib name="metsrv.dll" gp="--" bl="1" desc="Meterpreter service"></lib>
@@ -150,7 +151,13 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <lib name="ncrypt.dll" gp="04" bl="1"></lib>
     <lib name="wdigest.dll" gp="04" bl="1"></lib>
     <lib name="rsaenh.dll" gp="04" bl="1"></lib>
+    <lib name="comsvcs.dll" gp="--" bl="0" desc="COM+ Services"></lib>
     <lib name="System.Security.Cryptography" gp="04" bl="1"></lib>
+    <lib name="msvcp90.dll" gp="--" bl="0" desc="Microsoft C++ Runtime Library"></lib>
+    <lib name="msvcm90.dll" gp="--" bl="0" desc="Microsoft C++ Runtime Library"></lib>
+    <lib name="Srclient.dll" gp="--" bl="0" desc="Microsoft Windows System Restore Client Library"></lib>
+    <lib name="winmm.dll" gp="--" bl="0" desc="MCI API DLL"></lib>
+    <lib name="mscorwks.dll" gp="--" bl="0" desc="Microsoft .NET Runtime Common Language Runtime - WorkStation"></lib>
 
     <lib name="schannel.dll" gp="04" bl="1" desc="TLS/SSL Security provider">
       <fcts>
@@ -213,7 +220,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
       </fcts>
     </lib>
 
-    <lib name="bcrypt.dll" gp="04" bl="1">
+    <lib name="bcrypt.dll" gp="04" bl="1" desc="Windows Cryptographic Primitives Library">
       <fcts>
         <fct gp="04" dp="0" od="--" bl="0" ad="0" un="0">BCryptOpenAlgorithmProvider</fct>
         <fct gp="04" dp="0" od="--" bl="0" ad="0" un="0">BCryptSetProperty</fct>
@@ -222,27 +229,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="04" dp="0" od="--" bl="0" ad="0" un="0">BCryptCloseAlgorithmProvider</fct>
         <fct gp="04" dp="0" od="--" bl="0" ad="0" un="0">BCryptDecrypt</fct>
         <fct gp="04" dp="0" od="--" bl="0" ad="0" un="0">BCryptDestroyKey</fct>
-      </fcts>
-    </lib>
-
-    <lib name="dbnmpntw.dll" gp="15" bl="1" >
-      <fcts>
-        <fct gp="15" dp="0" od="--" bl="0" ad="0" un="0">ConnectionObjectSize</fct>
-        <fct gp="15" dp="0" od="--" bl="0" ad="0" un="0">ConnectionRead</fct>
-        <fct gp="15" dp="0" od="--" bl="0" ad="0" un="0">ConnectionWrite</fct>
-        <fct gp="15" dp="0" od="--" bl="0" ad="0" un="0">ConnectionClose</fct>
-        <fct gp="15" dp="0" od="--" bl="0" ad="0" un="0">ConnectionError</fct>
-        <fct gp="15" dp="0" od="--" bl="0" ad="0" un="0">ConnectionVer</fct>
-        <fct gp="15" dp="0" od="--" bl="0" ad="0" un="0">ConnectionTransact</fct>
-        <fct gp="15" dp="0" od="--" bl="0" ad="0" un="0">ConnectionWriteOOB</fct>
-        <fct gp="15" dp="0" od="--" bl="0" ad="0" un="0">ConnectionMode</fct>
-        <fct gp="15" dp="0" od="--" bl="0" ad="0" un="0">ConnectionStatus</fct>
-        <fct gp="15" dp="0" od="--" bl="0" ad="0" un="0">ConnectionOpen</fct>
-        <fct gp="15" dp="0" od="--" bl="0" ad="0" un="0">ConnectionServerEnum</fct>
-        <fct gp="15" dp="0" od="--" bl="0" ad="0" un="0">ConnectionCheckForData</fct>
-        <fct gp="15" dp="0" od="--" bl="0" ad="0" un="0">ConnectionOpen</fct>
-        <fct gp="15" dp="0" od="--" bl="0" ad="0" un="0">ConnectionError</fct>
-        <fct gp="15" dp="0" od="--" bl="0" ad="0" un="0">ConnectionServerEnum</fct>
+        <fct gp="04" dp="0" od="--" bl="0" ad="0" un="0">BCryptGenRandom</fct>
       </fcts>
     </lib>
 
@@ -594,9 +581,24 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="04" dp="0" od="2435" bl="0" ad="0" un="0">MD4_Final</fct>
         <fct gp="04" dp="0" od="2436" bl="0" ad="0" un="0">MD4_Update</fct>
         <fct gp="04" dp="0" od="2437" bl="0" ad="0" un="0">MD4_Init</fct>
-        <fct gp="04" dp="0" od="3712" bl="0" ad="0" un="0">SHA256_Final</fct>
+        <fct gp="04" dp="0" od="2630" bl="0" ad="0" un="0">EVP_MD_CTX_init</fct>
+        <fct gp="04" dp="0" od="3067" bl="0" ad="0" un="0">EVP_DecryptInit_ex</fct>
+        <fct gp="04" dp="0" od="3109" bl="0" ad="0" un="0">EVP_DigestInit_ex</fct>
+        <fct gp="04" dp="0" od="3155" bl="0" ad="0" un="0">EVP_aes_192_cbc</fct>
         <fct gp="04" dp="0" od="3479" bl="0" ad="0" un="0">SHA256_Init</fct>
+        <fct gp="04" dp="0" od="3505" bl="0" ad="0" un="0">X509_STORE_CTX_get0_param</fct>
+        <fct gp="04" dp="0" od="3506" bl="0" ad="0" un="0">STORE_delete_arbitrary</fct>
+        <fct gp="04" dp="0" od="3507" bl="0" ad="0" un="0">PEM_read_X509_CERT_PAIR</fct>
+        <fct gp="04" dp="0" od="3508" bl="0" ad="0" un="0">X509_STORE_set_depth</fct>
+        <fct gp="04" dp="0" od="3509" bl="0" ad="0" un="0">ECDSA_get_ex_data</fct>
+        <fct gp="04" dp="0" od="3510" bl="0" ad="0" un="0">SHA224</fct>
+        <fct gp="04" dp="0" od="3663" bl="0" ad="0" un="0">EC_KEY_new</fct>
+        <fct gp="04" dp="0" od="3883" bl="0" ad="0" un="0">EVP_MD_CTX_set_flags</fct>
+        <fct gp="04" dp="0" od="3712" bl="0" ad="0" un="0">SHA256_Final</fct>
         <fct gp="04" dp="0" od="3765" bl="0" ad="0" un="0">SHA256_Update</fct>
+        <fct gp="04" dp="0" od="3836" bl="0" ad="0" un="0">EVP_CIPHER_iv_length</fct>
+        <fct gp="04" dp="0" od="3873" bl="0" ad="0" un="0">EVP_CIPHER_key_length</fct>
+
       </fcts>
     </lib>
     <lib name="packet.dll" bl="1" dp="0" gp="03">
@@ -883,6 +885,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="29" dp="0" od="211" bl="0" ad="0" un="0">ldap_set_option</fct>
         <fct gp="29" dp="0" od="223" bl="0" ad="0" un="0">ldap_value_free</fct>
         <fct gp="29" dp="0" od="224" bl="0" ad="0" un="0">ldap_value_free</fct>
+        <fct gp="29" dp="0" od="301" bl="0" ad="0" un="0">ber_free</fct>
       </fcts>
     </lib>
     <lib name="scarddlg.dll" bl="1" dp="0" gp="--">
@@ -916,7 +919,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="03" dp="1" od="--" bl="0" ad="0" un="0">SetService</fct>
       </fcts>
     </lib>
-    <lib name="wintrust.dll" bl="1" dp="0" gp="04">
+    <lib name="wintrust.dll" bl="1" dp="0" gp="04" desc="Microsoft Trust Verification APIs">
       <fcts>
         <fct gp="04" dp="0" od="--" bl="1" ad="0" un="0">WinVerifyTrust</fct>
         <fct gp="04" dp="0" od="--" bl="1" ad="0" un="0">CryptCATGetAttrInfo</fct>
@@ -940,9 +943,10 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="30" dp="0" od="--" bl="1" ad="0" un="0">LsaLookupPrivilegeName</fct>
         <fct gp="30" dp="0" od="--" bl="1" ad="0" un="0">PasswordChangeNotify</fct>
         <fct gp="30" dp="0" od="--" bl="1" ad="0" un="0">InitializeChangeNotify</fct>
+        <fct gp="30" dp="0" od="--" bl="1" ad="0" un="0">LsaICryptUnprotectData</fct>
       </fcts>
     </lib>
-    <lib name="gdi32.dll" bl="0" dp="0" gp="--">
+    <lib name="gdi32.dll" bl="0" dp="0" gp="--" desc="GDI Client DLL">
       <fcts>
         <fct gp="--" dp="0" od="--" un="0" bl="1">EngLoadModule</fct>
         <fct gp="--" dp="0" od="--" un="0" bl="0">CreateBitmap</fct>
@@ -979,7 +983,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="--" dp="0" od="100" bl="0" ad="0" un="0">ThunRTMain</fct>
         <fct gp="--" dp="0" od="183" bl="0" ad="0" un="0">__vbaCopyBytes</fct>
         <fct gp="02" dp="0" od="186" bl="1" ad="0" un="0">ProcCallEngine</fct>
-        <fct gp="02" dp="0" od="187" bl="1" ad="0" un="0">DllFunctionCall</fct>
+        <fct gp="02" dp="0" od="187" bl="0" ad="0" un="0">DllFunctionCall</fct>
         <fct gp="--" dp="0" od="199" bl="0" ad="0" un="0">MethCallEngine</fct>
         <fct gp="--" dp="0" od="300" bl="0" ad="0" un="0">GetMem2</fct>
         <fct gp="--" dp="0" od="301" bl="0" ad="0" un="0">GetMem4</fct>
@@ -1224,7 +1228,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="--" dp="0" od="---" bl="1" ad="0" un="0">SQLTransact</fct>
       </fcts>
     </lib>
-    <lib name="kernel32.dll" bl="0" dp="0" gp="--">
+    <lib name="kernel32.dll" bl="0" dp="0" gp="--" desc="Windows NT BASE API Client DLL">
       <fcts>
         <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">GetThreadGroupAffinity</fct>
         <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">NeedCurrentDirectoryForExePath</fct>
@@ -1358,6 +1362,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="23" dp="0" od="---" bl="1" ad="0" un="0">CreateSymbolicLink</fct>
         <fct gp="23" dp="0" od="---" bl="1" ad="0" un="0">CreateSymbolicLinkTransacted</fct>
         <fct gp="06" dp="0" od="---" bl="1" ad="0" un="0">CreateHardLink</fct>
+        <fct gp="06" dp="0" od="---" bl="1" ad="0" un="0">CreateHardLinkTransacted</fct>
         <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">ConvertThreadToFiber</fct>
         <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">CreateFiber</fct>
         <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">CreateFiberEx</fct>
@@ -1387,7 +1392,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="23" dp="0" od="---" bl="0" ad="0" un="0">GetLogicalDrives</fct>
         <fct gp="--" dp="0" od="---" bl="0" ad="0" un="0">GetProductInfo</fct>
         <fct gp="--" dp="0" od="---" bl="0" ad="0" un="0">GetCurrentPackageId</fct>
-        <fct gp="20" dp="0" od="---" bl="1" ad="0" un="0">GetConsoleWindow</fct>
+        <fct gp="20" dp="0" od="---" bl="0" ad="0" un="0">GetConsoleWindow</fct>
         <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">GetProcessId</fct>
         <fct gp="21" dp="0" od="---" bl="1" ad="0" un="0">GetModuleHandleEx</fct>
         <fct gp="21" dp="0" od="---" bl="0" ad="0" un="0">GetModuleFilepame</fct>
@@ -1484,7 +1489,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="20" dp="0" od="---" bl="0" ad="0" un="0">SetConsoleCP</fct>
         <fct gp="20" dp="0" od="---" bl="0" ad="0" un="0">SetConsoleOutputCP</fct>
         <fct gp="20" dp="0" od="---" bl="1" ad="0" un="0">WriteConsoleOutput</fct>
-        <fct gp="20" dp="0" od="---" bl="1" ad="0" un="0">ReadConsole</fct>
+        <fct gp="20" dp="0" od="---" bl="0" ad="0" un="0">ReadConsole</fct>
         <fct gp="20" dp="0" od="---" bl="1" ad="0" un="0">ReadConsoleInput</fct>
         <fct gp="20" dp="0" od="---" bl="0" ad="0" un="0">AllocConsole</fct>
         <fct gp="20" dp="0" od="---" bl="0" ad="0" un="0">FreeConsole</fct>
@@ -1557,8 +1562,8 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="22" dp="0" od="---" bl="0" ad="0" un="0">LoadKeyboardLayout</fct>
         <fct gp="22" dp="0" od="---" bl="1" ad="0" un="0">UnregisterHotKey</fct>
         <fct gp="22" dp="0" od="---" bl="1" ad="0" un="0">SendInput</fct>
-        <fct gp="22" dp="0" od="---" bl="0" ad="0" un="0">SetActiveWindow</fct>
-        <fct gp="22" dp="0" od="---" bl="0" ad="0" un="0">SetFocus</fct>
+        <fct gp="12" dp="0" od="---" bl="0" ad="0" un="0">SetActiveWindow</fct>
+        <fct gp="12" dp="0" od="---" bl="0" ad="0" un="0">SetFocus</fct>
         <fct gp="22" dp="0" od="---" bl="0" ad="0" un="0">CopyAcceleratorTable</fct>
         <fct gp="--" dp="0" od="---" bl="0" ad="0" un="0">GetDoubleClickTime</fct>
         <fct gp="12" dp="0" od="---" bl="1" ad="0" un="0">EnumThreadWindows</fct>
@@ -2017,7 +2022,6 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="30" dp="0" od="---" bl="1" ad="0" un="0">CheckTokenMembershipEx</fct>
         <fct gp="03" dp="0" od="---" bl="1" ad="0" un="0">connect</fct>
         <fct gp="30" dp="0" od="---" bl="1" ad="0" un="0">ConvertSecurityDescriptorToStringSecurityDescriptor</fct>
-        <fct gp="30" dp="0" od="---" bl="1" ad="0" un="0">ConvertSidToStringSid</fct>
         <fct gp="30" dp="0" od="---" bl="1" ad="0" un="0">ConvertStringSecurityDescriptorToSecurityDescriptor</fct>
         <fct gp="30" dp="0" od="---" bl="1" ad="0" un="0">ConvertStringSidToSid</fct>
         <fct gp="30" dp="0" od="---" bl="1" ad="0" un="0">ConvertToAutoInheritPrivateObjectSecurity</fct>
@@ -2151,9 +2155,12 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">CryptProtectData</fct>
         <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">BCryptDestroyHash</fct>
         <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">BCryptHashData</fct>
+        <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">BCryptDeriveKeyPBKDF2</fct>
+        <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">BCryptEncrypt</fct>
         <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">BCryptFinishHash</fct>
         <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">BCryptVerifySignature</fct>
         <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">BCryptImportKeyPair</fct>
+        <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">BCryptImportKey</fct>
         <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">BCryptCreateHash</fct>
         <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">CryptGetHashParam</fct>
         <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">CryptDestroyHash</fct>
@@ -2184,6 +2191,11 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">CryptSetHashParam</fct>
         <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">EncryptFile</fct>
         <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">DecryptFile</fct>
+        <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">EncryptDirectory</fct>
+        <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">AES_Encrypt</fct>
+        <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">AES_Decrypt</fct>
+        <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">Encrypt_AES</fct>
+        <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">Decrypt_AES</fct>
         <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">EncryptedFileKeyInfo</fct>
         <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">EncryptionDisable</fct>
         <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">CloseEncryptedFileRaw</fct>
@@ -2198,7 +2210,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="05" dp="0" od="---" bl="0" ad="0" un="0">HeapDestroy</fct>
         <fct gp="05" dp="0" od="---" bl="0" ad="0" un="0">HeapFree</fct>
         <fct gp="05" dp="0" od="---" bl="0" ad="0" un="0">HeapCreate</fct>
-        <fct gp="05" dp="0" od="---" bl="1" ad="0" un="0">HeapSetInformation</fct>
+        <fct gp="05" dp="0" od="---" bl="0" ad="0" un="0">HeapSetInformation</fct>
         <fct gp="05" dp="0" od="---" bl="0" ad="0" un="0">VirtualAlloc</fct>
         <fct gp="05" dp="0" od="---" bl="0" ad="0" un="0">VirtualAllocEx</fct>
         <fct gp="05" dp="0" od="---" bl="0" ad="0" un="0">VirtualAllocExNuma</fct>
@@ -2234,12 +2246,13 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="06" dp="0" od="---" bl="1" ad="0" un="0">RemoveDirectory</fct>
         <fct gp="06" dp="0" od="---" bl="0" ad="0" un="0">CreateDirectory</fct>
         <fct gp="06" dp="0" od="---" bl="0" ad="0" un="0">CreateDirectoryEx</fct>
+        <fct gp="06" dp="0" od="---" bl="0" ad="0" un="0">CreateFileTransacted</fct>
         <fct gp="06" dp="0" od="---" bl="0" ad="0" un="0">CreateFile</fct>
         <fct gp="06" dp="0" od="---" bl="0" ad="0" un="0">CreateFile2</fct>
         <fct gp="06" dp="0" od="---" bl="0" ad="0" un="0">CopyFile</fct>
         <fct gp="06" dp="0" od="---" bl="0" ad="0" un="0">CopyFileEx</fct>
         <fct gp="06" dp="0" od="---" bl="1" ad="0" un="0">DeleteFile</fct>
-        <fct gp="06" dp="0" od="---" bl="0" ad="0" un="0">WriteFile</fct>
+        <fct gp="06" dp="0" od="---" bl="1" ad="0" un="0">WriteFile</fct>
         <fct gp="06" dp="0" od="---" bl="0" ad="0" un="0">WriteAllBytes</fct>
         <fct gp="06" dp="0" od="---" bl="0" ad="0" un="0">WriteAllText</fct>
         <fct gp="06" dp="0" od="---" bl="0" ad="0" un="0">OpenFileById</fct>
@@ -2408,7 +2421,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="--" dp="0" od="---" bl="1" ad="0" un="0">EditSecurityAdvanced</fct>
         <fct gp="--" dp="0" od="---" bl="1" ad="0" un="0">EnableExecuteProtectionSupport</fct>
         <fct gp="12" dp="0" od="---" bl="0" ad="0" un="0">FindWindow</fct>
-        <fct gp="12" dp="0" od="---" bl="1" ad="0" un="0">FindWindowEx</fct>
+        <fct gp="12" dp="0" od="---" bl="0" ad="0" un="0">FindWindowEx</fct>
         <fct gp="30" dp="0" od="---" bl="1" ad="0" un="0">EqualDomainSid</fct>
         <fct gp="30" dp="0" od="---" bl="1" ad="0" un="0">EqualPrefixSid</fct>
         <fct gp="30" dp="0" od="---" bl="1" ad="0" un="0">EqualSid</fct>
@@ -2428,7 +2441,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="22" dp="0" od="---" bl="0" ad="0" un="0">GetKeyboardLayout</fct>
         <fct gp="22" dp="0" od="---" bl="0" ad="0" un="0">GetKeyboardLayoutList</fct>
         <fct gp="22" dp="0" od="---" bl="0" ad="0" un="0">GetKeyboardLayoutName</fct>
-        <fct gp="22" dp="0" od="---" bl="0" ad="0" un="0">GetFocus</fct>
+        <fct gp="12" dp="0" od="---" bl="0" ad="0" un="0">GetFocus</fct>
         <fct gp="30" dp="0" od="---" bl="1" ad="0" un="0">GetAuditedPermissionsFromAcl</fct>
         <fct gp="--" dp="0" od="---" bl="0" ad="0" un="0">GetCalendarInfo</fct>
         <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">GetCommandLine</fct>
@@ -2494,7 +2507,6 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="30" dp="0" od="---" bl="0" ad="0" un="0">InitializeAcl</fct>
         <fct gp="30" dp="0" od="---" bl="0" ad="0" un="0">InitializeSecurityDescriptor</fct>
         <fct gp="30" dp="0" od="---" bl="0" ad="0" un="0">InitializeSid</fct>
-        <fct gp="03" dp="0" od="---" bl="0" ad="0" un="0">InternetCloseHandle</fct>
         <fct gp="03" dp="0" od="---" bl="1" ad="0" un="0">InternetConnect</fct>
         <fct gp="03" dp="0" od="---" bl="1" ad="0" un="0">InternetOpen</fct>
         <fct gp="03" dp="0" od="---" bl="1" ad="0" un="0">InternetOpen</fct>
@@ -2514,8 +2526,8 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="30" dp="0" od="---" bl="1" ad="0" un="0">IsWellKnownSid</fct>
         <fct gp="12" dp="0" od="---" bl="0" ad="0" un="0">IsWindowVisible</fct>
         <fct gp="12" dp="0" od="---" bl="0" ad="0" un="0">IsWindow</fct>
-        <fct gp="22" dp="0" od="---" bl="0" ad="0" un="0">EnableWindow</fct>
-        <fct gp="22" dp="0" od="---" bl="0" ad="0" un="0">GetActiveWindow</fct>
+        <fct gp="12" dp="0" od="---" bl="0" ad="0" un="0">EnableWindow</fct>
+        <fct gp="12" dp="0" od="---" bl="0" ad="0" un="0">GetActiveWindow</fct>
         <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">IsWoW64Process</fct>
         <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">WaitForInputIdle</fct>
         <fct gp="--" dp="0" od="---" bl="1" ad="0" un="0">JournalPlaybackProc</fct>
@@ -2619,10 +2631,10 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     </lib>
     <lib name="devmgr.dll" bl="1">
       <fcts>
-        <fct gp="--" dp="0" od="---" bl="1" ad="0" un="0">DeviceProblemText</fct>
-        <fct gp="--" dp="0" od="---" bl="1" ad="0" un="0">DeviceProblemWizard</fct>
-        <fct gp="--" dp="0" od="---" bl="1" ad="0" un="0">DeviceCreateHardwarePage</fct>
-        <fct gp="--" dp="0" od="---" bl="1" ad="0" un="0">DeviceProperties</fct>
+        <fct gp="--" dp="0" od="---" bl="0" ad="0" un="0">DeviceProblemText</fct>
+        <fct gp="--" dp="0" od="---" bl="0" ad="0" un="0">DeviceProblemWizard</fct>
+        <fct gp="--" dp="0" od="---" bl="0" ad="0" un="0">DeviceCreateHardwarePage</fct>
+        <fct gp="--" dp="0" od="---" bl="0" ad="0" un="0">DeviceProperties</fct>
       </fcts>
     </lib>
     <lib name="shlwapi.dll" bl="0" dp="0" gp="--">
@@ -2646,7 +2658,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="21" dp="1" od="---" bl="0" ad="0" un="1">MLLoadLibrary</fct>
         <fct gp="--" dp="1" od="---" bl="0" ad="0" un="0">MLWinHelp</fct>
         <fct gp="16" dp="1" od="---" bl="1" ad="0" un="0">OutputDebugStringWrap</fct>
-        <fct gp="--" dp="0" od="014" bl="1" ad="0" un="0">SHCreateMemStream</fct>
+        <fct gp="--" dp="0" od="012" bl="0" ad="0" un="0">SHCreateMemStream</fct>
         <fct gp="--" dp="0" od="014" bl="0" ad="0" un="0">GetAcceptLanguages</fct>
         <fct gp="--" dp="0" od="015" bl="0" ad="0" un="0">GetAcceptLanguages</fct>
         <fct gp="--" dp="0" od="029" bl="0" ad="0" un="0">IsCharSpace</fct>
@@ -2789,7 +2801,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="03" dp="1" od="---" bl="0" ad="0" un="0">HlinkUpdateStackItem</fct>
       </fcts>
     </lib>
-    <lib name="Userenv.dll" bl="1">
+    <lib name="Userenv.dll" bl="0">
       <fcts>
         <fct gp="30" dp="1" od="--" bl="1" ad="0" un="0">CreateUserProfileEx</fct>
         <fct gp="30" dp="0" od="--" bl="1" ad="0" un="0">GetUserProfileDirectory</fct>
@@ -3208,8 +3220,17 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
       </fcts>
     </lib>
 
-    <lib name="ntdll.dll" bl="0">
+    <lib name="ntdll.dll" bl="0" desc="NT Layer DLL">
       <fcts>
+        <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">NtChangeProcessState</fct>
+        <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">NtChangeThreadState</fct>
+        <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">NtCreateIoRing</fct>
+        <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">NtCreateProcessStateChange</fct>
+        <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">NtCreateThreadStateChange</fct>
+        <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">NtQueryIoRingCapabilities</fct>
+        <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">NtQueueApcThreadEx2</fct>
+        <fct gp="05" dp="0" od="---" bl="0" ad="0" un="0">NtReadVirtualMemoryEx</fct>
+        <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">NtSubmitIoRing</fct>
         <fct gp="06" dp="0" od="---" bl="1" ad="0" un="1">NtQueryEaFile</fct>
         <fct gp="06" dp="0" od="---" bl="1" ad="0" un="1">NtSetEaFile</fct>
         <fct gp="02" dp="0" od="---" bl="1" ad="0" un="1">CsrClientCallServer</fct>
@@ -3557,7 +3578,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="02" dp="0" od="---" bl="1" ad="0" un="0">KiFastSystemCall</fct>
       </fcts>
     </lib>
-    <lib name="netapi32.dll" bl="1" dp="0" gp="03">
+    <lib name="netapi32.dll" bl="1" dp="0" gp="03" desc="Net Win32 API DLL">
       <fcts>
         <fct gp="03" dp="0" od="---" bl="1" ad="0" un="0">NetJoinDomain</fct>
         <fct gp="03" dp="0" od="---" bl="1" ad="0" un="0">NetUseAdd</fct>
@@ -3938,7 +3959,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="03" dp="0" od="---" bl="0" ad="0" un="0">HttpWebRequest</fct>
       </fcts>
     </lib>
-    <lib name="advapi32.dll" bl="0" dp="0" gp="--">
+    <lib name="advapi32.dll" bl="0" dp="0" gp="--" desc="Advanced Windows 32 Base API">
       <fcts>
         <fct gp="--" dp="0" od="--" bl="0" ad="0" un="0">SaferCloseLevel</fct>
         <fct gp="30" dp="0" od="--" bl="1" ad="0" un="0">SaferComputeTokenFromLevel</fct>
@@ -4120,7 +4141,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="16" dp="0" od="--" bl="1" ad="0" un="0">NotifyChangeEventLog</fct>
         <fct gp="30" dp="0" od="--" bl="1" ad="0" un="0">ConvertStringSecurityDescriptorToSecurityDescriptor</fct>
         <fct gp="16" dp="0" od="--" bl="1" ad="0" un="0">DeregisterEventSource</fct>
-        <fct gp="30" dp="0" od="--" bl="1" ad="0" un="0">ConvertSidToStringSid</fct>
+        <fct gp="30" dp="0" od="--" bl="0" ad="0" un="0">ConvertSidToStringSid</fct>
         <fct gp="16" dp="0" od="--" bl="1" ad="0" un="0">ReportEvent</fct>
         <fct gp="16" dp="0" od="--" bl="1" ad="0" un="0">GetTraceEnableLevel</fct>
         <fct gp="16" dp="0" od="--" bl="0" ad="0" un="0">GetTraceLoggerHandle</fct>
@@ -4211,7 +4232,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="30" dp="0" od="--" bl="1" ad="0" un="0">QueryContextAttributes</fct>
       </fcts>
     </lib>
-    <lib name="mpr.dll" bl="1" dp="0" gp="03">
+    <lib name="mpr.dll" bl="1" dp="0" gp="03" desc="Multiple Provider Router DLL">
       <fcts>
         <fct gp="03" dp="0" od="--" bl="1" ad="0" un="0">MultinetGetConnectionPerformance</fct>
         <fct gp="03" dp="1" od="--" bl="1" ad="0" un="0">WNetAddConnection</fct>
@@ -4329,7 +4350,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="03" dp="0" od="613" bl="1" ad="0" un="0">NDdeTrustedShareEnum</fct>
       </fcts>
     </lib>
-    <lib name="shell32.dll" bl="0" dp="0" gp="--">
+    <lib name="shell32.dll" bl="0" dp="0" gp="--" desc="Windows Shell Common Dll">
       <fcts>
         <fct gp="05" dp="1" od="---" bl="0" ad="0" un="0">SHGetMalloc</fct>
         <fct gp="25" dp="0" od="---" bl="1" ad="0" un="0">SHGetKnownFolderPath</fct>
@@ -4351,7 +4372,6 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="25" dp="0" od="---" bl="0" ad="0" un="0">SHGetDiskFreeSpaceEx</fct>
         <fct gp="02" dp="1" od="---" bl="1" ad="0" un="0" ti="1106">SHCreateProcessAsUserW</fct>
         <fct gp="--" dp="0" od="071" bl="0" ad="0" un="0">Shell_GetImageLists</fct>
-        <fct gp="02" dp="0" od="433" bl="1" ad="0" un="0" ti="1106">ShellExecute</fct>
         <fct gp="02" dp="0" od="---" bl="1" ad="0" un="1" ti="1106">ShellExecCmdLine</fct>
         <fct gp="06" dp="1" od="---" bl="1" ad="0" un="0">SHGetSpecialFolderLocation</fct>
         <fct gp="06" dp="1" od="---" bl="1" ad="0" un="0">SHGetFileInfo</fct>
@@ -4507,6 +4527,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     </lib>
     <lib name="psapi.dll" bl="1" dp="0" gp="02">
       <fcts>
+        <fct gp="19" dp="0" od="--" bl="1" ad="0" un="0">K32EnumPageFiles</fct>
         <fct gp="02" dp="0" od="--" bl="1" ad="0" un="0">EmptyWorkingSet</fct>
         <fct gp="02" dp="0" od="--" bl="1" ad="0" un="0">EnumDeviceDrivers</fct>
         <fct gp="02" dp="0" od="--" bl="1" ad="0" un="0">EnumPageFiles</fct>
@@ -4608,7 +4629,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="03" dp="0" od="--" bl="1" ad="0" un="0">InternetSetStatusCallback</fct>
         <fct gp="03" dp="0" od="--" bl="1" ad="0" un="0">InternetSetOption</fct>
         <fct gp="03" dp="0" od="--" bl="1" ad="0" un="0">InternetErrorDlg</fct>
-        <fct gp="03" dp="0" od="--" bl="1" ad="0" un="0">InternetCloseHandle</fct>
+        <fct gp="03" dp="0" od="--" bl="0" ad="0" un="0">InternetCloseHandle</fct>
         <fct gp="03" dp="0" od="--" bl="1" ad="0" un="0">InternetOpen</fct>
         <fct gp="03" dp="0" od="--" bl="1" ad="0" un="0">InternetConnect</fct>
         <fct gp="03" dp="0" od="--" bl="1" ad="0" un="0">InternetCrackUrl</fct>
@@ -4702,7 +4723,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="03" dp="0" od="--" bl="1" ad="0" un="0">NdrUserMarshalMarshall</fct>
       </fcts>
     </lib>
-    <lib name="setupapi.dll" bl="1" dp="0" gp="26">
+    <lib name="setupapi.dll" bl="1" dp="0" gp="26" desc="Windows Setup API">
       <fcts>
         <fct gp="26" dp="0" od="--" bl="0" ad="0" un="0">SetupQuerySpaceRequiredOnDrive</fct>
         <fct gp="26" dp="0" od="--" bl="0" ad="0" un="0">SetupDiGetSelectedDriver</fct>
@@ -4905,7 +4926,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
       </fcts>
     </lib>
 
-    <lib name="user32.dll" bl="0" dp="0" gp="--">
+    <lib name="user32.dll" bl="0" dp="0" gp="--" desc="Multi-User Windows USER API Client DLL">
       <fcts>
         <fct gp="27" dp="0" od="--" bl="0" ad="0" un="0">ShutdownBlockReasonCreate</fct>
         <fct gp="27" dp="0" od="--" bl="0" ad="0" un="0">ShutdownBlockReasonDestroy</fct>
@@ -4928,7 +4949,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="24" dp="0" od="--" bl="1" ad="0" un="0">ChangeDisplaySettingsEx</fct>
         <fct gp="12" dp="1" od="--" bl="0" ad="0" un="0">RegisterTouchWindow</fct>
         <fct gp="12" dp="1" od="--" bl="0" ad="0" un="1">UnregisterTouchWindow</fct>
-        <fct gp="22" dp="1" od="--" bl="0" ad="0" un="0">IsWindowEnabled</fct>
+        <fct gp="12" dp="1" od="--" bl="0" ad="0" un="0">IsWindowEnabled</fct>
         <fct gp="22" dp="1" od="--" bl="0" ad="0" un="0">ActivateKeyboardLayout</fct>
         <fct gp="12" dp="0" od="--" bl="0" ad="0" un="0" ti="1055">GetWindowLong</fct>
         <fct gp="12" dp="0" od="--" bl="0" ad="0" un="0" ti="1055">GetWindowLongPtr</fct>
@@ -5020,7 +5041,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="12" dp="0" od="--" bl="0" ad="0" un="0" ti="1055">SetWindowLong</fct>
         <fct gp="12" dp="0" od="--" bl="0" ad="0" un="0" ti="1055">SetWindowLongPtr</fct>
         <fct gp="12" dp="0" od="--" bl="0" ad="0" un="0">CloseWindow</fct>
-        <fct gp="12" dp="0" od="--" bl="1" ad="0" un="0">SetForegroundWindow</fct>
+        <fct gp="12" dp="0" od="--" bl="0" ad="0" un="0">SetForegroundWindow</fct>
         <fct gp="--" dp="0" od="--" bl="1" ad="0" un="1">SetDebugErrorLevel</fct>
         <fct gp="14" dp="0" od="--" bl="1" ad="0" un="0" ti="1179">UnhookWinEvent</fct>
         <fct gp="14" dp="0" od="--" bl="1" ad="0" un="0" ti="1179">UnhookWindowsHook</fct>
@@ -5308,14 +5329,55 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="06" dp="1" od="--" bl="0" ad="0" un="0">fclose</fct>
         <fct gp="06" dp="0" od="--" bl="0" ad="0" un="0">ftell</fct>
         <fct gp="--" dp="1" od="--" bl="0" ad="0" un="0">fcloseall</fct>
-        <fct gp="--" dp="1" od="--" bl="0" ad="0" un="0">execvpe</fct>
-        <fct gp="--" dp="1" od="--" bl="0" ad="0" un="0">execvp</fct>
-        <fct gp="--" dp="1" od="--" bl="0" ad="0" un="0">execve</fct>
-        <fct gp="--" dp="1" od="--" bl="0" ad="0" un="0">execv</fct>
-        <fct gp="--" dp="1" od="--" bl="0" ad="0" un="0">execlpe</fct>
-        <fct gp="--" dp="1" od="--" bl="0" ad="0" un="0">execlp</fct>
-        <fct gp="--" dp="1" od="--" bl="0" ad="0" un="0">execle</fct>
-        <fct gp="--" dp="1" od="--" bl="0" ad="0" un="0">execl</fct>
+
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_execl</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_execle</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_execlp</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_execlpe</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_execv</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_execve</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_execvp</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_execvpe</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_spawnl</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_spawnle</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_spawnlp</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_spawnlpe</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_spawnv</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_spawnve</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_spawnvp</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_spawnvpe</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_texecl</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_texecle</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_texeclp</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_texeclpe</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_texecv</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_texecve</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_texecvp</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_texecvpe</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_tspawnl</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_tspawnle</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_tspawnlp</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_tspawnlpe</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_tspawnv</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_tspawnve</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_tspawnvp</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_tspawnvpe</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_wexecl</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_wexecle</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_wexeclp</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_wexeclpe</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_wexecv</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_wexecvev</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_wexecvp</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_wexecvpe</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_wspawnl</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_wspawnle</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_wspawnlp</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_wspawnlpe</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_wspawnv</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_wspawnve</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_wspawnvp</fct>
+        <fct gp="02" dp="1" od="--" bl="0" ad="0" un="0">_wspawnvpe</fct>
         <fct gp="--" dp="1" od="--" bl="0" ad="0" un="0">eof</fct>
         <fct gp="--" dp="1" od="--" bl="0" ad="0" un="0">ecvt</fct>
         <fct gp="--" dp="1" od="--" bl="0" ad="0" un="0">dup2</fct>
@@ -5664,7 +5726,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="--" dp="0" od="999" bl="0" ad="0" un="0">SnmpGetLastError</fct>
       </fcts>
     </lib>
-    <lib name="crypt32.dll" bl="1" dp="0" gp="04">
+    <lib name="crypt32.dll" bl="1" dp="0" gp="04" desc="Crypto API32">
       <fcts>
         <fct gp="04" dp="0" od="-" bl="1" ad="0" un="0">PFXImportCertStore</fct>
         <fct gp="04" dp="0" od="-" bl="1" ad="0" un="0">PFXExportCertStoreEx</fct>
@@ -6020,6 +6082,8 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     </lib>
     <lib name="mscoree.dll" bl="0" dp="0" gp="--">
       <fcts>
+        <fct gp="--" dp="0" od="--" bl="0" ad="0" un="0" hide="1">.ctor</fct>
+        <fct gp="--" dp="0" od="--" bl="0" ad="0" un="0" hide="1">.cctor</fct>
         <fct gp="--" dp="0" od="--" bl="1" ad="0" un="0">CLRCreateInstance</fct>
         <fct gp="--" dp="1" od="--" bl="1" ad="0" un="0">CorBindToRuntime</fct>
         <fct gp="--" dp="1" od="--" bl="1" ad="0" un="0">CorBindToRuntimeEx</fct>
@@ -6178,8 +6242,8 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="16" dp="1" od="--" bl="0" ad="0" un="0">UnMapDebugInformation</fct>
       </fcts>
     </lib>
-    <lib name="vaultsvc.dll" bl="1" dp="0" gp="30"></lib>
-    <lib name="vaultcli.dll" bl="1" dp="0" gp="30">
+    <lib name="vaultsvc.dll" bl="1" dp="0" gp="30" desc="Credential Manager Service">"</lib>
+    <lib name="vaultcli.dll" bl="1" dp="0" gp="30" desc="Credential Vault Client Library">
       <fcts>
         <fct gp="30" dp="0" od="--" bl="0" ad="0" un="0">VaultAddItem</fct>
         <fct gp="30" dp="0" od="--" bl="0" ad="0" un="0">VaultCloseVault</fct>
@@ -6210,7 +6274,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="30" dp="0" od="--" bl="0" ad="0" un="0">VaultUnlockVault</fct>
       </fcts>
     </lib>
-    <lib name="pstorec.dll" bl="1" dp="0" gp="04">
+    <lib name="pstorec.dll" bl="1" dp="0" gp="04" desc="Protected Storage COM interfaces">
       <fcts>
         <fct gp="04" dp="1" od="--" bl="1" ad="0" un="0">PStoreCreateInstance</fct>
         <fct gp="04" dp="1" od="--" bl="1" ad="0" un="0">PStoreEnumProviders</fct>
@@ -6369,6 +6433,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="--" dp="0" od="200" bl="0" ad="0" un="0">GetErrorInfo</fct>
         <fct gp="--" dp="0" od="201" bl="0" ad="0" un="0">SetErrorInfo</fct>
         <fct gp="--" dp="0" od="202" bl="0" ad="0" un="0">CreateErrorInfo</fct>
+        <fct gp="--" dp="0" od="207" bl="0" ad="0" un="0">VarI2FromUI4</fct>
         <fct gp="--" dp="0" od="209" bl="0" ad="0" un="0">VarI4FromI1</fct>
         <fct gp="--" dp="0" od="211" bl="0" ad="0" un="0">VarI4FromUI4</fct>
         <fct gp="--" dp="0" od="220" bl="0" ad="0" un="0">VarR8FromDec</fct>
@@ -6382,10 +6447,12 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="--" dp="0" od="248" bl="0" ad="0" un="0">VarI1FromR8</fct>
         <fct gp="--" dp="0" od="264" bl="0" ad="0" un="0">VarUI2FromStr</fct>
         <fct gp="--" dp="0" od="275" bl="0" ad="0" un="0">VarUI4FromDate</fct>
+        <fct gp="--" dp="0" od="276" bl="0" ad="0" un="0">VarUI4FromCy</fct>
         <fct gp="--" dp="0" od="277" bl="0" ad="0" un="0">VarUI4FromStr</fct>
         <fct gp="--" dp="0" od="280" bl="0" ad="0" un="0">VarUI4FromI1</fct>
         <fct gp="--" dp="0" od="290" bl="0" ad="0" un="0">VARIANT_UserFree</fct>
         <fct gp="--" dp="0" od="291" bl="0" ad="0" un="0">LPSAFEARRAY_UserSize</fct>
+        <fct gp="--" dp="0" od="298" bl="0" ad="0" un="0">VarDecCmpR8</fct>
         <fct gp="--" dp="0" od="309" bl="0" ad="0" un="0">VarCyNeg</fct>
         <fct gp="--" dp="0" od="314" bl="0" ad="0" un="0">VarBstrCmp</fct>
         <fct gp="--" dp="0" od="318" bl="0" ad="0" un="0">VarCat</fct>
@@ -6565,9 +6632,7 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="32" dp="0" od="---" bl="0" ad="0" un="0">EnumPrinterData</fct>
         <fct gp="32" dp="0" od="---" bl="0" ad="0" un="0">EnumPrinterDrivers</fct>
         <fct gp="32" dp="0" od="---" bl="0" ad="0" un="0">EnumPrinterKey</fct>
-        <fct gp="32" dp="0" od="---" bl="0" ad="0" un="0">
-          EnumPrinters
-        </fct>
+        <fct gp="32" dp="0" od="---" bl="0" ad="0" un="0">EnumPrinters</fct>
       </fcts>
     </lib>
     <lib name="olepro32.dll" bl="0" dp="0" gp="--">
@@ -6582,6 +6647,18 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
         <fct gp="--" dp="0" od="255" bl="0" ad="0" un="0">DllCanUnloadNow</fct>
       </fcts>
     </lib>
+
+    <lib name="dsound.dll" bl="0" dp="0" gp="22">
+      <fcts>
+        <fct gp="22" dp="0" od="001" bl="0" ad="0" un="0">DirectSoundCreate</fct>
+        <fct gp="19" dp="0" od="002" bl="0" ad="0" un="0">DirectSoundEnumerate</fct>
+        <fct gp="19" dp="0" od="003" bl="0" ad="0" un="0">DirectSoundEnumerate</fct>
+        <fct gp="22" dp="0" od="006" bl="0" ad="0" un="0">DirectSoundCaptureCreate</fct>
+        <fct gp="19" dp="0" od="007" bl="0" ad="0" un="0">DirectSoundCaptureEnumerate</fct>
+        <fct gp="19" dp="0" od="008" bl="0" ad="0" un="0">DirectSoundCaptureEnumerate</fct>
+      </fcts>
+    </lib>
+
     <lib name="cimwin32.dll" bl="0" dp="0" gp="--">
       <fcts>
         <fct gp="30" dp="0" od="---" bl="0" ad="0" un="0">ConvertSecurityDescriptor</fct>
@@ -6602,6 +6679,19 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
 
     <lib name="" bl="0" dp="0" gp="--">
       <fcts>
+        <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">Decode</fct>
+        <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">Encode</fct>
+        <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">EncodeBlock</fct>
+        <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">DecodeBlock</fct>
+        <fct gp="04" dp="0" od="---" bl="1" ad="0" un="0">decrypter</fct>
+        <fct gp="13" dp="0" od="---" bl="1" ad="0" un="0">Decompress</fct>
+        <fct gp="13" dp="0" od="---" bl="1" ad="0" un="0">Compress</fct>
+        <fct gp="13" dp="0" od="---" bl="1" ad="0" un="0">CompressBlock</fct>
+        <fct gp="11" dp="0" od="---" bl="0" ad="0" un="0">ReadFromEmbeddedResources</fct>
+        <fct gp="22" dp="0" od="---" bl="0" ad="0" un="0">GetKeyboardData</fct>
+        <fct gp="22" dp="0" od="---" bl="0" ad="0" un="0">ScreenCapture</fct>
+        <fct gp="03" dp="0" od="---" bl="0" ad="0" un="0">HttpListenerPrefixCollection</fct>
+        <fct gp="03" dp="0" od="---" bl="0" ad="0" un="0">HttpListener</fct>
         <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">ShellExecuteWorker</fct>
         <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">CmdBatNotificationStub</fct>
         <fct gp="02" dp="0" od="---" bl="0" ad="0" un="0">SaferWorker</fct>

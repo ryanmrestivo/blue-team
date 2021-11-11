@@ -1,8 +1,8 @@
 <!--
 This file is part of the pestudio solution (www.winitor.com).
+Any usage of this file outside of the context of pestudio (e.g. in third-party application, tools chain, etc...) must be explicitely authorized.
 
-This file may not be used outside of the context of pestudio. 
-Any usage of this file outside of the context of pestudio (e.g. in third-party application) must be explicitely authorized.
+Please note that this file will be modified when running pestudio.
 -->
 <xml version="1.0" encoding="utf-8">
   <thresholds>
@@ -15,7 +15,8 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <item id="006" enable="1" min="4" max="1024"></item>
     <item id="009" enable="1" min="256" max="-1"></item>
     <item id="010" enable="1" min="80" max="4096"></item>
-    <item id="013" enable="1" min="10" max="512000"></item>
+    <item id="012" enable="1" min="0" max="75"></item>
+    <item id="013" enable="1" min="0" max="75"></item>
     <item id="014" enable="1" min="10" max="-1"></item>
     <item id="015" enable="1" min="100" max="16384"></item>
     <item id="016" enable="1" min="0" max="1648576"></item>
@@ -24,12 +25,9 @@ Any usage of this file outside of the context of pestudio (e.g. in third-party a
     <item id="019" enable="1" min="0" max="100"></item>
     <item id="020" enable="1" min="0" max="520"></item>
     <item id="030" enable="1" min="1" max="50"></item>
-    <item id="031" enable="1" min="32" max="500"></item>
     <item id="032" enable="1" min="1" max="16"></item>
-    <item id="033" enable="1" min="0" max="3000"></item>
     <item id="034" enable="1" min="100" max="2000"></item>
     <item id="035" enable="1" min="15" max="16"></item>
-    <item id="038" enable="1" min="20" max="50"></item>
     <item id="039" enable="1" min="1" max="1"></item>
     <item id="046" enable="1" min="0" max="0"></item>
     <item id="060" enable="1" min="2" max="-1"></item>
