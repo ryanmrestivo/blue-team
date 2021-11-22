@@ -1,0 +1,29 @@
+Windows Registry Editor Version 5.00
+
+; For source and explanations, see
+; https://blogs.msdn.microsoft.com/andrew_richards/2017/03/01/enhancing-the-open-command-prompt-here-shift-right-click-context-menu-experience/
+
+[HKEY_CLASSES_ROOT\Directory\shell\02MenuPowerShell]
+"MUIVerb"="PowerShell Prompts"
+"Icon"="powershell.exe"
+"ExtendedSubCommandsKey"="Directory\\ContextMenus\\MenuPowerShell"
+
+[HKEY_CLASSES_ROOT\Directory\background\shell\02MenuPowerShell]
+"MUIVerb"="PowerShell Prompts"
+"Icon"="powershell.exe"
+"ExtendedSubCommandsKey"="Directory\\ContextMenus\\MenuPowerShell"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuPowerShell\shell\open]
+"MUIVerb"="PowerShell"
+"Icon"="powershell.exe"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuPowerShell\shell\open\command]
+@="powershell.exe -noexit -command Set-Location '%V'"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuPowerShell\shell\runas]
+"MUIVerb"="PowerShell Elevated"
+"Icon"="powershell.exe"
+"HasLUAShield"=""
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuPowerShell\shell\runas\command]
+@="powershell.exe -noexit -command Set-Location '%V'"
