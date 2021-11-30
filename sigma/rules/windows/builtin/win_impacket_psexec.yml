@@ -1,6 +1,7 @@
 title: Impacket PsExec Execution
 id: 32d56ea1-417f-44ff-822b-882873f5f43b
 description: Detects execution of Impacket's psexec.py.
+status: experimental
 author: Bhabesh Raj
 date: 2020/12/14
 references:
@@ -15,7 +16,7 @@ logsource:
 detection:
     selection1:
         EventID: 5145
-        ShareName: \\*\IPC$
+        ShareName: \\\*\IPC$
         RelativeTargetName|contains:
             - 'RemCom_stdint'
             - 'RemCom_stdoutt'

@@ -1,0 +1,19 @@
+language: python
+python:
+  - 3.8
+cache: pip
+install:
+  - pip install colorama flake8 future netaddr psutil rfc5424-logging-handler yara-python  
+
+script:
+  - flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+  - python ./loki.py --noprocs --noindicator --dontwait --debug -p ./test
+  - python ./loki.py --noprocs --noindicator --dontwait --debug --intense -p ./test
+  - python ./loki.py --noprocs --noindicator --dontwait --debug --csv -p ./test
+
+notifications:
+  email:
+    recipients:
+      - venom14@gmail.com
+    on_success: never
+    on_failure: always
