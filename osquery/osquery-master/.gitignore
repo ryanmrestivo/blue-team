@@ -1,0 +1,73 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+*.pyc
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+*.pkg
+
+# Build Artifacts
+.provision
+build/
+*.bottle.tar.gz
+
+# Run Artifacts
+*.log
+*.orig
+*.rej
+
+# Vagrant Artifacts
+.vagrant
+.sources
+
+# OS artifacts
+.DS_Store
+
+# CLion IDE
+.idea
+cmake-build-debug
+cmake-build-release
+
+# QtCreator files
+osquery.config
+osquery.creator
+osquery.files
+osquery.includes
+
+# Doxygen Documentation
+doxygen/html
+doxygen/latex
+
+# Editors
+*~
+\#*\#
+*.swp
+*.vscode
+.vs/
+
+# Tags
+tags
+cscope.files
+cscope.out
+
+# Ignored components
+/external/*
+!/external/examples
+!/external/cmake/cmakelibs.cmake
+!/external/CMakeLists.txt

@@ -1,0 +1,43 @@
+version: 2
+
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run: curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+      - run: sudo apt-get install -y nodejs
+      - run: sudo /usr/bin/npm i -g sqlite-parser
+      - run: wget https://pkg.osquery.io/deb/osquery_2.11.2_1.linux.amd64.deb
+      - run: sudo dpkg -i osquery_2.11.2_1.linux.amd64.deb
+      - run: sudo cp -R Classic/Endpoints/packs /var/osquery
+      - run: sudo cp -R Classic/Servers/Linux/packs /var/osquery
+      - run: cp -R Classic/Endpoints/packs Classic/Endpoints/Windows
+      # Use osquery to check the entire config
+      - run: cd Classic/Servers/Linux && sudo osqueryd --config_path=osquery.conf --config_check
+      # Extract raw queries from the config
+      - run: cd Classic/Servers/Linux && jq '.. | .query? | select(type != "null")' osquery.conf | tr -d '"' > linux_query_lint.txt
+      # Use sqlite-parser to verify none of the queries have syntax errors
+      - run: cd Classic/Servers/Linux && sudo sqlite-parser linux_query_lint.txt
+      # Fix all the line breaks (if they exist) using sed, then extract the raw queries
+      - run: cd Classic/Servers/Linux/packs && for file in $(ls *.conf); do cat "$file" | sed ':a;N;$!ba;s/\\\n/ /g' | tr -s ' '  | jq '.. | .query? | select(type != "null")' | tr -d '"' > "$file".test; done
+      # Use sqlite-parser to check the syntax of every query in each pack
+      - run: cd Classic/Servers/Linux/packs && for file in $(ls *.test); do sudo sqlite-parser "$file"; done
+
+      # Use osquery to check the entire config
+      - run: cd Classic/Endpoints/MacOS && sudo osqueryd --config_path=osquery.conf --config_check
+      # Extract raw queries from the config
+      - run: cd Classic/Endpoints/MacOS && jq '.. | .query? | select(type != "null")' osquery.conf | tr -d '"' > macos_query_lint.txt
+      # Use sqlite-parser to verify none of the queries have syntax errors
+      - run: cd Classic/Endpoints/MacOS && sudo sqlite-parser macos_query_lint.txt
+
+      # Use osquery to check the entire config
+      - run: cd Classic/Endpoints/Windows && sudo osqueryd --config_path=osquery.conf --config-check
+      # Extract raw queries from the config
+      - run: cd Classic/Endpoints/Windows && jq '.. | .query? | select(type != "null")' osquery.conf | tr -d '"'  > windows_query_lint.txt
+      # Use sqlite-parser to verify none of the queries have syntax errors
+      - run: cd Classic/Endpoints/Windows && sudo sqlite-parser windows_query_lint.txt
+      # Fix all the line breaks (if they exist) using sed, then extract the raw queries
+      - run: cd Classic/Endpoints/packs && for file in $(ls *.conf); do cat "$file" | sed ':a;N;$!ba;s/\\\n/ /g' | tr -s ' '  | jq '.. | .query? | select(type != "null")' | tr -d '"' > "$file".test; done
+      # Use sqlite-parser to check the syntax of every query in each pack
+      - run: cd Classic/Endpoints/packs && for file in $(ls *.test); do sudo sqlite-parser "$file"; done

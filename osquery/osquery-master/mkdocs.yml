@@ -1,0 +1,49 @@
+site_name: osquery
+theme: readthedocs
+
+repo_url: https://github.com/osquery/osquery
+edit_uri: https://github.com/osquery/osquery/edit/master/docs/wiki/
+docs_dir: docs/wiki
+site_dir: build/wiki
+extra_css:
+- theme/osquery.css
+
+markdown_extensions:
+  - admonition
+
+nav:
+- Introduction:
+  - Welcome to osquery: index.md
+  - osqueryi (shell): introduction/using-osqueryi.md
+  - osqueryd (daemon): introduction/using-osqueryd.md
+  - SQL Introduction: introduction/sql.md
+- Installation:
+  - Install on MacOS: installation/install-macos.md
+  - Install on Linux: installation/install-linux.md
+  - Install on Windows: installation/install-windows.md
+  - Install on FreeBSD: installation/install-freebsd.md
+  - Command Line Flags: installation/cli-flags.md
+- Deployment:
+  - Configuration: deployment/configuration.md
+  - Logging: deployment/logging.md
+  - Aggregating Logs: deployment/log-aggregation.md
+  - AWS Logging: deployment/aws-logging.md
+  - Performance Safety: deployment/performance-safety.md
+  - Anomaly Detection: deployment/anomaly-detection.md
+  - Using Extensions: deployment/extensions.md
+  - File Integrity Monitoring: deployment/file-integrity-monitoring.md
+  - YARA Scanning: deployment/yara.md
+  - Process Auditing: deployment/process-auditing.md
+  - Remote Settings: deployment/remote.md
+  - Syslog Consumption: deployment/syslog.md
+  - Debugging: deployment/debugging.md
+- Development:
+  - Building osquery: development/building.md
+  - Creating New Tables: development/creating-tables.md
+  - Configuration Plugins: development/config-plugins.md
+  - Logging Plugins: development/logger-plugins.md
+  - SDK and Extensions: development/osquery-sdk.md
+  - Eventing Framework: development/pubsub-framework.md
+  - Writing Tests: development/unit-tests.md
+  - Adding CLI Arguments: development/options-arguments.md
+  - Reading/Writing Files: development/reading-files.md

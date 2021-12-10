@@ -1,0 +1,165 @@
+#!/usr/bin/env bash
+
+# Copyright (c) 2014-present, The osquery authors
+#
+# This source code is licensed as defined by the LICENSE file found in the
+# root directory of this source tree.
+#
+# SPDX-License-Identifier: (Apache-2.0 OR GPL-2.0-only)
+
+set -e
+
+ensure_root() {
+  if [ $UID -ne 0 ]; then
+    echo "User has insufficient privileges. $0 must be run as root."
+    exit 4
+  fi
+}
+
+check_config() {
+  if [ -e $REAL_CONFIG_PATH ]; then
+    $EXEC --config_path=$REAL_CONFIG_PATH --config_check
+  elif [ -e $FLAGS_FILE_PATH ]; then
+    :
+  else
+    echo "No osquery config file found at $REAL_CONFIG_PATH"
+    echo "See '$EXAMPLE_CONFIG_PATH' for an example config."
+    exit 4
+  fi
+}
+
+# Use this function to detect the operating system that this
+platform() {
+  local  __resultvar=$1
+  if [[ -f "/etc/redhat-release" ]]; then
+    eval $__resultvar="centos"
+  elif [[ -f "/etc/lsb-release" ]]; then
+    eval $__resultvar="ubuntu"
+  else
+    eval $__resultvar=`uname -s | tr '[:upper:]' '[:lower:]'`
+  fi
+}
+
+exec_with_env() {
+  REAL_CONFIG_PATH=$REAL_CONFIG_PATH \
+  EXAMPLE_CONFIG_PATH=$EXAMPLE_CONFIG_PATH \
+  PIDFILE=$PIDFILE \
+  LOCKFILE=$LOCKFILE \
+  EXEC=$EXEC \
+  PROG=$PROG \
+  $1
+  return $?
+}
+
+start() {
+  check_config
+  if [ $OS = "darwin" ]; then
+    if [ ! -f $FLAGS_FILE_PATH ]; then
+      touch $FLAGS_FILE_PATH
+    fi 
+    cp $PLIST_INSTALLATION_PATH $PLIST_PATH
+    launchctl load $PLIST_PATH
+  else
+    exec_with_env "service osqueryd start"
+  fi
+}
+
+stop() {
+  if [ $OS = "darwin" ]; then
+    launchctl unload $PLIST_PATH
+    rm $PLIST_PATH
+  else
+    exec_with_env "service osqueryd stop"
+  fi
+}
+
+restart() {
+  stop
+  start
+}
+
+status() {
+  if [ $OS = "darwin" ]; then
+    if [[ "$LAUNCHCTL_LIST" = "" || "$LAUNCHCTL_LIST_PID" = "-" ]]; then
+      echo "$PLIST_DOMAIN is not running"
+    else
+      echo "$PLIST_DOMAIN is running. pid: $LAUNCHCTL_LIST_PID"
+    fi
+  else
+    exec_with_env "service osqueryd status"
+  fi
+}
+
+clean() {
+  if [ -d $OSQUERY_DB ]; then
+    rm -rf $OSQUERY_DB
+  fi
+}
+
+usage() {
+  echo "Usage: $0 {clean|config-check|start|stop|status|restart}"
+  exit 2
+}
+
+main() {
+  ensure_root
+  platform OS
+
+  if [[ $OS = "darwin" ]]; then
+    REAL_CONFIG_PATH="/var/osquery/osquery.conf"
+    FLAGS_FILE_PATH="/var/osquery/osquery.flags"
+    EXAMPLE_CONFIG_PATH="/var/osquery/osquery.example.conf"
+    PIDFILE="/var/osquery/osquery.pid"
+    LOCKFILE="/var/osquery/osquery.lock"
+    EXEC="/opt/osquery/lib/osquery.app/Contents/MacOS/osqueryd"
+    PLIST_DOMAIN="io.osquery.agent"
+    PLIST_PATH="/Library/LaunchDaemons/$PLIST_DOMAIN.plist"
+    PLIST_INSTALLATION_PATH="/var/osquery/$PLIST_DOMAIN.plist"
+    LAUNCHCTL_LIST=`launchctl list | grep io.osquery.agent || true`
+    LAUNCHCTL_LIST_PID=`echo $LAUNCHCTL_LIST | awk '{ print $1 }'`
+  else
+    INIT_SCRIPT_PATH="/etc/init.d/osqueryd"
+    SERVICE_SCRIPT_PATH="/usr/lib/systemd/system/osqueryd.service"
+    if [[ ! -e "$INIT_SCRIPT_PATH" && ! -f "$SERVICE_SCRIPT_PATH" ]]; then
+      echo "Cannot find the init.d script at $INIT_SCRIPT_PATH"
+      echo "Additionally, no systemd service at $SERVICE_SCRIPT_PATH"
+      exit 6
+    fi
+
+    REAL_CONFIG_PATH="/etc/osquery/osquery.conf"
+    EXAMPLE_CONFIG_PATH="/opt/osquery/share/osquery/osquery.example.conf"
+    PIDFILE="/var/run/osquery.pid"
+    LOCKFILE="/var/lock/subsys/osqueryd"
+    EXEC="/opt/osquery/bin/osqueryd"
+  fi
+
+  OSQUERY_DB="/var/osquery/osquery.db"
+  PROG="osqueryd"
+
+  case "$1" in
+    clean)
+      $1
+      ;;
+    start)
+      $1
+      ;;
+    stop)
+      $1
+      ;;
+    restart)
+      $1
+      ;;
+    status)
+      $1
+      ;;
+    config-check)
+      check_config
+      ;;
+    *)
+      usage
+      ;;
+  esac
+}
+
+main $@
+exit 0

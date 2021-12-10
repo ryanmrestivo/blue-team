@@ -1,0 +1,24 @@
+table_name("safari_extensions")
+description("Safari browser extension details for all users.")
+schema([
+    Column("uid", BIGINT, "The local user that owns the extension",
+      index=True),
+    Column("name", TEXT, "Extension display name"),
+    Column("identifier", TEXT, "Extension identifier"),
+    Column("version", TEXT, "Extension long version"),
+    Column("sdk", TEXT, "Bundle SDK used to compile extension"),
+    Column("update_url", TEXT, "Extension-supplied update URI"),
+    Column("author", TEXT, "Optional extension author"),
+    Column("developer_id", TEXT, "Optional developer identifier"),
+    Column("description", TEXT, "Optional extension description text"),
+    Column("path", TEXT, "Path to extension XAR bundle"),
+    ForeignKey(column="uid", table="users")
+])
+attributes(user_data=True)
+implementation("applications/browser_plugins@genSafariExtensions")
+examples([
+  "select count(*) from users JOIN safari_extensions using (uid)",
+])
+fuzz_paths([
+    "/Users",
+])

@@ -1,0 +1,31 @@
+/**
+ * Copyright (c) 2014-present, The osquery authors
+ *
+ * This source code is licensed as defined by the LICENSE file found in the
+ * root directory of this source tree.
+ *
+ * SPDX-License-Identifier: (Apache-2.0 OR GPL-2.0-only)
+ */
+
+#include <osquery/sdk/sdk.h>
+#include <osquery/core/system.h>
+
+using namespace osquery;
+
+@OSQUERY_EXTENSION_GROUP_INCLUDES@
+
+@OSQUERY_EXTENSION_GROUP_INITIALIZERS@
+
+int main(int argc, char* argv[]) {
+  osquery::Initializer runner(argc, argv, ToolType::EXTENSION);
+
+  auto status = startExtension("@OSQUERY_EXTENSION_GROUP_NAME@", "@OSQUERY_EXTENSION_GROUP_VERSION@");
+  if (!status.ok()) {
+    LOG(ERROR) << status.getMessage();
+    runner.requestShutdown(status.getCode());
+  }
+
+  // Finally wait for a signal / interrupt to shutdown.
+  runner.waitForShutdown();
+  return runner.shutdown(0);
+}

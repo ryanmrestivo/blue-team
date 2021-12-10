@@ -1,0 +1,75 @@
+/**
+ * Copyright (c) 2014-present, The osquery authors
+ *
+ * This source code is licensed as defined by the LICENSE file found in the
+ * root directory of this source tree.
+ *
+ * SPDX-License-Identifier: (Apache-2.0 OR GPL-2.0-only)
+ */
+
+/*
+** This file is generated. Do not modify it manually!
+*/
+
+#include <osquery/logger/logger.h>
+#include <osquery/core/tables.h>
+#include <osquery/registry/registry_factory.h>
+
+namespace osquery {
+namespace tables {
+
+auto ${ table_name_cc }$Register = []() {
+/// BEGIN[GENTABLE]
+  class ${ table_name_cc }$TablePlugin : public TablePlugin {
+   private:
+    TableColumns columns() const override {
+      return {
+${ for column in schema: }$\
+        std::make_tuple("${ write(column.name) }$", ${ write(column.type.affinity) }$,\
+${ if len(column.options) > 0: }$ ${ write(column.options_set) }$\
+${ :else: }$ ColumnOptions::DEFAULT\
+${ :end-if }$\
+),
+${ :end-for }$\
+      };
+    }
+${ if len(aliases) > 0: }$\
+
+    std::vector<std::string> aliases() const override {
+      return {
+${ for alias in aliases: }$\
+        "${ alias }$",
+${ :end-for }$\
+      };
+    }
+${ :end-if }$\
+
+${ if has_column_aliases: }$\
+
+  ColumnAliasSet columnAliases() const override {
+    return {
+${ for column in schema: }$\
+${ if len(column.aliases) > 0: }$\
+      {"${ write(column.name) }$", {\
+${ for i, alias in enumerate(column.aliases): }$"${ alias }$"\
+${ if i != len(column.aliases) - 1: }$, ${ :end-if }$\
+${ :end-for % }$ }},
+${ :end-if }$\
+${ :end-for }$\
+    };
+  }
+${ :end-if }$\
+
+    TableRows generate(QueryContext& request) override { return TableRows(); }
+  };
+
+  {
+    auto registry = RegistryFactory::get().registry("table");
+    registry->add("${ table_name }$",
+      std::make_shared<${ table_name_cc }$TablePlugin>(), false);
+  }
+/// END[GENTABLE]
+};
+
+}
+}
