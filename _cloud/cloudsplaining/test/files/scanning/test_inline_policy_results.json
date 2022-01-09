@@ -1,0 +1,28 @@
+{
+  "PolicyName": "InlinePolicyForBidenGroup",
+  "PolicyId": "e8bca32ff7d1f7990d71c64d95a04b7caa5aad5791f06f69db59653228c6853d",
+  "PolicyDocument": {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "VisualEditor0",
+        "Effect": "Allow",
+        "Action": [
+          "s3:GetObject",
+          "s3:PutObjectAcl"
+        ],
+        "Resource": "*"
+      }
+    ]
+  },
+  "PrivilegeEscalation": [],
+  "DataExfiltration": [
+    "s3:GetObject"
+  ],
+  "ResourceExposure": [
+    "s3:PutObjectAcl"
+  ],
+  "ServiceWildcard": [],
+  "CredentialsExposure": [],
+  "is_excluded": false
+}

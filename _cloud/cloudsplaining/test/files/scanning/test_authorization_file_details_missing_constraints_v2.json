@@ -1,0 +1,220 @@
+[
+    {
+        "AccountID": "012345678901",
+        "ManagedBy": "Customer",
+        "Name": "MyOtherRole",
+        "PolicyName": "InlinePolicyForTestingOverrides",
+        "Type": "Role",
+        "Arn": "arn:aws:iam::012345678901:role/MyOtherRole",
+        "AttachedToPrincipal": "MyOtherRole",
+        "ActionsCount": 2,
+        "ServicesCount": 1,
+        "Services": [
+            "s3"
+        ],
+        "Actions": [
+            "s3:GetObject",
+            "s3:PutObject"
+        ],
+        "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "VisualEditor0",
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:PutObject",
+                        "s3:GetObject"
+                    ],
+                    "Resource": "*"
+                }
+            ]
+        },
+        "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "ssm.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "AssumableByComputeService": [],
+        "PrivilegeEscalation": [],
+        "DataExfiltration": [
+            "s3:GetObject"
+        ],
+        "ResourceExposure": []
+    },
+    {
+        "AccountID": "012345678901",
+        "ManagedBy": "Customer",
+        "PolicyName": "NotYourPolicy",
+        "Name": "NotYourPolicy",
+        "Type": "Policy",
+        "Arn": "arn:aws:iam::012345678901:policy/NotYourPolicy",
+        "AttachedToPrincipal": null,
+        "ActionsCount": 28,
+        "ServicesCount": 1,
+        "Services": [
+            "ecr"
+        ],
+        "Actions": [
+            "ecr:BatchCheckLayerAvailability",
+            "ecr:BatchDeleteImage",
+            "ecr:BatchGetImage",
+            "ecr:CompleteLayerUpload",
+            "ecr:CreateRepository",
+            "ecr:DeleteLifecyclePolicy",
+            "ecr:DeleteRepository",
+            "ecr:DeleteRepositoryPolicy",
+            "ecr:DescribeImageScanFindings",
+            "ecr:DescribeImages",
+            "ecr:DescribeRepositories",
+            "ecr:GetDownloadUrlForLayer",
+            "ecr:GetLifecyclePolicy",
+            "ecr:GetLifecyclePolicyPreview",
+            "ecr:GetRepositoryPolicy",
+            "ecr:InitiateLayerUpload",
+            "ecr:ListImages",
+            "ecr:ListTagsForResource",
+            "ecr:PutImage",
+            "ecr:PutImageScanningConfiguration",
+            "ecr:PutImageTagMutability",
+            "ecr:PutLifecyclePolicy",
+            "ecr:SetRepositoryPolicy",
+            "ecr:StartImageScan",
+            "ecr:StartLifecyclePolicyPreview",
+            "ecr:TagResource",
+            "ecr:UntagResource",
+            "ecr:UploadLayerPart"
+        ],
+        "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "VisualEditor0",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ecr:*"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                }
+            ]
+        },
+        "AssumeRolePolicyDocument": null,
+        "AssumableByComputeService": [],
+        "PrivilegeEscalation": [],
+        "DataExfiltration": [],
+        "ResourceExposure": [
+            "ecr:DeleteRepositoryPolicy",
+            "ecr:SetRepositoryPolicy"
+        ]
+    },
+    {
+        "AccountID": "012345678901",
+        "ManagedBy": "Customer",
+        "Name": "PolicyForTestingOverrides",
+        "PolicyName": "PolicyForTestingOverrides",
+        "Type": "Policy",
+        "Arn": "arn:aws:iam::012345678901:policy/PolicyForTestingOverrides",
+        "AttachedToPrincipal": null,
+        "ActionsCount": 2,
+        "ServicesCount": 1,
+        "Services": [
+            "s3"
+        ],
+        "Actions": [
+            "s3:GetObject",
+            "s3:PutObject"
+        ],
+        "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "VisualEditor0",
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:CreateBucket"
+                    ],
+                    "Resource": [
+                        "arn:aws:s3:::mybucket"
+                    ]
+                },
+                {
+                    "Sid": "VisualEditor1",
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:PutObject",
+                        "s3:GetObject"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                }
+            ]
+        },
+        "AssumeRolePolicyDocument": null,
+        "AssumableByComputeService": [],
+        "PrivilegeEscalation": [],
+        "DataExfiltration": [
+            "s3:GetObject"
+        ],
+        "ResourceExposure": []
+    },
+    {
+        "AccountID": "012345678901",
+        "ManagedBy": "Customer",
+        "Name": "GOATRole",
+        "PolicyName": "SsmOnboardingInlinePolicy",
+        "Type": "Role",
+        "Arn": "arn:aws:iam::012345678901:role/GOATRole",
+        "AttachedToPrincipal": "GOATRole",
+        "ActionsCount": 2,
+        "ServicesCount": 1,
+        "Services": [
+            "s3"
+        ],
+        "Actions": [
+            "s3:GetObject",
+            "s3:PutObject"
+        ],
+        "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "VisualEditor0",
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:PutObject",
+                        "s3:GetObject"
+                    ],
+                    "Resource": "*"
+                }
+            ]
+        },
+        "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "ssm.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "AssumableByComputeService": [],
+        "PrivilegeEscalation": [],
+        "DataExfiltration": [
+            "s3:GetObject"
+        ],
+        "ResourceExposure": []
+    }
+]

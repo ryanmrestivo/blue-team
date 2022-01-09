@@ -1,0 +1,13 @@
+{
+  "arn": "arn:aws:iam::012345678901:group/biden",
+  "aws_managed_policies": {"ANPAI3R4QMOG6Q5A4VWVG": "AmazonRDSFullAccess"},
+  "create_date": "2017-05-15 17:33:36+00:00",
+  "customer_managed_policies": {},
+  "id": "aaaaaaaaabbbbbbbccccccc",
+  "inline_policies": {
+    "e8bca32ff7d1f7990d71c64d95a04b7caa5aad5791f06f69db59653228c6853d": "InlinePolicyForBidenGroup"
+  },
+  "is_excluded": false,
+  "name": "biden",
+  "path": "/"
+}
