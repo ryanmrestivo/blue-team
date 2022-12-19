@@ -7,6 +7,8 @@
 
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
+
 /**
   Blowfish.js from Dojo Toolkit 1.8.1 (https://github.com/dojo/dojox/tree/1.8/encoding)
   Extracted by Sladex (xslade@gmail.com)
@@ -96,6 +98,24 @@
  */
 
 /**
+ * @author dolphinOnKeys [robin@weird.io]
+ * @copyright Crown Copyright 2022
+ * @license Apache-2.0
+ */
+
+/**
+ * @author mikecat
+ * @copyright Crown Copyright 2022
+ * @license Apache-2.0
+ */
+
+/**
+ * @author n1073645 [n1073645@gmail.com]
+ * @copyright Crown Copyright 2020
+ * @license Apache-2.0
+ */
+
+/**
  * @author n1474335 [n1474335@gmail.com]
  * @author Matt C [matt@artemisbot.uk]
  * @copyright Crown Copyright 2016
@@ -105,6 +125,12 @@
 /**
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
+ * @license Apache-2.0
+ */
+
+/**
+ * @author swesven
+ * @copyright 2021
  * @license Apache-2.0
  */
 
@@ -117,6 +143,14 @@
  */
 
 /**
+ * Binary functions.
+ *
+ * @author n1474335 [n1474335@gmail.com]
+ * @copyright Crown Copyright 2018
+ * @license Apache-2.0
+ */
+
+/**
  * Cipher functions.
  *
  * @author Matt C [matt@artemisbot.uk]
@@ -125,6 +159,21 @@
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  *
+ */
+
+/**
+ * Complete implementation of SM4 cipher encryption/decryption with
+ * ECB, CBC, CFB, OFB, CTR block modes.
+ * These modes are specified in IETF draft-ribose-cfrg-sm4-09, see:
+ * https://tools.ietf.org/id/draft-ribose-cfrg-sm4-09.html
+ * for details.
+ *
+ * Follows spec from Cryptography Standardization Technical Comittee:
+ * http://www.gmbz.org.cn/upload/2018-04-04/1522788048733065051.pdf
+ *
+ * @author swesven
+ * @copyright 2021
+ * @license Apache-2.0
  */
 
 /**
@@ -190,6 +239,14 @@
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  *
+ */
+
+/**
+ * Hexadecimal functions.
+ *
+ * @author n1474335 [n1474335@gmail.com]
+ * @copyright Crown Copyright 2016
+ * @license Apache-2.0
  */
 
 /**

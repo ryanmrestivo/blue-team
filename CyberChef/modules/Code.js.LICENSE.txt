@@ -7,6 +7,8 @@
 
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
+
 /**
  * @author Matt C (matt@artemisbot.uk)
  * @copyright Crown Copyright 2016
@@ -152,6 +154,17 @@
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  *
+ */
+
+/**
+ * Transform a json object into html representation
+ *
+ * Adapted for CyberChef by @n1474335 from jQuery json-viewer
+ * @author Alexandre Bodelot <alexandre.bodelot@gmail.com>
+ * @link https://github.com/abodelot/jquery.json-viewer
+ * @license MIT
+ *
+ * @returns {string}
  */
 
 /**

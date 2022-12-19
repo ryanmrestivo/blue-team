@@ -5,11 +5,28 @@
  * @license  MIT
  */
 
+/*! *****************************************************************************
+Copyright (C) Microsoft. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+
 /*! cptable.js (C) 2013-present SheetJS -- http://sheetjs.com */
 
 /*! cputils.js (C) 2013-present SheetJS -- http://sheetjs.com */
 
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
+
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
 
 /**
  * @author Cynser
@@ -46,6 +63,12 @@
 /**
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
+ * @license Apache-2.0
+ */
+
+/**
+ * @author n1474335 [n1474335@gmail.com]
+ * @copyright Crown Copyright 2022
  * @license Apache-2.0
  */
 
@@ -125,16 +148,6 @@
  * File type functions
  *
  * @author n1474335 [n1474335@gmail.com]
- * @copyright Crown Copyright 2018
- * @license Apache-2.0
- *
- */
-
-/**
- * Stream class for parsing binary protocols.
- *
- * @author n1474335 [n1474335@gmail.com]
- * @author tlwr [toby@toby.codes]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  *

@@ -7,6 +7,8 @@
 
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
+
 /**
  * @author d98762625 [d98762625@gmail.com]
  * @copyright Crown Copyright 2019
@@ -25,6 +27,12 @@
  * @author mshwed [m@ttshwed.com]
  * @author Matt C [me@mitt.dev]
  * @copyright Crown Copyright 2019
+ * @license Apache-2.0
+ */
+
+/**
+ * @author n1474335 [n1474335@gmail.com]
+ * @copyright Crown Copyright 2016
  * @license Apache-2.0
  */
 

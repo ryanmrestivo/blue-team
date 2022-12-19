@@ -5,9 +5,23 @@
  * @license  MIT
  */
 
+/*! cptable.js (C) 2013-present SheetJS -- http://sheetjs.com */
+
+/*! cputils.js (C) 2013-present SheetJS -- http://sheetjs.com */
+
+/*! https://mths.be/punycode v1.3.2 by @mathias */
+
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
+
 /*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
+
+/**
+ * @author brun0ne [brunonblok@gmail.com]
+ * @copyright Crown Copyright 2022
+ * @license Apache-2.0
+ */
 
 /**
  * @author d98762625 [d98762625@gmail.com]
@@ -28,6 +42,12 @@
  */
 
 /**
+ * @author mikecat
+ * @copyright Crown Copyright 2022
+ * @license Apache-2.0
+ */
+
+/**
  * @author mshwed [m@ttshwed.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
@@ -42,6 +62,13 @@
 /**
  * @author n1474335 [n1474335@gmail.com]
  * @author Matt C [matt@artemisbot.uk]
+ * @copyright Crown Copyright 2016
+ * @license Apache-2.0
+ */
+
+/**
+ * @author n1474335 [n1474335@gmail.com]
+ * @author john19696 [john19696@protonmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
  */
@@ -114,6 +141,12 @@
  *   Josh Atkins
  *
  * Algorithm released under the BSD-3-clause licence
+ */
+
+/**
+ * @author n1474335 [n1474335@gmail.com]
+ * @copyright Crown Copyright 2022
+ * @license Apache-2.0
  */
 
 /**

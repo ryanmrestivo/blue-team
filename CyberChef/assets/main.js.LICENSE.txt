@@ -29,6 +29,8 @@
 
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
+
 /**
  * @author d98762625 [d98762625@gmail.com]
  * @copyright Crown Copyright 2019
@@ -128,6 +130,14 @@
  */
 
 /**
+ * Styles index
+ *
+ * @author n1474335 [n1474335@gmail.com]
+ * @copyright Crown Copyright 2017
+ * @license Apache-2.0
+ */
+
+/**
  * Various components for drawing diagrams on an HTML5 canvas.
  *
  * @author n1474335 [n1474335@gmail.com]
@@ -161,7 +171,7 @@
  */
 
 /**!
- * Sortable 1.14.0
+ * Sortable 1.15.0
  * @author	RubaXa   <trash@rubaxa.org>
  * @author	owenm    <owen23355@gmail.com>
  * @license MIT
@@ -179,4 +189,4 @@
 
 //! moment.js locale configuration
 
-//! version : 0.5.33
+//! version : 0.5.37
