@@ -1,7 +1,0 @@
-﻿@using Microsoft.CST.AttackSurfaceAnalyzer.Collectors 
-<p>Running Scan...</p>
-<div class="spinner-border text-primary"></div>
-@foreach (BaseCollector collector in AttackSurfaceAnalyzerClient.GetCollectors())
-{
-    <div>@collector.GetType().ToString(): @collector.RunStatus</div>
-}
