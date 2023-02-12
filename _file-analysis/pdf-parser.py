@@ -1,11 +1,11 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 __description__ = 'pdf-parser, use it to parse a PDF document'
 __author__ = 'Didier Stevens'
-__version__ = '0.7.4'
-__date__ = '2019/11/05'
+__version__ = '0.7.8'
+__date__ = '2023/01/03'
 __minimum_python_version__ = (2, 5, 1)
-__maximum_python_version__ = (3, 7, 5)
+__maximum_python_version__ = (3, 11, 1)
 
 """
 Source code put in public domain by Didier Stevens, no Copyright
@@ -69,6 +69,11 @@ History:
   2019/07/30: bug fixes (including fixes Josef Hinteregger)
   2019/09/26: V0.7.3 added multiple id selection to option -o; added man page (-m); added environment variable PDFPARSER_OPTIONS; bug fixes
   2019/11/05: V0.7.4 fixed plugin path when compiled with pyinstaller, replaced eval with int
+  2021/07/03: V0.7.5 bug fixes; fixed ASCII85Decode Python 3 bug thanks to R Primus
+  2021/11/23: V0.7.6 Python 3 bug fixes
+  2022/05/24: bug fixes
+  2022/11/09: V0.7.7 added support for environment variable DSS_DEFAULT_HASH_ALGORITHMS
+  2023/01/03: V0.7.8 added unreferenced objects to statistics
 
 Todo:
   - handle printf todo
@@ -135,6 +140,10 @@ Use this to define options you want included with each use of pdf-parser.py.
 Like option -O, to parse stream objects (/ObjStm).
 By defining PDFPARSER_OPTIONS=-O, pdf-parser will always parse stream objects (when found).
 PS: this feature is experimental.
+
+Option -H calculates the MD5 hash by default.
+This can be changed by setting environment variable DSS_DEFAULT_HASH_ALGORITHMS.
+Like this: set DSS_DEFAULT_HASH_ALGORITHMS=sha256
 
 '''
     for line in manual.split('\n'):
@@ -497,6 +506,9 @@ class cPDFElementIndirectObject:
                 position -= 1
             if position < 0:
                 return
+            if self.content[position][1].endswith('endstream\n'):
+                self.content = self.content[0:position] + [(self.content[position][0], self.content[position][1][:-len('endstream\n')])] + [(CHAR_REGULAR, 'endstream')] + self.content[position+1:]
+                return
             if self.content[position][0] != CHAR_REGULAR:
                 return
             if self.content[position][1] == 'endstream':
@@ -560,6 +572,8 @@ class cPDFElementIndirectObject:
         streamData = self.Stream(filter, overridingfilters)
         if filter and streamData == 'No filters':
             streamData = self.Stream(False, overridingfilters)
+        if isinstance(streamData, bytes):
+            keyword = keyword.encode()
         if regex:
             return re.search(keyword, streamData, IIf(casesensitive, 0, re.I))
         elif casesensitive:
@@ -794,6 +808,7 @@ class cPDFParseDictionary:
                 else:
                     value.append(ConditionalCanonicalize(tokens[0][1], self.nocanonicalizedoutput))
             tokens = tokens[1:]
+        return None, tokens
 
     def Retrieve(self):
         return self.parsed
@@ -978,7 +993,7 @@ def ConditionalCanonicalize(sIn, nocanonicalizedoutput):
 def ASCII85Decode(data):
   import struct
   n = b = 0
-  out = ''
+  out = b''
   for c in data:
     if '!' <= c and c <= 'u':
       n += 1
@@ -988,7 +1003,7 @@ def ASCII85Decode(data):
         n = b = 0
     elif c == 'z':
       assert n == 0
-      out += '\0\0\0\0'
+      out += b'\0\0\0\0'
     elif c == '~':
       if n:
         for _ in range(5-n):
@@ -1322,6 +1337,59 @@ def GetArguments():
         return arguments
     return envvar.split(' ') + arguments
 
+class cHashCRC32():
+    def __init__(self):
+        self.crc32 = None
+
+    def update(self, data):
+        self.crc32 = zlib.crc32(data)
+
+    def hexdigest(self):
+        return '%08x' % (self.crc32 & 0xffffffff)
+
+class cHashChecksum8():
+    def __init__(self):
+        self.sum = 0
+
+    def update(self, data):
+        if sys.version_info[0] >= 3:
+            self.sum += sum(data)
+        else:
+            self.sum += sum(map(ord, data))
+
+    def hexdigest(self):
+        return '%08x' % (self.sum)
+
+dSpecialHashes = {'crc32': cHashCRC32, 'checksum8': cHashChecksum8}
+
+def GetHashObjects(algorithms):
+    global dSpecialHashes
+
+    dHashes = {}
+
+    if algorithms == '':
+        algorithms = os.getenv('DSS_DEFAULT_HASH_ALGORITHMS', 'md5')
+    if ',' in algorithms:
+        hashes = algorithms.split(',')
+    else:
+        hashes = algorithms.split(';')
+    for name in hashes:
+        if not name in dSpecialHashes.keys() and not name in hashlib.algorithms_available:
+            print('Error: unknown hash algorithm: %s' % name)
+            print('Available hash algorithms: ' + ' '.join([name for name in list(hashlib.algorithms_available)] + list(dSpecialHashes.keys())))
+            return [], {}
+        elif name in dSpecialHashes.keys():
+            dHashes[name] = dSpecialHashes[name]()
+        else:
+            dHashes[name] = hashlib.new(name)
+
+    return hashes, dHashes
+
+def CalculateChosenHash(data):
+    hashes, dHashes = GetHashObjects('')
+    dHashes[hashes[0]].update(data)
+    return dHashes[hashes[0]].hexdigest(), hashes[0]
+
 def Main():
     """pdf-parser, use it to parse a PDF document
     """
@@ -1384,6 +1452,9 @@ def Main():
         cntStartXref = 0
         cntIndirectObject = 0
         dicObjectTypes = {}
+        objectsAll = set()
+        objectsReferenced = set()
+        objectsWithStream = []
         keywords = ['/JS', '/JavaScript', '/AA', '/OpenAction', '/AcroForm', '/RichMedia', '/Launch', '/EmbeddedFile', '/XFA', '/URI']
         for extrakeyword in ParseINIFile():
             if not extrakeyword in keywords:
@@ -1508,6 +1579,10 @@ def Main():
                         cntXref += 1
                     elif object.type == PDF_ELEMENT_TRAILER:
                         cntTrailer += 1
+                        oPDFParseDictionary = cPDFParseDictionary(object.content[1:], options.nocanonicalizedoutput)
+                        for keyTrailer, valueTrailer in oPDFParseDictionary.parsed:
+                            if len(valueTrailer) == 3 and valueTrailer[2] == 'R' and IsNumeric(valueTrailer[0]) and IsNumeric(valueTrailer[1]):
+                                objectsReferenced.add(tuple(valueTrailer))
                     elif object.type == PDF_ELEMENT_STARTXREF:
                         cntStartXref += 1
                     elif object.type == PDF_ELEMENT_INDIRECT_OBJECT:
@@ -1520,6 +1595,11 @@ def Main():
                         for keyword in dKeywords.keys():
                             if object.ContainsName(keyword):
                                 dKeywords[keyword].append(object.id)
+                        if object.ContainsStream():
+                            objectsWithStream.append(object.id)
+                        for reference in object.GetReferences():
+                            objectsReferenced.add(reference)
+                        objectsAll.add((str(object.id), str(object.version), 'R'))
                 else:
                     if object.type == PDF_ELEMENT_COMMENT and selectComment:
                         if options.generate:
@@ -1591,7 +1671,8 @@ def Main():
                         elif options.hash:
                             print('obj %d %d' % (object.id, object.version))
                             rawContent = FormatOutput(object.content, True)
-                            print(' len: %d md5: %s' % (len(rawContent), hashlib.md5(rawContent).hexdigest()))
+                            hashHexdigest, hashAlgo = CalculateChosenHash(rawContent.encode('latin'))
+                            print(' len: %d %s: %s' % (len(rawContent), hashAlgo, hashHexdigest))
                             print('')
                         elif options.searchstream:
                             if object.StreamContains(options.searchstream, not options.unfiltered, options.casesensitive, options.regex, options.overridingfilters):
@@ -1632,8 +1713,18 @@ def Main():
             print('Trailer: %s' % cntTrailer)
             print('StartXref: %s' % cntStartXref)
             print('Indirect object: %s' % cntIndirectObject)
+            print('Indirect objects with a stream: %s' % ', '.join([str(id) for id in objectsWithStream]))
+            objectsUnreferenced = objectsAll - objectsReferenced
             for key in sorted(dicObjectTypes.keys()):
                 print(' %s %d: %s' % (key, len(dicObjectTypes[key]), ', '.join(map(lambda x: '%d' % x, dicObjectTypes[key]))))
+            if len(objectsUnreferenced) > 0:
+                print('Unreferenced indirect objects: %s' % ', '.join([' '.join(reference) for reference in sorted(objectsUnreferenced, key=lambda a: int(a[0]))]))
+                if '/ObjStm' in dicObjectTypes:
+                    objectsUnreferencedMinusObjStm = set()
+                    for unreferencedObject in objectsUnreferenced:
+                        if not int(unreferencedObject[0]) in dicObjectTypes['/ObjStm']:
+                            objectsUnreferencedMinusObjStm.add(unreferencedObject)
+                    print('Unreferenced indirect objects without /ObjStm objects: %s' % ', '.join([' '.join(reference) for reference in sorted(objectsUnreferencedMinusObjStm, key=lambda a: int(a[0]))]))
             if sum(map(len, dKeywords.values())) > 0:
                 print('Search keywords:')
                 for keyword in keywords:
