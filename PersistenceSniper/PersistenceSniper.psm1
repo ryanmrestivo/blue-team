@@ -1,20 +1,20 @@
-﻿<#PSScriptInfo
+<#PSScriptInfo
 
-    .VERSION 1.8.0
+    .VERSION 1.11.0
 
     .GUID 3ce01128-01f1-4503-8f7f-2e50deb56ebc
 
     .AUTHOR Federico @last0x00 Lagrasta
 
-    .DESCRIPTION This module tries to enumerate all the persistence methods implanted on a compromised machine. New techniques may take some time before they are implemented in this script, so don't assume that because the script didn't find anything the machine is clean.
+    .DESCRIPTION This module tries to enumerate all the persistence methods implanted on a compromised machine. New techniques may take some time before they are implemented in this script, so don't assume that because the module didn't find anything the machine is clean.
 
     .COMPANYNAME @APTortellini
 
-    .COPYRIGHT CC0 1.0 Universal
+    .COPYRIGHT Commons Clause
 
     .TAGS Windows Persistence Detection Blue Team
 
-    .LICENSEURI https://creativecommons.org/publicdomain/zero/1.0/
+    .LICENSEURI https://github.com/last-byte/PersistenceSniper/blob/main/LICENSE
 
     .PROJECTURI https://github.com/last-byte/PersistenceSniper
 
@@ -27,7 +27,7 @@
     .EXTERNALSCRIPTDEPENDENCIES
 
     .RELEASENOTES
-    This release introduces detection for persistences implanted through AMSI providers, Powershell profiles, Telemetry commands, Scheduled tasks, RDP WDS startup programs, and Silent exit monitors.
+    This release fixes a bug in the CmdAutoRun detection and also implements detection for RunEx registry keys, RunOnceEx registry keys, and .NET startup hooks.
 
     .PRIVATEDATA
 
@@ -138,7 +138,17 @@ function Find-AllPersistence
         'SilentExitMonitor',
         'TelemetryController',
         'RDPWDSStartupPrograms',
-        'ScheduledTasks'
+        'ScheduledTasks',
+        'BitsJobsNotify',
+        'Screensaver',
+        'PowerAutomate',
+        'OfficeAddinsAndTemplates',
+        'Services',
+        'ExplorerContextMenu',
+        'ServiceControlManagerSD',
+        'OfficeAiHijacking',
+        'RunExAndRunOnceEx',
+        'DotNetStartupHooks'
     )]
     $PersistenceMethod = 'All',
      
@@ -156,7 +166,11 @@ function Find-AllPersistence
         
     [Parameter(Position = 4)]
     [String]
-    $OutputCSV = $null  
+    $OutputCSV = $null, 
+
+    [Parameter(Position = 5)]
+    [String]
+    $VTApiKey = $null 
   )
   
   $ScriptBlock = 
@@ -208,8 +222,14 @@ function Find-AllPersistence
         $IsBuiltinBinary = $false,
 		
         [Bool]
-        $IsLolbin = $false
+        $IsLolbin = $false,
+
+        [String]
+        $VTEntries = $null
       )
+      
+      $Executable = Get-ExecutableFromCommandLine $Value
+      
       $PersistenceObject = [PSCustomObject]@{
         'Hostname' 			  = $Hostname
         'Technique'    		= $Technique
@@ -219,11 +239,40 @@ function Find-AllPersistence
         'Access Gained' 	= $AccessGained
         'Note'         		= $Note
         'Reference'    		= $Reference
-        'Signature'	  		= Find-CertificateInfo (Get-ExecutableFromCommandLine $Value)
-        'IsBuiltinBinary'	= Get-IfBuiltinBinary (Get-ExecutableFromCommandLine $Value)
-        'IsLolbin'			  = Get-IfLolBin (Get-ExecutableFromCommandLine $Value)
+        'Signature'	  		= Find-CertificateInfo $Executable
+        'IsBuiltinBinary'	= Get-IfBuiltinBinary $Executable
+        'IsLolbin'			= Get-IfLolBin $Executable
+        'VTEntries'			= Get-IfHashIsMalicious $Executable
       } 
       return $PersistenceObject
+    }
+    
+    function Get-IfHashIsMalicious($executable)
+    {
+      $authenticode = Get-AuthenticodeSignature($executable)
+      if ($authenticode.IsOSBinary -eq $false) {
+        if ($VTApiKey)
+        {
+          $headers = @{
+            'x-apikey' = $VTApiKey
+          }
+          $hash = (Get-FileHash $executable).Hash
+          $result = Invoke-RestMethod -Headers $headers "https://www.virustotal.com/api/v3/search?query=$hash"
+          Sleep 1
+          if ($result.data) {
+            $result.data.attributes.last_analysis_stats.malicious
+          } else {
+            return "0"
+          }
+        }
+        else {
+          return "N/A"
+        }
+      }
+      else {
+        return "N/A"
+      }
+
     }
 	
 	
@@ -236,9 +285,9 @@ function Find-AllPersistence
       # To get an updated list of lolbins 
       # curl https://lolbas-project.github.io/# | grep -E "bin-name\">(.*)\.exe<" -o | cut -d ">" -f 2 | cut -d "<" -f 1 
       [String[]]$lolbins = "APPINSTALLER.EXE", "ASPNET_COMPILER.EXE", "AT.EXE", "ATBROKER.EXE", "BASH.EXE", "BITSADMIN.EXE", "CERTOC.EXE", "CERTREQ.EXE", "CERTUTIL.EXE", "CMD.EXE", "CMDKEY.EXE", "CMDL32.EXE", "CMSTP.EXE", "CONFIGSECURITYPOLICY.EXE", "CONHOST.EXE", "CONTROL.EXE", "CSC.EXE", "CSCRIPT.EXE", "DATASVCUTIL.EXE", "DESKTOPIMGDOWNLDR.EXE", "DFSVC.EXE", "DIANTZ.EXE", "DISKSHADOW.EXE", "DNSCMD.EXE", "ESENTUTL.EXE", "EVENTVWR.EXE", "EXPAND.EXE", "EXPLORER.EXE", "EXTEXPORT.EXE", "EXTRAC32.EXE", "FINDSTR.EXE", "FINGER.EXE", "FLTMC.EXE", "FORFILES.EXE", "FTP.EXE", "GFXDOWNLOADWRAPPER.EXE", "GPSCRIPT.EXE", "HH.EXE", "IMEWDBLD.EXE", "IE4UINIT.EXE", "IEEXEC.EXE", "ILASM.EXE", "INFDEFAULTINSTALL.EXE", "INSTALLUTIL.EXE", "JSC.EXE", "MAKECAB.EXE", "MAVINJECT.EXE", "MICROSOFT.WORKFLOW.COMPILER.EXE", "MMC.EXE", "MPCMDRUN.EXE", "MSBUILD.EXE", "MSCONFIG.EXE", "MSDT.EXE", "MSHTA.EXE", "MSIEXEC.EXE", "NETSH.EXE", "ODBCCONF.EXE", "OFFLINESCANNERSHELL.EXE", "ONEDRIVESTANDALONEUPDATER.EXE", "PCALUA.EXE", "PCWRUN.EXE", "PKTMON.EXE", "PNPUTIL.EXE", "PRESENTATIONHOST.EXE", "PRINT.EXE", "PRINTBRM.EXE", "PSR.EXE", "RASAUTOU.EXE", "RDRLEAKDIAG.EXE", "REG.EXE", "REGASM.EXE", "REGEDIT.EXE", "REGINI.EXE", "REGISTER-CIMPROVIDER.EXE", "REGSVCS.EXE", "REGSVR32.EXE", "REPLACE.EXE", "RPCPING.EXE", "RUNDLL32.EXE", "RUNONCE.EXE", "RUNSCRIPTHELPER.EXE", "SC.EXE", "SCHTASKS.EXE", "SCRIPTRUNNER.EXE", "SETTINGSYNCHOST.EXE", "STORDIAG.EXE", "SYNCAPPVPUBLISHINGSERVER.EXE", "TTDINJECT.EXE", "TTTRACER.EXE", "VBC.EXE", "VERCLSID.EXE", "WAB.EXE", "WLRMDR.EXE", "WMIC.EXE", "WORKFOLDERS.EXE", "WSCRIPT.EXE", "WSRESET.EXE", "WUAUCLT.EXE", "XWIZARD.EXE", "ACCCHECKCONSOLE.EXE", "ADPLUS.EXE", "AGENTEXECUTOR.EXE", "APPVLP.EXE", "BGINFO.EXE", "CDB.EXE", "COREGEN.EXE", "CSI.EXE", "DEVTOOLSLAUNCHER.EXE", "DNX.EXE", "DOTNET.EXE", "DUMP64.EXE", "DXCAP.EXE", "EXCEL.EXE", "FSI.EXE", "FSIANYCPU.EXE", "MFTRACE.EXE", "MSDEPLOY.EXE", "MSXSL.EXE", "NTDSUTIL.EXE", "POWERPNT.EXE", "PROCDUMP(64).EXE", "RCSI.EXE", "REMOTE.EXE", "SQLDUMPER.EXE", "SQLPS.EXE", "SQLTOOLSPS.EXE", "SQUIRREL.EXE", "TE.EXE", "TRACKER.EXE", "UPDATE.EXE", "VSIISEXELAUNCHER.EXE", "VISUALUIAVERIFYNATIVE.EXE", "VSJITDEBUGGER.EXE", "WFC.EXE", "WINWORD.EXE", "WSL.EXE"
-      foreach($lolbin in ($lolbins)){
+      foreach($lolbin in $lolbins){
         $exe = Split-Path -path $executable -Leaf
-        if ($exe.ToUpper() -eq ($lolbin)) {
+        if (($exe.ToUpper()) -eq $lolbin) {
           return $true
         }
       }
@@ -288,9 +337,9 @@ function Find-AllPersistence
         [String]
         $pathName
       )
-      $pathName = $pathName -Replace '"'
+      $pathName = [System.Environment]::ExpandEnvironmentVariables($pathName) -Replace '"'
       
-      $match = [regex]::Match($pathName, '[A-Za-z0-9\s]+\.(exe|dll|ocx|cmd|bat|ps1)')
+      $match = [regex]::Match($pathName, '[A-Za-z0-9\s]+\.(exe|dll|ocx|cmd|bat|ps1)', [Text.RegularExpressions.RegexOptions]::IgnoreCase)
       if($match.Success)
       {
         # Grab Index from the [regex]::Match() result
@@ -302,11 +351,10 @@ function Find-AllPersistence
       }
       else
       {
-        Write-Host $pathName
         $path = $null
       }
       
-      if((Test-Path -Path $path -PathType leaf) -eq $false)
+      if(([System.IO.Path]::IsPathRooted($path)) -eq $false)
       {
         $path = (Get-Command $path).Source
       }
@@ -375,14 +423,12 @@ function Find-AllPersistence
               $access = 'User'
             }
             
-            #$exePath = Get-ExecutableFromPath($runProps.($prop.Name))
             if(Get-IfSafeExecutable $runProps.($prop.Name))
             {
               continue
             }
-            $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Registry Run Key' -Classification 'MITRE ATT&CK T1547.001' -Path $propPath -Value $runProps.($prop.Name) -AccessGained $access -Note 'Executables in properties of the key (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Microsoft\Windows\CurrentVersion\Run are run when the user logs in.' -Reference 'https://attack.mitre.org/techniques/T1547/001/' 
+            $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Registry Run Key' -Classification 'MITRE ATT&CK T1547.001' -Path $propPath -Value $runProps.($prop.Name) -AccessGained $access -Note 'Executables in properties of the key (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Microsoft\Windows\CurrentVersion\Run are run when the user logs in or when the machine boots up (in the case of the HKLM hive).' -Reference 'https://attack.mitre.org/techniques/T1547/001/' 
             $null = $persistenceObjectArray.Add($PersistenceObject)
-            $PersistenceObject
           }
         }
       }
@@ -416,9 +462,8 @@ function Find-AllPersistence
             {
               continue
             }
-            $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Registry RunOnce Key' -Classification 'MITRE ATT&CK T1547.001' -Path $propPath -Value $runOnceProps.($prop.Name) -AccessGained $access -Note 'Executables in properties of the key (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce are run once when the user logs in and then deleted.' -Reference 'https://attack.mitre.org/techniques/T1547/001/' 
+            $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Registry RunOnce Key' -Classification 'MITRE ATT&CK T1547.001' -Path $propPath -Value $runOnceProps.($prop.Name) -AccessGained $access -Note 'Executables in properties of the key (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce are run once when the user logs in, or when the machine boots up (in the case of the HKLM hive), and then deleted.' -Reference 'https://attack.mitre.org/techniques/T1547/001/' 
             $null = $persistenceObjectArray.Add($PersistenceObject)
-            $PersistenceObject
           }
         }
       }
@@ -465,7 +510,6 @@ function Find-AllPersistence
                 }
                 $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Image File Execution Options' -Classification 'MITRE ATT&CK T1546.012' -Path $propPath -Value $ifeProps.($prop.Name) -AccessGained 'System/User' -Note 'Executables in the Debugger property of a subkey of (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\ are run instead of the program corresponding to the subkey. Gained access depends on whose context the debugged process runs in.' -Reference 'https://attack.mitre.org/techniques/T1546/012/' 
                 $null = $persistenceObjectArray.Add($PersistenceObject)
-                $PersistenceObject
               }
             }
           }
@@ -523,7 +567,6 @@ function Find-AllPersistence
                 }
                 $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Natural Language Development Platform 6 DLL Override Path' -Classification 'Hexacorn Technique N.98' -Path $propPath -Value $properties.($prop.Name) -AccessGained $access -Note 'DLLs listed in properties of subkeys of (HKLM|HKEY_USERS\<SID>)\SYSTEM\CurrentControlSet\Control\ContentIndex\Language are loaded via LoadLibrary executed by SearchIndexer.exe' -Reference 'https://www.hexacorn.com/blog/2018/12/30/beyond-good-ol-run-key-part-98/'
                 $null = $persistenceObjectArray.Add($PersistenceObject)
-                $PersistenceObject
               }
             }
           }
@@ -555,7 +598,6 @@ function Find-AllPersistence
             }
             $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'AEDebug Custom Debugger' -Classification 'Hexacorn Technique N.4' -Path $propPath -Value $aeDebugger.($prop.Name) -AccessGained 'System/User' -Note "The executable in the Debugger property of (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AeDebug is run when a process crashes. Gained access depends on whose context the debugged process runs in; if the Auto property of the same registry key is set to 1, the debugger starts without user interaction. A value of 'C:\Windows\system32\vsjitdebugger.exe' might be a false positive if you have Visual Studio Community installed." -Reference 'https://www.hexacorn.com/blog/2013/09/19/beyond-good-ol-run-key-part-4/' 
             $null = $persistenceObjectArray.Add($PersistenceObject)
-            $PersistenceObject
           }
         }
     
@@ -577,7 +619,6 @@ function Find-AllPersistence
             }
             $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Wow6432Node AEDebug Custom Debugger' -Classification 'Hexacorn Technique N.4' -Path $propPath -Value $aeDebugger.($prop.Name) -AccessGained 'System/User' -Note "The executable in the Debugger property of (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Wow6432Node\Microsoft\Windows NT\CurrentVersion\AeDebug is run when a 32 bit process on a 64 bit system crashes. Gained access depends on whose context the debugged process runs in; if the Auto property of the same registry key is set to 1, the debugger starts without user interaction. A value of 'C:\Windows\system32\vsjitdebugger.exe' might be a false positive if you have Visual Studio Community installed." -Reference 'https://www.hexacorn.com/blog/2013/09/19/beyond-good-ol-run-key-part-4/'
             $null = $persistenceObjectArray.Add($PersistenceObject)
-            $PersistenceObject
           }
         }
       }
@@ -608,7 +649,6 @@ function Find-AllPersistence
             }
             $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Windows Error Reporting Debugger' -Classification 'Hexacorn Technique N.116' -Path $propPath -Value $werfaultDebugger.($prop.Name) -AccessGained 'System' -Note 'The executable in the Debugger property of (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Microsoft\Windows\Windows Error Reporting\Hangs is spawned by WerFault.exe when a process crashes.' -Reference 'https://www.hexacorn.com/blog/2019/09/20/beyond-good-ol-run-key-part-116/'
             $null = $persistenceObjectArray.Add($PersistenceObject)
-            $PersistenceObject
           }
         }
       }
@@ -636,7 +676,6 @@ function Find-AllPersistence
             }
             $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Windows Error Reporting ReflectDebugger' -Classification 'Hexacorn Technique N.85' -Path $propPath -Value $werfaultReflectDebugger.($prop.Name) -AccessGained 'System' -Note 'The executable in the ReflectDebugger property of (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Microsoft\Windows\Windows Error Reporting\Hangs is spawned by WerFault.exe when called with the -pr argument.' -Reference 'https://www.hexacorn.com/blog/2018/08/31/beyond-good-ol-run-key-part-85/'
             $null = $persistenceObjectArray.Add($PersistenceObject)
-            $PersistenceObject
           }
         }
       }
@@ -648,32 +687,15 @@ function Find-AllPersistence
       Write-Verbose -Message "$hostname - Getting Command Processor's AutoRun property..."
       foreach($hive in $systemAndUsersHives)
       {
-        $autorun = Get-ItemProperty -Path "$hive\Software\Microsoft\Command Processor" -Name AutoRun 
+        $autorun = (Get-ItemProperty -Path "$hive\Software\Microsoft\Command Processor" -Name AutoRun).AutoRun
         if($autorun)
         {
           Write-Verbose -Message "$hostname - [!] $(Convert-Path -Path $hive) Command Processor's AutoRun property is set and deserves investigation!"
-          foreach ($prop in (Get-Member -MemberType NoteProperty -InputObject $autorun))
-          {
-            if($psProperties.Contains($prop.Name)) { continue } # skip the property if it's powershell built-in property
-            $propPath = Convert-Path -Path $autorun.PSPath
-            $propPath += '\' + $prop.Name
-            $currentHive = Convert-Path -Path $hive
-            if(($currentHive -eq 'HKEY_LOCAL_MACHINE') -or ($currentHive -eq 'HKEY_USERS\S-1-5-18') -or ($currentHive -eq 'HKEY_USERS\S-1-5-19') -or ($currentHive -eq 'HKEY_USERS\S-1-5-20'))
-            {
-              $access = 'System'
-            }
-            else
-            {
-              $access = 'User'
-            }
-            if(Get-IfSafeExecutable $autorun.($prop.Name))
-            {
-              continue
-            }
-            $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Command Processor AutoRun key' -Classification 'Uncatalogued Technique N.1' -Path $propPath -Value $autorun.($prop.Name) -AccessGained $access -Note 'The executable in the AutoRun property of (HKLM|HKEY_USERS\<SID>)\Software\Microsoft\Command Processor\AutoRun is run when cmd.exe is spawned without the /D argument.' -Reference 'https://persistence-info.github.io/Data/cmdautorun.html'
-            $null = $persistenceObjectArray.Add($PersistenceObject)
-            $PersistenceObject
-          }
+          $propPath = Convert-Path -Path $hive
+          $propPath += "\Software\Microsoft\Command Processor\AutoRun"
+          $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Command Processor AutoRun key' -Classification 'Uncatalogued Technique N.1' -Path $propPath -Value $autorun -AccessGained 'User' -Note 'The executable in the AutoRun property of (HKLM|HKEY_USERS\<SID>)\Software\Microsoft\Command Processor\AutoRun is run when cmd.exe is spawned without the /D argument.' -Reference 'https://persistence-info.github.io/Data/cmdautorun.html'
+          $null = $persistenceObjectArray.Add($PersistenceObject)
+          
         }
       }
       Write-Verbose -Message ''   
@@ -710,7 +732,6 @@ function Find-AllPersistence
             }
             $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Explorer Load Property' -Classification 'Uncatalogued Technique N.2' -Path $propPath -Value $loadKey.($prop.Name) -AccessGained $access -Note 'The executable in the Load property of (HKLM|HKEY_USERS\<SID>)\Software\Microsoft\Windows NT\CurrentVersion\Windows is run by explorer.exe at login time.' -Reference 'https://persistence-info.github.io/Data/windowsload.html'
             $null = $persistenceObjectArray.Add($PersistenceObject)
-            $PersistenceObject
           }
         }
       }
@@ -738,7 +759,6 @@ function Find-AllPersistence
               $propPath += '\' + $prop.Name
               $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Winlogon Userinit Property' -Classification 'MITRE ATT&CK T1547.004' -Path $propPath -Value $userinit.($prop.Name) -AccessGained 'System' -Note "The executables in the Userinit property of (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon are run at login time by any user. Normally this property should be set to 'C:\Windows\system32\userinit.exe,' without any further executables appended." -Reference 'https://attack.mitre.org/techniques/T1547/004/'
               $null = $persistenceObjectArray.Add($PersistenceObject)
-              $PersistenceObject
             }
           }
         }
@@ -768,7 +788,6 @@ function Find-AllPersistence
               $propPath += '\' + $prop.Name
               $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Winlogon Shell Property' -Classification 'MITRE ATT&CK T1547.004' -Path $propPath -Value $shell.($prop.Name) -AccessGained 'User' -Note "The executables in the Shell property of (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon are run as the default shells for any users. Normally this property should be set to 'explorer.exe' without any further executables appended." -Reference 'https://attack.mitre.org/techniques/T1547/004/'
               $null = $persistenceObjectArray.Add($PersistenceObject)
-              $PersistenceObject
             }
           }
         }
@@ -809,7 +828,6 @@ function Find-AllPersistence
                 }
                 $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Windows Terminal startOnUserLogin' -Classification 'Uncatalogued Technique N.3' -Path "$($terminalDirectory.FullName)\LocalState\settings.json" -Value "$executable" -AccessGained 'User' -Note "The executable specified as value of the key `"commandline`" of a profile which has the `"startOnUserLogin`" key set to `"true`" in the Windows Terminal's settings.json of a user is run every time that user logs in." -Reference 'https://twitter.com/nas_bench/status/1550836225652686848'
                 $null = $persistenceObjectArray.Add($PersistenceObject)
-                $PersistenceObject
                 $found = $true
                 break
               }
@@ -840,7 +858,6 @@ function Find-AllPersistence
             $propPath += '\' + $prop.Name
             $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'AppCertDlls' -Classification 'MITRE ATT&CK T1546.009' -Path $propPath -Value $appCertDllsProps.($prop.Name) -AccessGained 'System' -Note 'DLLs in properties of the key (HKLM|HKEY_USERS\<SID>)\SYSTEM\CurrentControlSet\Control\Session Manager\AppCertDlls are loaded by every process that loads the Win32 API at process creation.' -Reference 'https://attack.mitre.org/techniques/T1546/009/'
             $null = $persistenceObjectArray.Add($PersistenceObject)
-            $PersistenceObject
           }
         }
       }
@@ -859,11 +876,11 @@ function Find-AllPersistence
           
           
           $exePath = $appPath.'(Default)'
-          if((Test-Path -Path $exePath -PathType leaf) -eq $false)
+          if(([System.IO.Path]::IsPathRooted([System.Environment]::ExpandEnvironmentVariables($exePath))) -eq $false)
           {
             $exePath = "C:\Windows\System32\$exePath"
           }
-          if ((Test-Path -Path $exePath -PathType leaf) -and ($exePath.Contains('powershell') -or $exePath.Contains('cmd') -or -not (Get-AuthenticodeSignature -FilePath $exePath ).IsOSBinary))
+          if ($exePath.Contains('powershell') -or $exePath.Contains('cmd') -or -not (Get-AuthenticodeSignature -FilePath $exePath ).IsOSBinary)
           { 
             Write-Verbose -Message "$hostname - [!] Found subkeys under the $(Convert-Path -Path $hive) App Paths key which deserve investigation!"
             $propPath = Convert-Path -Path $key.PSPath
@@ -874,7 +891,6 @@ function Find-AllPersistence
             }
             $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'App Paths' -Classification 'Hexacorn Technique N.3' -Path "$propPath(Default)" -Value $appPath.'(Default)' -AccessGained 'System/User' -Note 'Executables in the (Default) property of a subkey of (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\ are run instead of the program corresponding to the subkey. Gained access depends on whose context the process runs in. Be aware this might be a false positive.' -Reference 'https://www.hexacorn.com/blog/2013/01/19/beyond-good-ol-run-key-part-3/'
             $null = $persistenceObjectArray.Add($PersistenceObject)
-            $PersistenceObject
           } 
         }
       }
@@ -905,7 +921,7 @@ function Find-AllPersistence
               if ($null -ne $ServiceDll)
               {
                 $dllPath = $ServiceDll
-                if((Test-Path -Path $dllPath -PathType leaf) -eq $false)
+                if(([System.IO.Path]::IsPathRooted([System.Environment]::ExpandEnvironmentVariables($dllPath))) -eq $false)
                 {
                   $dllPath = "C:\Windows\System32\$dllPath"
                 }
@@ -915,7 +931,6 @@ function Find-AllPersistence
                   $propPath = (Convert-Path -Path "$($key.pspath)") + '\Parameters\ServiceDll'
                   $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'ServiceDll Hijacking' -Classification 'Hexacorn Technique N.4' -Path $propPath -Value "$ServiceDll" -AccessGained 'System' -Note "DLLs in the ServiceDll property of (HKLM|HKEY_USERS\<SID>)\SYSTEM\CurrentControlSet\Services\<SERVICE_NAME>\Parameters are loaded by the corresponding service's svchost.exe. If an attacker modifies said entry, the malicious DLL will be loaded in place of the legitimate one." -Reference 'https://www.hexacorn.com/blog/2013/09/19/beyond-good-ol-run-key-part-4/'
                   $null = $persistenceObjectArray.Add($PersistenceObject)
-                  $PersistenceObject
                 }
               }
             }
@@ -936,7 +951,7 @@ function Find-AllPersistence
           $DllName = (Get-ItemProperty -Path ($key.pspath)).DllName
           if ($null -ne $DllName)
           {
-            if((Test-Path -Path $DllName -PathType leaf) -eq $false)
+            if(([System.IO.Path]::IsPathRooted([System.Environment]::ExpandEnvironmentVariables($DllName))) -eq $false)
             {
               $DllName = "C:\Windows\System32\$DllName"
             }
@@ -946,7 +961,6 @@ function Find-AllPersistence
               $propPath = (Convert-Path -Path "$($key.pspath)") + '\DllName'
               $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Group Policy Extension DLL' -Classification 'Uncatalogued Technique N.4' -Path $propPath -Value "$DllName" -AccessGained 'System' -Note 'DLLs in the DllName property of (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\GPExtensions\<GUID>\ are loaded by the gpsvc process. If an attacker modifies said entry, the malicious DLL will be loaded in place of the legitimate one.' -Reference 'https://persistence-info.github.io/Data/gpoextension.html'
               $null = $persistenceObjectArray.Add($PersistenceObject)
-              $PersistenceObject
             }
           }
         }  
@@ -966,7 +980,6 @@ function Find-AllPersistence
           $propPath = (Convert-Path -Path $mpnotify.PSPath) + '\mpnotify'
           $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Winlogon MPNotify Executable' -Classification 'Uncatalogued Technique N.5' -Path $propPath -Value $mpnotify.mpnotify -AccessGained 'System' -Note 'The executable specified in the "mpnotify" property of the (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon key is run by Winlogon when a user logs on. After the timeout (30s) the process and its child processes are terminated.' -Reference 'https://persistence-info.github.io/Data/mpnotify.html'
           $null = $persistenceObjectArray.Add($PersistenceObject)
-          $PersistenceObject
         }
       }
       Write-Verbose -Message ''
@@ -983,7 +996,7 @@ function Find-AllPersistence
           $dllPath = $dllLocation.Location
           if ($null -ne $dllPath)
           {
-            if((Test-Path -Path $dllPath -PathType leaf) -eq $false)
+            if(([System.IO.Path]::IsPathRooted([System.Environment]::ExpandEnvironmentVariables($dllPath))) -eq $false)
             {
               $dllPath = "C:\Windows\System32\$dllPath"
             }
@@ -993,7 +1006,6 @@ function Find-AllPersistence
               $propPath = (Convert-Path -Path "$($dllLocation.pspath)") + '\Location'
               $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'CHM Helper DLL' -Classification 'Hexacorn Technique N.76' -Path $propPath -Value "$($dllLocation.Location)" -AccessGained 'User' -Note 'DLLs in the Location property of (HKLM|HKEY_USERS\<SID>)\Software\Microsoft\HtmlHelp Author\ are loaded when a CHM help file is parsed. If an attacker adds said entry, the malicious DLL will be loaded.' -Reference 'https://www.hexacorn.com/blog/2018/04/22/beyond-good-ol-run-key-part-76/'
               $null = $persistenceObjectArray.Add($PersistenceObject)
-              $PersistenceObject
             }
           }
         }  
@@ -1009,29 +1021,27 @@ function Find-AllPersistence
       $dllPath = $dllLocation.'(Default)'
       if ($null -ne $dllPath)
       {
-        if((Test-Path -Path $dllPath -PathType leaf) -eq $false)
+        if(([System.IO.Path]::IsPathRooted([System.Environment]::ExpandEnvironmentVariables($dllPath))) -eq $false)
         {
           $dllPath = "C:\Windows\System32\$dllPath"
         }
-        if ((Test-Path -Path $dllPath -PathType leaf) -and -not (Get-AuthenticodeSignature -FilePath $dllPath ).IsOSBinary)
+        if (-not (Get-AuthenticodeSignature -FilePath $dllPath ).IsOSBinary)
         {
           Write-Verbose -Message "$hostname - [!] The DLL at $(Convert-Path -Path $hive)\CLSID\{52A2AAAE-085D-4187-97EA-8C30DB990436}\InprocServer32\(Default) is not an OS binary and deserves investigation!"
           $propPath = (Convert-Path -Path "$($dllLocation.pspath)") + '\(Default)'
           $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Hijacking of hhctrl.ocx' -Classification 'Hexacorn Technique N.77' -Path $propPath -Value "$($dllLocation.'(Default)')" -AccessGained 'User' -Note 'The DLL in the (Default) property of HKEY_CLASSES_ROOT\CLSID\{52A2AAAE-085D-4187-97EA-8C30DB990436}\InprocServer32 is loaded when a CHM help file is parsed or when hh.exe is started. If an attacker modifies said entry, the malicious DLL will be loaded. In case the loading fails for any reason, C:\Windows\hhctrl.ocx is loaded.' -Reference 'https://www.hexacorn.com/blog/2018/04/23/beyond-good-ol-run-key-part-77/'
           $null = $persistenceObjectArray.Add($PersistenceObject)
-          $PersistenceObject
         }
       }
       else
       {
         $dllPath = "C:\Windows\System32\hhctrl.ocx"
-        if ((Test-Path -Path $dllPath -PathType Leaf) -and -not (Get-AuthenticodeSignature -FilePath $dllPath ).IsOSBinary)
+        if (-not (Get-AuthenticodeSignature -FilePath $dllPath ).IsOSBinary)
         {
           Write-Verbose -Message "$hostname - [!] The DLL at $dllPath is not an OS binary and deserves investigation!"
           $propPath = (Convert-Path -Path "$($dllLocation.pspath)") + '\(Default)'
           $PersistenceObject = New-PersistenceObject -Hostname "$hostname" -Technique 'Hijacking of hhctrl.ocx' -Classification 'Hexacorn Technique N.77' -Path "$dllPath" -Value "Not an OS binary" -AccessGained 'User' -Note 'The DLL in the (Default) property of HKEY_CLASSES_ROOT\CLSID\{52A2AAAE-085D-4187-97EA-8C30DB990436}\InprocServer32 is loaded when a CHM help file is parsed or when hh.exe is started. If an attacker modifies said entry, the malicious DLL will be loaded. In case the loading fails for any reason, C:\Windows\hhctrl.ocx is loaded.' -Reference 'https://www.hexacorn.com/blog/2018/04/23/beyond-good-ol-run-key-part-77/'
           $null = $persistenceObjectArray.Add($PersistenceObject)
-          $PersistenceObject
         }
       }  
       Write-Verbose -Message ''
@@ -1043,17 +1053,19 @@ function Find-AllPersistence
       $userDirectories = Get-ChildItem -Path 'C:\Users\'
       foreach($directory in $userDirectories)
       {
-        $startupDirectory = Get-ChildItem -Path "$($directory.FullName)\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\" 
+        $fullPath = $directory.FullName
+        $startupDirectory = Get-ChildItem -Path "$fullPath\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\" 
         foreach($file in $startupDirectory)
         {
-          Write-Verbose -Message "$hostname - [!] Found a file under $($directory.FullName)\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\ folder!"
-          if(Get-IfSafeExecutable "$($directory.FullName)\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\$file")
+          $relPath = $file.Name
+          Write-Verbose -Message "$hostname - [!] Found a file under $fullPath\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\ folder!"
+          $safeCheck = Get-IfSafeExecutable "$fullPath\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\$relPath"
+          if($safeCheck)
           {
             continue
           }          
-          $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Startup Folder' -Classification 'MITRE ATT&CK T1547.001' -Path "$($directory.FullName)\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\" -Value "$file" -AccessGained 'User' -Note "The executables under the \AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\ of a user's folder are run every time that user logs in." -Reference 'https://attack.mitre.org/techniques/T1547/001/'
+          $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Startup Folder' -Classification 'MITRE ATT&CK T1547.001' -Path "$fullPath\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\" -Value "$fullPath\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\$relPath" -AccessGained 'User' -Note "The executables under the .\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\ of a user's folder are run every time that user logs in." -Reference 'https://attack.mitre.org/techniques/T1547/001/'
           $null = $persistenceObjectArray.Add($PersistenceObject)
-          $PersistenceObject
           $found = $true
           break
         }
@@ -1082,7 +1094,6 @@ function Find-AllPersistence
           }
           $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'User Init Mpr Logon Script' -Classification 'MITRE ATT&CK T1037.001' -Path $propPath -Value $mprlogonscript.UserInitMprLogonScript -AccessGained $access -Note 'The executable specified in the "UserInitMprLogonScript" property of the HKEY_USERS\<SID>\Environment key is run when the user logs on.' -Reference 'https://attack.mitre.org/techniques/T1037/001/'
           $null = $persistenceObjectArray.Add($PersistenceObject)
-          $PersistenceObject
         }
       }
       Write-Verbose -Message ''
@@ -1097,7 +1108,7 @@ function Find-AllPersistence
         if($autodialDll)
         {
           $dllPath = $autodialDll.AutodialDLL
-          if((Test-Path -Path $dllPath -PathType leaf) -eq $false)
+          if(([System.IO.Path]::IsPathRooted([System.Environment]::ExpandEnvironmentVariables($dllPath))) -eq $false)
           {
             $dllPath = "C:\Windows\System32\$dllPath"
           }
@@ -1107,7 +1118,6 @@ function Find-AllPersistence
             $propPath = (Convert-Path -Path $autodialDll.PSPath) + '\AutodialDLL'
             $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'AutodialDLL Winsock Injection' -Classification 'Hexacorn Technique N.24' -Path $propPath -Value $autodialDll.AutodialDLL -AccessGained 'System' -Note 'The DLL specified in the "AutodialDLL" property of the (HKLM|HKEY_USERS\<SID>)\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters key is loaded by the Winsock library everytime it connects to the internet.' -Reference 'https://www.hexacorn.com/blog/2015/01/13/beyond-good-ol-run-key-part-24/'
             $null = $persistenceObjectArray.Add($PersistenceObject)
-            $PersistenceObject
           }
         }
       }
@@ -1126,7 +1136,7 @@ function Find-AllPersistence
           foreach ($dll in $dlls)
           {
             $dllPath = $dll
-            if((Test-Path -Path $dllPath -PathType leaf) -eq $false)
+            if(([System.IO.Path]::IsPathRooted([System.Environment]::ExpandEnvironmentVariables($dllPath))) -eq $false)
             {
               $dllPath = "C:\Windows\System32\$dllPath"
             }
@@ -1136,7 +1146,6 @@ function Find-AllPersistence
               $propPath = (Convert-Path -Path $lsaExtensions.PSPath) + '\Extensions'
               $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'LSA Extensions DLL' -Classification 'Uncatalogued Technique N.6' -Path $propPath -Value $dll -AccessGained 'System' -Note 'The DLLs specified in the "Extensions" property of the (HKLM|HKEY_USERS\<SID>)\SYSTEM\CurrentControlSet\Control\LsaExtensionConfig\LsaSrv\ key are loaded by LSASS at machine boot.' -Reference 'https://persistence-info.github.io/Data/lsaaextension.html'
               $null = $persistenceObjectArray.Add($PersistenceObject)
-              $PersistenceObject
             }
           }
         }
@@ -1153,7 +1162,7 @@ function Find-AllPersistence
         if($pluginDll)
         {
           $dllPath = $pluginDll.ServerLevelPluginDll
-          if((Test-Path -Path $dllPath -PathType leaf) -eq $false)
+          if(([System.IO.Path]::IsPathRooted([System.Environment]::ExpandEnvironmentVariables($dllPath))) -eq $false)
           {
             $dllPath = "C:\Windows\System32\$dllPath"
           }
@@ -1163,7 +1172,6 @@ function Find-AllPersistence
             $propPath = (Convert-Path -Path $pluginDll.PSPath) + '\ServerLevelPluginDll'
             $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'ServerLevelPluginDll DNS Server DLL Hijacking' -Classification 'Uncatalogued Technique N.7' -Path $propPath -Value $pluginDll.ServerLevelPluginDll -AccessGained 'System' -Note 'The DLL specified in the "ServerLevelPluginDll" property of the (HKLM|HKEY_USERS\<SID>)\SYSTEM\CurrentControlSet\Services\DNS\Parameters key is loaded by the DNS service on systems with the "DNS Server" role enabled.' -Reference 'https://persistence-info.github.io/Data/serverlevelplugindll.html'
             $null = $persistenceObjectArray.Add($PersistenceObject)
-            $PersistenceObject
           }
         }
       }
@@ -1188,7 +1196,6 @@ function Find-AllPersistence
               $propPath = (Convert-Path -Path $passwordFilters.PSPath) + '\Notification Packages'
               $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'LSA Password Filter DLL' -Classification 'MITRE ATT&CK T1556.002' -Path $propPath -Value $dllPath -AccessGained 'System' -Note 'The DLLs specified in the "Notification Packages" property of the (HKLM|HKEY_USERS\<SID>)\SYSTEM\CurrentControlSet\Control\Lsa\ key are loaded by LSASS at machine boot.' -Reference 'https://attack.mitre.org/techniques/T1556/002/'
               $null = $persistenceObjectArray.Add($PersistenceObject)
-              $PersistenceObject
             }
           }
         }
@@ -1214,7 +1221,6 @@ function Find-AllPersistence
               $propPath = (Convert-Path -Path $authPackages.PSPath) + '\Authentication Packages'
               $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'LSA Authentication Package DLL' -Classification 'MITRE ATT&CK T1547.002' -Path $propPath -Value $dllPath -AccessGained 'System' -Note 'The DLLs specified in the "Authentication Packages" property of the (HKLM|HKEY_USERS\<SID>)\SYSTEM\CurrentControlSet\Control\Lsa\ key are loaded by LSASS at machine boot.' -Reference 'https://attack.mitre.org/techniques/T1547/002/'
               $null = $persistenceObjectArray.Add($PersistenceObject)
-              $PersistenceObject
             }
           }
         }
@@ -1238,9 +1244,9 @@ function Find-AllPersistence
             {
               continue
             }
-            if((Test-Path -Path $dllPath -PathType leaf) -eq $false)
+            if(([System.IO.Path]::IsPathRooted([System.Environment]::ExpandEnvironmentVariables($dll))) -eq $false)
             {
-              $dllPath = "C:\Windows\System32\$dllPath.dll"
+              $dll = "C:\Windows\System32\$dll.dll"
             }
             if ((Get-IfSafeLibrary $dllPath) -EQ $false)
             {
@@ -1248,7 +1254,6 @@ function Find-AllPersistence
               $propPath = (Convert-Path -Path $secPackages.PSPath) + '\Security Packages'
               $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'LSA Security Package DLL' -Classification 'MITRE ATT&CK T1547.005' -Path $propPath -Value $dll -AccessGained 'System' -Note 'The DLLs specified in the "Security Packages" property of the (HKLM|HKEY_USERS\<SID>)\SYSTEM\CurrentControlSet\Control\Lsa\ key are loaded by LSASS at machine boot.' -Reference 'https://attack.mitre.org/techniques/T1547/005/'
               $null = $persistenceObjectArray.Add($PersistenceObject)
-              $PersistenceObject
             }
           }
         }
@@ -1276,7 +1281,6 @@ function Find-AllPersistence
             $propPath += '\' + $prop.Name
             $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Winlogon Notification Package' -Classification 'MITRE ATT&CK T1547.004' -Path $propPath -Value $notificationPackages.($prop.Name) -AccessGained 'System' -Note 'DLLs in the properties of the (HKLM|HKEY_USERS\<SID>)\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify key are loaded by the system when it boots.' -Reference 'https://attack.mitre.org/techniques/T1547/004/'
             $null = $persistenceObjectArray.Add($PersistenceObject)
-            $PersistenceObject
           }
         }
       }
@@ -1292,18 +1296,17 @@ function Find-AllPersistence
         foreach($key in $explorerTools)
         {
           $path = ((Get-ItemProperty -Path Registry::$key -Name '(Default)').'(Default)'-split '\s+')[0] # split the path and take only the executable in case there are arguments
-          if((Test-Path -Path $path -PathType leaf) -eq $false)
+          if(('' -ne $path) -and ([System.IO.Path]::IsPathRooted([System.Environment]::ExpandEnvironmentVariables($path)) -eq $false))
           {
             $path = "C:\Windows\System32\$path.dll"
           }
-          if ((Test-Path -Path $path -PathType leaf) -and -not (Get-AuthenticodeSignature -FilePath $path ).IsOSBinary) 
+          if (-not (Get-AuthenticodeSignature -FilePath $path ).IsOSBinary) 
           {
             Write-Verbose -Message "$hostname - [!] Found an executable under a subkey of $(Convert-Path -Path $hive)\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer key which deserve investigation!"
             $propPath = Convert-Path -Path $key.PSPath
             $propPath += '\(Default)'
             $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Explorer Tools Hijacking' -Classification 'Hexacorn Technique N.55' -Path $propPath -Value $path -AccessGained 'System' -Note 'Executables in the (Default) property of a subkey of (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer are run when the corresponding event is triggered.' -Reference 'https://www.hexacorn.com/blog/2017/01/18/beyond-good-ol-run-key-part-55/'
             $null = $persistenceObjectArray.Add($PersistenceObject)
-            $PersistenceObject
           }
         }
       }
@@ -1328,7 +1331,6 @@ function Find-AllPersistence
 
           $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'DbgManagedDebugger Custom Debugger' -Classification 'Hexacorn Technique N.4' -Path $propPath -Value $dotNetDebugger.DbgManagedDebugger -AccessGained 'System/User' -Note "The executable in the DbgManagedDebugger property of (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Wow6432Node\Microsoft\.NETFramework is run when a .NET process crashes. Gained access depends on whose context the debugged process runs in." -Reference 'https://www.hexacorn.com/blog/2013/09/19/beyond-good-ol-run-key-part-4/'
           $null = $persistenceObjectArray.Add($PersistenceObject)
-          $PersistenceObject
         }
     
         $dotNetDebugger = Get-ItemProperty -Path "$hive\SOFTWARE\Wow6432Node\Microsoft\.NETFramework" -Name DbgManagedDebugger 
@@ -1343,7 +1345,6 @@ function Find-AllPersistence
           $propPath += '\DbgManagedDebugger'
           $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Wow6432Node DbgManagedDebugger Custom Debugger' -Classification 'Hexacorn Technique N.4' -Path $propPath -Value $dotNetDebugger.DbgManagedDebugger -AccessGained 'System/User' -Note "The executable in the DbgManagedDebugger property of (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Wow6432Node\Microsoft\.NETFramework is run when a .NET 32 bit process on a 64 bit system crashes. Gained access depends on whose context the debugged process runs in." -Reference 'https://www.hexacorn.com/blog/2013/09/19/beyond-good-ol-run-key-part-4/'
           $null = $persistenceObjectArray.Add($PersistenceObject)
-          $PersistenceObject
         }
       }
       Write-Verbose -Message '' 
@@ -1358,7 +1359,6 @@ function Find-AllPersistence
         Write-Verbose -Message "$hostname - [!] Found C:\WINDOWS\Setup\Scripts\ErrorHandler.cmd!"          
         $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'ErrorHandler.cmd Hijacking' -Classification 'Hexacorn Technique N.135' -Path "C:\WINDOWS\Setup\Scripts\" -Value "ErrorHandler.cmd" -AccessGained 'User' -Note "The content of C:\WINDOWS\Setup\Scripts\ErrorHandler.cmd is read whenever some tools under C:\WINDOWS\System32\oobe\ (e.g. Setup.exe) fail to run for any reason." -Reference 'https://www.hexacorn.com/blog/2022/01/16/beyond-good-ol-run-key-part-135/'
         $null = $persistenceObjectArray.Add($PersistenceObject)
-        $PersistenceObject
       } 
       Write-Verbose -Message ''
     }
@@ -1373,7 +1373,6 @@ function Find-AllPersistence
         {
           $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'WMI Event Subscription' -Classification 'MITRE ATT&CK T1546.003' -Path $cmdEntry.__PATH -Value "CommandLineTemplate: $($cmdEntry.CommandLineTemplate) / ExecutablePath: $($cmdEntry.ExecutablePath)" -AccessGained 'System' -Note "WMI Events subscriptions can be used to link script/command executions to specific events. Here we list the active consumer events, but you may want to review also existing Filters (with Get-WMIObject -Namespace root\Subscription -Class __EventFilter) and Bindings (with Get-WMIObject -Namespace root\Subscription -Class __FilterToConsumerBinding)" -Reference 'https://attack.mitre.org/techniques/T1546/003/'
           $null = $persistenceObjectArray.Add($PersistenceObject)
-          $PersistenceObject
         }
       }
 
@@ -1384,7 +1383,6 @@ function Find-AllPersistence
         {
           $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'WMI Event Subscription' -Classification 'MITRE ATT&CK T1546.003' -Path $scriptEntry.__PATH -Value "ScriptingEngine: $($scriptEntry.ScriptingEngine) / ScriptFileName: $($scriptEntry.ScriptFileName) / ScriptText: $($scriptEntry.ScriptText)"  -AccessGained 'System' -Note "WMI Events subscriptions can be used to link script/command executions to specific events. Here we list the active consumer events, but you may want to review also existing Filters (with Get-WMIObject -Namespace root\Subscription -Class __EventFilter) and Bindings (with Get-WMIObject -Namespace root\Subscription -Class __FilterToConsumerBinding)" -Reference 'https://attack.mitre.org/techniques/T1546/003/'
           $null = $persistenceObjectArray.Add($PersistenceObject)
-          $PersistenceObject
         }
       }
       Write-Verbose -Message ''
@@ -1402,12 +1400,27 @@ function Find-AllPersistence
           Write-Verbose -Message "$hostname - [!] Found Windows Services which may deserve investigation..."
           $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Windows Service' -Classification 'MITRE ATT&CK T1543.003' -Path $service.Name  -Value $service.PathName  -AccessGained 'System' -Note "Adversaries may create or modify Windows services to repeatedly execute malicious payloads as part of persistence. When Windows boots up, it starts programs or applications called services that perform background system functions."  -Reference 'https://attack.mitre.org/techniques/T1543/003/'
           $null = $persistenceObjectArray.Add($PersistenceObject)
-          $PersistenceObject
         }
       }
       Write-Verbose -Message ''
     }
     
+    function Get-PowerAutomate
+    {
+      Write-Verbose -Message "$hostname - Checking Power Automate presence..."
+
+      $PADFolder = "$env:ProgramData\Microsoft\Power Automate\Logs"
+      $LastPALog = Get-ChildItem -Path $PADFolder | Sort-Object LastWriteTime -Descending| Select-Object -First 1
+
+      if ($LastPALog)
+      {
+        $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Power Automate' -Classification 'Uncatalogued Technique N.12' -Path $PADFolder -Value $LastPALog -AccessGained 'System/User' -Note "'Power Automate' is an RPA (Robotic Process Automation) made available by Microsoft. It can runs on standalone system or through Azure Tenants. Given the high number of functions available and the 'legit source' of these executables and processes, it could be used for malicious intent as well. The presence of the logs means that the system is in some way running these flows. Review if they are legit or not (last log is shown in Value)." -Reference 'https://github.com/mbrg/defcon30/tree/main/No_Code_Malware'
+        $null = $persistenceObjectArray.Add($PersistenceObject)
+      }
+      
+      Write-Verbose -Message '' 
+    }
+
     function Get-TSInitialProgram
     {
       Write-Verbose -Message "$hostname - Getting Terminal Services InitialProgram properties..."
@@ -1432,7 +1445,6 @@ function Find-AllPersistence
             }
             $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Terminal Services InitialProgram' -Classification 'Uncatalogued Technique N.8' -Path $propPath -Value $InitialProgram.($prop.Name) -AccessGained 'System/User' -Note "The executable in the InitialProgram property of (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services is run when a Remote Desktop Connection is made to the target machine. Gained access depends on whether the key is in the system hive or a user's hive. For this technique to work, the fInheritInitialProgram property of the same key must also be set to 1." -Reference 'https://persistence-info.github.io/Data/tsinitialprogram.html' 
             $null = $persistenceObjectArray.Add($PersistenceObject)
-            $PersistenceObject
           }
         }
     
@@ -1455,7 +1467,6 @@ function Find-AllPersistence
             }
             $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Terminal Services InitialProgram' -Classification 'Uncatalogued Technique N.8' -Path $propPath -Value $InitialProgram.($prop.Name) -AccessGained 'System/User' -Note "The executable in the InitialProgram property of (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services is run when a Remote Desktop Connection is made to the target machine. Gained access depends on whether the key is in the system hive or a user's hive. For this technique to work, the fInheritInitialProgram property of the same key must also be set to 1." -Reference 'https://persistence-info.github.io/Data/tsinitialprogram.html'
             $null = $persistenceObjectArray.Add($PersistenceObject)
-            $PersistenceObject
           }
         }
       }
@@ -1491,7 +1502,6 @@ function Find-AllPersistence
           Write-Verbose -Message "$hostname - [!] Found a suspicious executable in place of of the accessibility tool $tool"
           $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Accessibility Tools Backdoor' -Classification 'MITRE ATT&CK T1546.008' -Path $tool -Value $tool -AccessGained 'System' -Note "Accessibility tools are executables that can be run from the lock screen of a Windows machine and are supposed to enable accessibility features like text to speech or zooming in on the screen. If an attacker replaces them with malicious or LOLBIN executables they can execute code with SYSTEM permission from a lock screen, effectively bypassing authentication. In this case, the accessibility tool in the Path field is not an OS executable, so it may have been replaced with a malicious, non-Microsoft executable." -Reference 'https://attack.mitre.org/techniques/T1546/008/'
           $null = $persistenceObjectArray.Add($PersistenceObject)
-          $PersistenceObject
         }
         else
         {
@@ -1503,7 +1513,6 @@ function Find-AllPersistence
               Write-Verbose -Message "$hostname - [!] Found a suspicious executable in place of of the accessibility tool $tool"
               $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Accessibility Tools Backdoor' -Classification 'MITRE ATT&CK T1546.008' -Path $tool -Value $backdoorHashes[$hash] -AccessGained 'System' -Note "Accessibility tools are executables that can be run from the lock screen of a Windows machine and are supposed to enable accessibility features like text to speech or zooming in on the screen. If an attacker replaces them with malicious or LOLBIN executables they can execute code with SYSTEM permission from a lock screen, effectively bypassing authentication. In this case, the accessibility tool in the Path field has been replaced with the binary in the Value field." -Reference 'https://attack.mitre.org/techniques/T1546/008/'
               $null = $persistenceObjectArray.Add($PersistenceObject)
-              $PersistenceObject
             }
           }
         }
@@ -1529,14 +1538,13 @@ function Find-AllPersistence
         {
           $path = $path + '.dll'
         }
-        if((Test-Path -Path $path -PathType leaf) -eq $false) # if the DLL is specified without a path, assume it's under System32
+        if(([System.IO.Path]::IsPathRooted([System.Environment]::ExpandEnvironmentVariables($path))) -eq $false) # if the DLL is specified without a path, assume it's under System32
         {
           $path = "C:\Windows\System32\$path"
         }
         $propPath = "HKLM:\SOFTWARE\Classes\CLSID\$keyGUID\InprocServer32\(Default)"
         $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Fake AMSI Provider' -Classification 'Uncatalogued Technique N.9' -Path $propPath -Value $path -AccessGained 'System/User' -Note 'DLLs in the (Default) property of HKLM:\SOFTWARE\Classes\CLSID\$keyGUID\InprocServer32 where $keyGUID is a GUID listed under HKLM:\SOFTWARE\Microsoft\AMSI\Providers\ are considered AMSI providers and loaded by all processes also loading the .NET CLR.' -Reference 'https://b4rtik.github.io/posts/antimalware-scan-interface-provider-for-persistence/'
         $null = $persistenceObjectArray.Add($PersistenceObject)
-        $PersistenceObject
       }
       
       Write-Verbose -Message ''
@@ -1576,7 +1584,6 @@ function Find-AllPersistence
         $path = $profile
         $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Powershell Profile' -Classification 'MITRE ATT&CK T1546.013' -Path $path.DirectoryName -Value $path.FullName -AccessGained 'User' -Note "Files named 'Profile.ps1' or 'Microsoft.PowerShell_profile.ps1' under System32's Powershell directory or a user's Documents\WindowsPowerShell folder are loaded whenever a user launches Powershell."  -Reference 'https://attack.mitre.org/techniques/T1546/013/'
         $null = $persistenceObjectArray.Add($PersistenceObject)
-        $PersistenceObject
       }
       Write-Verbose -Message ''
     }
@@ -1593,13 +1600,12 @@ function Find-AllPersistence
         $propPath = Convert-Path -Path $monitoredApp
         $propPath += '\MonitorProcess'
         $path = $monitoringApp
-        if((Test-Path -Path $path -PathType leaf) -eq $false) # if the exe is specified without a path, try to get it with Get-Command
+        if(([System.IO.Path]::IsPathRooted([System.Environment]::ExpandEnvironmentVariables($path))) -eq $false) # if the exe is specified without a path, try to get it with Get-Command
         {
           $path = (Get-Command $path).Source
         }
         $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Silent Process Exit Monitor' -Classification 'MITRE ATT&CK T1546.012' -Path $propPath -Value $path -AccessGained 'System/User' -Note 'Executables specified under subkeys of HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SilentProcessExit\ are run when the process associated with the subkey is terminated by another process.' -Reference 'https://attack.mitre.org/techniques/T1546/012/'
         $null = $persistenceObjectArray.Add($PersistenceObject)
-        $PersistenceObject
       }
       
       Write-Verbose -Message ''
@@ -1613,13 +1619,12 @@ function Find-AllPersistence
       {
         $propPath = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\TelemetryController\Command'
         $path = $telemetryController
-        if((Test-Path -Path $path -PathType leaf) -eq $false) # if the exe is specified without a path, try to get it with Get-Command
+        if(([System.IO.Path]::IsPathRooted([System.Environment]::ExpandEnvironmentVariables($path))) -eq $false) # if the exe is specified without a path, try to get it with Get-Command
         {
           $path = (Get-Command $path).Source
         }
         $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Telemetry Controller Command' -Classification 'Uncatalogued Technique N.10' -Path $propPath -Value $path -AccessGained 'System' -Note "Executables specified under the Command property of HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\TelemetryController\ are run by the Windows Compatibility Telemetry's binary named CompatTelRunner.exe" -Reference 'https://www.trustedsec.com/blog/abusing-windows-telemetry-for-persistence/'
         $null = $persistenceObjectArray.Add($PersistenceObject)
-        $PersistenceObject
       } 
       Write-Verbose -Message ''
     }
@@ -1639,13 +1644,12 @@ function Find-AllPersistence
           }
           $propPath = 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Wds\rdpwd\StartupPrograms'
           $path = $exe
-          if((Test-Path -Path $path -PathType leaf) -eq $false) # if the exe is specified without a path, try to get it with Get-Command
+          if(([System.IO.Path]::IsPathRooted([System.Environment]::ExpandEnvironmentVariables($path))) -eq $false) # if the exe is specified without a path, try to get it with Get-Command
           {
             $path = (Get-Command $path).Source
           }
           $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'RDP WDS Startup Programs' -Classification 'Uncatalogued Technique N.11' -Path $propPath -Value $path -AccessGained 'System' -Note "Executables specified under the StartupPrograms property of HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Wds\rdpwd are run whenever a user logs on the machine through remote desktop." -Reference 'https://persistence-info.github.io/Data/rdpwdstartupprograms.html'
           $null = $persistenceObjectArray.Add($PersistenceObject)
-          $PersistenceObject
         } 
       }
       Write-Verbose -Message ''
@@ -1661,7 +1665,7 @@ function Find-AllPersistence
         {
           $propPath = $task.TaskPath
           $propPath += $task.TaskName
-          $path = ($task.Actions).Execute
+          $path = ($task.Actions).Execute + " " + ($task.Actions).Arguments
           if($task.UserId -eq 'SYSTEM')
           {
             $access = 'System'
@@ -1673,12 +1677,267 @@ function Find-AllPersistence
           
           $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Scheduled Task' -Classification 'MITRE ATT&CK T1053.005' -Path $propPath -Value $path -AccessGained $access -Note "Scheduled tasks run executables or actions when certain conditions, such as user log in or machine boot up, are met." -Reference 'https://attack.mitre.org/techniques/T1053/005/'
           $null = $persistenceObjectArray.Add($PersistenceObject)
-          $PersistenceObject
+        } 
+      }
+      Write-Verbose -Message ''
+    }
+
+    function Get-BitsJobsNotifyCmdLine
+    {
+      Write-Verbose -Message "$hostname - Getting BITS Jobs"
+      $jobs =  Get-BitsTransfer -AllUsers | Where-Object {$_.JobState -eq "Error" } | Where-Object {$_.NotifyCmdLine.Length -gt 0}
+      if($jobs)
+      {
+        foreach($job in $jobs)
+        {
+          $propPath += $job.JobId
+          $path = $job.NotifyCmdLine
+          if($job.OwnerAccount -eq 'NT AUTHORITY\SYSTEM')
+          {
+            $access = 'System'
+          }
+          else
+          {
+            $access = 'User'
+          }
+          
+          $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'BITS Job NotifyCmdLine' -Classification 'MITRE ATT&CK T1197.003' -Path $propPath -Value $path -AccessGained $access -Note "Windows Background Intelligent Transfer Service (BITS) can be used to persistently execute code by creating long-standing jobs. Specifically, if an attacker sets the SetNotifyCmdLine when creating a job which will error, the executable specified will be run everytime the BITS job fails." -Reference 'https://attack.mitre.org/techniques/T1197/'
+          $null = $persistenceObjectArray.Add($PersistenceObject)
         } 
       }
       Write-Verbose -Message ''
     }
     
+    function Get-Screensaver
+    {
+      Write-Verbose -Message "$hostname - Getting Screensaver programs"
+      foreach($sid in $systemAndUsersHives) 
+      {
+        $legitimatePrograms = "C:\Windows\system32\Mystify.scr", "C:\Windows\system32\Ribbons.scr", "C:\Windows\system32\Bubbles.scr", "C:\Windows\system32\ssText3d.scr", "C:\Windows\system32\scrnsave.scr", "C:\Windows\system32\PhotoScreensaver.scr"
+        $screenSaverProgram = (Get-ItemProperty -ErrorAction SilentlyContinue -Path "$sid\Control Panel\Desktop\" -Name "SCRNSAVE.exe")
+        if(($screenSaverProgram) -and ($screenSaverProgram."SCRNSAVE.EXE" -ne ""))
+        {
+          $executable = $screenSaverProgram."SCRNSAVE.EXE"
+          if ($legitimatePrograms.Contains($Executable)) {
+            continue
+          }
+          $propPath = Convert-Path -Path $screenSaverProgram.PSPath
+          $propPath = $propPath + "SCRNSAVE.EXE"
+
+          $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Suspicious Screensaver Program' -Classification 'MITRE ATT&CK T1546.002' -Path $propPath -Value $executable -AccessGained 'User' -Note "Executables specified under the SCRNSAVE.EXE property of the HKEY_USERS\<SID>\Control Panel\Desktop key will be run in place of the legitimate screensaver, thus achieving persistence on a compromised machine. " -Reference 'https://attack.mitre.org/techniques/T1546/002/'
+          $null = $persistenceObjectArray.Add($PersistenceObject)
+        }
+      }
+      Write-Verbose -Message ''
+    }
+    
+    function Get-OfficeTemplates
+    {
+      Write-Verbose -Message "$hostname - Checking if users' Office folders contains interesting templates..."
+      $userDirectories = Get-ChildItem -Path 'C:\Users\'
+      foreach($directory in $userDirectories)
+      {
+        $addins = Get-ChildItem -Path "$($directory.FullName)\AppData\Roaming\Microsoft\Word\STARTUP\" 
+        $addins += Get-ChildItem -Path "$($directory.FullName)\AppData\Roaming\Microsoft\Templates\" -Filter *.dotm
+        $addins += Get-ChildItem -Path "$($directory.FullName)\AppData\Roaming\Microsoft\Excel\XLSTART\"
+        $addins += Get-ChildItem -Path "$($directory.FullName)\AppData\Roaming\Microsoft\AddIns\"
+        $addins += Get-ChildItem -Path "$($directory.FullName)\AppData\Roaming\Microsoft\Outlook\" -Filter *.OTM
+        foreach($file in $addins)
+        {
+          $fullname = $file.FullName
+          $path = Split-Path -Path $fullname
+          Write-Verbose -Message "$hostname - Found $fullname"
+          $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Office Application Startup' -Classification 'MITRE ATT&CK T1137.001' -Path "$path\" -Value "$fullname" -AccessGained 'User' -Note "Attackers can drop macro-enabled files in specific folders to trigger their execution every time the victim user opens an Office application." -Reference 'https://attack.mitre.org/techniques/T1137/'
+          $null = $persistenceObjectArray.Add($PersistenceObject)
+        }
+      }
+      Write-Verbose -Message ''
+    }
+    
+    function Get-ExplorerContextMenu
+    {
+      Write-Verbose -Message "$hostname - Checking for Explorer Context Menu hijacking..."
+      $path = (Get-ItemProperty -Path "Registry::HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\{B7CDF620-DB73-44C0-8611-832B261A0107}" -Name '(Default)').'(Default)'
+      if($null -ne $path)
+      {  
+        if(([System.IO.Path]::IsPathRooted([System.Environment]::ExpandEnvironmentVariables($path))) -eq $false)
+        {
+          $path = "C:\Windows\System32\$path"
+        }
+      
+        Write-Verbose -Message "$hostname - [!] Found a DLL in the (Default) property of the 'HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\{B7CDF620-DB73-44C0-8611-832B261A0107}' key which deserve investigation!"
+        $propPath = 'HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\{B7CDF620-DB73-44C0-8611-832B261A0107}\(Default)'
+        $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Explorer Tools Hijacking' -Classification 'Uncatalogued Technique N.13' -Path $propPath -Value $path -AccessGained 'User' -Note 'DLLs in the (Default) property of the "HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\{B7CDF620-DB73-44C0-8611-832B261A0107}" key are run when the user right clicks any explorer Window.' -Reference 'https://ristbs.github.io/2023/02/15/hijack-explorer-context-menu-for-persistence-and-fun.html'
+        $null = $persistenceObjectArray.Add($PersistenceObject)
+      }
+      Write-Verbose -Message ''
+    }
+    
+    function Get-ServiceControlManagerSecurityDescriptor
+    {
+      Write-Verbose -Message "$hostname - Checking for manipulation of the security descriptor of the Service Control Manager..."
+      
+      $currentSDDL = (sc.exe sdshow scmanager) -join ''
+      $defaultSDDL = 'D:(A;;CC;;;AU)(A;;CCLCRPRC;;;IU)(A;;CCLCRPRC;;;SU)(A;;CCLCRPWPRC;;;SY)(A;;KA;;;BA)(A;;CC;;;AC)(A;;CC;;;S-1-15-3-1024-528118966-3876874398-709513571-1907873084-3598227634-3698730060-278077788-3990600205)S:(AU;FA;KA;;;WD)(AU;OIIOFA;GA;;;WD)'
+
+      if($defaultSDDL -eq $currentSDDL)
+      {
+        return
+      }
+
+      Write-Verbose -Message "$hostname - [!] It looks like the Security Descriptor of the Service Control Manager is not set to the default value and should be investigated."
+      $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Service Control Manager Security Descriptor Manipulation' -Classification 'Uncatalogued Technique N.14' -Path 'N/A' -Value $currentSDDL -AccessGained 'System' -Note 'The Service Control Manager is the software responsible for starting and stopping services in the Windows OS. If its ACL is loosely set, it would be possible for a non administrative process to start administrative processes by creating a service running with high or SYSTEM privileges.' -Reference 'https://pentestlab.blog/2023/03/20/persistence-service-control-manager/'
+      $null = $persistenceObjectArray.Add($PersistenceObject)
+      Write-Verbose -Message ''
+    }
+    
+    function Get-MicrosoftOfficeAIHijacking
+    {
+      Write-Verbose -Message "$hostname - Checking for the hijacking of the Microsoft Office AI.exe executable..."
+      
+      $officex64Dir = [System.Environment]::ExpandEnvironmentVariables('%ProgramFiles%\Microsoft Office\root\')
+      
+      $officex86Dir = [System.Environment]::ExpandEnvironmentVariables('%PROGRAMFILES(X86)%\Microsoft Office\root\')
+      
+      $paths = @(Get-ChildItem $officex64Dir)
+      $paths += @(Get-ChildItem $officex86Dir)
+      
+      foreach($path in $paths)
+      {  
+        if((Test-Path -Path "$($path.FullName)\ai.exe") -eq $false)
+        {
+          continue
+        }
+      
+        Write-Verbose -Message "$hostname - [!] Found AI.exe under an Office path which deserve investigation!"
+        $propPath = $path.FullName
+        $exePath = "$($path.FullName)\ai.exe"
+        $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Microsoft Office AI.exe Hijacking' -Classification 'Uncatalogued Technique N.15' -Path $propPath -Value $exePath -AccessGained 'User' -Note 'Office executables like WINWORD.exe look for AI.exe under the %ProgramFiles%\Microsoft Office\root\<Office Version> and %ProgramFiles(x86)%\Microsoft Office\root\<Office Version> directories. An attacker may place a malicious AI.exe there in order to have persistence whenever a user interacts with the Microsoft Office Suite.' -Reference 'https://twitter.com/laughing_mantis/status/1645268114966470662'
+        $null = $persistenceObjectArray.Add($PersistenceObject)
+      }
+      Write-Verbose -Message ''
+    }
+    
+    function Get-RunExAndRunOnceEx
+    {
+      Write-Verbose -Message "$hostname - Getting Run properties..."
+      foreach($hive in $systemAndUsersHives)
+      {
+        $runKeys = Get-ChildItem -Path "$hive\SOFTWARE\Microsoft\Windows\CurrentVersion\RunEx"
+        foreach($key in $runKeys)
+        {
+          Write-Verbose -Message "$hostname - [!] Found keys under $(Convert-Path -Path $hive)'s RunEx key which deserve investigation!"
+          $runProps = Get-ItemProperty -Path $key.PSPath 
+          if($runProps)
+          {
+            Write-Verbose -Message "$hostname - [!] Found properties under a key in $(Convert-Path -Path $hive)'s RunEx key which deserve investigation!"
+            foreach ($prop in (Get-Member -MemberType NoteProperty -InputObject $runProps))
+            {
+              if($psProperties.Contains($prop.Name)) 
+              {
+                continue
+              } # skip the property if it's powershell built-in property
+              $propPath = Convert-Path -Path $runProps.PSPath
+              $propPath += '\' + $prop.Name
+              $currentHive = Convert-Path -Path $hive
+              if(($currentHive -eq 'HKEY_LOCAL_MACHINE') -or ($currentHive -eq 'HKEY_USERS\S-1-5-18') -or ($currentHive -eq 'HKEY_USERS\S-1-5-19') -or ($currentHive -eq 'HKEY_USERS\S-1-5-20'))
+              {
+                $access = 'System'
+              }
+              else
+              {
+                $access = 'User'
+              }
+            
+              if(Get-IfSafeExecutable $runProps.($prop.Name))
+              {
+                continue
+              }
+              $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Registry RunEx Key' -Classification 'MITRE ATT&CK T1547.001' -Path $propPath -Value $runProps.($prop.Name) -AccessGained $access -Note 'Executables in properties of any key under the (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Microsoft\Windows\CurrentVersion\RunEx key are run when the user logs in or when the machine boots up (in the case of the HKLM hive).' -Reference 'https://attack.mitre.org/techniques/T1547/001/' 
+              $null = $persistenceObjectArray.Add($PersistenceObject)
+            }
+          }
+        }
+      }
+    
+      Write-Verbose -Message ''
+      Write-Verbose -Message "$hostname - Getting RunOnce properties..."
+      foreach($hive in $systemAndUsersHives)
+      {
+        $runOnceKeys = Get-ChildItem -Path "$hive\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx"
+        foreach($key in $runOnceKeys)
+        {
+          Write-Verbose -Message "$hostname - [!] Found keys under $(Convert-Path -Path $hive)'s RunOnceEx key which deserve investigation!"
+          $runOnceProps = Get-ItemProperty -Path $key.PSPath
+         
+          if($runOnceProps)
+          {
+            Write-Verbose -Message "$hostname - [!] Found properties under a key in $(Convert-Path -Path $hive)'s RunOnceEx key which deserve investigation!"
+            foreach ($prop in (Get-Member -MemberType NoteProperty -InputObject $runOnceProps))
+            {
+              if($psProperties.Contains($prop.Name)) 
+              {
+                continue
+              } # skip the property if it's powershell built-in property
+              $propPath = Convert-Path -Path $runOnceProps.PSPath
+              $propPath += '\' + $prop.Name
+              $currentHive = Convert-Path -Path $hive
+              if(($currentHive -eq 'HKEY_LOCAL_MACHINE') -or ($currentHive -eq 'HKEY_USERS\S-1-5-18') -or ($currentHive -eq 'HKEY_USERS\S-1-5-19') -or ($currentHive -eq 'HKEY_USERS\S-1-5-20'))
+              {
+                $access = 'System'
+              }
+              else
+              {
+                $access = 'User'
+              }
+              if(Get-IfSafeExecutable $runOnceProps.($prop.Name))
+              {
+                continue
+              }
+              $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Registry RunOnceEx Key' -Classification 'MITRE ATT&CK T1547.001' -Path $propPath -Value $runOnceProps.($prop.Name) -AccessGained $access -Note 'Executables in properties of any key under the (HKLM|HKEY_USERS\<SID>)\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx key are run when the user logs in or when the machine boots up (in the case of the HKLM hive), and then deleted.' -Reference 'https://attack.mitre.org/techniques/T1547/001/' 
+              $null = $persistenceObjectArray.Add($PersistenceObject)
+            }
+          }
+        }
+      }
+      Write-Verbose -Message ''
+    }
+    function Get-DotNetStartupHooks
+    {
+      Write-Verbose -Message "$hostname - Getting DotNet Startup Hooks..."
+      foreach($hive in $systemAndUsersHives)
+      {
+        $dotnetHooks = (Get-ItemProperty -Path "$hive\Environment" -Name DOTNET_STARTUP_HOOKS).DOTNET_STARTUP_HOOKS
+        if($dotnetHooks)
+        {
+          $dotnetHooks = $dotnetHooks -split ';'
+        }
+        foreach($hook in $dotnetHooks)
+        {
+          Write-Verbose -Message "$hostname - [!] Found a .NET hook in the DOTNET_STARTUP_HOOKS property in the $(Convert-Path -Path $hive)\Environment key!"
+          $propPath = Convert-Path -Path $hive
+          $propPath += "\Environment\DOTNET_STARTUP_HOOKS"
+          $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique '.NET Startup Hooks DLL Sideloading' -Classification 'MITRE ATT&CK T1574.002' -Path $propPath -Value $hook -AccessGained 'User/System' -Note 'The .NET DLLs listed in the DOTNET_STARTUP_HOOKS environment variable are loaded into .NET processes at runtime.' -Reference 'https://persistence-info.github.io/Data/dotnetstartuphooks.html'
+          $null = $persistenceObjectArray.Add($PersistenceObject) 
+        }
+      }
+      
+      $systemHooks = (Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" -Name DOTNET_STARTUP_HOOKS).DOTNET_STARTUP_HOOKS
+      if($systemHooks)
+      {
+        $systemHooks = $systemHooks -split ';'
+      }
+      foreach($hook in $systemHooks)
+      {
+        Write-Verbose -Message "$hostname - [!] Found a .NET hook in the DOTNET_STARTUP_HOOKS property in the $(Convert-Path -Path $hive)\Environment key!"
+        $propPath = "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+        $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique '.NET Startup Hooks DLL Sideloading' -Classification 'MITRE ATT&CK T1574.002' -Path $propPath -Value $hook -AccessGained 'User/System' -Note 'The .NET DLLs listed in the DOTNET_STARTUP_HOOKS environment variable are loaded into .NET processes at runtime.' -Reference 'https://persistence-info.github.io/Data/dotnetstartuphooks.html'
+        $null = $persistenceObjectArray.Add($PersistenceObject) 
+      }
+      
+      Write-Verbose -Message ''   
+    }
+
     Write-Verbose -Message "$hostname - Starting execution..."
 
     if($PersistenceMethod -eq 'All')
@@ -1719,6 +1978,15 @@ function Find-AllPersistence
       Get-SilentExitMonitor
       Get-TelemetryController
       Get-RDPWDSStartupPrograms
+      Get-BitsJobsNotifyCmdLine
+      Get-Screensaver
+      Get-PowerAutomate
+      Get-OfficeTemplates
+      Get-ExplorerContextMenu
+      Get-ServiceControlManagerSecurityDescriptor
+      Get-MicrosoftOfficeAIHijacking
+      Get-RunExAndRunOnceEx
+      Get-DotNetStartupHooks
       
       if($IncludeHighFalsePositivesChecks.IsPresent)
       {
@@ -1928,60 +2196,119 @@ function Find-AllPersistence
           Get-ScheduledTasks
           break
         }
+
+        'Screensaver'
+        {
+          Get-Screensaver
+          break
+        }
+
+        'BitsJobsNotify'
+        {
+          Get-BitsJobsNotifyCmdLine
+          break
+        }
+        'PowerAutomate'
+        {
+          Get-PowerAutomate
+          break
+        }
+        'Services'
+        {
+          Get-WindowsServices 
+          break
+        }
+        'ScheduledTasks'
+        {
+          Get-ScheduledTasks
+          break
+        }
+        'OfficeAddinsAndTemplates'
+        {
+          Get-OfficeTemplates
+          break
+        }
+        'ExplorerContextMenu'
+        {
+          Get-ExplorerContextMenu
+          break
+        }
+        'ServiceControlManagerSD'
+        {
+          Get-ServiceControlManagerSecurityDescriptor
+          break
+        }
+        'OfficeAiHijacking'
+        {
+          Get-MicrosoftOfficeAIHijacking
+          break
+        }
+        'RunExAndRunOnceEx'
+        {
+          Get-RunExAndRunOnceEx
+          break
+        }
+        'DotNetStartupHooks'
+        {
+          Get-DotNetStartupHooks
+          break
+        }
       }
     }
-
-    Write-Verbose -Message "$hostname - Execution finished."
+    
+    Write-Verbose -Message "$hostname - Execution finished, outputting results..."
+    # Use Input CSV to make a diff of the results and only show us the persistences implanted on the local machine which are not in the CSV
+    if($DiffCSV)
+    {
+      Write-Verbose -Message 'Diffing found persistences with the ones in the input CSV...'
+      $importedPersistenceObjectArray = Import-Csv -Path $DiffCSV -ErrorAction Stop
+      $newPersistenceObjectArray = New-Object -TypeName System.Collections.ArrayList
+      foreach($localPersistence in $persistenceObjectArray)
+      {
+        $found = $false
+        foreach($importedPersistence in $importedPersistenceObjectArray)
+        {
+          if(($importedPersistence.Technique -eq $localPersistence.Technique) -and ($importedPersistence.Path -eq $localPersistence.Path) -and ($importedPersistence.Value -eq $localPersistence.Value))
+          {
+            $found = $true
+            break
+          }
+        }
+        if($found -eq $false)
+        {
+          $null = $newPersistenceObjectArray.Add($localPersistence)
+        }
+      }
+      $persistenceObjectArray = $newPersistenceObjectArray.Clone()
+    }
+    $persistenceObjectArray
   }
   
   if($ComputerName)
   {
-    Invoke-Command -ComputerName $ComputerName -ScriptBlock $ScriptBlock
+    Invoke-Command -ComputerName $ComputerName -ScriptBlock $ScriptBlock -ErrorAction Continue
   }
   else
   {
     Invoke-Command -ScriptBlock $ScriptBlock
   }
   
-  # Use Input CSV to make a diff of the results and only show us the persistences implanted on the local machine which are not in the CSV
-  if($DiffCSV)
-  {
-    Write-Verbose -Message 'Diffing found persistences with the ones in the input CSV...'
-    $importedPersistenceObjectArray = Import-Csv -Path $DiffCSV -ErrorAction Stop
-    $newPersistenceObjectArray = New-Object -TypeName System.Collections.ArrayList
-    foreach($localPersistence in $persistenceObjectArray)
-    {
-      $found = $false
-      foreach($importedPersistence in $importedPersistenceObjectArray)
-      {
-        if(($importedPersistence.Technique -eq $localPersistence.Technique) -and ($importedPersistence.Path -eq $localPersistence.Path) -and ($importedPersistence.Value -eq $localPersistence.Value))
-        {
-          $found = $true
-          break
-        }
-      }
-      if($found -eq $false)
-      {
-        $null = $newPersistenceObjectArray.Add($localPersistence)
-      }
-    }
-    $persistenceObjectArray = $newPersistenceObjectArray.Clone()
-  }
+  
   
   if($OutputCSV)
   {
     $persistenceObjectArray |
-    ConvertTo-Csv |
+    ConvertTo-Csv -NoTypeInformation |
     Out-File -FilePath $OutputCSV -ErrorAction Stop
   }
   
   Write-Verbose -Message 'Script execution finished.'  
 }
 # SIG # Begin signature block
-# MIIVkwYJKoZIhvcNAQcCoIIVhDCCFYACAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
+# MIIVlQYJKoZIhvcNAQcCoIIVhjCCFYICAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUhi0z5UX0XXblSiC5u3EFvrAr
-# QrKgghH0MIIFbzCCBFegAwIBAgIQSPyTtGBVlI02p8mKidaUFjANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUxptSiaScHxSSROvrAgTduUX6
+# 5W6gghH1MIIFbzCCBFegAwIBAgIQSPyTtGBVlI02p8mKidaUFjANBgkqhkiG9w0B
 # AQwFADB7MQswCQYDVQQGEwJHQjEbMBkGA1UECAwSR3JlYXRlciBNYW5jaGVzdGVy
 # MRAwDgYDVQQHDAdTYWxmb3JkMRowGAYDVQQKDBFDb21vZG8gQ0EgTGltaXRlZDEh
 # MB8GA1UEAwwYQUFBIENlcnRpZmljYXRlIFNlcnZpY2VzMB4XDTIxMDUyNTAwMDAw
@@ -2042,56 +2369,56 @@ function Find-AllPersistence
 # oIJB0kak6pSzEu4I64U6gZs7tS/dGNSljf2OSSnRr7KWzq03zl8l75jy+hOds9TW
 # SenLbjBQUGR96cFr6lEUfAIEHVC1L68Y1GGxx4/eRI82ut83axHMViw1+sVpbPxg
 # 51Tbnio1lB93079WPFnYaOvfGAA0e0zcfF/M9gXr+korwQTh2Prqooq2bYNMvUoU
-# KD85gnJ+t0smrWrb8dee2CvYZXD5laGtaAxOfy/VKNmwuWuAh9kcMIIGXzCCBMeg
-# AwIBAgIQUcDbMQiubrJYsDZABW3UATANBgkqhkiG9w0BAQwFADBUMQswCQYDVQQG
-# EwJHQjEYMBYGA1UEChMPU2VjdGlnbyBMaW1pdGVkMSswKQYDVQQDEyJTZWN0aWdv
-# IFB1YmxpYyBDb2RlIFNpZ25pbmcgQ0EgUjM2MB4XDTIyMDgxNTAwMDAwMFoXDTI1
-# MDgxNDIzNTk1OVowVDELMAkGA1UEBhMCSVQxDTALBgNVBAgMBFJvbWExGjAYBgNV
-# BAoMEUZlZGVyaWNvIExhZ3Jhc3RhMRowGAYDVQQDDBFGZWRlcmljbyBMYWdyYXN0
-# YTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAPq7+7B1CjWSZJs8lRnY
-# BLBdC2DkmFrDGB8zGAWKdFPh/PqgXjHv1qgkTd+YYNQ1cmSQ/wZULtMyS6bta/Rp
-# /OAh4kxQY2R+4UhIupy70uPkRBIUNCyerV0XE/npP0GdNksjmEvb4dCouYDFhy/5
-# M4psO5A/SDMv9e5IP4FDA0jRkuhSw2e0/aTcPmjJmkZPrKaRMEag2YVhWMPR20iX
-# cATmOZv/akPso6eRW/mxS0+UpR57rAxXhXJRC9foBWYXaIDa0iWOadzH+9ukeNn/
-# 4AIeERc69Fn5nlYgarboD72lBgwtwF3Xq40oiWrP3ObTbwUF9vv/4JS7q0nnuqvJ
-# Hsf1snoMUbG3JOmjyNzCB6Ktw6SvZPyQ/bcKpTryW99GEXib14DMzAt1l5xIPuEO
-# kvrMp1U94uoWbh7ij74cHG75vVAmSq/0MTDEo9c1F//fUI2uDpSNc9KzJkdE2XnN
-# HqNPCSRfrWvnmESVoW4+ecUVBoZ0xCNUwLjfI7Y9m86dDUUhOK0JDzXrqfHO00uu
-# CrW0byzYic2bb6k/vNMv93sttJErSScKjBH/ZJyQySAwz7h3FkH8vyTC9diibu2h
-# sLiBKOC6+mff53FWfgCMTc4e4s0Z+fdpNC80IvMSSbNEnkiyEcpiD23Z0Ny7Gnd0
-# IhDI7fKeJSjrFtkUNBElJMzNAgMBAAGjggGrMIIBpzAfBgNVHSMEGDAWgBQPKssg
-# hyi47G9IritUpimqF6TNDDAdBgNVHQ4EFgQUjK+D/PvF6iUYa+lkE59Z6KyTj24w
-# DgYDVR0PAQH/BAQDAgeAMAwGA1UdEwEB/wQCMAAwEwYDVR0lBAwwCgYIKwYBBQUH
-# AwMwSgYDVR0gBEMwQTA1BgwrBgEEAbIxAQIBAwIwJTAjBggrBgEFBQcCARYXaHR0
-# cHM6Ly9zZWN0aWdvLmNvbS9DUFMwCAYGZ4EMAQQBMEkGA1UdHwRCMEAwPqA8oDqG
-# OGh0dHA6Ly9jcmwuc2VjdGlnby5jb20vU2VjdGlnb1B1YmxpY0NvZGVTaWduaW5n
-# Q0FSMzYuY3JsMHkGCCsGAQUFBwEBBG0wazBEBggrBgEFBQcwAoY4aHR0cDovL2Ny
-# dC5zZWN0aWdvLmNvbS9TZWN0aWdvUHVibGljQ29kZVNpZ25pbmdDQVIzNi5jcnQw
-# IwYIKwYBBQUHMAGGF2h0dHA6Ly9vY3NwLnNlY3RpZ28uY29tMCAGA1UdEQQZMBeB
-# FWZlZC5sYWdAcHJvdG9ubWFpbC5jaDANBgkqhkiG9w0BAQwFAAOCAYEAA5yOz1Rg
-# cV89wbdWSM29po3EDeX6IIS2BTA7UAbZ+PtMHbGTQzgUs23e0U5/jbmaYqty7vaX
-# v2SMNM/V7OL3mCpPBvVwPB5l8WKi4pTQLYPb8dFem5/oiV9BTiKjap6j5UKaoOW2
-# VS5izOKUZZxDSOhGGnjcKTFezaS2SnCZzb8tra/WbTszbI6Zt7tqEmfAcI3mlUJ9
-# hwoJvR8ZI+jhORhoyaaBzBk6dKCWjxQbAbKiWnFjUoC24ZRSKf6KhWaRxk767FUp
-# 91o1TQbI5OAKlMfGKxRVCFUl+1g9C7CA2asjVMDckqQMzrq63f6sxKtnef4PPek2
-# 2vTTQsQ7zxyQJlVz94u8Tv+nXKV5oYFnY/bvkFJok/1RJW3Ou18y1PlkhU9mKPDP
-# Ot+3Lelrm9hrAHVxwtILpSXyj5vuE8RJkVKmAg0e7rOiAOtmlAOsVUID0KtI9Szb
-# eGdASl5HfEhABRwNE3MWkHm4ho5p9h/vB9WoSYaqR/TIF0oxc8JhMP8AMYIDCTCC
-# AwUCAQEwaDBUMQswCQYDVQQGEwJHQjEYMBYGA1UEChMPU2VjdGlnbyBMaW1pdGVk
-# MSswKQYDVQQDEyJTZWN0aWdvIFB1YmxpYyBDb2RlIFNpZ25pbmcgQ0EgUjM2AhBR
-# wNsxCK5usliwNkAFbdQBMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQowCKAC
-# gAChAoAAMBkGCSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcCAQsx
-# DjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBQ1RyHvpA2QXm1l5uXkGlrN
-# Wlx7wzANBgkqhkiG9w0BAQEFAASCAgBIBpZFB1ASPrGoH0d0qhSwsJSHUUl3NDZz
-# TAcrbSpj0/mS9yfONZks6AKVe2P91rSG2QtzJRuTWONDa39sX4CCBTBeFcYizgUP
-# nJ7vKOh0OfBu8gik3gtkqZTlj48zE7mdfBjI3B1p/+iv/QJRdgGUbD+u7riIFRQ6
-# FUOfjxueX/X5kOrJdbvTPfQNk/ydBWGOxBySmicLZhLALz5B12Znl6Z4HykMSnuD
-# TxAP4QkpuneVldOgvUVkS83rJpDqj7ZgCVyUb5XLYdseQus5Iinr38UeBQTkefsa
-# EVWo52c611wgngqm3YnumJDC7UTWIrExDkRN+GxmeBebX6W5IorZfcRo+yje55vq
-# uMc1WqNRBkIojRq8As8g0NQytQFG1AW5AZcMrH6F4UHFCGj1YjnWZlWzXNet2aG0
-# C4ckNSSudELVbsKoo79LcIOFFaWUxOF60H3I/p5uIYMdoCCkoFxTqLgWh5dLsd55
-# Ye84/YpWHTL4o6tIC/xDidVEJZbYtHfJlZz7ZGN2Hk/UyJV24DR22+gmwAovZVYe
-# ctbfnkar2Y4nQCIH0kyqOLYnbKnzaFCtHuJWWPXZ6m6BGrjeO2OGxgmR6r4XixTf
-# eYGGp2CftI/PGtm46VjgYgPRtxXGfxcAYyHMAAjmyBkHjXQpaw0q8m/dJQbtTlFu
-# rAogW+PHqw==
+# KD85gnJ+t0smrWrb8dee2CvYZXD5laGtaAxOfy/VKNmwuWuAh9kcMIIGYDCCBMig
+# AwIBAgIRANqGcyslm0jf1LAmu7gf13AwDQYJKoZIhvcNAQEMBQAwVDELMAkGA1UE
+# BhMCR0IxGDAWBgNVBAoTD1NlY3RpZ28gTGltaXRlZDErMCkGA1UEAxMiU2VjdGln
+# byBQdWJsaWMgQ29kZSBTaWduaW5nIENBIFIzNjAeFw0yMjA4MzAwMDAwMDBaFw0y
+# NTA4MjkyMzU5NTlaMFQxCzAJBgNVBAYTAklUMQ0wCwYDVQQIDARSb21hMRowGAYD
+# VQQKDBFGZWRlcmljbyBMYWdyYXN0YTEaMBgGA1UEAwwRRmVkZXJpY28gTGFncmFz
+# dGEwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCWUdcGbyUbCFFFZ6Mj
+# e/e1M0dGv9oWUKwB6O1XNQGLG5wMpsiJZRc1w6uV9iYsqIb2K5MyrbL7YNhMMgSv
+# JGM51OCphdX4MN2JKyG8oZs0CGnMfKckJfNw0rukD513VlL9s34Y1A+4xyfdgJ8q
+# pKz455vUM5PA3emF6ydRwdAa7vPRATqKqa/E6jUABluW0juMsMwNLucJeudD4lvL
+# INY8WBxdb7U6a9XmMqW67DdrrE93nenuDF1VYL3R4s0c9bYXvnLF45im/NjMnK+F
+# MJZfZq1OuE7DsTKNQ2KLru5i5luZAYnrFEP9U2oGZI1G149beOuzGBVju5TS5yqr
+# L9uVOaoRxvHpFUuZXE9Wxn7eNTAuA1NBfSqvwlJuL9xLStCR+Ep20euMihqKyROV
+# Jy/UbXbA9haB9D4xnGWPhdMbzh62og2taeCyUSR/ITznssDa8gj2Zz2dqdKI985M
+# BWlb+rIcnhTvfguBLo5aGvOcTepcxjcgs7WRq9AoL+tmXsFlHbnenmOXeyypfS1B
+# /L3WVND4sKU4RImFw1DHRUdUhtzv/OzXWn1MyTH/W1v0L8AMe/5YBmexHlcOaB05
+# xZJNxy3BQVXg/DEWAgIdZlatw7vrTPzROV4VPUkU1IPe/ZCJNe9Ij2ICa2kmb2I1
+# 8dVZ3m1o8T8P6Lq1rB/+d8yTMQIDAQABo4IBqzCCAacwHwYDVR0jBBgwFoAUDyrL
+# IIcouOxvSK4rVKYpqhekzQwwHQYDVR0OBBYEFD9Q0l33XgRE0bG3DGVYiX6xoX03
+# MA4GA1UdDwEB/wQEAwIHgDAMBgNVHRMBAf8EAjAAMBMGA1UdJQQMMAoGCCsGAQUF
+# BwMDMEoGA1UdIARDMEEwNQYMKwYBBAGyMQECAQMCMCUwIwYIKwYBBQUHAgEWF2h0
+# dHBzOi8vc2VjdGlnby5jb20vQ1BTMAgGBmeBDAEEATBJBgNVHR8EQjBAMD6gPKA6
+# hjhodHRwOi8vY3JsLnNlY3RpZ28uY29tL1NlY3RpZ29QdWJsaWNDb2RlU2lnbmlu
+# Z0NBUjM2LmNybDB5BggrBgEFBQcBAQRtMGswRAYIKwYBBQUHMAKGOGh0dHA6Ly9j
+# cnQuc2VjdGlnby5jb20vU2VjdGlnb1B1YmxpY0NvZGVTaWduaW5nQ0FSMzYuY3J0
+# MCMGCCsGAQUFBzABhhdodHRwOi8vb2NzcC5zZWN0aWdvLmNvbTAgBgNVHREEGTAX
+# gRVmZWQubGFnQHByb3Rvbm1haWwuY2gwDQYJKoZIhvcNAQEMBQADggGBAJj2JGru
+# B4OuFoVRe64Tj83gGZbenpMtVVzLsSXzqoYv9Xy/+DdgQpBCksbCM7lL+BXbjlrO
+# aRAhtshMcPXyKC0LyUK/97fmuZSEd0uJv+5bA+8J+syr/Bm7mfy+Wp0y3vN/rH0Y
+# 6OuUm8YVnEsh3dN5LkYBtht0E4uOMhaAY8FvQ+UqoVO64IEYGZvfeIQxpeoOFcZ6
+# LXNTEPwUsXT6aBwrdzXoTthdzYPG1OZscG5t1A+Q4FzjPgye0asKDEcL6nIiLsgn
+# KFwVxJoOvSg+xpj4urUbQ5K5STKvy6FeN05JjN00w91pauOXowy+sWKsA2tk0sEj
+# 7GyXN5xpdmmpS9syU0Piom/9stGkGJurdoUPNcCCagSQ6+6lDVDhxSnMroR75hIS
+# lYKhmhoGgn1vWQqUwx7CywDXxMGY7GT+ufXCssa6xZT+Nn+CIaHpb4EJyrNdKN/m
+# uFkQgQqZUeeV0/azIa5L9T1IaEn1xhe2ETNqZCHeGzmpmvifXW/N9+/HZDGCAwow
+# ggMGAgEBMGkwVDELMAkGA1UEBhMCR0IxGDAWBgNVBAoTD1NlY3RpZ28gTGltaXRl
+# ZDErMCkGA1UEAxMiU2VjdGlnbyBQdWJsaWMgQ29kZSBTaWduaW5nIENBIFIzNgIR
+# ANqGcyslm0jf1LAmu7gf13AwCQYFKw4DAhoFAKB4MBgGCisGAQQBgjcCAQwxCjAI
+# oAKAAKECgAAwGQYJKoZIhvcNAQkDMQwGCisGAQQBgjcCAQQwHAYKKwYBBAGCNwIB
+# CzEOMAwGCisGAQQBgjcCARUwIwYJKoZIhvcNAQkEMRYEFETYvxSCz6qcN7byu89C
+# 9eOnATamMA0GCSqGSIb3DQEBAQUABIICABrcJJB+T8GLjOnphy7COyFe7Xdl0t0n
+# g75+iSNhnPqgFRFpJMNGkqK/D5jiwH9bxORvlB0uFFWzmpjy+vu5SjCQpzjAVZy9
+# V9+TiRyY9YhL3Lul4qRu/0uYoWN9v4SQ+Sg3JzfM2rZ1RZdXpHRTuweO1SQZaLDf
+# xQdFqm/eJBsx4YF6u5UwlusAfuFZAa+o9EkXPusSZWzssOKfQL3tSaxH10QXhqN6
+# wD0+O+MXJCC5B2MW8EP9LrEDNMFcK/gZAHKq4uwtSYor1KdJ58ji7o3FJc2yvSV7
+# 1Lvt+VV6TjjJErQ/mHi7rXj38ZyWE53cqaKRcLI/1jEsJ3+Wmj7YLwVBKgMfAXKP
+# N8/v+rdJWZYGPkqayH+9g/nosxr1ALdrtndf18g0kmJHycPn2giBDLurN396ogPN
+# SrbJvrpIqZMArgMR6TmPzzkCRIyDp/A7kwFdSS/K8BzAMAlJL34g6LvuPqYl/TUU
+# //NDDnUMLeGvBfMdfU6udPpG0qctNoc3Im8eb1G3/ZS6FpsS6MDKbOcCxBz0ufyL
+# exLUULtCaNN6VRCOe4lslfSzOWMT5rK4p9u5PR1dWi9JcTHL+K8hcgAVCPt3+neq
+# jH+nrs/b23iRxfxDlx7MadIP537FgSTRSbpaueSIT6wvWogkqdhEYe9p2U0NrxvZ
+# mjinMoZnc5+W
 # SIG # End signature block
