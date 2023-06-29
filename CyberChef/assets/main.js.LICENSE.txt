@@ -8,14 +8,14 @@
  */
 
 /*!
- * Sizzle CSS Selector Engine v2.3.6
+ * Sizzle CSS Selector Engine v2.3.10
  * https://sizzlejs.com/
  *
  * Copyright JS Foundation and other contributors
  * Released under the MIT license
  * https://js.foundation/
  *
- * Date: 2021-02-16
+ * Date: 2023-02-14
  */
 
 /*!
@@ -25,11 +25,21 @@
  * @license  MIT
  */
 
+/*! cptable.js (C) 2013-present SheetJS -- http://sheetjs.com */
+
+/*! cputils.js (C) 2013-present SheetJS -- http://sheetjs.com */
+
 /*! https://mths.be/punycode v1.3.2 by @mathias */
 
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
 /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
+
+/**
+ * @author Matt C [matt@artemisbot.uk]
+ * @copyright Crown Copyright 2016
+ * @license Apache-2.0
+ */
 
 /**
  * @author d98762625 [d98762625@gmail.com]
@@ -57,10 +67,58 @@
  */
 
 /**
+ * @author n1474335 [n1474335@gmail.com]
+ * @copyright Crown Copyright 2022
+ * @license Apache-2.0
+ *
+ * In order to render whitespace characters as control character pictures in the output, even
+ * when they are the designated line separator, CyberChef sometimes chooses to represent them
+ * internally using the Unicode Private Use Area (https://en.wikipedia.org/wiki/Private_Use_Areas).
+ * See `Utils.escapeWhitespace()` for an example of this.
+ *
+ * The `renderSpecialChar()` function understands that it should display these characters as
+ * control pictures. When copying data from the Output, we need to replace these PUA characters
+ * with their original values, so we override the DOM "copy" event and modify the copied data
+ * if required. This handler is based closely on the built-in CodeMirror handler and defers to the
+ * built-in handler if PUA characters are not present in the copied data, in order to minimise the
+ * impact of breaking changes.
+ */
+
+/**
+ * @author n1474335 [n1474335@gmail.com]
+ * @copyright Crown Copyright 2022
+ * @license Apache-2.0
+ */
+
+/**
+ * @author n1474335 [n1474335@gmail.com]
+ * @copyright Crown Copyright 2023
+ * @license Apache-2.0
+ */
+
+/**
+ * A modification of the CodeMirror Panel extension to enable panels to the
+ * left and right of the editor.
+ * Based on code here: https://github.com/codemirror/view/blob/main/src/panel.ts
+ *
+ * @author n1474335 [n1474335@gmail.com]
+ * @copyright Crown Copyright 2022
+ * @license Apache-2.0
+ */
+
+/**
  * Base64 functions.
  *
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
+ * @license Apache-2.0
+ */
+
+/**
+ * CodeMirror utilities that are relevant to both the input and output
+ *
+ * @author n1474335 [n1474335@gmail.com]
+ * @copyright Crown Copyright 2022
  * @license Apache-2.0
  */
 
@@ -138,6 +196,14 @@
  */
 
 /**
+ * Unicode Normalisation Forms
+ *
+ * @author Matthieu [m@tthieu.xyz]
+ * @copyright Crown Copyright 2019
+ * @license Apache-2.0
+ */
+
+/**
  * Various components for drawing diagrams on an HTML5 canvas.
  *
  * @author n1474335 [n1474335@gmail.com]
@@ -189,4 +255,4 @@
 
 //! moment.js locale configuration
 
-//! version : 0.5.37
+//! version : 0.5.41
