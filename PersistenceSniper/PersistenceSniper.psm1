@@ -1,6 +1,6 @@
 <#PSScriptInfo
 
-    .VERSION 1.11.0
+    .VERSION 1.13.0
 
     .GUID 3ce01128-01f1-4503-8f7f-2e50deb56ebc
 
@@ -27,7 +27,7 @@
     .EXTERNALSCRIPTDEPENDENCIES
 
     .RELEASENOTES
-    This release fixes a bug in the CmdAutoRun detection and also implements detection for RunEx registry keys, RunOnceEx registry keys, and .NET startup hooks.
+    This release implements detection for RID hijacking and the Suborner technique. It also fixes a module-wide bug regarding string comparisons (see issue #19).
 
     .PRIVATEDATA
 
@@ -74,6 +74,10 @@ function Find-AllPersistence
       .EXAMPLE
       Find-AllPersistence -OutputCSV .\persistences.csv
       Enumerate low false positive persistence techniques implanted on the local machine and output to a CSV.
+
+      .EXAMPLE
+      Find-AllPersistence -LogFindings
+      Enumerate low false positive persistence techniques implanted on the local machine and log results to the Windows Event Log.
 
       .EXAMPLE
       Find-AllPersistence -DiffCSV .\persistences.csv
@@ -148,7 +152,9 @@ function Find-AllPersistence
         'ServiceControlManagerSD',
         'OfficeAiHijacking',
         'RunExAndRunOnceEx',
-        'DotNetStartupHooks'
+        'DotNetStartupHooks',
+        'RIDHijacking',
+        'SubornerAttack'
     )]
     $PersistenceMethod = 'All',
      
@@ -170,17 +176,24 @@ function Find-AllPersistence
 
     [Parameter(Position = 5)]
     [String]
-    $VTApiKey = $null 
+    $VTApiKey = $null,
+    
+    [Parameter(Position = 6)]
+    [Switch]
+    $LogFindings
   )
+  
+  # This array will hold all the persistence techniques found on all the machines the module is run on
+  $globalPersistenceObjectArray = [Collections.ArrayList]::new()
   
   $ScriptBlock = 
   {
     $ErrorActionPreference = 'SilentlyContinue'
     $VerbosePreference = $Using:VerbosePreference
     $hostname = ([Net.Dns]::GetHostByName($env:computerName)).HostName
-    $script:psProperties = @('PSChildName', 'PSDrive', 'PSParentPath', 'PSPath', 'PSProvider')
-    $script:persistenceObjectArray = [Collections.ArrayList]::new()
-    $script:systemAndUsersHives = [Collections.ArrayList]::new()
+    $psProperties = @('PSChildName', 'PSDrive', 'PSParentPath', 'PSPath', 'PSProvider')
+    $persistenceObjectArray = [Collections.ArrayList]::new()
+    $systemAndUsersHives = [Collections.ArrayList]::new()
     $systemHive = (Get-Item Registry::HKEY_LOCAL_MACHINE).PSpath
     $null = $systemAndUsersHives.Add($systemHive)
     $sids = Get-ChildItem Registry::HKEY_USERS 
@@ -393,6 +406,203 @@ function Find-AllPersistence
       {
         return $false
       }
+    }
+    
+    function Parse-NetUser {
+      <#
+          .SYNOPSIS
+          Parses the net user command output into a single list.
+          Author: Jake Miller (@LaconicWolf)
+
+          .DESCRIPTION
+          Accepts the output of net user via the pipeline and parses into a 
+          single list.
+
+          .EXAMPLE        
+          PS C:\> net user | Parse-NetUser
+        
+          Name                       
+          ------
+          Administrator
+          DefaultAccount
+          Dwight
+          Guest
+          Jake
+          WDAGUtilityAccount
+      #>
+
+      foreach ($item in $input) {
+        if ($item -eq ""){
+          continue
+        }
+        if ($item -match 'User accounts for') {
+          continue
+        }
+        elseif ($item -match '----') {
+          continue
+        }
+        elseif ($item -match 'The command completed') {
+          continue
+        }
+        $contentArray = @()
+        foreach ($line in $item) {
+          while ($line.Contains("  ")){
+            $line = $line -replace '  ',' '
+          }
+          $contentArray += $line.Split(' ')
+        }
+ 
+        foreach($content in $contentArray) {
+          $content = $content -replace '"',''
+          if ($content.Length -ne 0) {
+            New-Object -TypeName PSObject -Property @{"Name" = $content.Trim()}
+          }
+        }
+      }
+    }
+
+    
+    function ElevateTo-System
+    {
+
+      $signature = @"
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+     public struct TokPriv1Luid
+     {
+         public int Count;
+         public long Luid;
+         public int Attr;
+     }
+
+    public const int SE_PRIVILEGE_ENABLED = 0x00000002;
+    public const int TOKEN_QUERY = 0x00000008;
+    public const int TOKEN_ADJUST_PRIVILEGES = 0x00000020;
+    public const UInt32 STANDARD_RIGHTS_REQUIRED = 0x000F0000;
+
+    public const UInt32 STANDARD_RIGHTS_READ = 0x00020000;
+    public const UInt32 TOKEN_ASSIGN_PRIMARY = 0x0001;
+    public const UInt32 TOKEN_DUPLICATE = 0x0002;
+    public const UInt32 TOKEN_IMPERSONATE = 0x0004;
+    public const UInt32 TOKEN_QUERY_SOURCE = 0x0010;
+    public const UInt32 TOKEN_ADJUST_GROUPS = 0x0040;
+    public const UInt32 TOKEN_ADJUST_DEFAULT = 0x0080;
+    public const UInt32 TOKEN_ADJUST_SESSIONID = 0x0100;
+    public const UInt32 TOKEN_READ = (STANDARD_RIGHTS_READ | TOKEN_QUERY);
+    public const UInt32 TOKEN_ALL_ACCESS = (STANDARD_RIGHTS_REQUIRED | TOKEN_ASSIGN_PRIMARY |
+      TOKEN_DUPLICATE | TOKEN_IMPERSONATE | TOKEN_QUERY | TOKEN_QUERY_SOURCE |
+      TOKEN_ADJUST_PRIVILEGES | TOKEN_ADJUST_GROUPS | TOKEN_ADJUST_DEFAULT |
+      TOKEN_ADJUST_SESSIONID);
+
+    public const string SE_TIME_ZONE_NAMETEXT = "SeTimeZonePrivilege";
+    public const int ANYSIZE_ARRAY = 1;
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct LUID
+    {
+      public UInt32 LowPart;
+      public UInt32 HighPart;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct LUID_AND_ATTRIBUTES {
+       public LUID Luid;
+       public UInt32 Attributes;
+    }
+
+
+    public struct TOKEN_PRIVILEGES {
+      public UInt32 PrivilegeCount;
+      [MarshalAs(UnmanagedType.ByValArray, SizeConst=ANYSIZE_ARRAY)]
+      public LUID_AND_ATTRIBUTES [] Privileges;
+    }
+
+    [DllImport("advapi32.dll", SetLastError=true)]
+     public extern static bool DuplicateToken(IntPtr ExistingTokenHandle, int
+        SECURITY_IMPERSONATION_LEVEL, out IntPtr DuplicateTokenHandle);
+
+
+    [DllImport("advapi32.dll", SetLastError=true)]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool SetThreadToken(
+      IntPtr PHThread,
+      IntPtr Token
+    );
+
+    [DllImport("advapi32.dll", SetLastError=true)]
+     [return: MarshalAs(UnmanagedType.Bool)]
+      public static extern bool OpenProcessToken(IntPtr ProcessHandle, 
+       UInt32 DesiredAccess, out IntPtr TokenHandle);
+
+    [DllImport("advapi32.dll", SetLastError = true)]
+    public static extern bool LookupPrivilegeValue(string host, string name, ref long pluid);
+
+    [DllImport("kernel32.dll", ExactSpelling = true)]
+    public static extern IntPtr GetCurrentProcess();
+
+    [DllImport("advapi32.dll", ExactSpelling = true)]
+    public static extern IntPtr RevertToSelf();
+
+    [DllImport("advapi32.dll", ExactSpelling = true, SetLastError = true)]
+     public static extern bool AdjustTokenPrivileges(IntPtr htok, bool disall,
+     ref TokPriv1Luid newst, int len, IntPtr prev, IntPtr relen);
+"@
+
+      $currentPrincipal = New-Object Security.Principal.WindowsPrincipal ([Security.Principal.WindowsIdentity]::GetCurrent())
+      if ($currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator) -ne $true) {
+        throw "Run the Command as an Administrator"
+        break
+      }
+
+      Add-Type -MemberDefinition $signature -Name AdjPriv -Namespace AdjPriv
+      $adjPriv = [AdjPriv.AdjPriv]
+      [long]$luid = 0
+
+      $tokPriv1Luid = New-Object AdjPriv.AdjPriv+TokPriv1Luid
+      $tokPriv1Luid.Count = 1
+      $tokPriv1Luid.Luid = $luid
+      $tokPriv1Luid.Attr = [AdjPriv.AdjPriv]::SE_PRIVILEGE_ENABLED
+
+      $retVal = $adjPriv::LookupPrivilegeValue($null,"SeDebugPrivilege",[ref]$tokPriv1Luid.Luid)
+
+      [IntPtr]$htoken = [IntPtr]::Zero
+      $retVal = $adjPriv::OpenProcessToken($adjPriv::GetCurrentProcess(),[AdjPriv.AdjPriv]::TOKEN_ALL_ACCESS,[ref]$htoken)
+
+
+      $tokenPrivileges = New-Object AdjPriv.AdjPriv+TOKEN_PRIVILEGES
+      $retVal = $adjPriv::AdjustTokenPrivileges($htoken,$false,[ref]$tokPriv1Luid,12,[IntPtr]::Zero,[IntPtr]::Zero)
+
+      if (-not ($retVal)) {
+        [System.Runtime.InteropServices.Marshal]::GetLastWin32Error()
+        break
+      }
+
+      $process = (Get-Process -Name winlogon)
+      [IntPtr]$hwinlogontoken = [IntPtr]::Zero
+      $retVal = $adjPriv::OpenProcessToken($process.Handle,([AdjPriv.AdjPriv]::TOKEN_IMPERSONATE -bor [AdjPriv.AdjPriv]::TOKEN_DUPLICATE),[ref]$hwinlogontoken)
+
+      [IntPtr]$dulicateTokenHandle = [IntPtr]::Zero
+      $retVal = $adjPriv::DuplicateToken($hwinlogontoken,2,[ref]$dulicateTokenHandle)
+
+      $retval = $adjPriv::SetThreadToken([IntPtr]::Zero,$dulicateTokenHandle)
+      if (-not ($retVal)) {
+        [System.Runtime.InteropServices.Marshal]::GetLastWin32Error()
+      }
+      return 0
+    }
+    
+    function RevertTo-Self
+    {
+
+      $signature = @"
+    [DllImport("advapi32.dll", ExactSpelling = true)]
+    public static extern IntPtr RevertToSelf();
+"@
+      $adjPriv = [AdjPriv.AdjPriv]
+      $retval = $adjPriv::RevertToSelf()
+      if (-not ($retVal)) {
+        [System.Runtime.InteropServices.Marshal]::GetLastWin32Error()
+      }
+      return 0
     }
 
     function Get-RunAndRunOnce
@@ -878,7 +1088,7 @@ function Find-AllPersistence
           $exePath = $appPath.'(Default)'
           if(([System.IO.Path]::IsPathRooted([System.Environment]::ExpandEnvironmentVariables($exePath))) -eq $false)
           {
-            $exePath = "C:\Windows\System32\$exePath"
+            $exePath = "C:\Windows\System32\$exePath".ToLower()
           }
           if ($exePath.Contains('powershell') -or $exePath.Contains('cmd') -or -not (Get-AuthenticodeSignature -FilePath $exePath ).IsOSBinary)
           { 
@@ -906,6 +1116,7 @@ function Find-AllPersistence
         foreach ($key in $keys)
         {
           $ImagePath = (Get-ItemProperty -Path ($key.pspath)).ImagePath
+          $ImagePath = $ImagePath.ToLower()
           if ($null -ne $ImagePath)
           {
             if ($ImagePath.Contains('\svchost.exe'))
@@ -1482,7 +1693,8 @@ function Find-AllPersistence
         "$env:windir\System32\osk.exe",
         "$env:windir\System32\Narrator.exe",
         "$env:windir\System32\Magnify.exe",
-        "$env:windir\System32\DisplaySwitch.exe"
+        "$env:windir\System32\DisplaySwitch.exe",
+        "$env:windir\System32\Utilman.exe"
       )
       
       $cmdHash = Get-FileHash -LiteralPath $env:windir\System32\cmd.exe
@@ -1934,8 +2146,154 @@ function Find-AllPersistence
         $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique '.NET Startup Hooks DLL Sideloading' -Classification 'MITRE ATT&CK T1574.002' -Path $propPath -Value $hook -AccessGained 'User/System' -Note 'The .NET DLLs listed in the DOTNET_STARTUP_HOOKS environment variable are loaded into .NET processes at runtime.' -Reference 'https://persistence-info.github.io/Data/dotnetstartuphooks.html'
         $null = $persistenceObjectArray.Add($PersistenceObject) 
       }
-      
       Write-Verbose -Message ''   
+    }
+    
+    function Get-SubornerAttack
+    {
+      $netUsers = net.exe users | Parse-NetUser
+      $poshUsers = Get-LocalUser | Select-Object Name
+      $diffUsers = Compare-Object -ReferenceObject $poshUsers -DifferenceObject $netUsers -Property Name
+      foreach ($user in $diffUsers)
+      {
+        Write-Verbose -Message "$hostname - Found hidden account with username $($user.Name)"
+        $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'Suborner Attack' -Classification 'Uncatalogued Technique N.16' -Path 'N/A' -Value $user.Name -AccessGained 'User/System' -Note 'The Suborner attack involves creating hidden users which are not shown using the "net user" command. They do not appear in the login screen or in lusrmgr.msc and can be found using the Get-LocalUser powershell cmdlet. This technique is usually paired with RID hijacking to achieve stealthy, admin level persistence.' -Reference 'https://r4wsec.com/notes/the_suborner_attack/' 
+        $null = $persistenceObjectArray.Add($PersistenceObject)
+      }
+      Write-Verbose -Message '' 
+    }
+    function Get-RidHijacking
+    {
+     
+      Write-Verbose -Message "$hostname - Checking for RID Hijacking"
+      $success = ElevateTo-System
+      if($success -ne 0)
+      {
+        Write-Verbose -Message "$hostname - Failed to elevate privileges to SYSTEM, RID hijacking checks will be disabled as they require SYSTEM privileges."
+        return
+      }
+      
+      $users = Get-LocalUser | Select-Object Name,Sid
+      foreach ($user in $users)
+      {
+        $userRid = ($user.Sid).ToString().Split('-')[-1]
+        $registryRid = '00000{0:X}' -f [int]$userRid
+        $byte1 = [int](Get-ItemPropertyValue -Path "HKLM:\SAM\SAM\Domains\Account\Users\$registryRid" -Name F)[0x30]
+        $byte2 = [int](Get-ItemPropertyValue -Path "HKLM:\SAM\SAM\Domains\Account\Users\$registryRid" -Name F)[0x31]
+        $hexRid = '0x{0:X}{1:X}' -f $byte2,$byte1
+        $decRid = [int32]$hexRid
+        if($decRid.ToString() -ne $userRid.ToString())
+        {
+          Write-Verbose -Message "$hostname - Found username $($user.Name) with hijacked RID $decRid"
+          $PersistenceObject = New-PersistenceObject -Hostname $hostname -Technique 'RID Hijacking' -Classification 'Uncatalogued Technique N.17' -Path '$user' -Value $decRid -AccessGained 'User/System' -Note 'RID hijacking allows an attacker to covertly replace the RID of a user with the RID of another user, effectively giving the first user all of the privileges of the second user. The second user is usually an Administrator, which allows the first user to gain administrator level privileges while using a non-administrator account.' -Reference 'https://pentestlab.blog/2020/02/12/persistence-rid-hijacking/' 
+          $null = $persistenceObjectArray.Add($PersistenceObject)
+        }
+      }
+      $success = RevertTo-Self
+      if($success -ne 0)
+      {
+        Write-Verbose -Message "$hostname - Failed to revert the token to normal administrator."
+      }
+
+      Write-Verbose -Message ''
+    }
+    
+    function Out-EventLog 
+    {
+
+      Param (
+
+        [Parameter(Mandatory = $true)]
+        [Collections.ArrayList]$Findings
+
+      )
+
+      Begin {
+        $EventIDMapping = @{
+          'Registry Run Key'                                          = $null
+          'Registry RunOnce Key'                                      = $null
+          'Image File Execution Options'                              = $null
+          'Natural Language Development Platform 6 DLL Override Path' = $null
+          'AEDebug Custom Debugger'                                   = $null
+          'Wow6432Node AEDebug Custom Debugger'                       = $null
+          'Windows Error Reporting Debugger'                          = $null
+          'Windows Error Reporting ReflectDebugger'                   = $null
+          'Command Processor AutoRun key'                             = $null
+          'Explorer Load Property'                                    = $null
+          'Winlogon Userinit Property'                                = $null
+          'Winlogon Shell Property'                                   = $null
+          'Windows Terminal startOnUserLogin'                         = $null
+          'AppCertDlls'                                               = $null
+          'App Paths'                                                 = $null
+          'ServiceDll Hijacking'                                      = $null
+          'Group Policy Extension DLL'                                = $null
+          'Winlogon MPNotify Executable'                              = $null
+          'CHM Helper DLL'                                            = $null
+          'Hijacking of hhctrl.ocx'                                   = $null
+          'Startup Folder'                                            = $null
+          'User Init Mpr Logon Script'                                = $null
+          'AutodialDLL Winsock Injection'                             = $null
+          'LSA Extensions DLL'                                        = $null
+          'ServerLevelPluginDll DNS Server DLL Hijacking'             = $null
+          'LSA Password Filter DLL'                                   = $null
+          'LSA Authentication Package DLL'                            = $null
+          'LSA Security Package DLL'                                  = $null
+          'Winlogon Notification Package'                             = $null
+          'Explorer Tools Hijacking'                                  = $null
+          'DbgManagedDebugger Custom Debugger'                        = $null
+          'Wow6432Node DbgManagedDebugger Custom Debugger'            = $null
+          'ErrorHandler.cmd Hijacking'                                = $null
+          'WMI Event Subscription'                                    = $null
+          'Windows Service'                                           = $null
+          'Power Automate'                                            = $null
+          'Terminal Services InitialProgram'                          = $null
+          'Accessibility Tools Backdoor'                              = $null
+          'Fake AMSI Provider'                                        = $null
+          'Powershell Profile'                                        = $null
+          'Silent Process Exit Monitor'                               = $null
+          'Telemetry Controller Command'                              = $null
+          'RDP WDS Startup Programs'                                  = $null
+          'Scheduled Task'                                            = $null
+          'BITS Job NotifyCmdLine'                                    = $null
+          'Suspicious Screensaver Program'                            = $null
+          'Office Application Startup'                                = $null
+          'Service Control Manager Security Descriptor Manipulation'  = $null
+          'Microsoft Office AI.exe Hijacking'                         = $null
+          'RunEx And RunOnceEx'                                       = $null
+          'DotNet Startup Hooks'                                      = $null
+          'RID Hijacking'                                             = $null
+          'Suborner Attack'                                           = $null
+        }
+
+        # Collect the keys in a separate list
+        $keys = $EventIDMapping.Keys | ForEach-Object { $_ }
+
+        $i = 1000
+        foreach ($key in $keys) {
+          $EventIDMapping[$key] = $i
+          $i++
+        }
+      }
+
+      Process {
+        $evtlog = "Application"
+        $source = "PersistenceSniper"
+
+
+        if ([System.Diagnostics.EventLog]::SourceExists($source) -eq $false) {
+          [System.Diagnostics.EventLog]::CreateEventSource($source, $evtlog)
+        }
+
+        foreach ($finding in $Findings) {
+          $evtID = $EventIDMapping[$finding.technique]
+          $id = New-Object System.Diagnostics.EventInstance($evtID, 1) # Info Event
+          $propertiesValue = $finding.PSObject.Properties | Select-Object -ExpandProperty Value
+          $evtObject = New-Object System.Diagnostics.EventLog
+          $evtObject.Log = $evtlog
+          $evtObject.Source = $source
+          $evtObject.WriteEvent($id, $propertiesValue)
+        }
+      }
     }
 
     Write-Verbose -Message "$hostname - Starting execution..."
@@ -1987,6 +2345,8 @@ function Find-AllPersistence
       Get-MicrosoftOfficeAIHijacking
       Get-RunExAndRunOnceEx
       Get-DotNetStartupHooks
+      Get-SubornerAttack
+      Get-RidHijacking
       
       if($IncludeHighFalsePositivesChecks.IsPresent)
       {
@@ -2253,35 +2613,32 @@ function Find-AllPersistence
           Get-DotNetStartupHooks
           break
         }
+        'RIDHijacking'
+        {
+          Get-RidHijacking
+          break        
+        }
+        'SubornerAttack'
+        {
+          Get-SubornerAttack
+          break
+        }
       }
     }
     
-    Write-Verbose -Message "$hostname - Execution finished, outputting results..."
-    # Use Input CSV to make a diff of the results and only show us the persistences implanted on the local machine which are not in the CSV
-    if($DiffCSV)
+    if($LogFindings.IsPresent)
     {
-      Write-Verbose -Message 'Diffing found persistences with the ones in the input CSV...'
-      $importedPersistenceObjectArray = Import-Csv -Path $DiffCSV -ErrorAction Stop
-      $newPersistenceObjectArray = New-Object -TypeName System.Collections.ArrayList
-      foreach($localPersistence in $persistenceObjectArray)
-      {
-        $found = $false
-        foreach($importedPersistence in $importedPersistenceObjectArray)
-        {
-          if(($importedPersistence.Technique -eq $localPersistence.Technique) -and ($importedPersistence.Path -eq $localPersistence.Path) -and ($importedPersistence.Value -eq $localPersistence.Value))
-          {
-            $found = $true
-            break
-          }
-        }
-        if($found -eq $false)
-        {
-          $null = $newPersistenceObjectArray.Add($localPersistence)
-        }
-      }
-      $persistenceObjectArray = $newPersistenceObjectArray.Clone()
+      Write-Verbose -Message "$hostname - You have used the -LogFindings switch, what's been found on the machine will be saved in the Event Log."
+      Out-EventLog $persistenceObjectArray
     }
-    $persistenceObjectArray
+    
+    # Save all the techniques found on this machine in the global array.
+    foreach($finding in $persistenceObjectArray)
+    {
+      $null = $globalPersistenceObjectArray.Add($finding)
+    }
+    
+    Write-Verbose -Message "$hostname - Execution finished, outputting results..."
   }
   
   if($ComputerName)
@@ -2294,21 +2651,50 @@ function Find-AllPersistence
   }
   
   
+  # Use input CSV to make a diff of the results and only show us the persistences implanted on the machine which are not in the CSV
+  if($DiffCSV)
+  {
+    Write-Verbose -Message 'Diffing found persistences with the ones in the input CSV...'
+    $importedPersistenceObjectArray = Import-Csv -Path $DiffCSV -ErrorAction Stop
+    $newPersistenceObjectArray = New-Object -TypeName System.Collections.ArrayList
+    foreach($localPersistence in $globalPersistenceObjectArray)
+    {
+      $found = $false
+      foreach($importedPersistence in $importedPersistenceObjectArray)
+      {
+        if(($importedPersistence.Technique -eq $localPersistence.Technique) -and ($importedPersistence.Path -eq $localPersistence.Path) -and ($importedPersistence.Value -eq $localPersistence.Value))
+        {
+          $found = $true
+          break
+        }
+      }
+      if($found -eq $false)
+      {
+        $null = $newPersistenceObjectArray.Add($localPersistence)
+      }
+    }
+    $globalPersistenceObjectArray = $newPersistenceObjectArray.Clone()
+  }
   
   if($OutputCSV)
   {
-    $persistenceObjectArray |
+    $globalPersistenceObjectArray |
     ConvertTo-Csv -NoTypeInformation |
     Out-File -FilePath $OutputCSV -ErrorAction Stop
   }
+  else
+  {
+    # Output the final result to stdin
+    $globalPersistenceObjectArray
+  }
   
-  Write-Verbose -Message 'Script execution finished.'  
+  Write-Verbose -Message 'Module execution finished.'  
 }
 # SIG # Begin signature block
 # MIIVlQYJKoZIhvcNAQcCoIIVhjCCFYICAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUxptSiaScHxSSROvrAgTduUX6
-# 5W6gghH1MIIFbzCCBFegAwIBAgIQSPyTtGBVlI02p8mKidaUFjANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUAY88MwrhfgClD3rN/8nhHFZn
+# wtCgghH1MIIFbzCCBFegAwIBAgIQSPyTtGBVlI02p8mKidaUFjANBgkqhkiG9w0B
 # AQwFADB7MQswCQYDVQQGEwJHQjEbMBkGA1UECAwSR3JlYXRlciBNYW5jaGVzdGVy
 # MRAwDgYDVQQHDAdTYWxmb3JkMRowGAYDVQQKDBFDb21vZG8gQ0EgTGltaXRlZDEh
 # MB8GA1UEAwwYQUFBIENlcnRpZmljYXRlIFNlcnZpY2VzMB4XDTIxMDUyNTAwMDAw
@@ -2408,17 +2794,17 @@ function Find-AllPersistence
 # ZDErMCkGA1UEAxMiU2VjdGlnbyBQdWJsaWMgQ29kZSBTaWduaW5nIENBIFIzNgIR
 # ANqGcyslm0jf1LAmu7gf13AwCQYFKw4DAhoFAKB4MBgGCisGAQQBgjcCAQwxCjAI
 # oAKAAKECgAAwGQYJKoZIhvcNAQkDMQwGCisGAQQBgjcCAQQwHAYKKwYBBAGCNwIB
-# CzEOMAwGCisGAQQBgjcCARUwIwYJKoZIhvcNAQkEMRYEFETYvxSCz6qcN7byu89C
-# 9eOnATamMA0GCSqGSIb3DQEBAQUABIICABrcJJB+T8GLjOnphy7COyFe7Xdl0t0n
-# g75+iSNhnPqgFRFpJMNGkqK/D5jiwH9bxORvlB0uFFWzmpjy+vu5SjCQpzjAVZy9
-# V9+TiRyY9YhL3Lul4qRu/0uYoWN9v4SQ+Sg3JzfM2rZ1RZdXpHRTuweO1SQZaLDf
-# xQdFqm/eJBsx4YF6u5UwlusAfuFZAa+o9EkXPusSZWzssOKfQL3tSaxH10QXhqN6
-# wD0+O+MXJCC5B2MW8EP9LrEDNMFcK/gZAHKq4uwtSYor1KdJ58ji7o3FJc2yvSV7
-# 1Lvt+VV6TjjJErQ/mHi7rXj38ZyWE53cqaKRcLI/1jEsJ3+Wmj7YLwVBKgMfAXKP
-# N8/v+rdJWZYGPkqayH+9g/nosxr1ALdrtndf18g0kmJHycPn2giBDLurN396ogPN
-# SrbJvrpIqZMArgMR6TmPzzkCRIyDp/A7kwFdSS/K8BzAMAlJL34g6LvuPqYl/TUU
-# //NDDnUMLeGvBfMdfU6udPpG0qctNoc3Im8eb1G3/ZS6FpsS6MDKbOcCxBz0ufyL
-# exLUULtCaNN6VRCOe4lslfSzOWMT5rK4p9u5PR1dWi9JcTHL+K8hcgAVCPt3+neq
-# jH+nrs/b23iRxfxDlx7MadIP537FgSTRSbpaueSIT6wvWogkqdhEYe9p2U0NrxvZ
-# mjinMoZnc5+W
+# CzEOMAwGCisGAQQBgjcCARUwIwYJKoZIhvcNAQkEMRYEFFiz1pkMOk1L/2oNAa+Q
+# BQKpoYlcMA0GCSqGSIb3DQEBAQUABIICAF2TCU7e42deBuQu3ZmyBBWmXp3HsXDN
+# dbmS8W+2dWe4noxg2tmwA4l62AJelZeIxlleFUUtcqWF90KUkqgTLFTnTbjUSd5a
+# KNKY/TnHqZMAZG4AtxqnJS0OWCMn9ZD3pKd6IzryrylO2IukIinz5ldYG38syVMA
+# 6fpsUGOwvG7SrbbtHzXrEuehPwNIy7NG4jZJMAvvPwdJtMt24NdXti8UwRat1Q3K
+# ylwBVTc/ZCpBpbYMJZJSx8KiDV5ZdK9raAXOf+sIe6fqOEPpaMoCBu3ZA1B8LheI
+# twQgqmH+IEHfWUofggqrZb0pPj+wXqYrEcS/ys1BxzNnknkPk5RRVUgMNOEEUfV5
+# 5MxhgJ7FRpvCa8y5wbdio4Xf5dlWHY5a2md/IASbQSNW6heaguP6wLghVDJXj/sE
+# dumJNVE3WbdMkPG/UMISQVs9fGKmLEV41IQ8QlEOx6ORuxXoy845ojcu/lyz2MA2
+# /wa00IgoGEuMN0TEHMhOs1vnwRMN8R2uyTWHO3ojA4rPEtdpOq7b4f/i7qX8y0Cv
+# pSbC3zfqcMSwr6iRRmOthn5Hz1YaHWMKFURGMWT9xXaANbVgYLGVfpNDeJM0yT9N
+# t6VNmOtMqBj9M7j7ZIf8rSf+TmT6xqDEcPNOGV8QfQyCxCjfMfdLTnAoofB2Qydn
+# quHxlZDEQlbI
 # SIG # End signature block
