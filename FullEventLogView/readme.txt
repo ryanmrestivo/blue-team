@@ -1,8 +1,8 @@
 
 
 
-FullEventLogView v1.66
-Copyright (c) 2016 - 2021 Nir Sofer
+FullEventLogView v1.80
+Copyright (c) 2016 - 2023 Nir Sofer
 Web site: https://www.nirsoft.net
 
 
@@ -10,12 +10,13 @@ Web site: https://www.nirsoft.net
 Description
 ===========
 
-FullEventLogView is a simple tool for Windows 10/8/7/Vista that displays
-in a table the details of all events from the event logs of Windows,
-including the event description. It allows you to view the events of your
-local computer, events of a remote computer on your network, and events
-stored in .evtx files. It also allows you to export the events list to
-text/csv/tab-delimited/html/xml file from the GUI and from command-line.
+FullEventLogView is a simple tool for Windows 11/10/8/7/Vista that
+displays in a table the details of all events from the event logs of
+Windows, including the event description. It allows you to view the
+events of your local computer, events of a remote computer on your
+network, and events stored in .evtx files. It also allows you to export
+the events list to text/csv/tab-delimited/html/xml file from the GUI and
+from command-line.
 
 
 
@@ -23,7 +24,7 @@ System Requirements
 ===================
 
 This utility works on any version of Windows, starting from Windows Vista
-and up to Windows 10. Both 32-bit and 64-bit systems are supported. For
+and up to Windows 11. Both 32-bit and 64-bit systems are supported. For
 Windows XP and older systems, you can use the MyEventViewer tool.
 
 
@@ -37,14 +38,66 @@ log system with completely new programming interfaces. The old
 programming interface still works even on Windows 10, but it cannot
 access the new event logs added on Windows Vista and newer systems.
 MyEventViewer uses the old programming interface, so it cannot display
-many event logs added on Windows 10/8/7/Vista. FullEventLogView uses the
-new programming interface, so it displays all events.
+many event logs added on Windows 11/10/8/7/Vista. FullEventLogView uses
+the new programming interface, so it displays all events.
 
 
 
 Versions History
 ================
 
+
+* Version 1.80:
+  o Added 'Black Background' option (Under the View menu). When it's
+    turned on, the main table and the lower pane text-box are displayed
+    in black background and white text, instead of default system colors.
+  o Fixed issue: When copying data to the clipboard or exporting to
+    tab-delimited file, every line contained an empty field in the end of
+    the line.
+
+* Version 1.78:
+  o Added 'Full Screen' mode (View -> Full Screen or F11 key).
+
+* Version 1.77:
+  o Added 'Sort By' toolbar button.
+
+* Version 1.76:
+  o Fixed issue: The 'Record ID' value was limited to the size of
+    32-bit integer.
+
+* Version 1.75:
+  o Fixed the filter to work properly when new event items are added
+    in 'Auto Refresh' mode.
+
+* Version 1.74:
+  o Updated to stop the event log scanner when you press the Esc key.
+
+* Version 1.73:
+  o The status bar now displays the current scanned event log
+    channel/filename.
+
+* Version 1.72:
+  o Fixed to work properly when specifying to filter more than 23
+    event IDs (Workaround for limitation of event log queries).
+
+* Version 1.71:
+  o Fixed to display the time properly in AM/PM format.
+  o Fixed the default columns size in high DPI mode.
+
+* Version 1.70:
+  o Added option to choose a single event log filename (.evtx or .etl
+    file) in the 'Choose Data Source' window.
+  o You can also load a single event log file (.evtx or .etl file) by
+    dragging it from Explorer window into the main window of
+    FullEventLogView.
+
+* Version 1.68:
+  o Added 'Add Header Line To CSV/Tab-Delimited File' option (Turned
+    on by default).
+
+* Version 1.67:
+  o Fixed the /srawxml command-line option to save the raw xml much
+    faster than the previous versions.
 
 * Version 1.66:
   o 'Show Event Strings In Columns' option - You can now change the
@@ -363,6 +416,12 @@ FullEventLogView.exe /DataSource 2 /ComputerName "192.168.0.70"
 In order to export events from remote computer into .csv file:
 FullEventLogView.exe /scomma "c:\temp\remote_events.csv" /DataSource 2
 /ComputerName "192.168.0.50"
+
+You can find more command-line examples in the following Web pages:
+How to export Windows events of remote computer to csv file from command
+line
+How to export Windows events stored in .evtx file to csv file from
+command line
 
 /ClearChannelEvents <Channel Name>
 Clear all events of the specified channel, for example:
