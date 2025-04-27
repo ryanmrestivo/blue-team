@@ -1,10 +1,10 @@
 /**
  * CyberChef - The Cyber Swiss Army Knife
  *
- * @copyright Crown Copyright 2016
+ * @copyright Crown Copyright 2016-2024
  * @license Apache-2.0
  *
- *   Copyright 2016 Crown Copyright
+ *   Copyright 2016-2024 Crown Copyright
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,69 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{background:#fff;color:#000}.hljs-comment,.hljs-quote,.hljs-variable{color:green}.hljs-built_in,.hljs-keyword,.hljs-name,.hljs-selector-tag,.hljs-tag{color:#00f}.hljs-addition,.hljs-attribute,.hljs-literal,.hljs-section,.hljs-string,.hljs-template-tag,.hljs-template-variable,.hljs-title,.hljs-type{color:#a31515}.hljs-deletion,.hljs-meta,.hljs-selector-attr,.hljs-selector-pseudo{color:#2b91af}.hljs-doctag{color:grey}.hljs-attr{color:red}.hljs-bullet,.hljs-link,.hljs-symbol{color:#00b0e8}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/*
+
+Visual Studio-like style based on original C# coloring by Jason Diamond <jason@diamond.name>
+
+*/
+.hljs {
+  background: white;
+  color: black
+}
+.hljs-comment,
+.hljs-quote,
+.hljs-variable {
+  color: #008000
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.hljs-name,
+.hljs-tag {
+  color: #00f
+}
+.hljs-string,
+.hljs-title,
+.hljs-section,
+.hljs-attribute,
+.hljs-literal,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-addition {
+  color: #a31515
+}
+.hljs-deletion,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-meta {
+  color: #2b91af
+}
+.hljs-doctag {
+  color: #808080
+}
+.hljs-attr {
+  color: #f00
+}
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link {
+  color: #00b0e8
+}
+.hljs-emphasis {
+  font-style: italic
+}
+.hljs-strong {
+  font-weight: bold
+}
 .card {
   font-size: .875rem;
   font-weight: normal; }
@@ -14831,6 +14893,10 @@ body {
     line-height: 0;
 }
 
+.hidden {
+    display: none;
+}
+
 .blur {
     color: transparent !important;
     text-shadow: rgba(0, 0, 0, 0.95) 0 0 10px !important;
@@ -15130,6 +15196,16 @@ span.btn img {
     border: none;
 }
 
+.op-count {
+    float: right;
+    color: #999;
+    color: var(--subtext-font-colour);
+    font-weight: normal;
+    font-size: xx-small;
+    opacity: 0.5;
+    padding-left: .5em;
+}
+
 /**
  * Operation styles
  *
@@ -15208,6 +15284,10 @@ select.arg {
     min-width: 100px;
 }
 
+select.arg.form-control:not([size]):not([multiple]), select.custom-file-control:not([size]):not([multiple]) {
+    height: 100% !important;
+}
+
 textarea.arg {
     min-height: 74px;
     resize: vertical;
@@ -15219,7 +15299,7 @@ div.toggle-string {
 
 input.toggle-string {
     border-top-right-radius: 0 !important;
-    height: 42px !important;
+    height: 100%;
 }
 
 .operation [class^='bmd-label'],
@@ -16746,6 +16826,11 @@ input.toggle-string {
     color: var(--input-highlight-colour);
 }
 
+.bmd-form-group.is-filled:focus-within .checkbox.option-item label {
+    color: #1976d2;
+    color: var(--input-highlight-colour);
+}
+
 .bmd-form-group.option-item label+.form-control{
     background-image:
         linear-gradient(to top, #1976d2 2px, rgba(0, 0, 0, 0) 2px),
@@ -16906,6 +16991,17 @@ div#output {
 
 /* Operations */
 
+del {
+    background-color: #ffb6b6aa;
+    background-color: var(--hl3);
+}
+
+ins {
+    text-decoration: underline; /* shouldn't be needed, but Chromium doesn't copy to clipboard without it */
+    background-color: #8de768aa;
+    background-color: var(--hl5);
+}
+
 /**
  * JSON styles
  *
@@ -16960,7 +17056,8 @@ ul.json-dict, ol.json-array {
 }
 
 .json-summary {
-    display: contents;
+    display: inline;
+    list-style: none;
 }
 
 /* Display object and array brackets when closed */

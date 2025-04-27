@@ -11,9 +11,6 @@
 /*! (c) Tom Wu | http://www-cs-students.stanford.edu/~tjw/jsbn/
  */
 
-/*! (c) Tom Wu, Kenji Urushima | http://www-cs-students.stanford.edu/~tjw/jsbn/
- */
-
 /*! Mike Samuel (c) 2009 | code.google.com/p/json-sans-eval
  */
 
@@ -22,8 +19,26 @@
 /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
 
 /**
+ * @author cplussharp
+ * @copyright Crown Copyright 2021
+ * @license Apache-2.0
+ */
+
+/**
+ * @author cplussharp
+ * @copyright Crown Copyright 2023
+ * @license Apache-2.0
+ */
+
+/**
  * @author d98762625 [d98762625@gmail.com]
  * @copyright Crown Copyright 2019
+ * @license Apache-2.0
+ */
+
+/**
+ * @author jkataja
+ * @copyright Crown Copyright 2023
  * @license Apache-2.0
  */
 
@@ -69,10 +84,10 @@
 /**
  * CyberChef - The Cyber Swiss Army Knife
  *
- * @copyright Crown Copyright 2016
+ * @copyright Crown Copyright 2016-2024
  * @license Apache-2.0
  *
- *   Copyright 2016 Crown Copyright
+ *   Copyright 2016-2024 Crown Copyright
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
